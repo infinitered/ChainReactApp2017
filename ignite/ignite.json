@@ -1,0 +1,13 @@
+{
+  "createdWith": "2.0.0-beta.8",
+  "examples": "classic",
+  "navigation": "react-navigation",
+  "generators": {
+    "component": "ignite-ir-next",
+    "container": "ignite-ir-next",
+    "listview": "ignite-ir-next",
+    "redux": "ignite-ir-next",
+    "saga": "ignite-ir-next",
+    "screen": "ignite-ir-next"
+  }
+}
