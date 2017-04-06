@@ -1,0 +1,144 @@
+{
+  "Upcoming": [
+    {
+      "name":"Richard Threlkeld",
+      "image":"richard",
+      "social":"undef_obj",
+      "company":"Amazon",
+      "talkTitle":"Realtime Event Processing, Streaming and Subscription for React Native Using Cloud Services"
+    },
+    {
+      "name":"Poornima Venkat",
+      "image":"poornima",
+      "social":"poorni_venkat",
+      "company":"PayPal",
+      "talkTitle":"Experimenting with a Paypal Checkout SDK using React Native"
+    },
+    {
+      "name":"Ken Wheeler",
+      "image":"ken",
+      "social":"ken_wheeler",
+      "company":"Formidable Labs",
+      "talkTitle":"React Native with Electronics"
+    },
+    {
+      "name":"Brent Vatne",
+      "image":"brent",
+      "social":"notbrent",
+      "company":"Exponent",
+      "talkTitle":"React Native Sand Paper"
+    },
+    {
+      "name":"Parashuram Narasimhan",
+      "image":"parashuram",
+      "social":"nparashuram",
+      "company":"Microsoft",
+      "talkTitle":"From Zero to DevOps"
+    },
+    {
+      "name":"Leland Richardson",
+      "image":"leland",
+      "social":"intelligibabble",
+      "company":"Airbnb",
+      "talkTitle":"React as a Platform: A path towards a truly cross-platform UI"
+    },
+    {
+      "name":"Harry Tormey",
+      "image":"harry",
+      "social":"htormey",
+      "company":"LaunchDrawer",
+      "talkTitle":"When to Go Native Over Javascript"
+    },
+    {
+      "name":"Alex Kotliarskyi",
+      "image":"alex",
+      "social":"alex_frantic",
+      "company":"Facebook",
+      "talkTitle":"Building Stellar User Experiences with React Native"
+    },
+    {
+      "name":"Mike Grobowski",
+      "image":"mike",
+      "social":"grabbou",
+      "company":"Callstack",
+      "talkTitle":"TBA"
+    },
+    {
+      "name":"Peggy Rayzis",
+      "image":"peggy",
+      "social":"peggyrayzis",
+      "company":"Major League Soccer",
+      "talkTitle":"Breaking Down React Native Bridging"
+    },
+    {
+      "name":"Ben Ilegbodu",
+      "image":"ben",
+      "social":"benmvp",
+      "company":"Eventbrite",
+      "talkTitle":"React Native + ES.next = ♥︎"
+    },
+    {
+      "name":"Naoufal Kadhom",
+      "image":"naoufal",
+      "social":"naoufal",
+      "company":"Netflix",
+      "talkTitle":"Async Programming with Observables"
+    },
+    {
+      "name":"Doug Lowder",
+      "image":"doug",
+      "social":"douglowder",
+      "company":"SalesForce",
+      "talkTitle":"React Native on the Apple TV Platform"
+    },
+    {
+      "name":"Kevin Old",
+      "image":"kevin",
+      "social":"kevinold",
+      "company":"LifeWay Christian Resources",
+      "talkTitle":"Building Serverless Backends with AWS Lambda for React Native Apps"
+    },
+    {
+      "name":"Javier Cuevas",
+      "image":"javier",
+      "social":"javier_dev",
+      "company":"Gudog",
+      "talkTitle":"Rewriting a Large Hybrid App with React Native"
+    },
+    {
+      "name":"Kyle Poole & Thomas Bruketta",
+      "image":"kyle_thomas",
+      "social": ["kylpo", "SirTeebs"],
+      "company":"Instrument",
+      "talkTitle":"Gestures here. Gestures there. Gestures everywhere!"
+    },
+    {
+      "name":"Chris Ball",
+      "image":"chris",
+      "social":"cball_",
+      "company":"Echobind",
+      "talkTitle":"From Idea to App Store: A Guide to Shipping ReactNative Apps"
+    },
+    {
+      "name":"Nader Dabit",
+      "image":"nader",
+      "social":"dabit3",
+      "company":"React Native Training",
+      "talkTitle":"How to Sanely Work with File Types in a Cross Platform React Native Application"
+    },
+    {
+      "name":"Héctor Ramos",
+      "image":"hector",
+      "social":"hectorramos",
+      "company":"Facebook",
+      "talkTitle":"TBD"
+    },
+    {
+      "name":"Gant Laborde",
+      "image":"gant",
+      "social":"GantLaborde",
+      "company":"Infinite Red",
+      "talkTitle":"Master of Ceremonies"
+    }
+  ]
+}

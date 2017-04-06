@@ -27,6 +27,10 @@ const ApplicationStyles = {
       margin: Metrics.section,
       padding: Metrics.baseMargin
     },
+    sectionHeader: {
+      padding: Metrics.baseMargin,
+      backgroundColor: Colors.frost
+    },
     sectionText: {
       ...Fonts.style.normal,
       paddingVertical: Metrics.doubleBaseMargin,
@@ -74,6 +78,9 @@ const ApplicationStyles = {
     borderColor: Colors.ember,
     alignItems: 'center',
     textAlign: 'center'
+  },
+  linearGradient: {
+    flex: 1
   }
 }
 

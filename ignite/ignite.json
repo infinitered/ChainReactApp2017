@@ -8,6 +8,9 @@
     "listview": "ignite-ir-next",
     "redux": "ignite-ir-next",
     "saga": "ignite-ir-next",
-    "screen": "ignite-ir-next"
+    "screen": "ignite-ir-next",
+    "map": "ignite-maps",
+    "map-utilities": "ignite-maps",
+    "map-callout": "ignite-maps"
   }
 }
