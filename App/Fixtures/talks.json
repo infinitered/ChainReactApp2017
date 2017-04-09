@@ -1,144 +1,175 @@
 {
-  "Upcoming": [
+  "schedule": [
     {
       "name":"Richard Threlkeld",
       "image":"richard",
       "social":"undef_obj",
       "company":"Amazon",
-      "talkTitle":"Realtime Event Processing, Streaming and Subscription for React Native Using Cloud Services"
+      "talkTitle":"Realtime Event Processing, Streaming and Subscription for React Native Using Cloud Services",
+      "talkTime":"7/17/2017 10:30 AM",
+      "talkDuration":"30"
     },
     {
       "name":"Poornima Venkat",
       "image":"poornima",
       "social":"poorni_venkat",
       "company":"PayPal",
-      "talkTitle":"Experimenting with a Paypal Checkout SDK using React Native"
+      "talkTitle":"Experimenting with a Paypal Checkout SDK using React Native",
+      "talkTime":"7/17/2017 11:00 AM",
+      "talkDuration":"30"
     },
     {
       "name":"Ken Wheeler",
       "image":"ken",
       "social":"ken_wheeler",
       "company":"Formidable Labs",
-      "talkTitle":"React Native with Electronics"
+      "talkTitle":"React Native with Electronics",
+      "talkTime":"7/18/2017 4:30 PM",
+      "talkDuration":"30"
     },
     {
       "name":"Brent Vatne",
       "image":"brent",
       "social":"notbrent",
       "company":"Exponent",
-      "talkTitle":"React Native Sand Paper"
+      "talkTitle":"React Native Sand Paper",
+      "talkTime":"7/17/2017 9:30 AM",
+      "talkDuration":"30"
     },
     {
       "name":"Parashuram Narasimhan",
       "image":"parashuram",
       "social":"nparashuram",
       "company":"Microsoft",
-      "talkTitle":"From Zero to DevOps"
+      "talkTitle":"From Zero to DevOps",
+      "talkTime":"7/18/2017 10:30 AM",
+      "talkDuration":"30"
     },
     {
       "name":"Leland Richardson",
       "image":"leland",
       "social":"intelligibabble",
       "company":"Airbnb",
-      "talkTitle":"React as a Platform: A path towards a truly cross-platform UI"
+      "talkTitle":"React as a Platform: A path towards a truly cross-platform UI",
+      "talkTime":"7/18/2017 11:00 AM",
+      "talkDuration":"30"
     },
     {
       "name":"Harry Tormey",
       "image":"harry",
       "social":"htormey",
       "company":"LaunchDrawer",
-      "talkTitle":"When to Go Native Over Javascript"
+      "talkTitle":"When to Go Native Over Javascript",
+      "talkTime":"7/18/2017 2:00 PM",
+      "talkDuration":"30"
     },
     {
       "name":"Alex Kotliarskyi",
       "image":"alex",
       "social":"alex_frantic",
       "company":"Facebook",
-      "talkTitle":"Building Stellar User Experiences with React Native"
+      "talkTitle":"Building Stellar User Experiences with React Native",
+      "talkTime":"7/18/2017 2:30 PM",
+      "talkDuration":"30"
     },
     {
       "name":"Mike Grobowski",
       "image":"mike",
       "social":"grabbou",
       "company":"Callstack",
-      "talkTitle":"TBA"
+      "talkTitle":"TBA",
+      "talkTime":"7/17/2017 9:00 AM",
+      "talkDuration":"30"
     },
     {
       "name":"Peggy Rayzis",
       "image":"peggy",
       "social":"peggyrayzis",
       "company":"Major League Soccer",
-      "talkTitle":"Breaking Down React Native Bridging"
+      "talkTitle":"Breaking Down React Native Bridging",
+      "talkTime":"7/18/2017 9:00 AM",
+      "talkDuration":"30"
     },
     {
       "name":"Ben Ilegbodu",
       "image":"ben",
       "social":"benmvp",
       "company":"Eventbrite",
-      "talkTitle":"React Native + ES.next = ♥︎"
+      "talkTitle":"React Native + ES.next = ♥︎",
+      "talkTime":"7/17/2017 11:30 AM",
+      "talkDuration":"30"
     },
     {
       "name":"Naoufal Kadhom",
       "image":"naoufal",
       "social":"naoufal",
       "company":"Netflix",
-      "talkTitle":"Async Programming with Observables"
+      "talkTitle":"Async Programming with Observables",
+      "talkTime":"7/17/2017 2:00 PM",
+      "talkDuration":"30"
     },
     {
       "name":"Doug Lowder",
       "image":"doug",
       "social":"douglowder",
       "company":"SalesForce",
-      "talkTitle":"React Native on the Apple TV Platform"
+      "talkTitle":"React Native on the Apple TV Platform",
+      "talkTime":"7/18/2017 4:00 PM",
+      "talkDuration":"30"
     },
     {
       "name":"Kevin Old",
       "image":"kevin",
       "social":"kevinold",
       "company":"LifeWay Christian Resources",
-      "talkTitle":"Building Serverless Backends with AWS Lambda for React Native Apps"
+      "talkTitle":"Building Serverless Backends with AWS Lambda for React Native Apps",
+      "talkTime":"7/18/2017 11:30 AM",
+      "talkDuration":"30"
     },
     {
       "name":"Javier Cuevas",
       "image":"javier",
       "social":"javier_dev",
       "company":"Gudog",
-      "talkTitle":"Rewriting a Large Hybrid App with React Native"
+      "talkTitle":"Rewriting a Large Hybrid App with React Native",
+      "talkTime":"7/17/2017 4:00 PM",
+      "talkDuration":"30"
     },
     {
       "name":"Kyle Poole & Thomas Bruketta",
       "image":"kyle_thomas",
       "social": ["kylpo", "SirTeebs"],
       "company":"Instrument",
-      "talkTitle":"Gestures here. Gestures there. Gestures everywhere!"
+      "talkTitle":"Gestures here. Gestures there. Gestures everywhere!",
+      "talkTime":"7/17/2017 2:30 PM",
+      "talkDuration":"30"
     },
     {
       "name":"Chris Ball",
       "image":"chris",
       "social":"cball_",
       "company":"Echobind",
-      "talkTitle":"From Idea to App Store: A Guide to Shipping ReactNative Apps"
+      "talkTitle":"From Idea to App Store: A Guide to Shipping ReactNative Apps",
+      "talkTime":"7/17/2017 4:30 PM",
+      "talkDuration":"30"
     },
     {
       "name":"Nader Dabit",
       "image":"nader",
       "social":"dabit3",
       "company":"React Native Training",
-      "talkTitle":"How to Sanely Work with File Types in a Cross Platform React Native Application"
+      "talkTitle":"How to Sanely Work with File Types in a Cross Platform React Native Application",
+      "talkTime":"7/17/2017 1:30 PM",
+      "talkDuration":"30"
     },
     {
       "name":"Héctor Ramos",
       "image":"hector",
       "social":"hectorramos",
       "company":"Facebook",
-      "talkTitle":"TBD"
-    },
-    {
-      "name":"Gant Laborde",
-      "image":"gant",
-      "social":"GantLaborde",
-      "company":"Infinite Red",
-      "talkTitle":"Master of Ceremonies"
+      "talkTitle":"TBD",
+      "talkTime":"7/18/2017 10:30 AM",
+      "talkDuration":"30"
     }
   ]
 }

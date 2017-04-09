@@ -3,18 +3,21 @@ import {
   View,
   ListView,
   Text,
+  Image,
   TouchableOpacity
 } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
+import PurpleGradient from '../Components/PurpleGradient'
 import Talk from '../Components/Talk'
-import { Icon } from 'react-native-elements'
 import { connect } from 'react-redux'
+import dateFns from 'date-fns'
+import { groupWith } from 'ramda'
 
 // For empty lists
 // import AlertMessage from '../Components/AlertMessage'
 
 // Styles
-import Colors from '../Themes/Colors'
+import { Images } from '../Themes'
 import styles from './Styles/TalksScreenStyle'
 
 class TalkScreen extends React.Component {
@@ -22,70 +25,50 @@ class TalkScreen extends React.Component {
   constructor (props) {
     super(props)
 
-    /* ***********************************************************
-    * STEP 1
-    * This is an array of objects with the properties you desire
-    * Usually this should come from Redux mapStateToProps
-    *************************************************************/
-    const dataObjects = require('../Fixtures/talks.json')
-    /* ***********************************************************
-    * STEP 2
-    * Teach datasource how to detect if rows are different
-    * Make this function fast!  Perhaps something like:
-    *   (r1, r2) => r1.id !== r2.id}
-    *   The same goes for sectionHeaderHasChanged
-    *************************************************************/
-    const rowHasChanged = (r1, r2) => r1 !== r2
-    const sectionHeaderHasChanged = (s1, s2) => s1 !== s2
+    const { schedule } = require('../Fixtures/talks.json')
+    const sorted = schedule.sort((a, b) => {
+      return dateFns.compareAsc(new Date(a.talkTime), new Date(b.talkTime))
+    })
+    const talksByDay = groupWith((a, b) => dateFns.isSameDay(new Date(a.talkTime), new Date(b.talkTime)), sorted)
 
-    // DataSource configured
-    const ds = new ListView.DataSource({rowHasChanged, sectionHeaderHasChanged})
+    const rowHasChanged = (r1, r2) => r1 !== r2
+    const ds = new ListView.DataSource({rowHasChanged})
 
     // Datasource is always in state
     this.state = {
-      dataSource: ds.cloneWithRowsAndSections(dataObjects)
+      talksByDay: talksByDay,
+      dataSource: ds.cloneWithRows(talksByDay[0]),
+      activeDay: 0
     }
   }
 
   static navigationOptions = {
     tabBar: {
       label: 'Schedule',
-      icon: ({ tintColor }) => (
-        <Icon
-          name='clock'
-          type='simple-line-icon'
-          color={tintColor}
-        />
+      icon: ({ focused }) => (
+        <Image source={focused ? Images.activeScheduleIcon : Images.inactiveScheduleIcon} />
       )
     }
   }
 
-  /* ***********************************************************
-  * STEP 3
-  * `renderRow` function -How each cell/row should be rendered
-  * It's our best practice to place a single component here:
-  *
-  * e.g.
-    return <MyCustomCell title={rowData.title} description={rowData.description} />
-  *************************************************************/
-  renderRow (rowData, sectionID) {
+  renderRow = (rowData, sectionID) => {
     // You can condition on sectionID (key as string), for different cells
     // in different sections
-    const avatarURL = `https://infinite.red/images/chainreact/${rowData.image}.png`
+    const formattedTime = dateFns.format(new Date(rowData.talkTime), 'h:mmA')
     return (
       <Talk
         key={sectionID}
-        title={rowData.talkTitle}
         name={rowData.name}
-        avatarURL={avatarURL}
-        start={'10:00AM'}
-        duration={'60 Minutes'}
+        avatarURL={`https://infinite.red/images/chainreact/${rowData.image}.png`}
+        title={rowData.talkTitle}
+        start={formattedTime}
+        duration={`${rowData.talkDuration} Minutes`}
+        onPress={() => this.props.navigation.navigate('TalkDetail', rowData)}
       />
     )
   }
 
   /* ***********************************************************
-  * STEP 4
   * If your datasource is driven by Redux, you'll need to
   * reset it when new data arrives.
   * DO NOT! place `cloneWithRowsAndSections` inside of render, since render
@@ -108,21 +91,44 @@ class TalkScreen extends React.Component {
     return this.state.dataSource.getRowCount() === 0
   }
 
-  render () {
+  setActiveDay (day) {
+    this.setState(() => ({
+      dataSource: this.state.dataSource.cloneWithRows(this.state.talksByDay[day]),
+      activeDay: day
+    }))
+  }
+
+  renderDayToggle () {
+    const { activeDay } = this.state
     return (
-      <LinearGradient colors={[Colors.purple, Colors.darkPurple]} styles={styles.linearGradient}>
+      <LinearGradient
+        start={{x: 0, y: 0}}
+        end={{x: 1, y: 1}}
+        locations={[0.0, 0.38, 1.0]}
+        colors={['#46114E', '#521655', '#571757']}
+        style={styles.headerGradient}>
         <View style={styles.dayToggle}>
-          <TouchableOpacity>
-            <Text style={styles.activeDay}>
+          <TouchableOpacity onPress={() => this.setActiveDay(0)}>
+            <Text
+              style={activeDay === 0 ? styles.activeDay : styles.inactiveDay}>
               Monday July, 17th
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.inactiveDay}>
+          <TouchableOpacity onPress={() => this.setActiveDay(1)}>
+            <Text
+              style={activeDay === 1 ? styles.activeDay : styles.inactiveDay}>
               Tuesday July, 18th
             </Text>
           </TouchableOpacity>
         </View>
+      </LinearGradient>
+    )
+  }
+
+  render () {
+    return (
+      <PurpleGradient style={styles.linearGradient}>
+        {this.renderDayToggle()}
         <ListView
           contentContainerStyle={styles.listContent}
           dataSource={this.state.dataSource}
@@ -130,7 +136,8 @@ class TalkScreen extends React.Component {
           renderRow={this.renderRow}
           enableEmptySections
         />
-      </LinearGradient>
+        <View style={styles.timeline} />
+      </PurpleGradient>
     )
   }
 }

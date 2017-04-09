@@ -1,6 +1,7 @@
 import React from 'react'
-import { Icon } from 'react-native-elements'
+import { Image } from 'react-native'
 import VenueMap from '../Components/VenueMap'
+import { Images } from '../Themes'
 import { connect } from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -11,15 +12,10 @@ import { connect } from 'react-redux'
 class LocationScreen extends React.Component {
 
   static navigationOptions = {
-    title: 'Location',
     tabBar: {
       label: 'Location',
-      icon: ({ tintColor }) => (
-        <Icon
-          name='map'
-          type='simple-line-icon'
-          color={tintColor}
-        />
+      icon: ({ focused }) => (
+        <Image source={focused ? Images.activeLocationIcon : Images.inactiveLocationIcon} />
       )
     }
   }

@@ -19,7 +19,15 @@ const images = {
   chevronRight: require('../Images/Icons/chevron-right.png'),
   hamburger: require('../Images/Icons/hamburger.png'),
   backButton: require('../Images/Icons/back-button.png'),
-  closeButton: require('../Images/Icons/close-button.png')
+  closeButton: require('../Images/Icons/close-button.png'),
+  activeInfoIcon: require('../Images/Icons/icon-info-active.png'),
+  inactiveInfoIcon: require('../Images/Icons/icon-info-inactive.png'),
+  activeLocationIcon: require('../Images/Icons/icon-location-active.png'),
+  inactiveLocationIcon: require('../Images/Icons/icon-location-inactive.png'),
+  activeScheduleIcon: require('../Images/Icons/icon-schedule-active.png'),
+  inactiveScheduleIcon: require('../Images/Icons/icon-schedule-inactive.png'),
+  activeNotificationIcon: require('../Images/Icons/icon-notification-active.png'),
+  inactiveNotificationIcon: require('../Images/Icons/icon-notification-inactive.png')
 }
 
 export default images

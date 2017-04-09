@@ -20,7 +20,26 @@ export default StyleSheet.create({
     color: Colors.text
   },
   listContent: {
-    marginTop: Metrics.baseMargin
+    paddingTop: Metrics.baseMargin,
+    paddingBottom: Metrics.baseMargin * 8
+  },
+  timeline: {
+    width: 2,
+    backgroundColor: '#6E3C7B',
+    position: 'absolute',
+    top: 85,
+    bottom: 0,
+    right: 11
+  },
+  headerGradient: {
+    shadowOffset: {
+      width: 0,
+      height: 0
+    },
+    shadowRadius: 20,
+    shadowColor: 'black',
+    shadowOpacity: 0.8,
+    zIndex: 1
   },
   dayToggle: {
     flexDirection: 'row',
@@ -28,7 +47,7 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
     paddingTop: Metrics.doubleBaseMargin,
     height: 85,
-    backgroundColor: Colors.headerPurple
+    backgroundColor: Colors.clear
   },
   inactiveDay: {
     backgroundColor: Colors.clear,

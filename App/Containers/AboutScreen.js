@@ -1,6 +1,6 @@
 import React from 'react'
-import { ScrollView, Text, KeyboardAvoidingView } from 'react-native'
-import { Icon } from 'react-native-elements'
+import { Image, ScrollView, Text, KeyboardAvoidingView } from 'react-native'
+import { Images } from '../Themes'
 import { connect } from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -11,15 +11,10 @@ import styles from './Styles/AboutScreenStyle'
 class AboutScreen extends React.Component {
 
   static navigationOptions = {
-    title: 'About',
     tabBar: {
       label: 'About',
-      icon: ({ tintColor }) => (
-        <Icon
-          name='info'
-          type='simple-line-icon'
-          color={tintColor}
-        />
+      icon: ({ focused }) => (
+        <Image source={focused ? Images.activeInfoIcon : Images.inactiveInfoIcon} />
       )
     }
   }
