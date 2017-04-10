@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
-import RemindMeButton from './RemindMeButton'
+import TalkInfo from './TalkInfo'
 import styles from './Styles/TalkStyle'
-// import PushNotification from 'react-native-push-notification'
 
 export default class Talk extends React.Component {
 
@@ -16,7 +15,6 @@ export default class Talk extends React.Component {
 
   toggleReminder () {
     this.setState((prevProps) => ({sendReminder: !prevProps.sendReminder}))
-    // PushNotification.localNotification({message: 'Hello dude!'})
   }
 
   render () {
@@ -36,30 +34,12 @@ export default class Talk extends React.Component {
             source={{uri: this.props.avatarURL}}
           />
         </View>
-        <View style={styles.moreInfo}>
-          <View style={styles.details}>
-            <View style={styles.detail}>
-              <Text style={styles.detailLabel}>
-                Start
-              </Text>
-              <Text style={styles.detailText}>
-                {this.props.start}
-              </Text>
-            </View>
-            <View style={styles.detail}>
-              <Text style={styles.detailLabel}>
-                Duration
-              </Text>
-              <Text style={styles.detailText}>
-                {this.props.duration}
-              </Text>
-            </View>
-          </View>
-          <RemindMeButton
-            onPress={() => this.toggleReminder()}
-            on={this.state.sendReminder}
-          />
-        </View>
+        <TalkInfo
+          start={this.props.start}
+          duration={this.props.duration}
+          remindMe={this.state.sendReminder}
+          toggleRemindMe={() => this.toggleReminder()}
+        />
       </TouchableOpacity>
     )
   }

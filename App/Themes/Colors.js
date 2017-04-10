@@ -23,9 +23,11 @@ const colors = {
 
   red: '#E64044',
   silver: '#F3F5F6',
-  headerPurple: '#571757',
   purple: '#5C195A',
   darkPurple: '#140034',
+  purpleShadow1: '#694F6C',
+  purpleShadow2: '#B997BC',
+  headerPurple: '#571757',
   avatarBorder: '#DCE3E8',
   lightText: '#656565',
   text: '#000000'
