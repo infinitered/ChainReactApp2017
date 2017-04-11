@@ -1,0 +1,262 @@
+{
+  "schedule": [
+    {
+      "type":"talk",
+      "name":"Richard Threlkeld",
+      "image":"richard",
+      "social":"undef_obj",
+      "company":"Amazon",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"Realtime Event Processing, Streaming and Subscription for React Native Using Cloud Services",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/17/2017 10:30 AM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Poornima Venkat",
+      "image":"poornima",
+      "social":"poorni_venkat",
+      "company":"PayPal",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"Experimenting with a Paypal Checkout SDK using React Native",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/17/2017 11:00 AM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Ken Wheeler",
+      "image":"ken",
+      "social":"ken_wheeler",
+      "company":"Formidable Labs",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"React Native with Electronics",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/18/2017 4:30 PM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Brent Vatne",
+      "image":"brent",
+      "social":"notbrent",
+      "company":"Exponent",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"React Native Sand Paper",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/17/2017 9:30 AM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Parashuram Narasimhan",
+      "image":"parashuram",
+      "social":"nparashuram",
+      "company":"Microsoft",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"From Zero to DevOps",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/18/2017 10:30 AM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Leland Richardson",
+      "image":"leland",
+      "social":"intelligibabble",
+      "company":"Airbnb",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"React as a Platform: A path towards a truly cross-platform UI",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/18/2017 11:00 AM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Harry Tormey",
+      "image":"harry",
+      "social":"htormey",
+      "company":"LaunchDrawer",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"When to Go Native Over Javascript",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/18/2017 2:00 PM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Alex Kotliarskyi",
+      "image":"alex",
+      "social":"alex_frantic",
+      "company":"Facebook",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"Building Stellar User Experiences with React Native",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/18/2017 2:30 PM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Mike Grobowski",
+      "image":"mike",
+      "social":"grabbou",
+      "company":"Callstack",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"TBA",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/17/2017 9:00 AM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Peggy Rayzis",
+      "image":"peggy",
+      "social":"peggyrayzis",
+      "company":"Major League Soccer",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"Breaking Down React Native Bridging",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/18/2017 9:00 AM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Ben Ilegbodu",
+      "image":"ben",
+      "social":"benmvp",
+      "company":"Eventbrite",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"React Native + ES.next = ♥︎",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/17/2017 11:30 AM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Naoufal Kadhom",
+      "image":"naoufal",
+      "social":"naoufal",
+      "company":"Netflix",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"Async Programming with Observables",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/17/2017 2:00 PM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Doug Lowder",
+      "image":"doug",
+      "social":"douglowder",
+      "company":"SalesForce",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"React Native on the Apple TV Platform",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/18/2017 4:00 PM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Kevin Old",
+      "image":"kevin",
+      "social":"kevinold",
+      "company":"LifeWay Christian Resources",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"Building Serverless Backends with AWS Lambda for React Native Apps",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/18/2017 11:30 AM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Javier Cuevas",
+      "image":"javier",
+      "social":"javier_dev",
+      "company":"Gudog",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"Rewriting a Large Hybrid App with React Native",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/17/2017 4:00 PM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Kyle Poole & Thomas Bruketta",
+      "image":"kyle_thomas",
+      "social": ["kylpo", "SirTeebs"],
+      "company":"Instrument",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"Gestures here. Gestures there. Gestures everywhere!",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/17/2017 2:30 PM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Chris Ball",
+      "image":"chris",
+      "social":"cball_",
+      "company":"Echobind",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"From Idea to App Store: A Guide to Shipping ReactNative Apps",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/17/2017 4:30 PM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Nader Dabit",
+      "image":"nader",
+      "social":"dabit3",
+      "company":"React Native Training",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"How to Sanely Work with File Types in a Cross Platform React Native Application",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/17/2017 1:30 PM",
+      "duration":"30"
+    },
+    {
+      "type":"talk",
+      "name":"Héctor Ramos",
+      "image":"hector",
+      "social":"hectorramos",
+      "company":"Facebook",
+      "bio":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "title":"TBD",
+      "description":"Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+      "time":"7/18/2017 10:30 AM",
+      "duration":"30"
+    },
+    {
+      "type":"coffee",
+      "time":"7/17/2017 10:00 AM",
+      "duration":"30"
+    },
+    {
+      "type":"coffee",
+      "time":"7/18/2017 10:00 AM",
+      "duration":"30"
+    },
+    {
+      "type":"lunch",
+      "time":"7/17/2017 12:00 PM",
+      "duration":"90"
+    },
+    {
+      "type":"lunch",
+      "time":"7/18/2017 12:00 PM",
+      "duration":"90"
+    },
+    {
+      "type":"coffee",
+      "time":"7/17/2017 3:00 PM",
+      "duration":"60"
+    },
+    {
+      "type":"coffee",
+      "time":"7/18/2017 3:00 PM",
+      "duration":"60"
+    }
+  ]
+}

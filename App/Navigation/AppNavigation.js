@@ -1,12 +1,12 @@
 import { StackNavigator, TabNavigator } from 'react-navigation'
-import TalksScreen from '../Containers/TalksScreen'
+import ScheduleScreen from '../Containers/ScheduleScreen'
 import TalkDetailScreen from '../Containers/TalkDetailScreen'
 import LocationScreen from '../Containers/LocationScreen'
 import AboutScreen from '../Containers/AboutScreen'
 import styles from './Styles/NavigationStyles'
 
 const ScheduleStack = StackNavigator({
-  Home: { screen: TalksScreen },
+  Home: { screen: ScheduleScreen },
   TalkDetail: { screen: TalkDetailScreen }
 }, {
   headerMode: 'none',

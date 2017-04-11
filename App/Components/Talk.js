@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import TalkInfo from './TalkInfo'
+import TimeIndicator from './TimeIndicator'
 import styles from './Styles/TalkStyle'
 
 export default class Talk extends React.Component {
@@ -9,7 +10,8 @@ export default class Talk extends React.Component {
     super(props)
 
     this.state = {
-      sendReminder: false
+      sendReminder: false,
+      isActive: false
     }
   }
 
@@ -18,28 +20,44 @@ export default class Talk extends React.Component {
   }
 
   render () {
+    const { sendReminder } = this.state
+    const {
+      isCurrentDay,
+      isActive,
+      name,
+      title,
+      avatarURL,
+      start,
+      duration,
+      currentTime
+    } = this.props
+
+    const containerStyles = [
+      styles.container,
+      isCurrentDay && styles.currentDay,
+      isActive && styles.active
+    ]
+
     return (
-      <TouchableOpacity style={styles.container} onPress={this.props.onPress}>
-        <View style={styles.info}>
-          <View style={styles.infoText}>
-            <Text style={styles.name}>
-              {this.props.name}
-            </Text>
-            <Text style={styles.title}>
-              {this.props.title}
-            </Text>
+      <TouchableOpacity onPress={this.props.onPress}>
+        <View style={containerStyles}>
+          <View style={styles.info}>
+            <View style={styles.infoText}>
+              <Text style={styles.name}>{name}</Text>
+              <Text style={styles.title}>{title}</Text>
+            </View>
+            <Image style={styles.avatar} source={{uri: avatarURL}} />
           </View>
-          <Image
-            style={styles.avatar}
-            source={{uri: this.props.avatarURL}}
+          <TalkInfo
+            start={start}
+            duration={duration}
+            remindMe={sendReminder}
+            toggleRemindMe={() => this.toggleReminder()}
           />
         </View>
-        <TalkInfo
-          start={this.props.start}
-          duration={this.props.duration}
-          remindMe={this.state.sendReminder}
-          toggleRemindMe={() => this.toggleReminder()}
-        />
+        {isActive &&
+          <TimeIndicator start={start} duration={duration} time={currentTime} />
+        }
       </TouchableOpacity>
     )
   }
@@ -50,7 +68,7 @@ Talk.propTypes = {
   title: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   avatarURL: PropTypes.string.isRequired,
-  start: PropTypes.string.isRequired,
-  duration: PropTypes.string.isRequired,
+  start: PropTypes.instanceOf(Date).isRequired,
+  duration: PropTypes.number.isRequired,
   onPress: PropTypes.func.isRequired
 }

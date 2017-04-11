@@ -9,6 +9,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient'
 import PurpleGradient from '../Components/PurpleGradient'
 import Talk from '../Components/Talk'
+import Break from '../Components/Break'
 import { connect } from 'react-redux'
 import dateFns from 'date-fns'
 import { groupWith } from 'ramda'
@@ -20,24 +21,25 @@ import { groupWith } from 'ramda'
 import { Images } from '../Themes'
 import styles from './Styles/TalksScreenStyle'
 
-class TalkScreen extends React.Component {
+class ScheduleScreen extends React.Component {
 
   constructor (props) {
     super(props)
 
-    const { schedule } = require('../Fixtures/talks.json')
+    const { schedule } = require('../Fixtures/schedule.json')
     const sorted = schedule.sort((a, b) => {
-      return dateFns.compareAsc(new Date(a.talkTime), new Date(b.talkTime))
+      return dateFns.compareAsc(new Date(a.time), new Date(b.time))
     })
-    const talksByDay = groupWith((a, b) => dateFns.isSameDay(new Date(a.talkTime), new Date(b.talkTime)), sorted)
+    const eventsByDay = groupWith((a, b) => dateFns.isSameDay(new Date(a.time), new Date(b.time)), sorted)
 
     const rowHasChanged = (r1, r2) => r1 !== r2
     const ds = new ListView.DataSource({rowHasChanged})
 
     // Datasource is always in state
     this.state = {
-      talksByDay: talksByDay,
-      dataSource: ds.cloneWithRows(talksByDay[0]),
+      eventsByDay: eventsByDay,
+      dataSource: ds.cloneWithRows(eventsByDay[0]),
+      isCurrentDay: true,
       activeDay: 0
     }
   }
@@ -54,18 +56,40 @@ class TalkScreen extends React.Component {
   renderRow = (rowData, sectionID) => {
     // You can condition on sectionID (key as string), for different cells
     // in different sections
-    const formattedTime = dateFns.format(new Date(rowData.talkTime), 'h:mmA')
-    return (
-      <Talk
-        key={sectionID}
-        name={rowData.name}
-        avatarURL={`https://infinite.red/images/chainreact/${rowData.image}.png`}
-        title={rowData.talkTitle}
-        start={formattedTime}
-        duration={`${rowData.talkDuration} Minutes`}
-        onPress={() => this.props.navigation.navigate('TalkDetail', rowData)}
-      />
-    )
+    const { isCurrentDay } = this.state
+    const talkStart = new Date(rowData.time)
+    const talkEnd = dateFns.addMinutes(talkStart, rowData.duration - 1)
+    const currentTime = new Date('7/17/2017 10:15 AM')
+    const isActive = dateFns.isWithinRange(currentTime, talkStart, talkEnd)
+
+    if (rowData.type === 'talk') {
+      return (
+        <Talk
+          key={sectionID}
+          name={rowData.name}
+          avatarURL={`https://infinite.red/images/chainreact/${rowData.image}.png`}
+          title={rowData.title}
+          start={talkStart}
+          duration={Number(rowData.duration)}
+          onPress={() => this.props.navigation.navigate('TalkDetail')}
+          currentTime={currentTime}
+          isCurrentDay={isCurrentDay}
+          isActive={isActive}
+        />
+      )
+    } else {
+      return (
+        <Break
+          key={sectionID}
+          type={rowData.type}
+          start={new Date(rowData.time)}
+          duration={Number(rowData.duration)}
+          currentTime={currentTime}
+          isCurrentDay={isCurrentDay}
+          isActive={isActive}
+        />
+      )
+    }
   }
 
   /* ***********************************************************
@@ -93,8 +117,9 @@ class TalkScreen extends React.Component {
 
   setActiveDay (day) {
     this.setState(() => ({
-      dataSource: this.state.dataSource.cloneWithRows(this.state.talksByDay[day]),
-      activeDay: day
+      dataSource: this.state.dataSource.cloneWithRows(this.state.eventsByDay[day]),
+      activeDay: day,
+      isCurrentDay: day === 0
     }))
   }
 
@@ -129,6 +154,7 @@ class TalkScreen extends React.Component {
     return (
       <PurpleGradient style={styles.linearGradient}>
         {this.renderDayToggle()}
+        {this.state.isCurrentDay && <View style={styles.timeline} />}
         <ListView
           contentContainerStyle={styles.listContent}
           dataSource={this.state.dataSource}
@@ -136,7 +162,6 @@ class TalkScreen extends React.Component {
           renderRow={this.renderRow}
           enableEmptySections
         />
-        <View style={styles.timeline} />
       </PurpleGradient>
     )
   }
@@ -153,4 +178,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TalkScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(ScheduleScreen)

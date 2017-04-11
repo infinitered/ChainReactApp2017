@@ -46,7 +46,7 @@ export default StyleSheet.create({
     paddingHorizontal: 30,
     borderTopLeftRadius: Metrics.cardRadius,
     borderTopRightRadius: Metrics.cardRadius,
-    backgroundColor: 'white'
+    backgroundColor: Colors.snow
   },
   avatar: {
     position: 'absolute',
@@ -55,7 +55,7 @@ export default StyleSheet.create({
     height: 106,
     width: 106,
     borderRadius: 53,
-    borderColor: 'white',
+    borderColor: Colors.snow,
     borderWidth: 1
   },
   sectionHeading: {

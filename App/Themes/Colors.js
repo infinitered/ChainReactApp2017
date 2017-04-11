@@ -13,7 +13,6 @@ const colors = {
   charcoal: '#595959',
   coal: '#2d2d2d',
   bloodOrange: '#fb5f26',
-  snow: 'white',
   ember: 'rgba(164, 0, 48, 0.5)',
   fire: '#e73536',
   drawer: 'rgba(30, 30, 29, 0.95)',
@@ -21,7 +20,9 @@ const colors = {
   border: '#483F53',
   banner: '#5F3E63',
 
+  snow: 'white',
   red: '#E64044',
+  redShadow: '#E83E3F',
   silver: '#F3F5F6',
   purple: '#5C195A',
   darkPurple: '#140034',

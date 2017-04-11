@@ -60,7 +60,7 @@ export default StyleSheet.create({
     backgroundColor: Colors.clear,
     fontFamily: 'Avenir-Black',
     fontSize: 17,
-    color: 'white',
+    color: Colors.snow,
     letterSpacing: 0
   }
 })

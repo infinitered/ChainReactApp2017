@@ -4,9 +4,24 @@ import { Colors, Metrics } from '../../Themes/'
 export default StyleSheet.create({
   container: {
     flex: 1,
-    paddingBottom: Metrics.doubleBaseMargin,
-    paddingLeft: 16,
-    paddingRight: 24
+    marginVertical: Metrics.baseMargin,
+    marginHorizontal: Metrics.doubleBaseMargin
+  },
+  currentDay: {
+    marginLeft: 16,
+    marginRight: 24
+  },
+  active: {
+    marginLeft: 6,
+    marginRight: 34,
+    borderRadius: 5,
+    shadowOffset: {
+      width: 1,
+      height: 1
+    },
+    shadowRadius: 5,
+    shadowColor: Colors.redShadow,
+    shadowOpacity: 1
   },
   info: {
     flex: 1,
@@ -15,8 +30,7 @@ export default StyleSheet.create({
     padding: Metrics.doubleBaseMargin,
     borderTopLeftRadius: Metrics.cardRadius,
     borderTopRightRadius: Metrics.cardRadius,
-    backgroundColor: 'white',
-    width: Metrics.screenWidth - (Metrics.doubleBaseMargin * 2)
+    backgroundColor: Colors.snow
   },
   infoText: {
     flex: 1,

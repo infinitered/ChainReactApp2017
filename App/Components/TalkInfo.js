@@ -1,11 +1,15 @@
 import React, { PropTypes, Component } from 'react'
 import { View, Text } from 'react-native'
 import RemindMeButton from './RemindMeButton'
+import { format } from 'date-fns'
 import styles from './Styles/TalkInfoStyle'
 
 export default class TalkInfo extends Component {
 
   render () {
+    const { start, duration, remindMe, toggleRemindMe } = this.props
+    const formattedStart = format(start, 'h:mmA')
+
     return (
       <View style={styles.container}>
         <View style={styles.details}>
@@ -14,7 +18,7 @@ export default class TalkInfo extends Component {
               Start
             </Text>
             <Text style={styles.detailText}>
-              {this.props.start}
+              {formattedStart}
             </Text>
           </View>
           <View style={styles.detail}>
@@ -22,22 +26,19 @@ export default class TalkInfo extends Component {
               Duration
             </Text>
             <Text style={styles.detailText}>
-              {this.props.duration}
+              {`${duration} Minutes`}
             </Text>
           </View>
         </View>
-        <RemindMeButton
-          onPress={this.props.toggleRemindMe}
-          on={this.props.remindMe}
-        />
+        <RemindMeButton onPress={toggleRemindMe} on={remindMe} />
       </View>
     )
   }
 }
 
 TalkInfo.propTypes = {
-  start: PropTypes.string.isRequired,
-  duration: PropTypes.string.isRequired,
+  start: PropTypes.instanceOf(Date).isRequired,
+  duration: PropTypes.number.isRequired,
   remindMe: PropTypes.bool.isRequired,
   toggleRemindMe: PropTypes.func.isRequired
 }

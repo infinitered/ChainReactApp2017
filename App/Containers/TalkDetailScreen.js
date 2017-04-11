@@ -26,7 +26,7 @@ class TalkDetail extends React.Component {
 
   render () {
     return (
-      <PurpleGradient style={[styles.linearGradient, {flex: 1}]}>
+      <PurpleGradient style={styles.linearGradient}>
         <ScrollView>
           <View style={styles.container}>
             <TouchableOpacity style={styles.backButton} onPress={this.goBack}>
@@ -68,8 +68,8 @@ class TalkDetail extends React.Component {
               </View>
             </View>
             <TalkInfo
-              start={'10:00AM'}
-              duration={'30 Minutes'}
+              start={new Date('7/17/2017 10:00 AM')}
+              duration={30}
               remindMe={false}
               toggleRemindMe={() => {}}
             />

@@ -23,6 +23,6 @@ export default StyleSheet.create({
     color: Colors.red
   },
   activeText: {
-    color: 'white'
+    color: Colors.snow
   }
 })

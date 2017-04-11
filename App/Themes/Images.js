@@ -30,7 +30,11 @@ const images = {
   inactiveNotificationIcon: require('../Images/Icons/icon-notification-inactive.png'),
   twitterIcon: require('../Images/Icons/icon-twitter-red.png'),
   githubIcon: require('../Images/Icons/icon-github-red.png'),
-  arrowIcon: require('../Images/Icons/icon-arrow.png')
+  arrowIcon: require('../Images/Icons/icon-arrow.png'),
+  sunIcon: require('../Images/Icons/icon-sun.png'),
+  coffeeBreak: require('../Images/bg-coffee-break.png'),
+  lunchBreak: require('../Images/bg-lunch-break.png'),
+  sponsor: require('../Images/sponsor.png')
 }
 
 export default images
