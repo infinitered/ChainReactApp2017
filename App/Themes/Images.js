@@ -27,7 +27,10 @@ const images = {
   activeScheduleIcon: require('../Images/Icons/icon-schedule-active.png'),
   inactiveScheduleIcon: require('../Images/Icons/icon-schedule-inactive.png'),
   activeNotificationIcon: require('../Images/Icons/icon-notification-active.png'),
-  inactiveNotificationIcon: require('../Images/Icons/icon-notification-inactive.png')
+  inactiveNotificationIcon: require('../Images/Icons/icon-notification-inactive.png'),
+  twitterIcon: require('../Images/Icons/icon-twitter-red.png'),
+  githubIcon: require('../Images/Icons/icon-github-red.png'),
+  arrowIcon: require('../Images/Icons/icon-arrow.png')
 }
 
 export default images
