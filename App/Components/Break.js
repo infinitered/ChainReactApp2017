@@ -5,15 +5,14 @@ import TimeIndicator from './TimeIndicator'
 import styles from './Styles/BreakStyle'
 
 export default class Break extends Component {
-  render () {
+  renderContent () {
     const {
       type,
       start,
       duration,
       currentTime,
       isCurrentDay,
-      isActive,
-      onPress
+      isActive
     } = this.props
 
     const containerStyles = [
@@ -25,7 +24,7 @@ export default class Break extends Component {
     const background = type === 'lunch' ? Images.lunchBreak : Images.coffeeBreak
 
     return (
-      <TouchableOpacity onPress={onPress}>
+      <View>
         <View style={containerStyles}>
           <Image source={background} style={styles.background} />
           <View style={styles.contentContainer}>
@@ -46,8 +45,20 @@ export default class Break extends Component {
         {isActive &&
           <TimeIndicator start={start} duration={duration} time={currentTime} />
         }
-      </TouchableOpacity>
+      </View>
     )
+  }
+
+  render () {
+    if (this.props.onPress) {
+      return (
+        <TouchableOpacity onPress={this.props.onPress}>
+          {this.renderContent()}
+        </TouchableOpacity>
+      )
+    } else {
+      return this.renderContent()
+    }
   }
 }
 

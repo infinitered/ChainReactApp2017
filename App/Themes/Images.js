@@ -34,6 +34,7 @@ const images = {
   sunIcon: require('../Images/Icons/icon-sun.png'),
   coffeeBreak: require('../Images/bg-coffee-break.png'),
   lunchBreak: require('../Images/bg-lunch-break.png'),
+  lunch: require('../Images/bg-lunch.png'),
   sponsor: require('../Images/sponsor.png')
 }
 

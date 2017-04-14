@@ -11,8 +11,8 @@ import PurpleGradient from '../Components/PurpleGradient'
 import Talk from '../Components/Talk'
 import Break from '../Components/Break'
 import { connect } from 'react-redux'
-import dateFns from 'date-fns'
-import { groupWith } from 'ramda'
+import { compareAsc, isSameDay, addMinutes, isWithinRange } from 'date-fns'
+import { merge, groupWith } from 'ramda'
 
 // For empty lists
 // import AlertMessage from '../Components/AlertMessage'
@@ -21,25 +21,40 @@ import { groupWith } from 'ramda'
 import { Images } from '../Themes'
 import styles from './Styles/TalksScreenStyle'
 
+const isCurrentDay = (currentTime, activeDay) =>
+  isSameDay(currentTime, new Date(['7/17/2017', '7/18/2017'][activeDay]))
+
 class ScheduleScreen extends React.Component {
 
   constructor (props) {
     super(props)
 
     const { schedule } = require('../Fixtures/schedule.json')
-    const sorted = schedule.sort((a, b) => {
-      return dateFns.compareAsc(new Date(a.time), new Date(b.time))
+    const mergeTimes = (e) => {
+      const eventDuration = Number(e.duration)
+      const eventStart = new Date(e.time)
+      const eventEnd = addMinutes(eventStart, eventDuration - 1)
+      return merge(e, { eventStart, eventEnd, eventDuration })
+    }
+    const sorted = schedule.map(mergeTimes).sort((a, b) => {
+      return compareAsc(a.eventStart, b.eventStart)
     })
-    const eventsByDay = groupWith((a, b) => dateFns.isSameDay(new Date(a.time), new Date(b.time)), sorted)
+    const eventsByDay = groupWith((a, b) => isSameDay(a.eventStart, b.eventStart), sorted)
 
-    const rowHasChanged = (r1, r2) => r1 !== r2
+    const rowHasChanged = (r1, r2) => {
+      const { currentTime } = this.props
+      const { eventStart, eventEnd } = r2
+      const isActive = isWithinRange(currentTime, eventStart, eventEnd)
+
+      return r1 !== r2 || isActive
+    }
     const ds = new ListView.DataSource({rowHasChanged})
 
     // Datasource is always in state
     this.state = {
       eventsByDay: eventsByDay,
       dataSource: ds.cloneWithRows(eventsByDay[0]),
-      isCurrentDay: true,
+      isCurrentDay: isCurrentDay(this.props.currentTime, 0),
       activeDay: 0
     }
   }
@@ -53,25 +68,21 @@ class ScheduleScreen extends React.Component {
     }
   }
 
-  renderRow = (rowData, sectionID) => {
-    // You can condition on sectionID (key as string), for different cells
-    // in different sections
+  renderRow = (rowData) => {
     const { isCurrentDay } = this.state
-    const talkStart = new Date(rowData.time)
-    const talkEnd = dateFns.addMinutes(talkStart, rowData.duration - 1)
-    const currentTime = new Date('7/17/2017 10:15 AM')
-    const isActive = dateFns.isWithinRange(currentTime, talkStart, talkEnd)
+    const { currentTime, navigation } = this.props
+    const { eventDuration, eventStart, eventEnd } = rowData
+    const isActive = isWithinRange(currentTime, eventStart, eventEnd)
 
     if (rowData.type === 'talk') {
       return (
         <Talk
-          key={sectionID}
           name={rowData.name}
           avatarURL={`https://infinite.red/images/chainreact/${rowData.image}.png`}
           title={rowData.title}
-          start={talkStart}
-          duration={Number(rowData.duration)}
-          onPress={() => this.props.navigation.navigate('TalkDetail')}
+          start={eventStart}
+          duration={eventDuration}
+          onPress={() => navigation.navigate('TalkDetail')}
           currentTime={currentTime}
           isCurrentDay={isCurrentDay}
           isActive={isActive}
@@ -80,11 +91,11 @@ class ScheduleScreen extends React.Component {
     } else {
       return (
         <Break
-          key={sectionID}
           type={rowData.type}
-          start={new Date(rowData.time)}
-          duration={Number(rowData.duration)}
-          currentTime={currentTime}
+          start={eventStart}
+          duration={eventDuration}
+          onPress={() => navigation.navigate('BreakDetail')}
+          currentTime={this.props.currentTime}
           isCurrentDay={isCurrentDay}
           isActive={isActive}
         />
@@ -92,22 +103,15 @@ class ScheduleScreen extends React.Component {
     }
   }
 
-  /* ***********************************************************
-  * If your datasource is driven by Redux, you'll need to
-  * reset it when new data arrives.
-  * DO NOT! place `cloneWithRowsAndSections` inside of render, since render
-  * is called very often, and should remain fast!  Just replace
-  * state's datasource on newProps.
-  *
-  * e.g.
-    componentWillReceiveProps (newProps) {
-      if (newProps.someData) {
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRowsAndSections(newProps.someData)
-        })
-      }
+  componentWillReceiveProps (newProps) {
+    const { activeDay, eventsByDay, dataSource } = this.state
+    if (newProps.currentTime) {
+      this.setState({
+        dataSource: dataSource.cloneWithRows(eventsByDay[activeDay].slice()),
+        isCurrentDay: isCurrentDay(newProps.currentTime, activeDay)
+      })
     }
-  *************************************************************/
+  }
 
   // Used for friendly AlertMessage
   // returns true if the dataSource is empty
@@ -116,10 +120,12 @@ class ScheduleScreen extends React.Component {
   }
 
   setActiveDay (day) {
+    const { eventsByDay, dataSource } = this.state
+    const { currentTime } = this.props
     this.setState(() => ({
-      dataSource: this.state.dataSource.cloneWithRows(this.state.eventsByDay[day]),
+      dataSource: dataSource.cloneWithRows(eventsByDay[day]),
       activeDay: day,
-      isCurrentDay: day === 0
+      isCurrentDay: isCurrentDay(currentTime, day)
     }))
   }
 
@@ -169,7 +175,7 @@ class ScheduleScreen extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    // ...redux state to props here
+    currentTime: new Date(state.schedule.currentTime)
   }
 }
 

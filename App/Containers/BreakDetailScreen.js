@@ -1,21 +1,73 @@
 import React from 'react'
-import { ScrollView, Text, KeyboardAvoidingView } from 'react-native'
+import { ScrollView, View, Text, Image, TouchableOpacity } from 'react-native'
+import PurpleGradient from '../Components/PurpleGradient'
+import { NavigationActions } from 'react-navigation'
 import { connect } from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
-
-// Styles
+import { Images } from '../Themes'
 import styles from './Styles/BreakDetailScreenStyle'
 
 class BreakDetail extends React.Component {
 
+  static navigationOptions = {
+    tabBar: {
+      label: 'Schedule',
+      icon: ({ focused }) => (
+        <Image source={focused ? Images.activeScheduleIcon : Images.inactiveScheduleIcon} />
+      )
+    }
+  }
+
+  goBack = () => {
+    this.props.navigation.dispatch(NavigationActions.back())
+  }
+
   render () {
     return (
-      <ScrollView style={styles.container}>
-        <KeyboardAvoidingView behavior='position'>
-          <Text>BreakDetail Screen</Text>
-        </KeyboardAvoidingView>
-      </ScrollView>
+      <PurpleGradient style={styles.linearGradient}>
+        <ScrollView>
+          <View style={styles.container}>
+            <TouchableOpacity style={styles.backButton} onPress={this.goBack}>
+              <Image style={styles.backButtonIcon} source={Images.arrowIcon} />
+              <Text style={styles.backButtonText}>Back</Text>
+            </TouchableOpacity>
+            <View style={styles.cardShadow1} />
+            <View style={styles.cardShadow2} />
+            <View style={styles.card}>
+              <View style={styles.mainImageContainer}>
+                <Image style={styles.mainImage} source={Images.lunch} />
+                <View style={styles.mainHeadingContainer}>
+                  <Text style={styles.breakHeading}>LUNCH BREAK</Text>
+                  <Text style={styles.breakDuration}>
+                    12:00 - 1:00<Text style={styles.meridiem}>PM</Text>
+                  </Text>
+                </View>
+              </View>
+              <View style={styles.content}>
+                <Text style={styles.heading}>
+                  Lunch Options
+                </Text>
+                <Text style={styles.description}>
+                  {`\u2022  Green Eggs & Ham On Rye\n`}
+                  {`\u2022  Green Eggs & Ham On Rye\n`}
+                  {`\u2022  Green Eggs & Ham On Rye\n`}
+                  {`\u2022  Green Eggs & Ham On Rye\n`}
+                  {`\u2022  Green Eggs & Ham On Rye\n`}
+                  {`\u2022  Green Eggs & Ham On Rye`}
+                </Text>
+                <Text style={styles.heading}>
+                  Vegan Options
+                </Text>
+                <Text style={styles.description}>
+                  {`\u2022  Tap Water\n`}
+                  {`\u2022  Assorted Leaves`}
+                </Text>
+              </View>
+            </View>
+          </View>
+        </ScrollView>
+      </PurpleGradient>
     )
   }
 
