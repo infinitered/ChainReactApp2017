@@ -35,7 +35,8 @@ const images = {
   coffeeBreak: require('../Images/bg-coffee-break.png'),
   lunchBreak: require('../Images/bg-lunch-break.png'),
   lunch: require('../Images/bg-lunch.png'),
-  sponsor: require('../Images/sponsor.png')
+  sponsor: require('../Images/sponsor.png'),
+  theArmory: require('../Images/the-armory.png')
 }
 
 export default images
