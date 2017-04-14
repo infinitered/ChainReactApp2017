@@ -3,6 +3,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 import TalkInfo from './TalkInfo'
 import TimeIndicator from './TimeIndicator'
 import styles from './Styles/TalkStyle'
+import PushNotification from 'react-native-push-notification'
 
 export default class Talk extends React.Component {
 
@@ -17,6 +18,7 @@ export default class Talk extends React.Component {
 
   toggleReminder () {
     this.setState((prevProps) => ({sendReminder: !prevProps.sendReminder}))
+    PushNotification.localNotification({message: 'TEST NOTIFICATION'})
   }
 
   render () {
