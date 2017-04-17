@@ -3,7 +3,9 @@ import { delay } from 'redux-saga'
 import ScheduleActions from '../Redux/ScheduleRedux'
 import DebugConfig from '../Config/DebugConfig'
 
-function getCurrentTime () {
+const updateDelay = 5000
+
+const getCurrentTime = () => {
   let date = new Date()
   if (DebugConfig.hotwireDate) {
     date.setFullYear(2017)
@@ -23,7 +25,7 @@ export function* trackCurrentTime () {
   let time = yield getCurrentTime()
   yield fork(handleUpdate, time)
   while (true) {
-    yield call(delay, 1000)
+    yield call(delay, updateDelay)
     time = yield getCurrentTime()
     yield fork(handleUpdate, time)
   }
