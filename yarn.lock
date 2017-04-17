@@ -2825,10 +2825,6 @@ ignite-dev-screens@^2.0.0-beta.8:
   version "2.0.0-beta.8"
   resolved "https://registry.yarnpkg.com/ignite-dev-screens/-/ignite-dev-screens-2.0.0-beta.8.tgz#45a465391222015ebfc77c852dccfad6d395d712"
 
-ignite-elements@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/ignite-elements/-/ignite-elements-0.3.0.tgz#72b9530791826cf33a8ba0dee0d63e3dae438c56"
-
 ignite-i18n@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/ignite-i18n/-/ignite-i18n-0.1.1.tgz#38e901788169f9a7b4eaaa73bbf7001c69e1b16c"
@@ -2864,10 +2860,6 @@ ignore@^3.0.9, ignore@^3.2.0:
 image-size@^0.3.5:
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.3.5.tgz#83240eab2fb5b00b04aab8c74b0471e9cba7ad8c"
-
-immutable@^3.8.1:
-  version "3.8.1"
-  resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.1.tgz#200807f11ab0f72710ea485542de088075f68cd2"
 
 immutable@~3.7.6:
   version "3.7.6"
@@ -4537,13 +4529,6 @@ react-native-drawer@^2.3.0:
   dependencies:
     tween-functions "^1.0.1"
 
-react-native-elements@^0.10.3:
-  version "0.10.3"
-  resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-0.10.3.tgz#ddef62a456cb71a21a2fdf4aa9ee268af7e1cdd0"
-  dependencies:
-    react-native-side-menu "^0.20.1"
-    react-native-tab-navigator "^0.3.3"
-
 react-native-i18n@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-i18n/-/react-native-i18n-1.0.0.tgz#0c407d9ebb846aae1aa5e05de6503008553f02fd"
@@ -4551,10 +4536,6 @@ react-native-i18n@^1.0.0:
 react-native-linear-gradient@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.0.0.tgz#7442c00e1fcd9fca329119dcbaf744d12bcd1b5a"
-
-react-native-maps@0.13.0:
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.13.0.tgz#f3d791a06d36d553bcc177514ee52fdea45474c0"
 
 react-native-mock@^0.3.1:
   version "0.3.1"
@@ -4576,16 +4557,6 @@ react-native-mock@^0.3.1:
 react-native-push-notification@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-2.2.1.tgz#9b392cee8f5223a1e1772c9a88c95742549fcfc3"
-
-react-native-side-menu@^0.20.1:
-  version "0.20.1"
-  resolved "https://registry.yarnpkg.com/react-native-side-menu/-/react-native-side-menu-0.20.1.tgz#df21b4bb9d8a1aa3bae53d74ddf8a739eb59bfc5"
-
-react-native-tab-navigator@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/react-native-tab-navigator/-/react-native-tab-navigator-0.3.3.tgz#b222bad21fbe773c8d28f9a0de30ce62b08724d3"
-  dependencies:
-    immutable "^3.8.1"
 
 react-native-tab-view@^0.0.57:
   version "0.0.57"
