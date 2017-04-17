@@ -1,11 +1,10 @@
 import { StartupTypes } from '../Redux/StartupRedux'
 import Config from '../Config/DebugConfig'
 import Immutable from 'seamless-immutable'
-import Reactotron, { overlay } from 'reactotron-react-native'
-const errorPlugin = require('reactotron-react-native').trackGlobalErrors
-const apisaucePlugin = require('reactotron-apisauce')
-const { reactotronRedux } = require('reactotron-redux')
-const sagaPlugin = require('reactotron-redux-saga')
+import Reactotron, { overlay, trackGlobalErrors } from 'reactotron-react-native'
+import apisaucePlugin from 'reactotron-apisauce'
+import { reactotronRedux } from 'reactotron-redux'
+import sagaPlugin from 'reactotron-redux-saga'
 
 if (Config.useReactotron) {
   Reactotron
@@ -15,7 +14,7 @@ if (Config.useReactotron) {
     })
 
     // forward all errors to Reactotron
-    .use(errorPlugin({
+    .use(trackGlobalErrors({
       // ignore all error frames from react-native (for example)
       veto: (frame) =>
         frame.fileName.indexOf('/node_modules/react-native/') >= 0
