@@ -2825,10 +2825,6 @@ ignite-dev-screens@^2.0.0-beta.8:
   version "2.0.0-beta.8"
   resolved "https://registry.yarnpkg.com/ignite-dev-screens/-/ignite-dev-screens-2.0.0-beta.8.tgz#45a465391222015ebfc77c852dccfad6d395d712"
 
-ignite-elements@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/ignite-elements/-/ignite-elements-0.3.0.tgz#72b9530791826cf33a8ba0dee0d63e3dae438c56"
-
 ignite-i18n@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/ignite-i18n/-/ignite-i18n-0.1.1.tgz#38e901788169f9a7b4eaaa73bbf7001c69e1b16c"
@@ -4540,10 +4536,6 @@ react-native-i18n@^1.0.0:
 react-native-linear-gradient@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.0.0.tgz#7442c00e1fcd9fca329119dcbaf744d12bcd1b5a"
-
-react-native-maps@0.13.0:
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.13.0.tgz#f3d791a06d36d553bcc177514ee52fdea45474c0"
 
 react-native-mock@^0.3.1:
   version "0.3.1"
