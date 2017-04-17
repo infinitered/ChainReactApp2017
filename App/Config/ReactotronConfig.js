@@ -1,7 +1,7 @@
 import { StartupTypes } from '../Redux/StartupRedux'
 import Config from '../Config/DebugConfig'
 import Immutable from 'seamless-immutable'
-const Reactotron = require('reactotron-react-native').default
+import Reactotron, { overlay } from 'reactotron-react-native'
 const errorPlugin = require('reactotron-react-native').trackGlobalErrors
 const apisaucePlugin = require('reactotron-apisauce')
 const { reactotronRedux } = require('reactotron-redux')
@@ -23,6 +23,9 @@ if (Config.useReactotron) {
 
     // register apisauce so we can install a monitor later
     .use(apisaucePlugin())
+
+    // add overlay ability for graphics
+    .use(overlay())
 
     // setup the redux integration with Reactotron
     .use(reactotronRedux({
