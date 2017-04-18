@@ -7,7 +7,6 @@ import com.brentvatne.react.ReactVideoPackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.airbnb.android.react.maps.MapsPackage;
-import com.airbnb.android.react.maps.MapsPackage;
 import com.i18n.reactnativei18n.ReactNativeI18n;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
@@ -35,7 +34,6 @@ public class MainApplication extends Application implements ReactApplication {
             new ReactVideoPackage(),
             new ReactNativePushNotificationPackage(),
             new LinearGradientPackage(),
-            new MapsPackage(),
             new MapsPackage(),
             new ReactNativeI18n(),
             new VectorIconsPackage(),
