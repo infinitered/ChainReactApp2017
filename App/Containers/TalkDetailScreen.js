@@ -38,25 +38,25 @@ class TalkDetail extends React.Component {
             <View style={styles.card}>
               <Image
                 style={styles.avatar}
-                source={{uri: 'https://infinite.red/images/chainreact/leland.png'}}
+                source={{uri: `https://infinite.red/images/chainreact/${this.props.image}.png`}}
               />
               <Text style={styles.sectionHeading}>
                 TALK
               </Text>
               <Text style={styles.heading}>
-                React as a Platform: A path towards a truly cross-platform UI
+                {this.props.title}
               </Text>
               <Text style={styles.description}>
-                Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+                {this.props.description}
               </Text>
               <Text style={styles.sectionHeading}>
                 ABOUT
               </Text>
               <Text style={styles.heading}>
-                Leland Richardson
+                {this.props.name}
               </Text>
               <Text style={styles.description}>
-                Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+                {this.props.bio}
               </Text>
               <View style={styles.social}>
                 <TouchableOpacity style={styles.socialLink} onPress={() => {}}>
@@ -68,8 +68,8 @@ class TalkDetail extends React.Component {
               </View>
             </View>
             <TalkInfo
-              start={new Date('7/17/2017 10:00 AM')}
-              duration={30}
+              start={new Date(this.props.eventStart)}
+              duration={Number(this.props.duration)}
               remindMe={false}
               toggleRemindMe={() => {}}
             />
@@ -83,6 +83,7 @@ class TalkDetail extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    ...state.schedule.selectedEvent
   }
 }
 

@@ -10,6 +10,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import PurpleGradient from '../Components/PurpleGradient'
 import Talk from '../Components/Talk'
 import Break from '../Components/Break'
+import ScheduleActions from '../Redux/ScheduleRedux'
 import { connect } from 'react-redux'
 import { compareAsc, isSameDay, addMinutes, isWithinRange } from 'date-fns'
 import { merge, groupWith } from 'ramda'
@@ -70,9 +71,17 @@ class ScheduleScreen extends React.Component {
     }
   }
 
+  onEventPress = (rowData) => {
+    const { navigation, setSelectedEvent } = this.props
+    setSelectedEvent(rowData)
+
+    rowData.type === 'talk'
+      ? navigation.navigate('TalkDetail')
+      : navigation.navigate('BreakDetail')
+  }
+
   renderRow = (rowData) => {
     const { currentTime, isCurrentDay } = this.state
-    const { navigation } = this.props
     const { eventDuration, eventStart, eventEnd } = rowData
     const isActive = isWithinRange(currentTime, eventStart, eventEnd)
 
@@ -84,7 +93,7 @@ class ScheduleScreen extends React.Component {
           title={rowData.title}
           start={eventStart}
           duration={eventDuration}
-          onPress={() => navigation.navigate('TalkDetail')}
+          onPress={() => this.onEventPress(rowData)}
           currentTime={currentTime}
           isCurrentDay={isCurrentDay}
           isActive={isActive}
@@ -96,7 +105,7 @@ class ScheduleScreen extends React.Component {
           type={rowData.type}
           start={eventStart}
           duration={eventDuration}
-          onPress={() => navigation.navigate('BreakDetail')}
+          onPress={() => this.onEventPress(rowData)}
           currentTime={currentTime}
           isCurrentDay={isCurrentDay}
           isActive={isActive}
@@ -189,6 +198,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    setSelectedEvent: (data) => dispatch(ScheduleActions.setSelectedEvent(data))
   }
 }
 

@@ -38,7 +38,9 @@ class BreakDetail extends React.Component {
               <View style={styles.mainImageContainer}>
                 <Image style={styles.mainImage} source={Images.lunch} />
                 <View style={styles.mainHeadingContainer}>
-                  <Text style={styles.breakHeading}>LUNCH BREAK</Text>
+                  <Text style={styles.breakHeading}>
+                    {this.props.type.toUpperCase()} BREAK
+                  </Text>
                   <Text style={styles.breakDuration}>
                     12:00 - 1:00<Text style={styles.meridiem}>PM</Text>
                   </Text>
@@ -75,6 +77,7 @@ class BreakDetail extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    ...state.schedule.selectedEvent
   }
 }
 

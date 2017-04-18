@@ -5,10 +5,9 @@ import { format, differenceInSeconds } from 'date-fns'
 import styles from './Styles/TimeIndicatorStyle'
 
 const sunIcon = (time) => {
-  const currentHour = time.getHours()
-  const slope = (22 - 1) / (17 - 9)
-  const mapped = 1 + Math.floor(slope * (currentHour - 9))
-  console.tron.log('mapped hour: ' + currentHour + ' mapped: ' + mapped)
+  const currentMinute = (time.getHours() * 60) + time.getMinutes()
+  const slope = (22 - 1) / (1150 - 450)
+  const mapped = 1 + Math.round(slope * (currentMinute - 450))
 
   switch (mapped) {
     case 1: return Images.phase1

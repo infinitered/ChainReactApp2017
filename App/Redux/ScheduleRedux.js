@@ -9,7 +9,9 @@ const { Types, Creators } = createActions({
   startCurrentTime: null,
   updateCurrentTime: ['time'],
   lockCurrentTime: ['time'],
-  unlockCurrentTime: null
+  unlockCurrentTime: null,
+  setSelectedEvent: ['event'],
+  clearSelectedEvent: null
 })
 
 export const ScheduleTypes = Types
@@ -25,13 +27,23 @@ if (DebugConfig.hotwireDate) {
 
 export const INITIAL_STATE = Immutable({
   currentTime: initialTime,
-  ignoreUpdates: false
+  ignoreUpdates: false,
+  selectedTalk: null,
+  selectedBreak: null
 })
 
 /* ------------- Reducers ------------- */
 
 export const updateCurrentTime = (state, { time }) => {
   return (state.ignoreUpdates) ? state : state.merge({ currentTime: time })
+}
+
+export const setSelectedEvent = (state, { event }) => {
+  return state.merge({ selectedEvent: event })
+}
+
+export const clearSelectedEvent = (state) => {
+  return state.merge({ selectedEvent: null })
 }
 
 // Used for Debugging
@@ -47,5 +59,7 @@ export const unlockCurrentTime = (state) => {
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.UPDATE_CURRENT_TIME]: updateCurrentTime,
   [Types.LOCK_CURRENT_TIME]: lockCurrentTime,
-  [Types.UNLOCK_CURRENT_TIME]: unlockCurrentTime
+  [Types.UNLOCK_CURRENT_TIME]: unlockCurrentTime,
+  [Types.SET_SELECTED_EVENT]: setSelectedEvent,
+  [Types.CLEAR_SELECTED_EVENT]: clearSelectedEvent
 })
