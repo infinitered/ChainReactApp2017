@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, ScrollView, Text, KeyboardAvoidingView } from 'react-native'
+import { Image, View, Text } from 'react-native'
 import { Images } from '../Themes'
 import { connect } from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
@@ -21,11 +21,9 @@ class AboutScreen extends React.Component {
 
   render () {
     return (
-      <ScrollView style={styles.container}>
-        <KeyboardAvoidingView behavior='position'>
-          <Text>About Screen</Text>
-        </KeyboardAvoidingView>
-      </ScrollView>
+      <View style={styles.container}>
+        <Text>AboutScreen</Text>
+      </View>
     )
   }
 

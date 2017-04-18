@@ -27,18 +27,29 @@ export default StyleSheet.create({
     flex: 1,
     resizeMode: 'cover'
   },
+  video: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: Colors.snow
+  },
   contentContainer: {
     position: 'absolute',
     top: 0,
     bottom: 0,
     left: 0,
     right: 0,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   sponsor: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal: 25
+    marginRight: 25
   },
   sponsorText: {
     marginTop: 4,
@@ -49,7 +60,8 @@ export default StyleSheet.create({
     color: Colors.snow
   },
   content: {
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginHorizontal: 25
   },
   heading: {
     fontFamily: 'Avenir-Black',
@@ -66,5 +78,4 @@ export default StyleSheet.create({
     backgroundColor: Colors.transparent,
     color: Colors.snow
   }
-
 })

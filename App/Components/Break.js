@@ -1,7 +1,8 @@
 import React, { PropTypes, Component } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
-import { Images } from '../Themes'
+import { Images, Videos } from '../Themes'
 import TimeIndicator from './TimeIndicator'
+import BackgroundVideo from './BackgroundVideo'
 import styles from './Styles/BreakStyle'
 
 export default class Break extends Component {
@@ -22,16 +23,14 @@ export default class Break extends Component {
     ]
 
     const background = type === 'lunch' ? Images.lunchBreak : Images.coffeeBreak
+    const video = type === 'lunch' ? Videos.lunch : Videos.coffee
 
     return (
       <View>
         <View style={containerStyles}>
           <Image source={background} style={styles.background} />
+          <BackgroundVideo source={video} style={styles.video} isActive={isActive} />
           <View style={styles.contentContainer}>
-            <View style={styles.sponsor}>
-              <Image source={Images.sponsor} />
-              <Text style={styles.sponsorText}>SPONSOR</Text>
-            </View>
             <View style={styles.content}>
               <Text style={styles.heading}>
                 {`${type.toUpperCase()} BREAK`}
@@ -39,6 +38,10 @@ export default class Break extends Component {
               <Text style={styles.duration}>
                 {`${duration} Minutes`}
               </Text>
+            </View>
+            <View style={styles.sponsor}>
+              <Image source={Images.sponsor} />
+              <Text style={styles.sponsorText}>SPONSOR</Text>
             </View>
           </View>
         </View>

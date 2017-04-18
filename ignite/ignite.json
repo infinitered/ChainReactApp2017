@@ -11,6 +11,7 @@
     "screen": "ignite-ir-next",
     "map": "ignite-maps",
     "map-utilities": "ignite-maps",
-    "map-callout": "ignite-maps"
+    "map-callout": "ignite-maps",
+    "video": "ignite-video"
   }
 }

@@ -34,6 +34,7 @@ class ScheduleScreen extends React.Component {
       const eventDuration = Number(e.duration)
       const eventStart = new Date(e.time)
       const eventEnd = addMinutes(eventStart, eventDuration - 1)
+
       return merge(e, { eventStart, eventEnd, eventDuration })
     }
     const sorted = schedule.map(mergeTimes).sort((a, b) => {
@@ -42,7 +43,7 @@ class ScheduleScreen extends React.Component {
     const eventsByDay = groupWith((a, b) => isSameDay(a.eventStart, b.eventStart), sorted)
 
     const rowHasChanged = (r1, r2) => {
-      const { currentTime } = this.props
+      const { currentTime } = this.state
       const { eventStart, eventEnd } = r2
       const isActive = isWithinRange(currentTime, eventStart, eventEnd)
 
@@ -52,6 +53,7 @@ class ScheduleScreen extends React.Component {
 
     // Datasource is always in state
     this.state = {
+      currentTime: props.currentTime,
       eventsByDay: eventsByDay,
       dataSource: ds.cloneWithRows(eventsByDay[0]),
       isCurrentDay: isCurrentDay(this.props.currentTime, 0),
@@ -69,8 +71,8 @@ class ScheduleScreen extends React.Component {
   }
 
   renderRow = (rowData) => {
-    const { isCurrentDay } = this.state
-    const { currentTime, navigation } = this.props
+    const { currentTime, isCurrentDay } = this.state
+    const { navigation } = this.props
     const { eventDuration, eventStart, eventEnd } = rowData
     const isActive = isWithinRange(currentTime, eventStart, eventEnd)
 
@@ -95,7 +97,7 @@ class ScheduleScreen extends React.Component {
           start={eventStart}
           duration={eventDuration}
           onPress={() => navigation.navigate('BreakDetail')}
-          currentTime={this.props.currentTime}
+          currentTime={currentTime}
           isCurrentDay={isCurrentDay}
           isActive={isActive}
         />
@@ -105,10 +107,16 @@ class ScheduleScreen extends React.Component {
 
   componentWillReceiveProps (newProps) {
     const { activeDay, eventsByDay, dataSource } = this.state
+
+    // Update currentTime before updating dataSource
     if (newProps.currentTime) {
       this.setState({
-        dataSource: dataSource.cloneWithRows(eventsByDay[activeDay].slice()),
-        isCurrentDay: isCurrentDay(newProps.currentTime, activeDay)
+        currentTime: newProps.currentTime
+      }, () => {
+        this.setState({
+          dataSource: dataSource.cloneWithRows(eventsByDay[activeDay].slice()),
+          isCurrentDay: isCurrentDay(newProps.currentTime, activeDay)
+        })
       })
     }
   }
