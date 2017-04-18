@@ -46,6 +46,8 @@ const originalLoader = m._load
 m._load = (request, parent, isMain) => {
   if (request.match(/.jpeg|.jpg|.png|.gif$/)) {
     return { uri: request }
+  } else if (request.match(/.mp4$/)) {
+    return ''
   }
 
   return originalLoader(request, parent, isMain)
