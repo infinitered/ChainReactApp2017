@@ -28,6 +28,8 @@
     "date-fns": "^1.28.2",
     "format-json": "^1.0.3",
     "lodash": "^4.17.2",
+    "mobile-center-analytics": "^0.4.0",
+    "mobile-center-crashes": "^0.4.0",
     "querystringify": "0.0.4",
     "ramda": "^0.23.0",
     "react": "~15.4.1",
