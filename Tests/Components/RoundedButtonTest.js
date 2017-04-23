@@ -17,10 +17,6 @@ test('component structure', (t) => {
   t.is(wrapper.children().first().name(), 'Text') // that child is Text
 })
 
-test('the text is set properly - uppercase', (t) => {
-  t.is(wrapper.children().first().props().children, 'HOWDY')
-})
-
 test('onPress', (t) => {
   let i = 0 // i guess i could have used sinon here too... less is more i guess
   const onPress = () => i++
