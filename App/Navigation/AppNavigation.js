@@ -24,7 +24,8 @@ const TabNav = TabNavigator({
   headerMode: 'none',
   initialRouteName: 'Schedule',
   tabBarOptions: {
-    style: styles.header,
+    style: styles.tabBar,
+    labelStyle: styles.tabBarLabel,
     activeTintColor: 'white',
     inactiveTintColor: 'white'
   }
