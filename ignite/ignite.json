@@ -9,6 +9,9 @@
     "redux": "ignite-ir-next",
     "saga": "ignite-ir-next",
     "screen": "ignite-ir-next",
-    "video": "ignite-video"
+    "video": "ignite-video",
+    "map": "ignite-maps",
+    "map-utilities": "ignite-maps",
+    "map-callout": "ignite-maps"
   }
 }

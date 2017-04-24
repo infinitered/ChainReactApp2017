@@ -1,7 +1,8 @@
 import React from 'react'
 import MapView from 'react-native-maps'
 import VenueMapCallout from './VenueMapCallout'
-import Styles from './Styles/VenueMapStyles'
+import { Images } from '../Themes'
+// import styles from './Styles/VenueMapStyles'
 
 // Generate this MapHelpers file with `ignite generate map-utilities`
 // You must have Ramda as a dev dependency to use this.
@@ -95,6 +96,7 @@ class VenueMap extends React.Component {
     return (
       <MapView.Marker
         key={location.title}
+        image={Images.markerIcon}
         coordinate={{latitude: location.latitude, longitude: location.longitude}}>
         <VenueMapCallout location={location} onPress={this.calloutPress} />
       </MapView.Marker>
@@ -104,7 +106,7 @@ class VenueMap extends React.Component {
   render () {
     return (
       <MapView
-        style={Styles.map}
+        style={this.props.style}
         initialRegion={this.state.region}
         onRegionChangeComplete={this.onRegionChange}
         showsUserLocation={this.state.showUserLocation}

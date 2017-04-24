@@ -2843,6 +2843,10 @@ ignite-ir-next@^0.0.5:
   dependencies:
     ramda "^0.23.0"
 
+ignite-maps@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/ignite-maps/-/ignite-maps-0.1.2.tgz#9b417215b8483bebd508e8e0823d48a6e0d7b4ef"
+
 ignite-push-notification@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/ignite-push-notification/-/ignite-push-notification-0.0.1.tgz#77318c419d1fd414c852caaeff7a206db8d49e94"
@@ -4595,6 +4599,10 @@ react-native-i18n@^1.0.0:
 react-native-linear-gradient@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.0.0.tgz#7442c00e1fcd9fca329119dcbaf744d12bcd1b5a"
+
+react-native-maps@0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.13.0.tgz#f3d791a06d36d553bcc177514ee52fdea45474c0"
 
 react-native-mock@^0.3.1:
   version "0.3.1"
