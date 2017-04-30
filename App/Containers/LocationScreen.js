@@ -11,8 +11,6 @@ import PurpleGradient from '../Components/PurpleGradient'
 import VenueMap from '../Components/VenueMap'
 import { Images } from '../Themes'
 import { connect } from 'react-redux'
-// Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
 import styles from './Styles/LocationScreenStyle'
 
 class LocationScreen extends React.Component {
@@ -53,7 +51,8 @@ class LocationScreen extends React.Component {
     console.tron.log('open maps app here')
   }
 
-  toggleRides () {
+  toggleRides = () => {
+    this.refs.scrolly.scrollTo({x: 0, y: 180, animated: true})
     this.setState({showRideOptions: !this.state.showRideOptions})
   }
 
@@ -61,7 +60,7 @@ class LocationScreen extends React.Component {
     const { showRideOptions } = this.state
     return (
       <PurpleGradient style={[styles.linearGradient, {flex: 1}]}>
-        <ScrollView>
+        <ScrollView ref='scrolly'>
           <View style={styles.container}>
             <View style={styles.headingContainer}>
               <Text style={styles.mainHeading}>The Armory</Text>
