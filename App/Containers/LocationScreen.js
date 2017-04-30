@@ -14,6 +14,7 @@ import { connect } from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 import styles from './Styles/LocationScreenStyle'
+import ParallaxView from 'react-native-parallax-view'
 
 class LocationScreen extends React.Component {
 
@@ -61,8 +62,10 @@ class LocationScreen extends React.Component {
     const { showRideOptions } = this.state
     return (
       <PurpleGradient style={[styles.linearGradient, {flex: 1}]}>
-        <ScrollView>
-          <View style={styles.container}>
+        <ParallaxView
+          backgroundSource={Images.gradArmory}
+          windowHeight={240}
+          header={(
             <View style={styles.headingContainer}>
               <Text style={styles.mainHeading}>The Armory</Text>
               <Text style={styles.address}>
@@ -70,7 +73,9 @@ class LocationScreen extends React.Component {
                 Portland, OR 97209
               </Text>
             </View>
-            <Image style={styles.venue} source={Images.theArmory} />
+          )}
+        >
+          <View>
             <VenueMap style={styles.map} />
             <View style={styles.mapActions}>
               <TouchableOpacity onPress={() => this.openMaps()}>
@@ -106,7 +111,8 @@ class LocationScreen extends React.Component {
               <Text style={{margin: 20}}>Uber Button Here</Text>
             </View>
           </View>
-        </ScrollView>
+        </ParallaxView>
+
       </PurpleGradient>
     )
   }

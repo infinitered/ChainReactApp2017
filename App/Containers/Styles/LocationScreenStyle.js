@@ -6,7 +6,7 @@ export default StyleSheet.create({
   headingContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 40
+    marginTop: 80
   },
   mainHeading: {
     fontFamily: 'Avenir-Black',
