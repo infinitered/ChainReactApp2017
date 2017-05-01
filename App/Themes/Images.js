@@ -66,7 +66,11 @@ const images = {
   phase19: require('../Images/Icons/sun-phases/phase19.png'),
   phase20: require('../Images/Icons/sun-phases/phase20.png'),
   phase21: require('../Images/Icons/sun-phases/phase21.png'),
-  phase22: require('../Images/Icons/sun-phases/phase22.png')
+  phase22: require('../Images/Icons/sun-phases/phase22.png'),
+  deschutesBrewery: require('../Images/deschutes-brewery.jpg'),
+  littleBigBurger: require('../Images/little-big-burger.jpg'),
+  tastyNAlder: require('../Images/tasty-n-alder.jpg'),
+  fatHeadBrewery: require('../Images/fat-head-brewery.jpg')
 }
 
 export default images

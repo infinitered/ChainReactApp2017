@@ -2,23 +2,67 @@
   "Food": [
     {
       "name": "Deschutes Brewery",
-      "image": "deschutes-brewery.jpg"
+      "image": "deschutesBrewery",
+      "address": "210 NW 11th Ave, Portland, OR 97209"
     },
     {
       "name": "Little Big Burger",
-      "image": "little-big-burger.jpg"
+      "image": "littleBigBurger",
+      "address": "122 NW 10th Ave, Portland, OR 97209"
     },
     {
       "name": "Tasty N' Alder",
-      "image": "tasty-n-alder.jpg"
+      "image": "tastyNAlder",
+      "address": "580 SW 12th Ave, Portland, OR 97205"
     },
     {
       "name": "Fat Head's Brewery",
-      "image": "fat-head-brewery.jpg"
-    },
+      "image": "fatHeadBrewery",
+      "address": "131 NW 13th Ave, Portland, OR 97209"
+    }
   ],
   "Coffee": [
+    {
+      "name": "Fat Head's Brewery",
+      "image": "fatHeadBrewery",
+      "address": "210 NW 11th Ave, Portland, OR 97209"
+    },
+    {
+      "name": "Deschutes Brewery",
+      "image": "deschutesBrewery",
+      "address": "210 NW 11th Ave, Portland, OR 97209"
+    },
+    {
+      "name": "Little Big Burger",
+      "image": "littleBigBurger",
+      "address": "210 NW 11th Ave, Portland, OR 97209"
+    },
+    {
+      "name": "Tasty N' Alder",
+      "image": "tastyNAlder",
+      "address": "210 NW 11th Ave, Portland, OR 97209"
+    }
   ],
   "Sites": [
+    {
+      "name": "Little Big Burger",
+      "image": "littleBigBurger",
+      "address": "210 NW 11th Ave, Portland, OR 97209"
+    },
+    {
+      "name": "Deschutes Brewery",
+      "image": "deschutesBrewery",
+      "address": "210 NW 11th Ave, Portland, OR 97209"
+    },
+    {
+      "name": "Tasty N' Alder",
+      "image": "tastyNAlder",
+      "address": "210 NW 11th Ave, Portland, OR 97209"
+    },
+    {
+      "name": "Fat Head's Brewery",
+      "image": "fatHeadBrewery",
+      "address": "210 NW 11th Ave, Portland, OR 97209"
+    }
   ]
 }

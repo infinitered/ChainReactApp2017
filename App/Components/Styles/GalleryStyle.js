@@ -14,20 +14,18 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: '#FDE5FF',
-    padding: 5,
-    opacity: 0.5
+    borderBottomColor: 'rgba(253,229,255,0.5)',
+    padding: 5
   },
   tabText: {
     fontFamily: 'Avenir-Medium',
     fontSize: 15,
     lineHeight: 23,
     letterSpacing: 0.47,
-    color: '#FDE5FF'
+    color: 'rgba(253,229,255,0.5)'
   },
   activeTab: {
-    borderBottomColor: Colors.snow,
-    opacity: 1
+    borderBottomColor: Colors.snow
   },
   activeTabText: {
     color: Colors.snow
@@ -36,10 +34,11 @@ export default StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'center',
-    justifyContent: 'space-around',
-    paddingTop: 35
+    justifyContent: 'center',
+    paddingVertical: 35
   },
   item: {
+    margin: 5,
     borderWidth: 1,
     borderColor: Colors.snow
   },

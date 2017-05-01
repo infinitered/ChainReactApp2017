@@ -98,6 +98,6 @@ export default StyleSheet.create({
   },
   nearby: {
     alignItems: 'center',
-    paddingVertical: 40
+    paddingTop: 40
   }
 })

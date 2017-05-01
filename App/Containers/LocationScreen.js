@@ -38,10 +38,9 @@ class LocationScreen extends React.Component {
     }
   }
 
-  openMaps () {
-    const daddr = 'daddr=128+NW+Eleventh+Ave+Portland,+OR+97209'
-    const googleMaps = `comgooglemaps://?${daddr}`
-    const appleMaps = `http://maps.apple.com?${daddr}`
+  openMaps (daddr = '128+NW+Eleventh+Ave+Portland,+OR+97209') {
+    const googleMaps = `comgooglemaps://?daddr=${daddr}`
+    const appleMaps = `http://maps.apple.com?daddr=${daddr}`
 
     Linking.canOpenURL(googleMaps).then((supported) => {
       if (supported) {
@@ -149,8 +148,11 @@ class LocationScreen extends React.Component {
               <Text style={styles.mainHeading}>
                 Nearby
               </Text>
-              <Gallery data={require('../Fixtures/nearby.json')} />
             </View>
+            <Gallery
+              data={require('../Fixtures/nearby.json')}
+              onItemPress={(daddr) => this.openMaps(daddr)}
+            />
           </View>
         </ScrollView>
       </PurpleGradient>

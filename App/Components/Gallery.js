@@ -8,7 +8,7 @@ export default class Gallery extends React.Component {
     super(props)
 
     this.state = {
-      activeTab: 'Food'
+      activeTab: Object.keys(props.data)[0]
     }
   }
 
@@ -16,8 +16,8 @@ export default class Gallery extends React.Component {
     this.setState({activeTab: tab})
   }
 
-  renderTab (tab) {
-    const activeTab = 'Food'
+  renderTab = (tab) => {
+    const { activeTab } = this.state
     const isActive = activeTab === tab
     return (
       <TouchableOpacity
@@ -31,18 +31,20 @@ export default class Gallery extends React.Component {
     )
   }
 
-  renderItem (itemData) {
-    const { name } = itemData
+  renderItem = (itemData) => {
+    const { onItemPress } = this.props
+    const { name, image, address } = itemData
+    const daddr = address.replace(/\s/, '+')
     return (
       <TouchableOpacity
         key={name}
         style={styles.item}
-        onPress={() => console.log('get directions')}>
-        <Image source={require('../Images/deschutes-brewery.jpg')} />
+        onPress={() => onItemPress(daddr)}>
+        <Image source={Images[image]} />
         <View style={styles.itemDetail}>
           <Text style={styles.itemTitle}>{name}</Text>
           <Text style={styles.itemAction}>
-            Directions
+            Directions&nbsp;
             <Image source={Images.purpleArrowIcon} />
           </Text>
         </View>
@@ -56,7 +58,7 @@ export default class Gallery extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.tabs}>
-          { Object.keys(data).map(this.renderTab) }
+          { Object.keys(data).map((t) => this.renderTab(t)) }
         </View>
         <View style={styles.gallery}>
           { data[activeTab].map(this.renderItem) }
@@ -67,5 +69,6 @@ export default class Gallery extends React.Component {
 }
 
 Gallery.propTypes = {
-  data: React.PropTypes.object.isRequired
+  data: React.PropTypes.object.isRequired,
+  onItemPress: React.PropTypes.func.isRequired
 }
