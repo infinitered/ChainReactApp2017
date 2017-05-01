@@ -31,6 +31,7 @@ const images = {
   twitterIcon: require('../Images/Icons/icon-twitter-red.png'),
   githubIcon: require('../Images/Icons/icon-github-red.png'),
   arrowIcon: require('../Images/Icons/icon-arrow.png'),
+  purpleArrowIcon: require('../Images/Icons/icon-purple-arrow.png'),
   markerIcon: require('../Images/Icons/icon-marker.png'),
   directionsIcon: require('../Images/Icons/icon-directions.png'),
   chevronIcon: require('../Images/Icons/icon-chevron.png'),

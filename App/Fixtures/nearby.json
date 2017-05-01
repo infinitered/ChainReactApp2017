@@ -1,0 +1,24 @@
+{
+  "Food": [
+    {
+      "name": "Deschutes Brewery",
+      "image": "deschutes-brewery.jpg"
+    },
+    {
+      "name": "Little Big Burger",
+      "image": "little-big-burger.jpg"
+    },
+    {
+      "name": "Tasty N' Alder",
+      "image": "tasty-n-alder.jpg"
+    },
+    {
+      "name": "Fat Head's Brewery",
+      "image": "fat-head-brewery.jpg"
+    },
+  ],
+  "Coffee": [
+  ],
+  "Sites": [
+  ]
+}

@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 import PurpleGradient from '../Components/PurpleGradient'
 import VenueMap from '../Components/VenueMap'
+import Gallery from '../Components/Gallery'
 import { Images } from '../Themes'
 import { connect } from 'react-redux'
 import Secrets from 'react-native-config'
@@ -149,6 +150,7 @@ class LocationScreen extends React.Component {
               <Text style={styles.mainHeading}>
                 Nearby
               </Text>
+              <Gallery data={require('../Fixtures/nearby.json')} />
             </View>
           </View>
         </ScrollView>
