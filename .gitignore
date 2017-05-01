@@ -54,3 +54,6 @@ fastlane/screenshots
 
 # VS Code
 jsconfig.json
+
+# Secrets
+.env
