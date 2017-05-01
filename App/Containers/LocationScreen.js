@@ -13,8 +13,6 @@ import Gallery from '../Components/Gallery'
 import { Images } from '../Themes'
 import { connect } from 'react-redux'
 import Secrets from 'react-native-config'
-// Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
 import styles from './Styles/LocationScreenStyle'
 
 const VENUE_LATITUDE = 45.524166
@@ -90,7 +88,8 @@ class LocationScreen extends React.Component {
     })
   }
 
-  toggleRides () {
+  toggleRides = () => {
+    this.refs.scrolly.scrollTo({x: 0, y: 180, animated: true})
     this.setState({showRideOptions: !this.state.showRideOptions})
   }
 
@@ -98,7 +97,7 @@ class LocationScreen extends React.Component {
     const { showRideOptions } = this.state
     return (
       <PurpleGradient style={[styles.linearGradient, {flex: 1}]}>
-        <ScrollView>
+        <ScrollView ref='scrolly'>
           <View style={styles.container}>
             <View style={styles.headingContainer}>
               <Text style={styles.mainHeading}>The Armory</Text>
