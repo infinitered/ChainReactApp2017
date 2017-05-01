@@ -42,6 +42,8 @@ const images = {
   slack: require('../Images/Icons/icon-slack.png'),
   blowhorn: require('../Images/Icons/icon-blowhorn.png'),
   squarespace: require('../Images/squarespace.png'),
+  uberButton: require('../Images/uber-button.png'),
+  lyftButton: require('../Images/lyft-button.png'),
   phase1: require('../Images/Icons/sun-phases/phase1.png'),
   phase2: require('../Images/Icons/sun-phases/phase2.png'),
   phase3: require('../Images/Icons/sun-phases/phase3.png'),

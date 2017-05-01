@@ -11,9 +11,14 @@ import PurpleGradient from '../Components/PurpleGradient'
 import VenueMap from '../Components/VenueMap'
 import { Images } from '../Themes'
 import { connect } from 'react-redux'
+import Secrets from 'react-native-config'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 import styles from './Styles/LocationScreenStyle'
+
+const VENUE_LATITUDE = 45.524166
+const VENUE_LONGITUDE = -122.681645
+const { UBER_CLIENT_ID } = Secrets
 
 class LocationScreen extends React.Component {
 
@@ -50,7 +55,38 @@ class LocationScreen extends React.Component {
         )
       }
     })
-    console.tron.log('open maps app here')
+  }
+
+  openLyft () {
+    const lat = `destination[latitude]=${VENUE_LATITUDE}`
+    const lng = `destination[longitude]=${VENUE_LONGITUDE}`
+    const lyft = `lyft://ridetype?${lat}&${lng}`
+
+    Linking.canOpenURL(lyft).then((supported) => {
+      if (supported) {
+        Linking.openURL(lyft)
+      } else {
+        window.alert('Unable to open Lyft.')
+      }
+    })
+  }
+
+  openUber () {
+    const pickup = 'action=setPickup&pickup=my_location'
+    const client = `client_id=${UBER_CLIENT_ID}`
+    const lat = `dropoff[latitude]=${VENUE_LATITUDE}`
+    const lng = `dropoff[longitude]=${VENUE_LONGITUDE}`
+    const nick = `dropoff[nickname]=The%20Armory`
+    const daddr = `dropoff[formatted_address]=128%20NW%20Eleventh%20Ave%2C%20Portland%2C%20OR%2097209`
+    const uber = `uber://?${pickup}&${client}&${lat}&${lng}&${nick}&${daddr}`
+
+    Linking.canOpenURL(uber).then((supported) => {
+      if (supported) {
+        Linking.openURL(uber)
+      } else {
+        window.alert('Unable to open Uber.')
+      }
+    })
   }
 
   toggleRides () {
@@ -102,8 +138,17 @@ class LocationScreen extends React.Component {
               </TouchableOpacity>
             </View>
             <View style={[styles.rideOptions, showRideOptions && {height: 200}]}>
-              <Text style={{margin: 20}}>Lyft Button Here</Text>
-              <Text style={{margin: 20}}>Uber Button Here</Text>
+              <TouchableOpacity onPress={() => this.openLyft()}>
+                <Image source={Images.lyftButton} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.openUber()}>
+                <Image source={Images.uberButton} />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.nearby}>
+              <Text style={styles.mainHeading}>
+                Nearby
+              </Text>
             </View>
           </View>
         </ScrollView>

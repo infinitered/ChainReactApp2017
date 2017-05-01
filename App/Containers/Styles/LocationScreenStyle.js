@@ -80,7 +80,10 @@ export default StyleSheet.create({
     marginHorizontal: 10
   },
   rideOptions: {
+    alignItems: 'center',
+    justifyContent: 'space-around',
     height: 0,
+    overflow: 'hidden',
     backgroundColor: '#EDEDED',
     shadowColor: '#C1C1C1',
     shadowOffset: {
@@ -92,5 +95,9 @@ export default StyleSheet.create({
     transform: [{
       rotate: '180 deg'
     }]
+  },
+  nearby: {
+    alignItems: 'center',
+    paddingVertical: 40
   }
 })
