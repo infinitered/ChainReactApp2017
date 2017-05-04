@@ -33,18 +33,17 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            new MapsPackage(),
-            new RNCrashesPackage(MainApplication.this, getResources().getString(R.string.mobileCenterCrashes_whenToSendCrashes)),
-            new RNAnalyticsPackage(MainApplication.this, getResources().getString(R.string.mobileCenterAnalytics_whenToEnableAnalytics)),
-            new ReactVideoPackage(),
-            new ReactNativePushNotificationPackage(),
-            new LinearGradientPackage(),
-            new MapsPackage(),
-            new ReactNativeI18n(),
-            new VectorIconsPackage(),
-            new RNDeviceInfo(),
-            new ReactNativeConfigPackage()
+        new MainReactPackage(),
+        new MapsPackage(),
+        new RNCrashesPackage(MainApplication.this, getResources().getString(R.string.mobileCenterCrashes_whenToSendCrashes)),
+        new RNAnalyticsPackage(MainApplication.this, getResources().getString(R.string.mobileCenterAnalytics_whenToEnableAnalytics)),
+        new ReactVideoPackage(),
+        new ReactNativePushNotificationPackage(),
+        new LinearGradientPackage(),
+        new ReactNativeI18n(),
+        new VectorIconsPackage(),
+        new RNDeviceInfo(),
+        new ReactNativeConfigPackage()
       );
     }
   };
