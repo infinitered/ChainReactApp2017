@@ -95,20 +95,20 @@ class LocationScreen extends React.Component {
   }
 
   renderBackground = () => {
-    const windowHeight = 314
+    const height = 314
     const { scrollY } = this.state
     return (
       <Animated.Image
         style={[styles.venue, {position: 'absolute'}, {
-          height: windowHeight,
+          height: height,
           transform: [{
             translateY: scrollY.interpolate({
-              inputRange: [-windowHeight, 0, windowHeight],
-              outputRange: [windowHeight, 0, 0]
+              inputRange: [-height, 0, height],
+              outputRange: [height, 0, 0]
             })
           }, {
             scale: scrollY.interpolate({
-              inputRange: [-windowHeight, 0, windowHeight],
+              inputRange: [-height, 0, height],
               outputRange: [0.9, 1, 1.5]
             })
           }]
@@ -118,21 +118,21 @@ class LocationScreen extends React.Component {
   }
 
   renderHeader = () => {
-    const windowHeight = 314
+    const height = 314
     const { scrollY } = this.state
     return (
       <Animated.View style={{
         position: 'relative',
-        height: windowHeight,
+        height: height,
         padding: 0,
         opacity: scrollY.interpolate({
-          inputRange: [-windowHeight, 0, windowHeight * 0.4, windowHeight * 0.9],
+          inputRange: [-height, 0, height * 0.4, height * 0.9],
           outputRange: [1, 1, 1, 0]
         }),
         transform: [{
           translateY: scrollY.interpolate({
-            inputRange: [-windowHeight, 0, windowHeight * 0.45, windowHeight],
-            outputRange: [0, 0, windowHeight * 0.45, windowHeight * 0.4]
+            inputRange: [-height, 0, height * 0.45, height],
+            outputRange: [0, 0, height * 0.45, height * 0.4]
           })
         }]
       }}>
