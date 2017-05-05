@@ -5,7 +5,8 @@ import {
   View,
   Image,
   Text,
-  Linking
+  Linking,
+  Animated
 } from 'react-native'
 import PurpleGradient from '../Components/PurpleGradient'
 import VenueMap from '../Components/VenueMap'
@@ -25,7 +26,8 @@ class LocationScreen extends React.Component {
     super(props)
 
     this.state = {
-      showRideOptions: false
+      showRideOptions: false,
+      scrollY: new Animated.Value(0)
     }
   }
 
@@ -92,20 +94,71 @@ class LocationScreen extends React.Component {
     this.setState({showRideOptions: !this.state.showRideOptions})
   }
 
+  renderBackground = () => {
+    const height = 314
+    const { scrollY } = this.state
+    return (
+      <Animated.Image
+        style={[styles.venue, {position: 'absolute'}, {
+          height: height,
+          transform: [{
+            translateY: scrollY.interpolate({
+              inputRange: [-height, 0, height],
+              outputRange: [height, 0, 0]
+            })
+          }, {
+            scale: scrollY.interpolate({
+              inputRange: [-height, 0, height],
+              outputRange: [0.9, 1, 1.5]
+            })
+          }]
+        }]}
+        source={Images.theArmory} />
+    )
+  }
+
+  renderHeader = () => {
+    const height = 314
+    const { scrollY } = this.state
+    return (
+      <Animated.View style={{
+        position: 'relative',
+        height: height,
+        padding: 0,
+        opacity: scrollY.interpolate({
+          inputRange: [-height, 0, height * 0.4, height * 0.9],
+          outputRange: [1, 1, 1, 0]
+        }),
+        transform: [{
+          translateY: scrollY.interpolate({
+            inputRange: [-height, 0, height * 0.45, height],
+            outputRange: [0, 0, height * 0.45, height * 0.4]
+          })
+        }]
+      }}>
+        <View style={styles.headingContainer}>
+          <Text style={styles.mainHeading}>The Armory</Text>
+          <Text style={styles.address}>
+            128 NW Eleventh Ave{'\n'}
+            Portland, OR 97209
+          </Text>
+        </View>
+      </Animated.View>
+    )
+  }
+
   render () {
     const { showRideOptions } = this.state
+    const { event } = Animated
     return (
       <PurpleGradient style={[styles.linearGradient, {flex: 1}]}>
-        <ScrollView ref='scrolly'>
+        <ScrollView
+          ref='scrolly'
+          onScroll={event([{nativeEvent: {contentOffset: {y: this.state.scrollY}}}])}
+          scrollEventThrottle={32}>
           <View style={styles.container}>
-            <View style={styles.headingContainer}>
-              <Text style={styles.mainHeading}>The Armory</Text>
-              <Text style={styles.address}>
-                128 NW Eleventh Ave{'\n'}
-                Portland, OR 97209
-              </Text>
-            </View>
-            <Image style={styles.venue} source={Images.theArmory} />
+            {this.renderBackground()}
+            {this.renderHeader()}
             <VenueMap style={styles.map} />
             <View style={styles.mapActions}>
               <TouchableOpacity onPress={() => this.openMaps()}>

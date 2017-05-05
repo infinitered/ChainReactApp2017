@@ -40,6 +40,7 @@ const images = {
   lunch: require('../Images/bg-lunch.png'),
   sponsor: require('../Images/sponsor.png'),
   theArmory: require('../Images/the-armory.png'),
+  gradArmory: require('../Images/grad_armory.png'),
   slack: require('../Images/Icons/icon-slack.png'),
   blowhorn: require('../Images/Icons/icon-blowhorn.png'),
   squarespace: require('../Images/squarespace.png'),

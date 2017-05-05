@@ -21,6 +21,8 @@ const TabNav = TabNavigator({
   Location: { screen: LocationScreen },
   About: { screen: AboutScreen }
 }, {
+  animationEnabled: true,
+  swipeEnabled: true,
   headerMode: 'none',
   initialRouteName: 'Schedule',
   tabBarOptions: {

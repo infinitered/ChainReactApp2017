@@ -15,7 +15,6 @@ export default StyleSheet.create({
     color: Colors.snow
   },
   address: {
-    marginBottom: 30,
     fontFamily: 'Avenir-Medium',
     fontSize: 15,
     letterSpacing: 0.47,
