@@ -106,15 +106,14 @@ class LocationScreen extends React.Component {
               inputRange: [-windowHeight, 0, windowHeight],
               outputRange: [windowHeight, 0, 0]
             })
-          },{
+          }, {
             scale: scrollY.interpolate({
               inputRange: [-windowHeight, 0, windowHeight],
               outputRange: [0.9, 1, 1.5]
             })
           }]
         }]}
-        source={Images.theArmory}>
-      </Animated.Image>
+        source={Images.theArmory} />
     )
   }
 
@@ -145,7 +144,7 @@ class LocationScreen extends React.Component {
           </Text>
         </View>
       </Animated.View>
-    );
+    )
   }
 
   render () {
