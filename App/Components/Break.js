@@ -41,7 +41,7 @@ export default class Break extends Component {
             </View>
             <View style={styles.sponsor}>
               <Image source={Images.sponsor} />
-              <Text style={styles.sponsorText}>SPONSOR</Text>
+              <Text style={styles.sponsorText}>by Qlik Playground</Text>
             </View>
           </View>
         </View>
