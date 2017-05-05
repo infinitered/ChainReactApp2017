@@ -1,9 +1,7 @@
 # OSX
-#
 .DS_Store
 
 # Xcode
-#
 build/
 *.pbxuser
 !default.pbxuser
@@ -22,8 +20,10 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
+# Cocoapods
+ios/Pods/
+
 # Android/IntelliJ
-#
 build/
 .idea
 .gradle
@@ -31,7 +31,6 @@ local.properties
 *.iml
 
 # node.js
-#
 node_modules/
 npm-debug.log
 yarn-error.log
@@ -54,3 +53,6 @@ fastlane/screenshots
 
 # VS Code
 jsconfig.json
+
+# Secrets
+.env

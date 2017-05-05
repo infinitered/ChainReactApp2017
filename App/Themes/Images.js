@@ -31,6 +31,7 @@ const images = {
   twitterIcon: require('../Images/Icons/icon-twitter-red.png'),
   githubIcon: require('../Images/Icons/icon-github-red.png'),
   arrowIcon: require('../Images/Icons/icon-arrow.png'),
+  purpleArrowIcon: require('../Images/Icons/icon-purple-arrow.png'),
   markerIcon: require('../Images/Icons/icon-marker.png'),
   directionsIcon: require('../Images/Icons/icon-directions.png'),
   chevronIcon: require('../Images/Icons/icon-chevron.png'),
@@ -43,6 +44,8 @@ const images = {
   slack: require('../Images/Icons/icon-slack.png'),
   blowhorn: require('../Images/Icons/icon-blowhorn.png'),
   squarespace: require('../Images/squarespace.png'),
+  uberButton: require('../Images/uber-button.png'),
+  lyftButton: require('../Images/lyft-button.png'),
   phase1: require('../Images/Icons/sun-phases/phase1.png'),
   phase2: require('../Images/Icons/sun-phases/phase2.png'),
   phase3: require('../Images/Icons/sun-phases/phase3.png'),
@@ -64,7 +67,11 @@ const images = {
   phase19: require('../Images/Icons/sun-phases/phase19.png'),
   phase20: require('../Images/Icons/sun-phases/phase20.png'),
   phase21: require('../Images/Icons/sun-phases/phase21.png'),
-  phase22: require('../Images/Icons/sun-phases/phase22.png')
+  phase22: require('../Images/Icons/sun-phases/phase22.png'),
+  deschutesBrewery: require('../Images/deschutes-brewery.jpg'),
+  littleBigBurger: require('../Images/little-big-burger.jpg'),
+  tastyNAlder: require('../Images/tasty-n-alder.jpg'),
+  fatHeadBrewery: require('../Images/fat-head-brewery.jpg')
 }
 
 export default images

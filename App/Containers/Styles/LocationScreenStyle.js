@@ -6,7 +6,7 @@ export default StyleSheet.create({
   headingContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 80
+    marginTop: 40
   },
   mainHeading: {
     fontFamily: 'Avenir-Black',
@@ -15,7 +15,6 @@ export default StyleSheet.create({
     color: Colors.snow
   },
   address: {
-    marginBottom: 30,
     fontFamily: 'Avenir-Medium',
     fontSize: 15,
     letterSpacing: 0.47,
@@ -80,7 +79,10 @@ export default StyleSheet.create({
     marginHorizontal: 10
   },
   rideOptions: {
+    alignItems: 'center',
+    justifyContent: 'space-around',
     height: 0,
+    overflow: 'hidden',
     backgroundColor: '#EDEDED',
     shadowColor: '#C1C1C1',
     shadowOffset: {
@@ -92,5 +94,9 @@ export default StyleSheet.create({
     transform: [{
       rotate: '180 deg'
     }]
+  },
+  nearby: {
+    alignItems: 'center',
+    paddingTop: 40
   }
 })
