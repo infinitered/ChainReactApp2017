@@ -43,7 +43,7 @@
     "react-native-push-notification": "^2.2.1",
     "react-native-vector-icons": "^4.0.1",
     "react-native-video": "^1.0.0",
-    "react-navigation": "^1.0.0-beta.7",
+    "react-navigation": "^1.0.0-beta.9",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
     "redux-persist": "^4.1.0",

@@ -32,12 +32,10 @@ class LocationScreen extends React.Component {
   }
 
   static navigationOptions = {
-    tabBar: {
-      label: 'Location',
-      icon: ({ focused }) => (
-        <Image source={focused ? Images.activeLocationIcon : Images.inactiveLocationIcon} />
-      )
-    }
+    tabBarLabel: 'Location',
+    tabBarIcon: ({ focused }) => (
+      <Image source={focused ? Images.activeLocationIcon : Images.inactiveLocationIcon} />
+    )
   }
 
   openMaps (daddr = '128+NW+Eleventh+Ave+Portland,+OR+97209') {

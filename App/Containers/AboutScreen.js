@@ -21,12 +21,10 @@ import styles from './Styles/AboutScreenStyle'
 class AboutScreen extends React.Component {
 
   static navigationOptions = {
-    tabBar: {
-      label: 'General Info',
-      icon: ({ focused }) => (
-        <Image source={focused ? Images.activeInfoIcon : Images.inactiveInfoIcon} />
-      )
-    }
+    tabBarLabel: 'General Info',
+    tabBarIcon: ({ focused }) => (
+      <Image source={focused ? Images.activeInfoIcon : Images.inactiveInfoIcon} />
+    )
   }
 
   tweetWithHashtag () {

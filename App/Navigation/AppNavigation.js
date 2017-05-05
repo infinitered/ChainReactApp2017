@@ -1,4 +1,4 @@
-import { StackNavigator, TabNavigator } from 'react-navigation'
+import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'
 import ScheduleScreen from '../Containers/ScheduleScreen'
 import TalkDetailScreen from '../Containers/TalkDetailScreen'
 import BreakDetailScreen from '../Containers/BreakDetailScreen'
@@ -21,6 +21,8 @@ const TabNav = TabNavigator({
   Location: { screen: LocationScreen },
   About: { screen: AboutScreen }
 }, {
+  tabBarComponent: TabBarBottom,
+  tabBarPosition: 'bottom',
   animationEnabled: true,
   swipeEnabled: true,
   headerMode: 'none',

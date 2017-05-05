@@ -63,12 +63,10 @@ class ScheduleScreen extends React.Component {
   }
 
   static navigationOptions = {
-    tabBar: {
-      label: 'Schedule',
-      icon: ({ focused }) => (
-        <Image source={focused ? Images.activeScheduleIcon : Images.inactiveScheduleIcon} />
-      )
-    }
+    tabBarLabel: 'Schedule',
+    tabBarIcon: ({ focused }) => (
+      <Image source={focused ? Images.activeScheduleIcon : Images.inactiveScheduleIcon} />
+    )
   }
 
   onEventPress = (rowData) => {
