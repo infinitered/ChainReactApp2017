@@ -4953,7 +4953,13 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
-redux-persist@^4.1.0:
+redux-offline@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/redux-offline/-/redux-offline-2.0.0.tgz#5896e95477417c8173e083f4f2d977466ec91808"
+  dependencies:
+    redux-persist "^4.5.0"
+
+redux-persist@^4.1.0, redux-persist@^4.5.0:
   version "4.8.0"
   resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-4.8.0.tgz#17fd998949bdeef9275e4cf60ad5bbe1c73675fc"
   dependencies:

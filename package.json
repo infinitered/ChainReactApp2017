@@ -46,6 +46,7 @@
     "react-navigation": "^1.0.0-beta.9",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
+    "redux-offline": "^2.0.0",
     "redux-persist": "^4.1.0",
     "redux-saga": "^0.14.3",
     "reduxsauce": "0.4.1",
