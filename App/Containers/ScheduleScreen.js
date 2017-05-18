@@ -30,7 +30,6 @@ class ScheduleScreen extends React.Component {
   constructor (props) {
     super(props)
 
-    const { schedule } = require('../Fixtures/schedule.json')
     const mergeTimes = (e) => {
       const eventDuration = Number(e.duration)
       const eventStart = new Date(e.time)
@@ -38,7 +37,7 @@ class ScheduleScreen extends React.Component {
 
       return merge(e, { eventStart, eventEnd, eventDuration })
     }
-    const sorted = schedule.map(mergeTimes).sort((a, b) => {
+    const sorted = [...this.props.schedule].map(mergeTimes).sort((a, b) => {
       return compareAsc(a.eventStart, b.eventStart)
     })
     const eventsByDay = groupWith((a, b) => isSameDay(a.eventStart, b.eventStart), sorted)
@@ -190,7 +189,8 @@ class ScheduleScreen extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    currentTime: new Date(state.schedule.currentTime)
+    currentTime: new Date(state.schedule.currentTime),
+    schedule: state.schedule.speakerSchedule
   }
 }
 
