@@ -12,10 +12,7 @@ import styles from './Styles/APITestingScreenStyles'
 
 // API buttons here:
 const endpoints = [
-  { label: 'Github Root', endpoint: 'getRoot' },
-  { label: 'Github Rate Limit', endpoint: 'getRate' },
-  { label: 'Search User (gantman)', endpoint: 'getUser', args: ['gantman'] },
-  { label: 'Search User (skellock)', endpoint: 'getUser', args: ['skellock'] }
+  { label: 'Get Speakers', endpoint: 'getSpeakers' }
 ]
 
 export default class APITestingScreen extends React.Component {

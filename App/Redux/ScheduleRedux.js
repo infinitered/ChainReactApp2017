@@ -11,7 +11,9 @@ const { Types, Creators } = createActions({
   lockCurrentTime: ['time'],
   unlockCurrentTime: null,
   setSelectedEvent: ['event'],
-  clearSelectedEvent: null
+  clearSelectedEvent: null,
+  updateSpeakerSchedule: ['schedule'],
+  getScheduleUpdates: null,
 })
 
 export const ScheduleTypes = Types
@@ -29,7 +31,8 @@ export const INITIAL_STATE = Immutable({
   currentTime: initialTime,
   ignoreUpdates: false,
   selectedTalk: null,
-  selectedBreak: null
+  selectedBreak: null,
+  speakerSchedule: require('../Fixtures/schedule.json').schedule
 })
 
 /* ------------- Reducers ------------- */
@@ -54,6 +57,11 @@ export const unlockCurrentTime = (state) => {
   return state.merge({ ignoreUpdates: false })
 }
 
+// Store API
+export const updateSpeakerSchedule = (state, { schedule }) => {
+  return state.merge({ speakerSchedule: schedule })
+}
+
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
@@ -61,5 +69,6 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.LOCK_CURRENT_TIME]: lockCurrentTime,
   [Types.UNLOCK_CURRENT_TIME]: unlockCurrentTime,
   [Types.SET_SELECTED_EVENT]: setSelectedEvent,
-  [Types.CLEAR_SELECTED_EVENT]: clearSelectedEvent
+  [Types.CLEAR_SELECTED_EVENT]: clearSelectedEvent,
+  [Types.UPDATE_SPEAKER_SCHEDULE]: updateSpeakerSchedule
 })
