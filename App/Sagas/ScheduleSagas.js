@@ -17,16 +17,12 @@ const getCurrentTime = () => {
   }
 }
 
-function* handleUpdate (time) {
-  yield put(ScheduleActions.updateCurrentTime(time))
-}
-
 export function* trackCurrentTime () {
   let time = yield getCurrentTime()
-  yield fork(handleUpdate, time)
+  yield put(ScheduleActions.updateCurrentTime(time))
   while (true) {
     yield call(delay, updateDelay)
     time = yield getCurrentTime()
-    yield fork(handleUpdate, time)
+    yield put(ScheduleActions.updateCurrentTime(time))
   }
 }
