@@ -1,4 +1,4 @@
-import { call, put, fork } from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
 import ScheduleActions from '../Redux/ScheduleRedux'
 import DebugConfig from '../Config/DebugConfig'
@@ -17,16 +17,12 @@ const getCurrentTime = () => {
   }
 }
 
-function* handleUpdate (time) {
-  yield put(ScheduleActions.updateCurrentTime(time))
-}
-
 export function* trackCurrentTime () {
   let time = yield getCurrentTime()
-  yield fork(handleUpdate, time)
+  yield put(ScheduleActions.updateCurrentTime(time))
   while (true) {
     yield call(delay, updateDelay)
     time = yield getCurrentTime()
-    yield fork(handleUpdate, time)
+    yield put(ScheduleActions.updateCurrentTime(time))
   }
 }

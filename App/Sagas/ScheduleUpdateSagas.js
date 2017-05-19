@@ -7,11 +7,11 @@ const updateDelay = 15 * 60 * 1000
 
 export function* getScheduleUpdates (api, action) {
   let response = yield call(api.getSpeakers)
-  if (response.ok) yield put(ScheduleActions.updateSpeakerSchedule(response.data.schedule))
+  if (response.ok) yield put(ScheduleActions.updateSchedule(response.data.schedule))
   // and every updateDelay after
   while (true) {
     yield call(delay, updateDelay)
     response = yield call(api.getSpeakers)
-    if (response.ok) yield put(ScheduleActions.updateSpeakerSchedule(response.data.schedule))
+    if (response.ok) yield put(ScheduleActions.updateSchedule(response.data.schedule))
   }
 }
