@@ -12,7 +12,7 @@ const { Types, Creators } = createActions({
   unlockCurrentTime: null,
   setSelectedEvent: ['event'],
   clearSelectedEvent: null,
-  updateSpeakerSchedule: ['schedule'],
+  updateSchedule: ['schedule'],
   getScheduleUpdates: null
 })
 
@@ -58,7 +58,7 @@ export const unlockCurrentTime = (state) => {
 }
 
 // Store API
-export const updateSpeakerSchedule = (state, { schedule }) => {
+export const updateSchedule = (state, { schedule }) => {
   return state.merge({ speakerSchedule: schedule })
 }
 
@@ -70,5 +70,5 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.UNLOCK_CURRENT_TIME]: unlockCurrentTime,
   [Types.SET_SELECTED_EVENT]: setSelectedEvent,
   [Types.CLEAR_SELECTED_EVENT]: clearSelectedEvent,
-  [Types.UPDATE_SPEAKER_SCHEDULE]: updateSpeakerSchedule
+  [Types.UPDATE_SCHEDULE]: updateSchedule
 })
