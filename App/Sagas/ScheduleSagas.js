@@ -1,4 +1,4 @@
-import { call, put, fork } from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
 import ScheduleActions from '../Redux/ScheduleRedux'
 import DebugConfig from '../Config/DebugConfig'
