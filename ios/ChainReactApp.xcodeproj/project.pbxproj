@@ -151,6 +151,13 @@
 			remoteGlobalIDString = 5419C2701D824AA700DDF3A1;
 			remoteInfo = RNCrashes;
 		};
+		383B2B3C1ED10F490076C8A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 780AA29F94CE4A6CA2045DAC /* RNVectorIcons.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A39873CE1EA65EE60051E01A;
+			remoteInfo = "RNVectorIcons-tvOS";
+		};
 		3DAD3E831DF850E9000B6D8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */;
@@ -693,6 +700,7 @@
 			isa = PBXGroup;
 			children = (
 				920A08D61E9AEE2700647CBF /* libRNVectorIcons.a */,
+				383B2B3D1ED10F490076C8A8 /* libRNVectorIcons-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1093,6 +1101,13 @@
 			fileType = archive.ar;
 			path = libRNCrashes.a;
 			remoteRef = 382332AE1EAA22E8001D6312 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		383B2B3D1ED10F490076C8A8 /* libRNVectorIcons-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNVectorIcons-tvOS.a";
+			remoteRef = 383B2B3C1ED10F490076C8A8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */ = {
@@ -1709,7 +1724,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = infinitered.stage2.ChainReactApp;
+				PRODUCT_BUNDLE_IDENTIFIER = infinitered.stage.ChainReactConf;
 				PRODUCT_NAME = ChainReactApp;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1743,7 +1758,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = infinitered.stage2.ChainReactApp;
+				PRODUCT_BUNDLE_IDENTIFIER = infinitered.stage.ChainReactConf;
 				PRODUCT_NAME = ChainReactApp;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

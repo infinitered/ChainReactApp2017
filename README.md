@@ -63,3 +63,24 @@ Secrets.GOOGLE_MAPS_API_KEY  // 'abcdefgh'
 
 The `.env` file is ignored by git keeping those secrets out of your repo.
 
+### Match Info
+
++---------------------+---------------------------------------+---------------------------------------+
+|                                   Installed Provisioning Profile                                    |
++---------------------+---------------------------------------+---------------------------------------+
+| Parameter           | Environment Variable                  | Value                                 |
++---------------------+---------------------------------------+---------------------------------------+
+| App Identifier      |                                       | infinitered.stage.ChainReactConf      |
+| Type                |                                       | appstore                              |
+| Platform            |                                       | ios                                   |
+| Profile UUID        | sigh_infinitered.stage.ChainReactCon  | d1ed2554-88a9-4a2b-9b71-e494ab497beb  |
+|                     | f_appstore                            |                                       |
+| Profile Name        | sigh_infinitered.stage.ChainReactCon  | match AppStore                        |
+|                     | f_appstore_profile-name               | infinitered.stage.ChainReactConf      |
+| Profile Path        | sigh_infinitered.stage.ChainReactCon  | /Users/gantman/Library/MobileDevice/  |
+|                     | f_appstore_profile-path               | Provisioning                          |
+|                     |                                       | Profiles/d1ed2554-88a9-4a2b-9b71-e49  |
+|                     |                                       | 4ab497beb.mobileprovision             |
+| Development Team ID | sigh_infinitered.stage.ChainReactCon  | L7YNDPLSEB                            |
+|                     | f_appstore_team-id                    |                                       |
++---------------------+---------------------------------------+---------------------------------------+
