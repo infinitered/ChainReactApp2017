@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.004743">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.003177">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: cocoapods" time="3.814531">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: increment_build_number" time="1.564568">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: gym" time="109.975873">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: pilot" time="209.418025">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>
