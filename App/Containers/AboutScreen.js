@@ -82,7 +82,7 @@ class AboutScreen extends React.Component {
                 <TouchableOpacity
                   style={styles.sponsor}
                   onPress={() => Linking.openURL('https://www.squarespace.com/')}>
-                  <Image source={Images.squarespace} />
+                  <Image source={Images.squarespaceSponsor} />
                 </TouchableOpacity>
               </View>
 
@@ -90,18 +90,18 @@ class AboutScreen extends React.Component {
               <View style={styles.sponsorTier}>
                 <TouchableOpacity
                   style={styles.sponsor}
-                  onPress={() => Linking.openURL('https://www.squarespace.com/')}>
-                  <Image source={Images.squarespace} />
+                  onPress={() => Linking.openURL('https://nativebase.io/')}>
+                  <Image style={styles.goldSponsor} source={Images.nativeBaseSponsor} />
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.sponsor}
-                  onPress={() => Linking.openURL('https://www.squarespace.com/')}>
-                  <Image source={Images.squarespace} />
+                  onPress={() => Linking.openURL('https://formidable.com/')}>
+                  <Image style={styles.goldSponsor} source={Images.formidableSponsor} />
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.sponsor}
-                  onPress={() => Linking.openURL('https://www.squarespace.com/')}>
-                  <Image source={Images.squarespace} />
+                  onPress={() => Linking.openURL('https://moduscreate.com/')}>
+                  <Image style={styles.goldSponsor} source={Images.modusSponsor} />
                 </TouchableOpacity>
               </View>
 
@@ -109,18 +109,23 @@ class AboutScreen extends React.Component {
               <View style={styles.sponsorTier}>
                 <TouchableOpacity
                   style={styles.sponsor}
-                  onPress={() => Linking.openURL('https://www.squarespace.com/')}>
-                  <Image source={Images.squarespace} />
+                  onPress={() => Linking.openURL('https://aws.amazon.com/')}>
+                  <Image source={Images.amazonSponsor} />
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.sponsor}
-                  onPress={() => Linking.openURL('https://www.squarespace.com/')}>
-                  <Image source={Images.squarespace} />
+                  onPress={() => Linking.openURL('http://reactnative.training/')}>
+                  <Image source={Images.trainingSponsor} />
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.sponsor}
-                  onPress={() => Linking.openURL('https://www.squarespace.com/')}>
-                  <Image source={Images.squarespace} />
+                  onPress={() => Linking.openURL('https://gudog.co.uk/')}>
+                  <Image source={Images.gudogSponsor} />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.sponsor}
+                  onPress={() => Linking.openURL('https://rangle.io/')}>
+                  <Image source={Images.rangleSponsor} />
                 </TouchableOpacity>
               </View>
 
@@ -128,18 +133,33 @@ class AboutScreen extends React.Component {
               <View style={styles.sponsorTier}>
                 <TouchableOpacity
                   style={styles.sponsor}
-                  onPress={() => Linking.openURL('https://www.squarespace.com/')}>
-                  <Image source={Images.squarespace} />
+                  onPress={() => Linking.openURL('https://echobind.com/')}>
+                  <Image source={Images.echobindSponsor} />
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.sponsor}
-                  onPress={() => Linking.openURL('https://www.squarespace.com/')}>
-                  <Image source={Images.squarespace} />
+                  onPress={() => Linking.openURL('https://www.salesforce.com/')}>
+                  <Image source={Images.salesforceSponsor} />
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.sponsor}
-                  onPress={() => Linking.openURL('https://www.squarespace.com/')}>
-                  <Image source={Images.squarespace} />
+                  onPress={() => Linking.openURL('https://www.capitalone.com/')}>
+                  <Image source={Images.capitalOneSponsor} />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.sponsor}
+                  onPress={() => Linking.openURL('https://www.instrument.com/')}>
+                  <Image source={Images.instrumentSponsor} />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.sponsor}
+                  onPress={() => Linking.openURL('https://www.paypal.com/us/home')}>
+                  <Image source={Images.paypalSponsor} />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.sponsor}
+                  onPress={() => Linking.openURL('http://www.qlik.com/us/')}>
+                  <Image source={Images.qlikSponsor} />
                 </TouchableOpacity>
               </View>
 

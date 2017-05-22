@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { ApplicationStyles, Colors } from '../../Themes/'
+import { ApplicationStyles, Colors, Metrics } from '../../Themes/'
 
 const section = {
   flex: 1,
@@ -65,9 +65,15 @@ export default StyleSheet.create({
   sponsorTier: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    width: Metrics.screenWidth,
+    flexWrap: 'wrap'
   },
   sponsor: {
-    marginHorizontal: 15
+    margin: 15,
+    flexShrink: 0
+  },
+  goldSponsor: {
+
   }
 })

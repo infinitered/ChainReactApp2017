@@ -1,5 +1,21 @@
 // leave off @2x/@3x
 const images = {
+  // sponsors
+  amazonSponsor: require('../Images/sponsors/img-sponsor-amazon web services.png'),
+  capitalOneSponsor: require('../Images/sponsors/img-sponsor-capital-one.png'),
+  echobindSponsor: require('../Images/sponsors/img-sponsor-echobind.png'),
+  formidableSponsor: require('../Images/sponsors/img-sponsor-formidable.png'),
+  gudogSponsor: require('../Images/sponsors/img-sponsor-gudog.png'),
+  instrumentSponsor: require('../Images/sponsors/img-sponsor-instrument.png'),
+  modusSponsor: require('../Images/sponsors/img-sponsor-modus-create.png'),
+  nativeBaseSponsor: require('../Images/sponsors/img-sponsor-native base.png'),
+  paypalSponsor: require('../Images/sponsors/img-sponsor-paypal.png'),
+  qlikSponsor: require('../Images/sponsors/img-sponsor-qlik-coffee.png'),
+  rangleSponsor: require('../Images/sponsors/img-sponsor-rangle.io.png'),
+  trainingSponsor: require('../Images/sponsors/img-sponsor-react native training.png'),
+  salesforceSponsor: require('../Images/sponsors/img-sponsor-salesforce.png'),
+  squarespaceSponsor: require('../Images/sponsors/img-sponsor-squarespace.png'),
+  // app stuff
   logo: require('../Images/ir.png'),
   clearLogo: require('../Images/top_logo.png'),
   launch: require('../Images/launch-icon.png'),
