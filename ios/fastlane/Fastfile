@@ -36,8 +36,8 @@ platform :ios do
   desc "This will also make sure the profile is up to date"
   lane :beta do
 
-    fancy_sign "Would you like to add a Changelog?  Empty for NO"
-    changelog = `read changelog; echo $changelog`.chomp
+    # fancy_sign "Would you like to add a Changelog?  Empty for NO"
+    # changelog = `read changelog; echo $changelog`.chomp
 
     increment_build_number(
       xcodeproj: "./ChainReactApp.xcodeproj"
