@@ -11,12 +11,10 @@ import styles from './Styles/BreakDetailScreenStyle'
 class BreakDetail extends React.Component {
 
   static navigationOptions = {
-    tabBar: {
-      label: 'Schedule',
-      icon: ({ focused }) => (
-        <Image source={focused ? Images.activeScheduleIcon : Images.inactiveScheduleIcon} />
-      )
-    }
+    tabBarLabel: 'Schedule',
+    tabBarIcon: ({ focused }) => (
+      <Image source={focused ? Images.activeScheduleIcon : Images.inactiveScheduleIcon} />
+    )
   }
 
   goBack = () => {
