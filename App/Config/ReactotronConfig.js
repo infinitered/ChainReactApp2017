@@ -54,6 +54,7 @@ if (Config.useReactotron) {
 } else {
   // a mock version should you decide to leave console.tron in your codebase
   console.tron = {
+    overlay: (app) => app,
     log: () => false,
     warn: () => false,
     error: () => false,

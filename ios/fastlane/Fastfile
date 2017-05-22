@@ -46,11 +46,11 @@ platform :ios do
     # match(type: "appstore") # more information: https://codesigning.guide
     gym(scheme: "ChainReactApp") # Build your app - more options available
 
-    if changelog.empty?
+    # if changelog.empty?
       pilot
-    else
-      pilot(changelog: changelog)
-    end
+    # else
+      # pilot(changelog: changelog)
+    # end
 
     # sh "your_script.sh"
     # You can also use other beta testing services here (run `fastlane actions`)
