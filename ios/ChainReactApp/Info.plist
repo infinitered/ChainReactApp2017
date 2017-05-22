@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<string>NO</string>
 	<key>CFBundleDisplayName</key>
 	<string>ChainReactApp</string>
 	<key>CFBundleExecutable</key>
