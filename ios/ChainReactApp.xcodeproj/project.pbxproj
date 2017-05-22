@@ -1702,7 +1702,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ChainReactApp/ChainReactApp.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 7;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = L7YNDPLSEB;
@@ -1729,8 +1729,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = infinitered.stage.ChainReactConf;
 				PRODUCT_NAME = ChainReactApp;
-				PROVISIONING_PROFILE = "d1ed2554-88a9-4a2b-9b71-e494ab497beb";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore infinitered.stage.ChainReactConf";
+				PROVISIONING_PROFILE = "eaf50bb6-9662-4841-a93e-56074edd032b";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development infinitered.stage.ChainReactConf 1495468456";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1767,8 +1767,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = infinitered.stage.ChainReactConf;
 				PRODUCT_NAME = ChainReactApp;
-				PROVISIONING_PROFILE = "d1ed2554-88a9-4a2b-9b71-e494ab497beb";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore infinitered.stage.ChainReactConf";
+				PROVISIONING_PROFILE = "9da741ba-eddf-4b1f-9196-f4455a81f68d";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore infinitered.stage.ChainReactConf 1495468059";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
