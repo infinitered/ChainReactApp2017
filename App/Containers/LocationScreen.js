@@ -11,7 +11,7 @@ import {
 import PurpleGradient from '../Components/PurpleGradient'
 import VenueMap from '../Components/VenueMap'
 import Gallery from '../Components/Gallery'
-import { Images } from '../Themes'
+import { Images, Metrics } from '../Themes'
 import { connect } from 'react-redux'
 import Secrets from 'react-native-config'
 import styles from './Styles/LocationScreenStyle'
@@ -93,7 +93,7 @@ class LocationScreen extends React.Component {
   }
 
   renderBackground = () => {
-    const height = 314
+    const height = Metrics.locationBackgroundHeight
     const { scrollY } = this.state
     return (
       <Animated.Image
