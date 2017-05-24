@@ -231,32 +231,44 @@
     {
       "type":"coffee",
       "time":"7/17/2017 10:00 AM",
-      "duration":"30"
+      "duration":"30",
+      "options": ["Scalding hot coffee", "Bland tea"],
+      "veganOptions": ["Water", "Assorted Leaves"]
     },
     {
       "type":"coffee",
       "time":"7/18/2017 10:00 AM",
-      "duration":"30"
+      "duration":"30",
+      "options": ["Scalding hot coffee", "Bland tea"],
+      "veganOptions": ["Water", "Assorted Leaves"]
     },
     {
       "type":"lunch",
       "time":"7/17/2017 12:00 PM",
-      "duration":"90"
+      "duration":"90",
+      "options": ["Green eggs and ham", "Blue eggs and ham", "Red eggs and ham", "Yellow eggs and ham", "Purple eggs and ham", "Orange eggs and ham"],
+      "veganOptions": ["Water", "Assorted Leaves"]
     },
     {
       "type":"lunch",
       "time":"7/18/2017 12:00 PM",
-      "duration":"90"
+      "duration":"90",
+      "options": ["Green eggs and ham", "Blue eggs and ham", "Red eggs and ham", "Yellow eggs and ham", "Purple eggs and ham", "Orange eggs and ham"],
+      "veganOptions": ["Water", "Assorted Leaves"]
     },
     {
       "type":"coffee",
       "time":"7/17/2017 3:00 PM",
-      "duration":"60"
+      "duration":"60",
+      "options": ["Scalding hot coffee", "Bland tea"],
+      "veganOptions": ["Water", "Assorted Leaves"]
     },
     {
       "type":"coffee",
       "time":"7/18/2017 3:00 PM",
-      "duration":"60"
+      "duration":"60",
+      "options": ["Scalding hot coffee", "Bland tea"],
+      "veganOptions": ["Water", "Assorted Leaves"]
     }
   ]
 }

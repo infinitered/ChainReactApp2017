@@ -94,9 +94,11 @@ export default StyleSheet.create({
     letterSpacing: 0,
     color: Colors.darkPurple
   },
+  descriptionContainer: {
+    marginBottom: 15,
+    paddingLeft: 5
+  },
   description: {
-    marginBottom: 30,
-    paddingLeft: 16,
     fontFamily: 'Avenir-Book',
     fontSize: 16,
     letterSpacing: 0,

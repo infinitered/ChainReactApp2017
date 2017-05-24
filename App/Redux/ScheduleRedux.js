@@ -30,8 +30,7 @@ if (DebugConfig.hotwireDate) {
 export const INITIAL_STATE = Immutable({
   currentTime: initialTime,
   ignoreUpdates: false,
-  selectedTalk: null,
-  selectedBreak: null,
+  selectedEvent: null,
   speakerSchedule: require('../Fixtures/schedule.json').schedule
 })
 

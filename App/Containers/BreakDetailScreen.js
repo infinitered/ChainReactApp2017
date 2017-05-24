@@ -3,6 +3,7 @@ import { ScrollView, View, Text, Image, TouchableOpacity } from 'react-native'
 import PurpleGradient from '../Components/PurpleGradient'
 import { NavigationActions } from 'react-navigation'
 import { connect } from 'react-redux'
+import { format, addMinutes } from 'date-fns'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 import { Images } from '../Themes'
@@ -21,7 +22,47 @@ class BreakDetail extends React.Component {
     this.props.navigation.dispatch(NavigationActions.back())
   }
 
+  renderMainImage = () => {
+    const { type, duration, eventStart } = this.props
+    const mainImage = type === 'lunch' ? Images.lunch : Images.lunch
+    const eventDuration = Number(duration)
+    const prettyStartTime = format(eventStart, 'h:mm')
+    const endTime = addMinutes(eventStart, eventDuration)
+    const prettyEndTime = format(endTime, 'h:mm')
+    const meridiem = format(endTime, 'A')
+
+    return (
+      <View style={styles.mainImageContainer}>
+        <Image style={styles.mainImage} source={mainImage} />
+        <View style={styles.mainHeadingContainer}>
+          <Text style={styles.breakHeading}>
+            {this.props.type.toUpperCase()} BREAK
+          </Text>
+          <Text style={styles.breakDuration}>
+            <Text>{prettyStartTime} - {prettyEndTime}</Text><Text style={styles.meridiem}>{meridiem}</Text>
+          </Text>
+        </View>
+      </View>
+    )
+  }
+
+  renderOption = (option, index) => {
+    return (
+      <Text key={index} style={styles.description}>{`\u2022  ${option}`}</Text>
+    )
+  }
+
+  renderOptions = (options) => {
+    return (
+      <View style={styles.descriptionContainer}>
+        {options.map((option, index) => this.renderOption(option, index))}
+      </View>
+    )
+  }
+
   render () {
+    const { options, veganOptions } = this.props
+
     return (
       <PurpleGradient style={styles.linearGradient}>
         <ScrollView>
@@ -33,36 +74,20 @@ class BreakDetail extends React.Component {
             <View style={styles.cardShadow1} />
             <View style={styles.cardShadow2} />
             <View style={styles.card}>
-              <View style={styles.mainImageContainer}>
-                <Image style={styles.mainImage} source={Images.lunch} />
-                <View style={styles.mainHeadingContainer}>
-                  <Text style={styles.breakHeading}>
-                    {this.props.type.toUpperCase()} BREAK
-                  </Text>
-                  <Text style={styles.breakDuration}>
-                    12:00 - 1:00<Text style={styles.meridiem}>PM</Text>
-                  </Text>
-                </View>
-              </View>
+              {this.renderMainImage()}
               <View style={styles.content}>
                 <Text style={styles.heading}>
-                  Lunch Options
+                  {this.props.type === 'lunch' ? 'Lunch' : 'Refreshment'} Options
                 </Text>
-                <Text style={styles.description}>
-                  {`\u2022  Green Eggs & Ham On Rye\n`}
-                  {`\u2022  Green Eggs & Ham On Rye\n`}
-                  {`\u2022  Green Eggs & Ham On Rye\n`}
-                  {`\u2022  Green Eggs & Ham On Rye\n`}
-                  {`\u2022  Green Eggs & Ham On Rye\n`}
-                  {`\u2022  Green Eggs & Ham On Rye`}
-                </Text>
+                <View style={styles.descriptionContainer}>
+                  {this.renderOptions(options)}
+                </View>
                 <Text style={styles.heading}>
                   Vegan Options
                 </Text>
-                <Text style={styles.description}>
-                  {`\u2022  Tap Water\n`}
-                  {`\u2022  Assorted Leaves`}
-                </Text>
+                <View style={styles.descriptionContainer}>
+                  {this.renderOptions(veganOptions)}
+                </View>
               </View>
             </View>
           </View>
