@@ -33,11 +33,11 @@ class TalkDetail extends React.Component {
             </TouchableOpacity>
             <View style={styles.cardShadow1} />
             <View style={styles.cardShadow2} />
+            <Image
+              style={styles.avatar}
+              source={{uri: `https://infinite.red/images/chainreact/${this.props.image}.png`}}
+            />
             <View style={styles.card}>
-              <Image
-                style={styles.avatar}
-                source={{uri: `https://infinite.red/images/chainreact/${this.props.image}.png`}}
-              />
               <Text style={styles.sectionHeading}>
                 TALK
               </Text>
