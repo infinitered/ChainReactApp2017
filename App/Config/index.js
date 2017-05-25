@@ -1,6 +1,7 @@
 import { Text } from 'react-native'
 import DebugConfig from './DebugConfig'
 import AppConfig from './AppConfig'
+import PushConfig from './PushConfig'
 
 export default () => {
   if (__DEV__) {

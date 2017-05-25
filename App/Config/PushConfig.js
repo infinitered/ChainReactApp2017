@@ -10,7 +10,8 @@ PushNotification.configure({
 
   // (required) Called when a remote or local notification is opened or received
   onNotification: (notification) => {
-    if (__DEV__) console.log('NOTIFICATION:', notification)
+    // if (__DEV__) console.log('NOTIFICATION:', notification)
+    console.tron.log('O SHIIIIIIIII')
   },
 
   // ANDROID ONLY: (optional) GCM Sender ID.
@@ -26,7 +27,7 @@ PushNotification.configure({
   // Should the initial notification be popped automatically
   // default: true
   // Leave this off unless you have good reason.
-  popInitialNotification: false,
+  popInitialNotification: true,
 
   /**
     * IOS ONLY: (optional) default: true
@@ -34,5 +35,5 @@ PushNotification.configure({
     * - if not, you must call PushNotificationsHandler.requestPermissions() later
     * This example app shows how to best call requestPermissions() later.
     */
-  requestPermissions: false
+  requestPermissions: true
 })
