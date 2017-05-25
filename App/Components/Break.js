@@ -1,17 +1,32 @@
-import React, { PropTypes, Component } from 'react'
+import React, { PropTypes } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { Images, Videos } from '../Themes'
 import TimeIndicator from './TimeIndicator'
 import BackgroundVideo from './BackgroundVideo'
 import styles from './Styles/BreakStyle'
 
-export default class Break extends Component {
+export default class Break extends React.Component {
+
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      imageWidth: 335
+    }
+  }
+
+  onLayout = (event) => {
+    const width = event.nativeEvent.layout.width
+
+    this.setState({
+      imageWidth: width
+    })
+  }
+
   renderContent () {
     const {
       type,
-      start,
       duration,
-      currentTime,
       isCurrentDay,
       isActive
     } = this.props
@@ -25,10 +40,12 @@ export default class Break extends Component {
     const background = type === 'lunch' ? Images.lunchBreak : Images.coffeeBreak
     const video = type === 'lunch' ? Videos.lunch : Videos.coffee
 
+    const imageWidth = this.state.imageWidth
+
     return (
       <View>
-        <View style={containerStyles}>
-          <Image source={background} style={styles.background} />
+        <View style={containerStyles} onLayout={this.onLayout}>
+          <Image source={background} style={[styles.background, {width: imageWidth}]} />
           <BackgroundVideo source={video} style={styles.video} isActive={isActive} />
           <View style={styles.contentContainer}>
             <View style={styles.content}>
@@ -45,14 +62,11 @@ export default class Break extends Component {
             </View>
           </View>
         </View>
-        {isActive &&
-          <TimeIndicator start={start} duration={duration} time={currentTime} />
-        }
       </View>
     )
   }
 
-  render () {
+  renderWrapper () {
     if (this.props.onPress) {
       return (
         <TouchableOpacity onPress={this.props.onPress}>
@@ -62,6 +76,17 @@ export default class Break extends Component {
     } else {
       return this.renderContent()
     }
+  }
+
+  render () {
+    const { currentTime, duration, start, isActive } = this.props
+
+    return (
+      <View>
+        {this.renderWrapper()}
+        {isActive && <TimeIndicator start={start} duration={duration} time={currentTime} />}
+      </View>
+    )
   }
 }
 
