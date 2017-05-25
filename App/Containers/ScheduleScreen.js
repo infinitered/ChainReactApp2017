@@ -153,13 +153,13 @@ class ScheduleScreen extends React.Component {
         colors={['#46114E', '#521655', '#571757']}
         style={styles.headerGradient}>
         <View style={styles.dayToggle}>
-          <TouchableOpacity onPress={() => this.setActiveDay(0)}>
+          <TouchableOpacity onPressIn={() => this.setActiveDay(0)}>
             <Text
               style={activeDay === 0 ? styles.activeDay : styles.inactiveDay}>
               Monday July, 17th
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.setActiveDay(1)}>
+          <TouchableOpacity onPressIn={() => this.setActiveDay(1)}>
             <Text
               style={activeDay === 1 ? styles.activeDay : styles.inactiveDay}>
               Tuesday July, 18th
