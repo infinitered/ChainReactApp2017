@@ -10,6 +10,9 @@ export default () => {
     console.disableYellowBox = !DebugConfig.yellowBox
   }
 
+  // Configure Push Notifications
+  PushConfig()
+
   // Allow/disallow font-scaling in app
   Text.defaultProps.allowFontScaling = AppConfig.allowTextFontScaling
 }
