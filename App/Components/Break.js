@@ -26,9 +26,7 @@ export default class Break extends React.Component {
   renderContent () {
     const {
       type,
-      start,
       duration,
-      currentTime,
       isCurrentDay,
       isActive
     } = this.props
@@ -64,14 +62,11 @@ export default class Break extends React.Component {
             </View>
           </View>
         </View>
-        {isActive &&
-          <TimeIndicator start={start} duration={duration} time={currentTime} />
-        }
       </View>
     )
   }
 
-  render () {
+  renderWrapper () {
     if (this.props.onPress) {
       return (
         <TouchableOpacity onPress={this.props.onPress}>
@@ -81,6 +76,17 @@ export default class Break extends React.Component {
     } else {
       return this.renderContent()
     }
+  }
+
+  render () {
+    const { currentTime, duration, start, isActive } = this.props
+
+    return (
+      <View>
+        {this.renderWrapper()}
+        {isActive && <TimeIndicator start={start} duration={duration} time={currentTime} />}
+      </View>
+    )
   }
 }
 
