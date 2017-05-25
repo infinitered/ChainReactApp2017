@@ -20,6 +20,10 @@ export default class Talk extends React.Component {
     LayoutAnimation.easeInEaseOut()
     this.setState((prevProps) => ({sendReminder: !prevProps.sendReminder}))
     PushNotification.localNotification({message: 'TEST NOTIFICATION'})
+    PushNotification.localNotificationSchedule({
+      message: "My Notification Message", // (required)
+      date: new Date(Date.now() + (5 * 1000)) // in 5 secs
+    })
   }
 
   render () {

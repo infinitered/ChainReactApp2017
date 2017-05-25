@@ -11,7 +11,7 @@ PushNotification.configure({
   // (required) Called when a remote or local notification is opened or received
   onNotification: (notification) => {
     // if (__DEV__) console.log('NOTIFICATION:', notification)
-    console.tron.log('O SHIIIIIIIII')
+    console.tron.log(notification)
   },
 
   // ANDROID ONLY: (optional) GCM Sender ID.
