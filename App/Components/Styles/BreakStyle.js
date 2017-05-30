@@ -5,7 +5,9 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     marginVertical: Metrics.baseMargin,
-    marginHorizontal: Metrics.doubleBaseMargin
+    marginHorizontal: Metrics.doubleBaseMargin,
+    backgroundColor: Colors.transparent,
+    height: 125
   },
   currentDay: {
     marginLeft: 16,
@@ -25,7 +27,10 @@ export default StyleSheet.create({
   },
   background: {
     flex: 1,
-    resizeMode: 'cover'
+    resizeMode: 'cover',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: Colors.snow
   },
   video: {
     position: 'absolute',

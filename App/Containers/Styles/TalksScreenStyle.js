@@ -39,7 +39,8 @@ export default StyleSheet.create({
     shadowRadius: 20,
     shadowColor: 'black',
     shadowOpacity: 0.8,
-    zIndex: 1
+    elevation: 20,
+    backgroundColor: 'black'
   },
   dayToggle: {
     flexDirection: 'row',

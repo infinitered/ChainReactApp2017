@@ -46,26 +46,28 @@ export default class Talk extends React.Component {
     ]
 
     return (
-      <TouchableOpacity onPress={this.props.onPress}>
-        <View style={containerStyles}>
-          <View style={styles.info}>
-            <View style={styles.infoText}>
-              <Text style={styles.name}>{name}</Text>
-              <Text style={styles.title}>{title}</Text>
+      <View>
+        <TouchableOpacity onPress={this.props.onPress}>
+          <View style={containerStyles}>
+            <View style={styles.info}>
+              <View style={styles.infoText}>
+                <Text style={styles.name}>{name}</Text>
+                <Text style={styles.title}>{title}</Text>
+              </View>
+              <Image style={styles.avatar} source={{uri: avatarURL}} />
             </View>
-            <Image style={styles.avatar} source={{uri: avatarURL}} />
+            <TalkInfo
+              start={start}
+              duration={duration}
+              remindMe={sendReminder}
+              toggleRemindMe={() => this.toggleReminder()}
+            />
           </View>
-          <TalkInfo
-            start={start}
-            duration={duration}
-            remindMe={sendReminder}
-            toggleRemindMe={() => this.toggleReminder()}
-          />
-        </View>
+        </TouchableOpacity>
         {isActive &&
           <TimeIndicator start={start} duration={duration} time={currentTime} />
         }
-      </TouchableOpacity>
+      </View>
     )
   }
 
