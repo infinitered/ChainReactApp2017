@@ -3,6 +3,7 @@ import { Colors, Metrics } from '../../Themes/'
 
 export default StyleSheet.create({
   container: {
+    flex: 2,
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingVertical: 13,
@@ -12,6 +13,7 @@ export default StyleSheet.create({
     backgroundColor: Colors.silver
   },
   details: {
+    flex: 1,
     flexDirection: 'row'
   },
   detail: {
@@ -28,5 +30,9 @@ export default StyleSheet.create({
     fontSize: 11,
     color: Colors.darkPurple,
     letterSpacing: 0
+  },
+  remindMe: {
+    flex: 1,
+    alignItems: 'stretch'
   }
 })

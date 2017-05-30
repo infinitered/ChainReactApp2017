@@ -3,9 +3,10 @@ import { Colors, Metrics } from '../../Themes/'
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
     marginVertical: Metrics.baseMargin,
-    marginHorizontal: Metrics.doubleBaseMargin
+    marginHorizontal: Metrics.doubleBaseMargin,
+    backgroundColor: Colors.transparent,
+    height: 125
   },
   currentDay: {
     marginLeft: 16,
@@ -24,8 +25,11 @@ export default StyleSheet.create({
     shadowOpacity: 1
   },
   background: {
-    flex: 1,
-    resizeMode: 'cover'
+    flex: 2,
+    resizeMode: 'cover',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: Colors.snow
   },
   video: {
     position: 'absolute',
@@ -49,7 +53,7 @@ export default StyleSheet.create({
   sponsor: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 25
+    marginRight: 15
   },
   sponsorText: {
     marginTop: 4,
@@ -61,11 +65,11 @@ export default StyleSheet.create({
   },
   content: {
     justifyContent: 'center',
-    marginHorizontal: 25
+    marginLeft: 15
   },
   heading: {
     fontFamily: 'Avenir-Black',
-    fontSize: 23,
+    fontSize: 18,
     letterSpacing: -0.2,
     lineHeight: 27,
     backgroundColor: Colors.transparent,

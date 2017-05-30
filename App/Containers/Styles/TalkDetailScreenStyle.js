@@ -50,13 +50,14 @@ export default StyleSheet.create({
   },
   avatar: {
     position: 'absolute',
-    top: -53,
+    top: -43,
     left: (Metrics.screenWidth - (Metrics.doubleBaseMargin * 2)) / 2 - 53,
     height: 106,
     width: 106,
     borderRadius: 53,
     borderColor: Colors.snow,
-    borderWidth: 1
+    borderWidth: 1,
+    zIndex: 4
   },
   sectionHeading: {
     alignSelf: 'flex-start',

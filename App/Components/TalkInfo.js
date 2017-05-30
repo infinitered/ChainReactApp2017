@@ -30,7 +30,9 @@ export default class TalkInfo extends Component {
             </Text>
           </View>
         </View>
-        <RemindMeButton onPress={toggleRemindMe} on={remindMe} />
+        <View style={styles.remindMe}>
+          <RemindMeButton onPress={toggleRemindMe} on={remindMe} />
+        </View>
       </View>
     )
   }
