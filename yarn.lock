@@ -4663,6 +4663,10 @@ react-native-push-notification@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-2.2.1.tgz#9b392cee8f5223a1e1772c9a88c95742549fcfc3"
 
+react-native-smart-splash-screen@^2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/react-native-smart-splash-screen/-/react-native-smart-splash-screen-2.3.4.tgz#0c44076941c897cd4ae476f486d95e01a82cd013"
+
 react-native-tab-view@^0.0.61:
   version "0.0.61"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-0.0.61.tgz#9f5446c9ad33158b87f0bccf5004fbff79ca1f92"
