@@ -73,10 +73,9 @@
     "react-addons-test-utils": "^15.3.1",
     "react-dom": "^15.4.1",
     "react-native-mock": "^0.3.1",
-    "reactotron-apisauce": "^1.7.0",
-    "reactotron-react-native": "^1.7.0",
-    "reactotron-redux": "^1.7.0",
-    "reactotron-redux-saga": "^1.7.0",
+    "reactotron-react-native": "^1.11.1",
+    "reactotron-redux": "^1.11.1",
+    "reactotron-redux-saga": "^1.11.1",
     "snazzy": "^6.0.0",
     "standard": "8.6.0"
   },

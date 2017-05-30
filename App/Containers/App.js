@@ -1,5 +1,6 @@
 import '../Config'
 import React, { Component } from 'react'
+import DebugConfig from '../Config/DebugConfig'
 import { Provider } from 'react-redux'
 import RootContainer from './RootContainer'
 import createStore from '../Redux'
@@ -35,7 +36,6 @@ class App extends Component {
   }
 }
 
-// let's wrap it, so the overlay stays on top!
-const MyAppWithBenefits = console.tron.overlay(App)
-
-export default MyAppWithBenefits
+export default DebugConfig.useReactotron
+  ? console.tron.overlay(App)
+  : App
