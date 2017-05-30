@@ -143,7 +143,6 @@ allprojects {
 }
 
 dependencies {
-    compile project(':react-native-maps')
     compile project(':react-native-smart-splash-screen')
     compile(project(':react-native-maps')) {
         exclude group: 'com.google.android.gms', module: 'play-services-base'
@@ -160,7 +159,6 @@ dependencies {
     compile project(':react-native-i18n')
     compile project(':react-native-vector-icons')
     compile project(':react-native-device-info')
-    compile project(':react-native-smart-splashscreen')
     compile project(':react-native-config')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
