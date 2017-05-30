@@ -125,20 +125,25 @@ android {
     }
 }
 
-// Force resolution to latest play services
-// https://github.com/airbnb/react-native-maps/issues/249
-configurations.all {
-  resolutionStrategy {
-    force 'com.google.android.gms:play-services-ads:10.2.0+'
-    force "com.google.android.gms:play-services:10.2.0+"
-    force "com.google.android.gms:play-services-location:10.2.0+"
-    force "com.google.android.gms:play-services-maps:10.2.0+"
-    force "com.google.android.gms:play-services-gcm:10.2.0+"
-    force "com.google.android.gms:play-services-analytics:10.2.0+"
-  }
+allprojects {
+    configurations.all {
+      resolutionStrategy {
+        eachDependency { DependencyResolveDetails details ->
+          if (details.requested.group == 'com.facebook.react' && details.requested.name == 'react-native') {
+            // def file = new File('$rootDir/../node_modules/react-native/package.json')
+            // def version = new groovy.json.JsonSlurper().parseText(file.text).version
+            // details.useVersion version
+            details.useVersion "0.44.2" // Your real React Native version here
+          } else if (details.getRequested().getGroup() == 'com.google.android.gms') {
+            details.useVersion('10.2.0+')
+          }
+        }
+      }
+    }
 }
 
 dependencies {
+    compile project(':react-native-smart-splash-screen')
     compile(project(':react-native-maps')) {
         exclude group: 'com.google.android.gms', module: 'play-services-base'
         exclude group: 'com.google.android.gms', module: 'play-services-maps'
