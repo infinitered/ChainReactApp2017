@@ -156,13 +156,13 @@ class ScheduleScreen extends React.Component {
           <TouchableOpacity onPressIn={() => this.setActiveDay(0)}>
             <Text
               style={activeDay === 0 ? styles.activeDay : styles.inactiveDay}>
-              Monday July, 17th
+              Monday
             </Text>
           </TouchableOpacity>
           <TouchableOpacity onPressIn={() => this.setActiveDay(1)}>
             <Text
               style={activeDay === 1 ? styles.activeDay : styles.inactiveDay}>
-              Tuesday July, 18th
+              Tuesday
             </Text>
           </TouchableOpacity>
         </View>
