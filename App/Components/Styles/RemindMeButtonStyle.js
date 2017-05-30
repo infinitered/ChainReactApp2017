@@ -4,12 +4,15 @@ import { Colors } from '../../Themes/'
 export default StyleSheet.create({
   button: {
     flexDirection: 'row',
-    paddingVertical: 8,
-    paddingHorizontal: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 5,
+    marginLeft: 15,
     borderWidth: 1,
     borderColor: Colors.red,
     borderRadius: 100,
-    backgroundColor: Colors.clear
+    backgroundColor: Colors.clear,
+    height: 34
   },
   activeButton: {
     backgroundColor: Colors.red
