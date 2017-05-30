@@ -22,11 +22,11 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-  <key>LSApplicationQueriesSchemes</key>
-  <array>
-    <string>uber</string>
-    <string>lyft</string>
-  </array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>uber</string>
+		<string>lyft</string>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>13</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -43,7 +43,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Entypo.ttf</string>

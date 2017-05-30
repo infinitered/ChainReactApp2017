@@ -143,6 +143,8 @@ allprojects {
 }
 
 dependencies {
+    compile project(':react-native-maps')
+    compile project(':react-native-smart-splash-screen')
     compile(project(':react-native-maps')) {
         exclude group: 'com.google.android.gms', module: 'play-services-base'
         exclude group: 'com.google.android.gms', module: 'play-services-maps'
