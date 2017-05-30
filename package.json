@@ -42,6 +42,7 @@
     "react-native-linear-gradient": "^2.0.0",
     "react-native-maps": "0.13.0",
     "react-native-push-notification": "^2.2.1",
+    "react-native-statusbar-alert": "^0.2.0",
     "react-native-vector-icons": "^4.0.1",
     "react-native-video": "^1.0.0",
     "react-navigation": "^1.0.0-beta.9",
