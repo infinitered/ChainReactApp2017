@@ -3,9 +3,9 @@ import { View, StatusBar } from 'react-native'
 import Navigation from '../Navigation/AppNavigation'
 import { addNavigationHelpers } from 'react-navigation'
 import { connect } from 'react-redux'
-import StatusBarAlert from 'react-native-statusbar-alert'
 import StartupActions from '../Redux/StartupRedux'
 import ReduxPersist from '../Config/ReduxPersist'
+import NotificationsBar from './NotificationsBar'
 import styles from './Styles/RootContainerStyles'
 
 class RootContainer extends Component {
@@ -22,13 +22,7 @@ class RootContainer extends Component {
     return (
       <View style={styles.applicationView}>
         <StatusBar barStyle='light-content' />
-        <StatusBarAlert
-          visible={true}
-          message="Remember the session!"
-          backgroundColor="#3CC29E"
-          color="white"
-          pulse="background"
-        />
+        <NotificationsBar />
         <Navigation
           addNavigationHelpers={addNavigationHelpers({dispatch, state: nav})}
         />
