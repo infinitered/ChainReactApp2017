@@ -81,6 +81,7 @@ class ScheduleScreen extends React.Component {
     const { currentTime, isCurrentDay } = this.state
     const { eventDuration, eventStart, eventEnd } = rowData
     const isActive = isWithinRange(currentTime, eventStart, eventEnd)
+    const isFinished = currentTime > eventEnd
 
     if (rowData.type === 'talk') {
       return (
@@ -91,9 +92,13 @@ class ScheduleScreen extends React.Component {
           start={eventStart}
           duration={eventDuration}
           onPress={() => this.onEventPress(rowData)}
+          onPressTwitter={() => this.props.onPressTwitter(rowData.twitter)}
+          onPressGithub={() => this.props.onPressGithub(rowData.github)}
           currentTime={currentTime}
           isCurrentDay={isCurrentDay}
           isActive={isActive}
+          isFinished={isFinished}
+          showWhenFinished
         />
       )
     } else {
@@ -199,7 +204,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setSelectedEvent: (data) => dispatch(ScheduleActions.setSelectedEvent(data))
+    setSelectedEvent: (data) => dispatch(ScheduleActions.setSelectedEvent(data)),
+    onPressGithub: url => dispatch(ScheduleActions.visitGithub(url)),
+    onPressTwitter: url => dispatch(ScheduleActions.visitTwitter(url))
+
   }
 }
 

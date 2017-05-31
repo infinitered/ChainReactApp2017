@@ -85,8 +85,5 @@ export default StyleSheet.create({
   social: {
     flexDirection: 'row',
     marginBottom: 30
-  },
-  socialLink: {
-    marginRight: 30
   }
 })
