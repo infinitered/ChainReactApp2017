@@ -27,9 +27,7 @@ export default StyleSheet.create({
   background: {
     flex: 2,
     resizeMode: 'cover',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: Colors.snow
+    borderRadius: 5
   },
   video: {
     position: 'absolute',
@@ -37,9 +35,7 @@ export default StyleSheet.create({
     left: 0,
     bottom: 0,
     right: 0,
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: Colors.snow
+    borderRadius: 5
   },
   contentContainer: {
     position: 'absolute',
