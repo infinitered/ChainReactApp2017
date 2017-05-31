@@ -147,7 +147,9 @@ class LocationScreen extends React.Component {
 
   render () {
     const { showRideOptions } = this.state
+    const { nearbyData } = this.props
     const { event } = Animated
+
     return (
       <PurpleGradient style={[styles.linearGradient, {flex: 1}]}>
         <ScrollView
@@ -201,7 +203,7 @@ class LocationScreen extends React.Component {
               </Text>
             </View>
             <Gallery
-              data={require('../Fixtures/nearby.json')}
+              data={nearbyData}
               onItemPress={(daddr) => this.openMaps(daddr)}
             />
           </View>
@@ -214,6 +216,7 @@ class LocationScreen extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    nearbyData: state.location.nearby
   }
 }
 
