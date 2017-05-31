@@ -5,7 +5,7 @@ import { addNavigationHelpers } from 'react-navigation'
 import { connect } from 'react-redux'
 import StartupActions from '../Redux/StartupRedux'
 import ReduxPersist from '../Config/ReduxPersist'
-import NotificationsBar from './NotificationsBar'
+import NotificationsBar from '../Components/NotificationsBar'
 import styles from './Styles/RootContainerStyles'
 
 class RootContainer extends Component {
