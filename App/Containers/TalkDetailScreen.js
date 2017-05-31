@@ -2,7 +2,9 @@ import React from 'react'
 import { ScrollView, Text, View, Image, TouchableOpacity } from 'react-native'
 import PurpleGradient from '../Components/PurpleGradient'
 import TalkInfo from '../Components/TalkInfo'
+import SocialMediaButton from '../Components/SocialMediaButton'
 import { NavigationActions } from 'react-navigation'
+import ScheduleActions from '../Redux/ScheduleRedux'
 import { connect } from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -57,12 +59,16 @@ class TalkDetail extends React.Component {
                 {this.props.bio}
               </Text>
               <View style={styles.social}>
-                <TouchableOpacity style={styles.socialLink} onPress={() => {}}>
-                  <Image source={Images.twitterIcon} />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.socialLink} onPress={() => {}}>
-                  <Image source={Images.githubIcon} />
-                </TouchableOpacity>
+                <SocialMediaButton
+                  network='twitter'
+                  spacing='right'
+                  onPress={() => this.props.onPressTwitter(this.props.twitter)}
+                />
+                <SocialMediaButton
+                  network='github'
+                  spacing='right'
+                  onPress={() => this.props.onPressGithub(this.props.github)}
+                />
               </View>
             </View>
             <TalkInfo
@@ -70,6 +76,10 @@ class TalkDetail extends React.Component {
               duration={Number(this.props.duration)}
               remindMe={false}
               toggleRemindMe={() => {}}
+              onPressGithub={this.props.onPressGithub}
+              onPressTwitter={this.props.onPressTwitter}
+              isFinished={this.props.currentTime > this.props.eventStart}
+              showWhenFinished={false}
             />
           </View>
         </ScrollView>
@@ -81,12 +91,15 @@ class TalkDetail extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    ...state.schedule.selectedEvent
+    ...state.schedule.selectedEvent,
+    currentTime: new Date(state.schedule.currentTime)
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    onPressGithub: url => dispatch(ScheduleActions.visitGithub(url)),
+    onPressTwitter: url => dispatch(ScheduleActions.visitTwitter(url))
   }
 }
 

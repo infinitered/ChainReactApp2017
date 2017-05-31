@@ -9,6 +9,7 @@ import { ScheduleTypes } from '../Redux/ScheduleRedux'
 
 import { startup } from './StartupSagas'
 import { trackCurrentTime } from './ScheduleSagas'
+import { visitGithub, visitTwitter } from './SocialSagas'
 import { getScheduleUpdates } from './ScheduleUpdateSagas'
 
 /* ------------- API ------------- */
@@ -27,6 +28,8 @@ export default function * root () {
     // some sagas only receive an action
     takeLatest(StartupTypes.STARTUP, startup),
     takeLatest(ScheduleTypes.TRACK_CURRENT_TIME, trackCurrentTime),
-    takeLatest(ScheduleTypes.GET_SCHEDULE_UPDATES, getScheduleUpdates, api)
+    takeLatest(ScheduleTypes.GET_SCHEDULE_UPDATES, getScheduleUpdates, api),
+    takeLatest(ScheduleTypes.VISIT_GITHUB, visitGithub),
+    takeLatest(ScheduleTypes.VISIT_TWITTER, visitTwitter)
   ]
 }

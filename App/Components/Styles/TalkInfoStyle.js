@@ -34,5 +34,9 @@ export default StyleSheet.create({
   remindMe: {
     flex: 1,
     alignItems: 'stretch'
+  },
+  socialButtons: {
+    alignItems: 'center',
+    flexDirection: 'row'
   }
 })
