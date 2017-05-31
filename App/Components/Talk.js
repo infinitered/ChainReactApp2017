@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { View, Text, Image, TouchableOpacity, LayoutAnimation, PushNotificationIOS } from 'react-native'
+import { View, Text, Image, TouchableOpacity, LayoutAnimation } from 'react-native'
 import TalkInfo from './TalkInfo'
 import TimeIndicator from './TimeIndicator'
 import styles from './Styles/TalkStyle'
@@ -18,10 +18,8 @@ export default class Talk extends React.Component {
 
   toggleReminder () {
     LayoutAnimation.easeInEaseOut()
-    PushNotificationIOS.addEventListener('localNotification', () => {})
-    PushNotificationIOS.requestPermissions().then(console.tron.log)
     this.setState((prevProps) => ({sendReminder: !prevProps.sendReminder}))
-    PushNotification.localNotification({message: 'TEST NOTIFICATION'})
+
     PushNotification.localNotificationSchedule({
       message: 'My Notification Message', // (required)
       date: new Date(Date.now() + (5 * 1000)) // in 5 secs
