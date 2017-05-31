@@ -4,20 +4,18 @@ import { createReducer, createActions } from 'reduxsauce'
 
 const ADD_NOTIFICATION = 'ADD_NOTIFICATION'
 const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION'
-const CLEAR_ALL_NOTIFICATIONS = 'CLEAR_ALL_NOTIFICATIONS'
+const CLEAR_NOTIFICATIONS = 'CLEAR_ALL_NOTIFICATIONS'
 
-export const addNotification = (message) => {
-  const start = Date.now()
-  const id = `${message}${start}`
-
-  return {
-    type: ADD_NOTIFICATION,
-    notification: {id, message, start}
+export const addNotification = (message) => ({
+  type: ADD_NOTIFICATION,
+  notification: {
+    message,
+    start: Date.now()
   }
-}
+})
 
-export const clearAllNotifications = () => ({
-  type: CLEAR_ALL_NOTIFICATIONS
+export const clearNotifications = () => ({
+  type: CLEAR_NOTIFICATIONS
 })
 
 
@@ -27,7 +25,7 @@ export const notifications = (state=[], action) => {
   switch (action.type) {
     case ADD_NOTIFICATION:
       return [...state, action.notification]
-    case CLEAR_ALL_NOTIFICATIONS:
+    case CLEAR_NOTIFICATIONS:
       return []
     default:
       return state

@@ -22,7 +22,7 @@ export default class Talk extends React.Component {
     LayoutAnimation.easeInEaseOut()
     this.setState((prevState) => ({sendReminder: !prevState.sendReminder}))
     PushNotification.localNotificationSchedule({
-      message: `${title} is about to start at ${format(start, 'h:mmA')}!`, // (required)
+      message: `${title} begins at ${format(start, 'h:mmA')}.`, // (required)
       date: new Date(Date.now() + (5 * 1000)) // in 5 secs,
     })
   }

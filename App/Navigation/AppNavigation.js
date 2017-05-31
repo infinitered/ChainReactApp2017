@@ -19,7 +19,7 @@ const ScheduleStack = StackNavigator({
 const TabNav = TabNavigator({
   Schedule: { screen: ScheduleStack },
   Location: { screen: LocationScreen },
-  About: { screen: AboutScreen }
+  About: { screen: AboutScreen },
 }, {
   tabBarComponent: TabBarBottom,
   tabBarPosition: 'bottom',
@@ -35,4 +35,12 @@ const TabNav = TabNavigator({
   }
 })
 
-export default TabNav
+const AppStack = StackNavigator({
+  App: { screen: TabNav },
+  Notification: { screen: AboutScreen }
+}, {
+  headerMode: 'none',
+  initialRouteName: 'App',
+})
+
+export default AppStack
