@@ -17,10 +17,10 @@ export const clearNotifications = () => ({
 
 /* ------------- Reducer ------------- */
 
-export const notifications = (state=[], action) => {
+export const notifications = (state = [], action) => {
   switch (action.type) {
     case ADD_NOTIFICATION:
-      return [ ...state, action.notification ]
+      return [...state, action.notification]
     case CLEAR_NOTIFICATIONS:
       return []
     default:
