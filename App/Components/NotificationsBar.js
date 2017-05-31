@@ -52,7 +52,7 @@ class NotificationsBar extends Component {
     this.props.clearNotifications()
   }
 
-  render() {
+  render () {
     const {notifications} = this.props
 
     if (notifications.length === 0) {
@@ -63,10 +63,10 @@ class NotificationsBar extends Component {
       <View>
         <StatusBarAlert
           visible
-          message="Talk coming up! (tap for details)"
-          backgroundColor="#3CC29E"
-          color="white"
-          pulse="background"
+          message='Talk coming up! (tap for details)'
+          backgroundColor='#3CC29E'
+          color='white'
+          pulse='background'
           onPress={this.onPressStatusBarAlert}
         />
         <Modal

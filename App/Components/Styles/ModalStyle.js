@@ -48,5 +48,5 @@ export default StyleSheet.create({
     fontFamily: 'Avenir-Medium',
     fontSize: 11,
     color: Colors.red
-  },
+  }
 })
