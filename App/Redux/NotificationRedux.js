@@ -1,29 +1,34 @@
+import { createReducer, createActions } from 'reduxsauce'
+import Immutable from 'seamless-immutable'
+
+/* ------------- Initial State ------------- */
+export const INITIAL_STATE = Immutable({
+  notifications: []
+})
+
 /* ------------- Types and Action Creators ------------- */
 
-const ADD_NOTIFICATION = 'ADD_NOTIFICATION'
-const CLEAR_NOTIFICATIONS = 'CLEAR_ALL_NOTIFICATIONS'
-
-export const addNotification = (message) => ({
-  type: ADD_NOTIFICATION,
-  notification: {
-    message,
-    start: Date.now()
-  }
+const { Types, Creators } = createActions({
+  addNotification: ['message'],
+  clearNotifications: null
 })
 
-export const clearNotifications = () => ({
-  type: CLEAR_NOTIFICATIONS
-})
+export const NotificationTypes = Types
+export default Creators
+
+console.tron.log(Creators)
 
 /* ------------- Reducer ------------- */
 
-export const notifications = (state = [], action) => {
-  switch (action.type) {
-    case ADD_NOTIFICATION:
-      return [...state, action.notification]
-    case CLEAR_NOTIFICATIONS:
-      return []
-    default:
-      return state
-  }
-}
+export const addSingleNotification = (state = INITIAL_STATE, { message }) =>
+  state.merge({ notifications: [...state.notifications, message] })
+
+export const clearAllNotifications = (state) =>
+  state.merge(INITIAL_STATE)
+
+/* ------------- Hookup Reducers To Types ------------- */
+
+export const reducer = createReducer(INITIAL_STATE, {
+  [Types.ADD_NOTIFICATION]: addSingleNotification,
+  [Types.CLEAR_NOTIFICATIONS]: clearAllNotifications
+})

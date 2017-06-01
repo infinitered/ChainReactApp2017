@@ -2,7 +2,6 @@ import { combineReducers } from 'redux'
 import configureStore from './CreateStore'
 import rootSaga from '../Sagas/'
 import AppNavigation from '../Navigation/AppNavigation'
-import { notifications } from './NotificationRedux'
 
 const navReducer = (state, action) => {
   const newState = AppNavigation.router.getStateForAction(action, state)
@@ -15,7 +14,7 @@ export default () => {
     nav: navReducer,
     schedule: require('./ScheduleRedux').reducer,
     location: require('./LocationRedux').reducer,
-    notifications
+    notifications: require('./NotificationRedux').reducer
   })
 
   return configureStore(rootReducer, rootSaga)

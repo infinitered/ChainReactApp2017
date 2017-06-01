@@ -1,5 +1,5 @@
 import PushNotification from 'react-native-push-notification'
-import {addNotification} from '../Redux/NotificationRedux'
+import NotificationActions from '../Redux/NotificationRedux'
 
 export default {
   // dispatch is passed in from App.js after creating store
@@ -15,7 +15,7 @@ export default {
       // (required) Called when a remote or local notification is opened or received
       onNotification: (notification) => {
         console.tron.log(`PushNotification: ${notification.message}`)
-        dispatch(addNotification(notification.message))
+        dispatch(NotificationActions.addNotification(notification.message))
       },
 
       // ANDROID ONLY: (optional) GCM Sender ID.

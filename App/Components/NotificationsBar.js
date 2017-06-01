@@ -6,9 +6,9 @@ import PurpleGradient from './PurpleGradient'
 import styles from './Styles/ModalStyle'
 
 const NotificationScreen = ({notifications, onDismissModal}) => {
-  const notificationItems = notifications.map((item) => (
-    <Text style={styles.description} key={item.message}>
-      {item.message}
+  const notificationItems = notifications.map((message) => (
+    <Text style={styles.description} key={message}>
+      {message}
     </Text>
   ))
 
