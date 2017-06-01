@@ -40,6 +40,7 @@
     "react-native-drawer": "^2.3.0",
     "react-native-i18n": "^1.0.0",
     "react-native-linear-gradient": "^2.0.0",
+    "react-native-statusbar-alert": "^0.2.0",
     "react-native-maps": "0.15.2",
     "react-native-push-notification": "^3.0.0",
     "react-native-smart-splash-screen": "^2.3.4",
