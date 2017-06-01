@@ -10,7 +10,7 @@
     </dependencies>
     <objects>
         <view contentMode="scaleAspectFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" misplaced="YES" image="splash.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZkI-RL-69Z"/>
@@ -26,6 +26,6 @@
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
     </objects>
     <resources>
-        <image name="splash.png" width="898" height="1280"/>
+        <image name="splash.png" width="1242" height="2208"/>
     </resources>
 </document>
