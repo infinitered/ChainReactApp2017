@@ -37,13 +37,15 @@ export default class Talk extends React.Component {
       avatarURL,
       start,
       duration,
-      currentTime
+      currentTime,
+      isFinished
     } = this.props
 
     const containerStyles = [
       styles.container,
       isCurrentDay && styles.currentDay,
-      isActive && styles.active
+      isActive && styles.active,
+      isFinished && styles.finished
     ]
 
     return (
@@ -61,7 +63,11 @@ export default class Talk extends React.Component {
               start={start}
               duration={duration}
               remindMe={sendReminder}
+              isFinished={isFinished}
+              showWhenFinished={this.props.showWhenFinished}
               toggleRemindMe={() => this.toggleReminder()}
+              onPressGithub={this.props.onPressGithub}
+              onPressTwitter={this.props.onPressTwitter}
             />
           </View>
         </TouchableOpacity>
@@ -80,5 +86,9 @@ Talk.propTypes = {
   avatarURL: PropTypes.string.isRequired,
   start: PropTypes.instanceOf(Date).isRequired,
   duration: PropTypes.number.isRequired,
-  onPress: PropTypes.func.isRequired
+  onPress: PropTypes.func.isRequired,
+  onPressTwitter: PropTypes.func.isRequired,
+  onPressGithub: PropTypes.func.isRequired,
+  isFinished: PropTypes.bool.isRequired,
+  showWhenFinished: PropTypes.bool.isRequired
 }

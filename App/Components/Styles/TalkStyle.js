@@ -23,6 +23,9 @@ export default StyleSheet.create({
     shadowColor: Colors.redShadow,
     shadowOpacity: 1
   },
+  finished: {
+    opacity: 0.7
+  },
   info: {
     flex: 1,
     flexDirection: 'row',

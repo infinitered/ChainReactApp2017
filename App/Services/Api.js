@@ -35,6 +35,7 @@ const create = (baseURL = 'https://rawgit.com/infinitered/ChainReactApp/master/'
   // way at this level.
   //
   const getSpeakers = () => api.get('App/Fixtures/schedule.json')
+  const getNearby = () => api.get('App/Fixtures/nearby.json')
 
   // ------
   // STEP 3
@@ -50,7 +51,8 @@ const create = (baseURL = 'https://rawgit.com/infinitered/ChainReactApp/master/'
   //
   return {
     // a list of the API functions from step 2
-    getSpeakers
+    getSpeakers,
+    getNearby
   }
 }
 

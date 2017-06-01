@@ -14,6 +14,7 @@ export default () => {
   const rootReducer = combineReducers({
     nav: navReducer,
     schedule: require('./ScheduleRedux').reducer,
+    location: require('./LocationRedux').reducer,
     notifications
   })
 

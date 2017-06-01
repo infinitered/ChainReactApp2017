@@ -1,14 +1,17 @@
 import React, { PropTypes, Component } from 'react'
 import { View, Text } from 'react-native'
 import RemindMeButton from './RemindMeButton'
+import SocialMediaButton from './SocialMediaButton'
 import { format } from 'date-fns'
 import styles from './Styles/TalkInfoStyle'
 
 export default class TalkInfo extends Component {
 
   render () {
-    const { start, duration, remindMe, toggleRemindMe } = this.props
+    const { start, duration, remindMe, toggleRemindMe, isFinished, showWhenFinished } = this.props
     const formattedStart = format(start, 'h:mmA')
+    const showRemindMe = !isFinished
+    const showSocialMedia = isFinished && showWhenFinished
 
     return (
       <View style={styles.container}>
@@ -30,9 +33,17 @@ export default class TalkInfo extends Component {
             </Text>
           </View>
         </View>
-        <View style={styles.remindMe}>
-          <RemindMeButton onPress={toggleRemindMe} on={remindMe} />
-        </View>
+        {showRemindMe &&
+          <View style={styles.remindMe}>
+            <RemindMeButton onPress={toggleRemindMe} on={remindMe} />
+          </View>
+        }
+        {showSocialMedia &&
+          <View style={styles.socialButtons}>
+            <SocialMediaButton network='twitter' onPress={this.props.onPressTwitter} />
+            <SocialMediaButton network='github' onPress={this.props.onPressGithub} />
+          </View>
+        }
       </View>
     )
   }
@@ -42,9 +53,14 @@ TalkInfo.propTypes = {
   start: PropTypes.instanceOf(Date).isRequired,
   duration: PropTypes.number.isRequired,
   remindMe: PropTypes.bool.isRequired,
-  toggleRemindMe: PropTypes.func.isRequired
+  toggleRemindMe: PropTypes.func.isRequired,
+  isFinished: PropTypes.bool.isRequired,
+  showWhenFinished: PropTypes.bool.isRequired,
+  onPressGithub: PropTypes.func,
+  onPressTwitter: PropTypes.func
 }
 
 TalkInfo.defaultProps = {
-  remindMe: false
+  remindMe: false,
+  isFinished: false
 }
