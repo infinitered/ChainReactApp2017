@@ -46,22 +46,22 @@
   ],
   "Sites": [
     {
-      "name": "Powell's City of Books",
+      "name": "Powell's Books",
       "image": "tastyNAlder",
       "address": "1005 W Burnside St, Portland, OR 97209"
     },
     {
-      "name": "Oregon Museum of Science and Industry",
+      "name": "OMSI",
       "image": "tastyNAlder",
       "address": "1945 SE Water Ave, Portland, OR 97214"
     },
     {
-      "name": "Portland Japanese Garden",
+      "name": "Japanese Garden",
       "image": "tastyNAlder",
       "address": "611 SW Kingston Ave, Portland, OR 97205"
     },
     {
-      "name": "Pioneer Courthouse Square",
+      "name": "Pioneer Square",
       "image": "tastyNAlder",
       "address": "701 SW 6th Ave, Portland, OR 97205"
     }
