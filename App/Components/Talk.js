@@ -23,6 +23,7 @@ export default class Talk extends React.Component {
     this.setState((prevState) => {
 
       // turn off reminder
+      // possible issues on Android: https://github.com/zo0r/react-native-push-notification/issues/368
       if (prevState.sendReminder) {
         PushNotification.cancelLocalNotifications({
           id: PNHelpers.pushMessage(title, start)
