@@ -1,6 +1,10 @@
+import { format } from 'date-fns'
 import DebugConfig from '../Config/DebugConfig'
 
 const fifteenMinutes = 15 * 60 * 1000
+
+const pushMessage = (title, start) => `${title} begins at ${format(start, 'h:mmA')}.`
+
 // Returns 15 minutes before talk time, unless in debug
 const notificationTime = (talkTime) => {
   if (DebugConfig.hotwirePush) {
@@ -18,5 +22,6 @@ const notificationTime = (talkTime) => {
 }
 
 export default {
-  notificationTime
+  notificationTime,
+  pushMessage
 }

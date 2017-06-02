@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import { View, Text, Image, TouchableOpacity, LayoutAnimation } from 'react-native'
-import { format } from 'date-fns'
 import TalkInfo from './TalkInfo'
 import TimeIndicator from './TimeIndicator'
 import styles from './Styles/TalkStyle'
@@ -21,12 +20,26 @@ export default class Talk extends React.Component {
   toggleReminder () {
     const {title, start} = this.props
     LayoutAnimation.easeInEaseOut()
-    this.setState((prevState) => ({sendReminder: !prevState.sendReminder}))
+    this.setState((prevState) => {
 
-    PushNotification.localNotificationSchedule({
-      message: `${title} begins at ${format(start, 'h:mmA')}.`, // (required)
-      date: PNHelpers.notificationTime(start)
+      // turn off reminder
+      if (prevState.sendReminder) {
+        PushNotification.cancelLocalNotifications({
+          id: PNHelpers.pushMessage(title, start)
+        })
+      } else {
+        // turn on reminder
+        PushNotification.localNotificationSchedule({
+          message: PNHelpers.pushMessage(title, start), // (required)
+          date: PNHelpers.notificationTime(start),
+          userInfo: {id: PNHelpers.pushMessage(title, start)}
+        })
+      }
+
+      return {sendReminder: !prevState.sendReminder}
     })
+
+
   }
 
   render () {
