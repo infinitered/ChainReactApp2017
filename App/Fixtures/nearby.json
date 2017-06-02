@@ -19,6 +19,16 @@
       "name": "Fat Head's Brewery",
       "image": "fatHeadBrewery",
       "address": "131 NW 13th Ave, Portland, OR 97209"
+    },
+    {
+      "name": "Voodoo Doughnut",
+      "image": "fatHeadBrewery",
+      "address": "22 SW 3rd Ave, Portland, OR 97204"
+    },
+    {
+      "name": "Salt & Straw",
+      "image": "fatHeadBrewery",
+      "address": "838 NW 23rd Ave, Portland, OR 97210"
     }
   ],
   "Coffee": [
@@ -64,6 +74,16 @@
       "name": "Pioneer Square",
       "image": "tastyNAlder",
       "address": "701 SW 6th Ave, Portland, OR 97205"
+    },
+    {
+      "name": "Waterfront Park",
+      "image": "tastyNAlder",
+      "address": "98 SW Naito Pkwy"
+    },
+    {
+      "name": "Chinese Garden",
+      "image": "tastyNAlder",
+      "address": "239 NW Everett St, Portland, OR 97209"
     }
   ]
 }
