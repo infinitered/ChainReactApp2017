@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { View, Modal, Text, TouchableOpacity, Image } from 'react-native'
-import { Images } from '../Themes/'
+import { View, Modal, Text, TouchableOpacity } from 'react-native'
 import StatusBarAlert from 'react-native-statusbar-alert'
 import PurpleGradient from './PurpleGradient'
 import styles from './Styles/ModalStyle'
@@ -22,7 +21,7 @@ const NotificationScreen = ({notifications, onDismissModal}) => {
         </View>
         <TouchableOpacity onPress={onDismissModal}>
           <View style={styles.button}>
-            <Icon name="times-circle" size={20} style={styles.closeIcon} />
+            <Icon name='times-circle' size={20} style={styles.closeIcon} />
             <Text style={styles.text}>
               Dismiss
             </Text>

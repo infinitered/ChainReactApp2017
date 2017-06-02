@@ -21,7 +21,6 @@ export default class Talk extends React.Component {
     const {title, start} = this.props
     LayoutAnimation.easeInEaseOut()
     this.setState((prevState) => {
-
       // turn off reminder
       // possible issues on Android: https://github.com/zo0r/react-native-push-notification/issues/368
       if (prevState.sendReminder) {
@@ -39,8 +38,6 @@ export default class Talk extends React.Component {
 
       return {sendReminder: !prevState.sendReminder}
     })
-
-
   }
 
   render () {
