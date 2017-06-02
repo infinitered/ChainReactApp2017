@@ -17,11 +17,13 @@ import { getNearbyUpdates } from './LocationSagas'
 /* ------------- API ------------- */
 
 import API from '../Services/Api'
-const api = API.create()
+import DebugConfig from '../Config/DebugConfig'
+import FixtureAPI from '../Services/FixtureApi'
+// const api = API.create()
 
 // The API we use is only used from Sagas, so we create it here and pass along
 // to the sagas which need it.
-// const api = DebugConfig.useFixtures ? FixtureAPI : API.create()
+const api = DebugConfig.useFixtures ? FixtureAPI : API.create()
 
 /* ------------- Connect Types To Sagas ------------- */
 

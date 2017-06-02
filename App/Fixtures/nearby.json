@@ -19,50 +19,71 @@
       "name": "Fat Head's Brewery",
       "image": "fatHeadBrewery",
       "address": "131 NW 13th Ave, Portland, OR 97209"
+    },
+    {
+      "name": "Voodoo Doughnut",
+      "image": "fatHeadBrewery",
+      "address": "22 SW 3rd Ave, Portland, OR 97204"
+    },
+    {
+      "name": "Salt & Straw",
+      "image": "fatHeadBrewery",
+      "address": "838 NW 23rd Ave, Portland, OR 97210"
     }
   ],
   "Coffee": [
     {
-      "name": "Fat Head's Brewery",
-      "image": "fatHeadBrewery",
-      "address": "210 NW 11th Ave, Portland, OR 97209"
-    },
-    {
-      "name": "Deschutes Brewery",
+      "name": "Stumptown",
       "image": "deschutesBrewery",
-      "address": "210 NW 11th Ave, Portland, OR 97209"
+      "address": "1026 SW Stark St, Portland, OR 97205"
     },
     {
-      "name": "Little Big Burger",
-      "image": "littleBigBurger",
-      "address": "210 NW 11th Ave, Portland, OR 97209"
+      "name": "Heart Coffee",
+      "image": "deschutesBrewery",
+      "address": "537 SW 12th Ave, Portland, OR 97205"
     },
     {
-      "name": "Tasty N' Alder",
-      "image": "tastyNAlder",
-      "address": "210 NW 11th Ave, Portland, OR 97209"
+      "name": "Peet's Coffee",
+      "image": "deschutesBrewery",
+      "address": "1114 NW Couch St, Portland, OR 97209"
+    },
+    {
+      "name": "Courier Coffee",
+      "image": "deschutesBrewery",
+      "address": "923 SW Oak St, Portland, OR 97205"
     }
+
   ],
   "Sites": [
     {
-      "name": "Little Big Burger",
-      "image": "littleBigBurger",
-      "address": "210 NW 11th Ave, Portland, OR 97209"
-    },
-    {
-      "name": "Deschutes Brewery",
-      "image": "deschutesBrewery",
-      "address": "210 NW 11th Ave, Portland, OR 97209"
-    },
-    {
-      "name": "Tasty N' Alder",
+      "name": "Powell's Books",
       "image": "tastyNAlder",
-      "address": "210 NW 11th Ave, Portland, OR 97209"
+      "address": "1005 W Burnside St, Portland, OR 97209"
     },
     {
-      "name": "Fat Head's Brewery",
-      "image": "fatHeadBrewery",
-      "address": "210 NW 11th Ave, Portland, OR 97209"
+      "name": "OMSI",
+      "image": "tastyNAlder",
+      "address": "1945 SE Water Ave, Portland, OR 97214"
+    },
+    {
+      "name": "Japanese Garden",
+      "image": "tastyNAlder",
+      "address": "611 SW Kingston Ave, Portland, OR 97205"
+    },
+    {
+      "name": "Pioneer Square",
+      "image": "tastyNAlder",
+      "address": "701 SW 6th Ave, Portland, OR 97205"
+    },
+    {
+      "name": "Waterfront Park",
+      "image": "tastyNAlder",
+      "address": "98 SW Naito Pkwy"
+    },
+    {
+      "name": "Chinese Garden",
+      "image": "tastyNAlder",
+      "address": "239 NW Everett St, Portland, OR 97209"
     }
   ]
 }
