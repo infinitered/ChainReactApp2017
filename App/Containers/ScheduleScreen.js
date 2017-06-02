@@ -86,14 +86,14 @@ class ScheduleScreen extends React.Component {
     if (rowData.type === 'talk') {
       return (
         <Talk
-          name={rowData.name}
+          name={rowData.speaker}
           avatarURL={`https://infinite.red/images/chainreact/${rowData.image}.png`}
           title={rowData.title}
           start={eventStart}
           duration={eventDuration}
           onPress={() => this.onEventPress(rowData)}
-          onPressTwitter={() => this.props.onPressTwitter(rowData.twitter)}
-          onPressGithub={() => this.props.onPressGithub(rowData.github)}
+          onPressTwitter={() => this.props.onPressTwitter(rowData.speakerInfo[0].twitter)}
+          onPressGithub={() => this.props.onPressGithub(rowData.speakerInfo[0].github)}
           currentTime={currentTime}
           isCurrentDay={isCurrentDay}
           isActive={isActive}

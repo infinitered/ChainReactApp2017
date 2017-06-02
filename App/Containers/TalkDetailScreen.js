@@ -24,6 +24,37 @@ class TalkDetail extends React.Component {
     this.props.navigation.dispatch(NavigationActions.back())
   }
 
+  renderSpeaker = (speaker, index) => {
+    return (
+      <View key={index}>
+        <Text style={styles.heading}>
+          {speaker.name}
+        </Text>
+        <Text style={styles.description}>
+          {speaker.bio}
+        </Text>
+        <View style={styles.social}>
+          <SocialMediaButton
+            network='twitter'
+            spacing='right'
+            onPress={() => this.props.onPressTwitter(speaker.twitter)}
+          />
+          <SocialMediaButton
+            network='github'
+            spacing='right'
+            onPress={() => this.props.onPressGithub(speaker.github)}
+          />
+        </View>
+      </View>
+    )
+  }
+
+  renderSpeakers = () => {
+    const { speakerInfo } = this.props
+
+    return (speakerInfo.map((speaker, index) => this.renderSpeaker(speaker, index)))
+  }
+
   render () {
     return (
       <PurpleGradient style={styles.linearGradient}>
@@ -52,24 +83,7 @@ class TalkDetail extends React.Component {
               <Text style={styles.sectionHeading}>
                 ABOUT
               </Text>
-              <Text style={styles.heading}>
-                {this.props.name}
-              </Text>
-              <Text style={styles.description}>
-                {this.props.bio}
-              </Text>
-              <View style={styles.social}>
-                <SocialMediaButton
-                  network='twitter'
-                  spacing='right'
-                  onPress={() => this.props.onPressTwitter(this.props.twitter)}
-                />
-                <SocialMediaButton
-                  network='github'
-                  spacing='right'
-                  onPress={() => this.props.onPressGithub(this.props.github)}
-                />
-              </View>
+              {this.renderSpeakers()}
             </View>
             <TalkInfo
               start={new Date(this.props.eventStart)}
