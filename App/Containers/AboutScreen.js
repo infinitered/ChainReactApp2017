@@ -10,7 +10,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient'
 import RoundedButton from '../Components/RoundedButton'
 import PurpleGradient from '../Components/PurpleGradient'
-import { Images } from '../Themes'
+import { Images, Metrics } from '../Themes'
 import { connect } from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -54,7 +54,7 @@ class AboutScreen extends React.Component {
                 style={styles.slackButton}
               />
             </LinearGradient>
-            <Image source={Images.squarespacePhoto}>
+            <Image source={Images.squarespacePhoto} style={{width: Metrics.screenWidth}}>
               <View style={styles.afterPartyContainer}>
                 <View style={styles.partyHeader}>
                   <Image source={Images.sqspLogo} />
