@@ -87,7 +87,9 @@ const images = {
   deschutesBrewery: require('../Images/deschutes-brewery.jpg'),
   littleBigBurger: require('../Images/little-big-burger.jpg'),
   tastyNAlder: require('../Images/tasty-n-alder.jpg'),
-  fatHeadBrewery: require('../Images/fat-head-brewery.jpg')
+  fatHeadBrewery: require('../Images/fat-head-brewery.jpg'),
+  sqspLogo: require('../Images/sqsp-logo.png'),
+  squarespacePhoto: require('../Images/squarespace-photo.jpg')
 }
 
 export default images

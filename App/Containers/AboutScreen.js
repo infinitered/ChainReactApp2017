@@ -54,6 +54,25 @@ class AboutScreen extends React.Component {
                 style={styles.slackButton}
               />
             </LinearGradient>
+            <Image source={Images.squarespacePhoto}>
+              <View style={styles.afterPartyContainer}>
+                <View style={styles.partyHeader}>
+                  <Image source={Images.sqspLogo} />
+                  <Text style={styles.welcomeParty}>WELCOME PARTY</Text>
+                  <Text style={styles.partyDescription}>AT SQUARESPACE PDX</Text>
+                </View>
+                <View style={styles.partyInfo}>
+                  <Text style={styles.partyDescription}>SUNDAY, JULY 9 | 4-8PM</Text>
+                  <Text style={styles.partyDescription}>311 SW WASHINGTON STREET</Text>
+                </View>
+              </View>
+            </Image>
+            <RoundedButton
+              onPress={() => Linking.openURL('https://chainreact.squarespace.com')}
+              style={styles.partyButton}
+            >
+              <Text style={styles.partyButtonText}>I WANT TO GO</Text>
+            </RoundedButton>
             <View style={styles.twitter}>
               <Image style={styles.blowhorn} source={Images.blowhorn} />
               <TouchableOpacity onPress={() => this.tweetWithHashtag()}>
