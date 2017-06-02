@@ -5,6 +5,7 @@ import TalkInfo from './TalkInfo'
 import TimeIndicator from './TimeIndicator'
 import styles from './Styles/TalkStyle'
 import PushNotification from 'react-native-push-notification'
+import PNHelpers from '../Lib/PushNotificationHelpers'
 
 export default class Talk extends React.Component {
 
@@ -21,9 +22,10 @@ export default class Talk extends React.Component {
     const {title, start} = this.props
     LayoutAnimation.easeInEaseOut()
     this.setState((prevState) => ({sendReminder: !prevState.sendReminder}))
+
     PushNotification.localNotificationSchedule({
       message: `${title} begins at ${format(start, 'h:mmA')}.`, // (required)
-      date: new Date(Date.now() + (5 * 1000)) // in 5 secs,
+      date: PNHelpers.notificationTime(start)
     })
   }
 

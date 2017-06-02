@@ -34,12 +34,16 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 5,
-    marginLeft: 15,
+    marginHorizontal: 15,
     borderWidth: 1,
     borderColor: Colors.red,
     borderRadius: 100,
     backgroundColor: Colors.clear,
-    height: 34
+    height: 40
+  },
+  closeIcon: {
+    color: Colors.red,
+    paddingHorizontal: 10
   },
   icon: {
     marginRight: 7

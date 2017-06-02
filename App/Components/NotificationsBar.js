@@ -4,6 +4,7 @@ import { Images } from '../Themes/'
 import StatusBarAlert from 'react-native-statusbar-alert'
 import PurpleGradient from './PurpleGradient'
 import styles from './Styles/ModalStyle'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 const NotificationScreen = ({notifications, onDismissModal}) => {
   const notificationItems = notifications.map((message) => (
@@ -21,7 +22,7 @@ const NotificationScreen = ({notifications, onDismissModal}) => {
         </View>
         <TouchableOpacity onPress={onDismissModal}>
           <View style={styles.button}>
-            <Image source={Images.closeButton} style={styles.icon} />
+            <Icon name="times-circle" size={20} style={styles.closeIcon} />
             <Text style={styles.text}>
               Dismiss
             </Text>
