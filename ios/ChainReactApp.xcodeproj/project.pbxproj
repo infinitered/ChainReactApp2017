@@ -139,6 +139,20 @@
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "ChainReactApp-tvOS";
 		};
+		380DFD051EDE23A60081C36F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA730ADB465942DFA77188BC /* AirMaps.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
+			remoteInfo = AirMaps;
+		};
+		380DFD2D1EDE23A60081C36F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 780AA29F94CE4A6CA2045DAC /* RNVectorIcons.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A39873CE1EA65EE60051E01A;
+			remoteInfo = "RNVectorIcons-tvOS";
+		};
 		382332A51EAA22E8001D6312 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1546F4757E1D481AA294CFBA /* RNAnalytics.xcodeproj */;
@@ -609,6 +623,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		380DFD021EDE23A60081C36F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				380DFD061EDE23A60081C36F /* libAirMaps.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		382332841EAA22E8001D6312 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -621,14 +643,6 @@
 			isa = PBXGroup;
 			children = (
 				382332AF1EAA22E8001D6312 /* libRNCrashes.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		388E7E011EE05F4E004E95A5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				388E7E051EE05F4E004E95A5 /* libAirMaps.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -738,7 +752,7 @@
 			isa = PBXGroup;
 			children = (
 				920A08D61E9AEE2700647CBF /* libRNVectorIcons.a */,
-				388E7E2D1EE05F4E004E95A5 /* libRNVectorIcons-tvOS.a */,
+				380DFD2E1EDE23A60081C36F /* libRNVectorIcons-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -969,7 +983,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 388E7E011EE05F4E004E95A5 /* Products */;
+					ProductGroup = 380DFD021EDE23A60081C36F /* Products */;
 					ProjectRef = FA730ADB465942DFA77188BC /* AirMaps.xcodeproj */;
 				},
 				{
@@ -1124,6 +1138,20 @@
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		380DFD061EDE23A60081C36F /* libAirMaps.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAirMaps.a;
+			remoteRef = 380DFD051EDE23A60081C36F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		380DFD2E1EDE23A60081C36F /* libRNVectorIcons-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNVectorIcons-tvOS.a";
+			remoteRef = 380DFD2D1EDE23A60081C36F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		382332A61EAA22E8001D6312 /* libRNAnalytics.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1136,20 +1164,6 @@
 			fileType = archive.ar;
 			path = libRNCrashes.a;
 			remoteRef = 382332AE1EAA22E8001D6312 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		388E7E051EE05F4E004E95A5 /* libAirMaps.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libAirMaps.a;
-			remoteRef = 388E7E041EE05F4E004E95A5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		388E7E2D1EE05F4E004E95A5 /* libRNVectorIcons-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libRNVectorIcons-tvOS.a";
-			remoteRef = 388E7E2C1EE05F4E004E95A5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		38AA22511EDDC6BC00E81936 /* libRCTSplashScreen.a */ = {

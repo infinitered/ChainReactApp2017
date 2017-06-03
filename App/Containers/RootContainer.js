@@ -4,7 +4,9 @@ import Navigation from '../Navigation/AppNavigation'
 import { addNavigationHelpers } from 'react-navigation'
 import { connect } from 'react-redux'
 import StartupActions from '../Redux/StartupRedux'
+import NotificationActions from '../Redux/NotificationRedux'
 import ReduxPersist from '../Config/ReduxPersist'
+import NotificationsBar from '../Components/NotificationsBar'
 import styles from './Styles/RootContainerStyles'
 
 class RootContainer extends Component {
@@ -17,10 +19,17 @@ class RootContainer extends Component {
   }
 
   render () {
-    const { dispatch, nav } = this.props
+    const {
+      dispatch, nav, notifications, clearNotifications
+    } = this.props
+
     return (
       <View style={styles.applicationView}>
         <StatusBar barStyle='light-content' />
+        <NotificationsBar
+          notifications={notifications}
+          clearNotifications={clearNotifications}
+        />
         <Navigation
           addNavigationHelpers={addNavigationHelpers({dispatch, state: nav})}
         />
@@ -29,9 +38,14 @@ class RootContainer extends Component {
   }
 }
 
-// wraps dispatch to create nicer functions to call within our component
-const mapDispatchToProps = (dispatch) => ({
-  startup: () => dispatch(StartupActions.startup())
+const mapStateToProps = (state) => ({
+  notifications: state.notifications.notifications
 })
 
-export default connect(null, mapDispatchToProps)(RootContainer)
+// wraps dispatch to create nicer functions to call within our component
+const mapDispatchToProps = (dispatch) => ({
+  startup: () => dispatch(StartupActions.startup()),
+  clearNotifications: () => dispatch(NotificationActions.clearNotifications())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(RootContainer)

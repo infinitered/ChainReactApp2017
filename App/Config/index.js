@@ -1,6 +1,10 @@
 import { Text } from 'react-native'
 import DebugConfig from './DebugConfig'
 import AppConfig from './AppConfig'
+import PushConfig from './PushConfig'
+
+// just for Standard to stop bitching
+console.tron.log(PushConfig)
 
 export default () => {
   if (__DEV__) {
