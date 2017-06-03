@@ -189,12 +189,12 @@ class LocationScreen extends React.Component {
                 </View>
               </TouchableOpacity>
             </View>
-            <View style={[styles.rideOptions, showRideOptions && {height: 200}]}>
+            <View style={[styles.rideOptions, showRideOptions && {height: 170}]}>
               <TouchableOpacity onPress={() => this.openLyft()}>
-                <Image source={Images.lyftButton} />
+                <Image style={styles.rideButton} source={Images.lyftButton} />
               </TouchableOpacity>
               <TouchableOpacity onPress={() => this.openUber()}>
-                <Image source={Images.uberButton} />
+                <Image style={styles.rideButton} source={Images.uberButton} />
               </TouchableOpacity>
             </View>
             <View style={styles.nearby}>

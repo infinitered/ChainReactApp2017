@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { ApplicationStyles, Colors } from '../../Themes/'
+import { ApplicationStyles, Metrics, Colors } from '../../Themes/'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -24,13 +24,24 @@ export default StyleSheet.create({
   },
   map: {
     width: '100%',
-    height: 200
+    height: 200,
+    zIndex: 2
   },
   mapActions: {
     paddingHorizontal: 12,
     backgroundColor: Colors.snow,
     borderTopWidth: 1,
-    borderTopColor: '#C4C4C4'
+    borderTopColor: '#C4C4C4',
+    borderBottomWidth: 1,
+    borderBottomColor: '#DEDEDE',
+    shadowColor: Colors.black,
+    shadowRadius: 3,
+    shadowOffset: {
+      x: 10,
+      y: 10
+    },
+    shadowOpacity: 0.3,
+    zIndex: 1
   },
   getDirections: {
     flexDirection: 'row',
@@ -78,17 +89,15 @@ export default StyleSheet.create({
   getRideIcon: {
     marginHorizontal: 10
   },
+  rideButton: {
+    margin: 1.2 * Metrics.smallMargin
+  },
   rideOptions: {
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     height: 0,
     overflow: 'hidden',
-    backgroundColor: '#EDEDED',
-    shadowColor: '#C1C1C1',
-    shadowOffset: {
-      x: 0,
-      y: -1
-    }
+    backgroundColor: '#EDEDED'
   },
   flip: {
     transform: [{
