@@ -19,20 +19,22 @@ export default class Talk extends React.Component {
 
   toggleReminder () {
     const {title, start} = this.props
+    // Make a copy otherwise could be modified!!!
+    const startCopy = new Date(start.valueOf())
     LayoutAnimation.easeInEaseOut()
     this.setState((prevState) => {
       // turn off reminder
       // possible issues on Android: https://github.com/zo0r/react-native-push-notification/issues/368
       if (prevState.sendReminder) {
         PushNotification.cancelLocalNotifications({
-          id: PNHelpers.pushMessage(title, start)
+          id: PNHelpers.pushMessage(title, startCopy)
         })
       } else {
         // turn on reminder
         PushNotification.localNotificationSchedule({
-          message: PNHelpers.pushMessage(title, start), // (required)
-          date: PNHelpers.notificationTime(start),
-          userInfo: {id: PNHelpers.pushMessage(title, start)}
+          message: PNHelpers.pushMessage(title, startCopy), // (required)
+          date: PNHelpers.notificationTime(startCopy),
+          userInfo: {id: PNHelpers.pushMessage(title, startCopy)}
         })
       }
 

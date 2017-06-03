@@ -16,8 +16,6 @@ const { Types, Creators } = createActions({
 export const NotificationTypes = Types
 export default Creators
 
-console.tron.log(Creators)
-
 /* ------------- Reducer ------------- */
 
 export const addSingleNotification = (state = INITIAL_STATE, { message }) =>

@@ -14,7 +14,6 @@ export default {
 
       // (required) Called when a remote or local notification is opened or received
       onNotification: (notification) => {
-        console.tron.log(`PushNotification: ${notification.message}`)
         dispatch(NotificationActions.addNotification(notification.message))
       },
 

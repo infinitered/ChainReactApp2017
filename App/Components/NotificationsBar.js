@@ -64,12 +64,13 @@ class NotificationsBar extends Component {
         <StatusBarAlert
           visible
           message='Talk coming up! (tap for details)'
-          backgroundColor='#3CC29E'
+          backgroundColor='#a843af'
           color='white'
           pulse='background'
           onPress={this.onPressStatusBarAlert}
         />
         <Modal
+          animationType={'slide'}
           visible={this.state.showModal}
           onRequestClose={this.onDismissModal}>
           <NotificationScreen
