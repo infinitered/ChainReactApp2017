@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, Text, View, Image, TouchableOpacity } from 'react-native'
+import { ScrollView, Text, View, Image, TouchableOpacity, LayoutAnimation } from 'react-native'
 import PurpleGradient from '../Components/PurpleGradient'
 import TalkInfo from '../Components/TalkInfo'
 import SocialMediaButton from '../Components/SocialMediaButton'
@@ -10,6 +10,10 @@ import { connect } from 'react-redux'
 // import YourActions from '../Redux/YourRedux'
 import { Images } from '../Themes'
 import styles from './Styles/TalkDetailScreenStyle'
+import NotificationActions from '../Redux/NotificationRedux'
+import PushNotification from 'react-native-push-notification'
+import PNHelpers from '../Lib/PushNotificationHelpers'
+import { contains } from 'ramda'
 
 class TalkDetail extends React.Component {
 
@@ -49,10 +53,36 @@ class TalkDetail extends React.Component {
     )
   }
 
+  isSpecial = () => contains(this.props.title, this.props.specialTalks)
+
   renderSpeakers = () => {
     const { speakerInfo } = this.props
 
     return (speakerInfo.map((speaker, index) => this.renderSpeaker(speaker, index)))
+  }
+
+  toggleReminder = () => {
+    const {title, eventStart} = this.props
+    // Make a copy otherwise could be modified!!!
+    const startCopy = new Date(eventStart.valueOf())
+    LayoutAnimation.easeInEaseOut()
+
+    // turn off reminder
+    // possible issues on Android: https://github.com/zo0r/react-native-push-notification/issues/368
+    if (this.isSpecial()) {
+      this.props.talkNotSpecial(title)
+      PushNotification.cancelLocalNotifications({
+        id: PNHelpers.pushMessage(title, startCopy)
+      })
+    } else {
+      // turn on reminder
+      this.props.talkSpecial(title)
+      PushNotification.localNotificationSchedule({
+        message: PNHelpers.pushMessage(title, startCopy), // (required)
+        date: PNHelpers.notificationTime(startCopy),
+        userInfo: {id: PNHelpers.pushMessage(title, startCopy)}
+      })
+    }
   }
 
   render () {
@@ -88,8 +118,8 @@ class TalkDetail extends React.Component {
             <TalkInfo
               start={new Date(this.props.eventStart)}
               duration={Number(this.props.duration)}
-              remindMe={false}
-              toggleRemindMe={() => {}}
+              remindMe={this.isSpecial()}
+              toggleRemindMe={this.toggleReminder}
               onPressGithub={this.props.onPressGithub}
               onPressTwitter={this.props.onPressTwitter}
               isFinished={this.props.currentTime > this.props.eventStart}
@@ -106,14 +136,17 @@ class TalkDetail extends React.Component {
 const mapStateToProps = (state) => {
   return {
     ...state.schedule.selectedEvent,
-    currentTime: new Date(state.schedule.currentTime)
+    currentTime: new Date(state.schedule.currentTime),
+    specialTalks: state.notifications.specialTalks
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onPressGithub: url => dispatch(ScheduleActions.visitGithub(url)),
-    onPressTwitter: url => dispatch(ScheduleActions.visitTwitter(url))
+    onPressTwitter: url => dispatch(ScheduleActions.visitTwitter(url)),
+    talkSpecial: title => dispatch(NotificationActions.addTalk(title)),
+    talkNotSpecial: title => dispatch(NotificationActions.removeTalk(title))
   }
 }
 
