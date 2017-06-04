@@ -8,8 +8,9 @@ export default StyleSheet.create({
     marginTop: 40
   },
   colorBump: {
-    backgroundColor: 'rgba(140,42,140, 0.5)',
-    flex: 1
+    backgroundColor: Colors.transparentBump,
+    flex: 1,
+    justifyContent: 'space-around'
   },
   heading: {
     marginTop: 14,
@@ -17,7 +18,8 @@ export default StyleSheet.create({
     fontSize: 31,
     letterSpacing: 0.2,
     backgroundColor: Colors.transparent,
-    color: Colors.snow
+    color: Colors.snow,
+    textAlign: 'center'
   },
   description: {
     textAlign: 'center',
@@ -25,7 +27,8 @@ export default StyleSheet.create({
     fontSize: 15,
     color: '#FDE5FF',
     letterSpacing: 0.47,
-    lineHeight: 23
+    lineHeight: 23,
+    paddingVertical: 10
   },
   closeButton: {
     position: 'absolute',
@@ -39,22 +42,19 @@ export default StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 5,
     marginHorizontal: 15,
-    borderWidth: 1,
-    borderColor: Colors.red,
-    borderRadius: 100,
     backgroundColor: Colors.clear,
     height: 40
   },
   closeIcon: {
-    color: Colors.red,
+    color: Colors.silver,
     paddingHorizontal: 10
   },
   icon: {
     marginRight: 7
   },
   text: {
-    fontFamily: 'Avenir-Medium',
-    fontSize: 11,
-    color: Colors.red
+    fontFamily: 'Avenir-Book',
+    fontSize: 17,
+    color: Colors.silver
   }
 })

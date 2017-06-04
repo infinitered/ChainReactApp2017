@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import { View, Modal, Text, TouchableOpacity } from 'react-native'
 import StatusBarAlert from 'react-native-statusbar-alert'
 import styles from './Styles/ModalStyle'
-import Icon from 'react-native-vector-icons/FontAwesome'
 import { BlurView } from 'react-native-blur'
 
 const NotificationScreen = ({notifications, onDismissModal}) => {
@@ -24,13 +23,10 @@ const NotificationScreen = ({notifications, onDismissModal}) => {
           <Text style={styles.heading}>Sessions Starting!</Text>
           {notificationItems}
         </View>
-        <TouchableOpacity onPress={onDismissModal}>
-          <View style={styles.button}>
-            <Icon name='times-circle' size={20} style={styles.closeIcon} />
-            <Text style={styles.text}>
-              Dismiss
-            </Text>
-          </View>
+        <TouchableOpacity onPress={onDismissModal} style={styles.button}>
+          <Text style={styles.text}>
+            Close Message
+          </Text>
         </TouchableOpacity>
       </View>
     </BlurView>
