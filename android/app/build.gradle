@@ -95,6 +95,9 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        // Added for react-native-blur
+        renderscriptTargetApi 23
+        renderscriptSupportModeEnabled true
     }
     splits {
         abi {
@@ -143,6 +146,7 @@ allprojects {
 }
 
 dependencies {
+    compile project(':react-native-blur')
     compile project(':react-native-smart-splash-screen')
     compile(project(':react-native-maps')) {
         exclude group: 'com.google.android.gms', module: 'play-services-base'

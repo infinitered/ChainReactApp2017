@@ -7,6 +7,10 @@ export default StyleSheet.create({
     flex: 1,
     marginTop: 40
   },
+  colorBump: {
+    backgroundColor: 'rgba(140,42,140, 0.5)',
+    flex: 1
+  },
   heading: {
     marginTop: 14,
     fontFamily: 'Avenir-Black',
