@@ -41,7 +41,6 @@ export default class Talk extends React.Component {
   }
 
   render () {
-    const { sendReminder } = this.state
     const {
       isCurrentDay,
       isActive,

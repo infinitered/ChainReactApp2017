@@ -29,10 +29,10 @@ export const clearAllNotifications = (state) =>
   state.merge({notifications: []})
 
 export const addSingleTalk = (state = INITIAL_STATE, { title }) =>
-  state.merge({ specialTalks: [...state.specialTalks, title]})
+  state.merge({ specialTalks: [...state.specialTalks, title] })
 
 export const removeSingleTalk = (state = INITIAL_STATE, { title }) =>
-  state.merge({ specialTalks: R.reject(R.equals(title), state.specialTalks)})
+  state.merge({ specialTalks: R.reject(R.equals(title), state.specialTalks) })
 
 /* ------------- Hookup Reducers To Types ------------- */
 
