@@ -14,6 +14,7 @@ import ScheduleActions from '../Redux/ScheduleRedux'
 import { connect } from 'react-redux'
 import { compareAsc, isSameDay, addMinutes, isWithinRange } from 'date-fns'
 import { merge, groupWith } from 'ramda'
+import NotificationActions from '../Redux/NotificationRedux'
 
 // For empty lists
 // import AlertMessage from '../Components/AlertMessage'
@@ -82,6 +83,7 @@ class ScheduleScreen extends React.Component {
     const { eventDuration, eventStart, eventEnd } = rowData
     const isActive = isWithinRange(currentTime, eventStart, eventEnd)
     const isFinished = currentTime > eventEnd
+    const isSpecial = true
 
     if (rowData.type === 'talk') {
       return (
@@ -94,9 +96,12 @@ class ScheduleScreen extends React.Component {
           onPress={() => this.onEventPress(rowData)}
           onPressTwitter={() => this.props.onPressTwitter(rowData.speakerInfo[0].twitter)}
           onPressGithub={() => this.props.onPressGithub(rowData.speakerInfo[0].github)}
+          talkSpecial={() => this.props.onTalkSpecial(rowData.title)}
+          talkNotSpecial={() => this.props.onTalkNotSpecial(rowData.title)}
           currentTime={currentTime}
           isCurrentDay={isCurrentDay}
           isActive={isActive}
+          isSpecial={isSpecial}
           isFinished={isFinished}
           showWhenFinished
         />
@@ -206,8 +211,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setSelectedEvent: (data) => dispatch(ScheduleActions.setSelectedEvent(data)),
     onPressGithub: url => dispatch(ScheduleActions.visitGithub(url)),
-    onPressTwitter: url => dispatch(ScheduleActions.visitTwitter(url))
-
+    onPressTwitter: url => dispatch(ScheduleActions.visitTwitter(url)),
+    onTalkSpecial: title => dispatch(NotificationActions.addTalk(title)),
+    onTalkNotSpecial: title => dispatch(NotificationActions.removeTalk(title))
   }
 }
 

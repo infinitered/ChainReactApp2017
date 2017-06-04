@@ -26,11 +26,13 @@ export default class Talk extends React.Component {
       // turn off reminder
       // possible issues on Android: https://github.com/zo0r/react-native-push-notification/issues/368
       if (prevState.sendReminder) {
+        this.props.talkNotSpecial()
         PushNotification.cancelLocalNotifications({
           id: PNHelpers.pushMessage(title, startCopy)
         })
       } else {
         // turn on reminder
+        this.props.talkSpecial()
         PushNotification.localNotificationSchedule({
           message: PNHelpers.pushMessage(title, startCopy), // (required)
           date: PNHelpers.notificationTime(startCopy),
@@ -104,6 +106,8 @@ Talk.propTypes = {
   onPress: PropTypes.func.isRequired,
   onPressTwitter: PropTypes.func.isRequired,
   onPressGithub: PropTypes.func.isRequired,
+  talkSpecial: PropTypes.func.isRequired,
+  talkNotSpecial: PropTypes.func.isRequired,
   isFinished: PropTypes.bool.isRequired,
   showWhenFinished: PropTypes.bool.isRequired
 }
