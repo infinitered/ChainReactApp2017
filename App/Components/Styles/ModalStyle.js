@@ -55,6 +55,7 @@ export default StyleSheet.create({
   text: {
     fontFamily: 'Avenir-Book',
     fontSize: 17,
-    color: Colors.silver
+    color: Colors.silver,
+    backgroundColor: Colors.clear
   }
 })

@@ -165,6 +165,9 @@ dependencies {
     }
     compile 'com.google.android.gms:play-services-base:10.2.0'
     compile 'com.google.android.gms:play-services-maps:10.2.0'
+    compile ('com.google.android.gms:play-services-gcm:10.2.0') {
+        force = true;
+    }
 
     compile project(':mobile-center-crashes')
     compile project(':mobile-center-analytics')
