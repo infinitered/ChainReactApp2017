@@ -12,12 +12,22 @@ const NotificationScreen = ({notifications, onDismissModal}) => {
   ))
 
   return (
+    <View style={{flex: 1}}>
+      {
+        /* This is outside View due to limitations in android blur */
+      }
+      <BlurView
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0
+        }}
+        blurType='dark'
+        blurAmount={15}
+      />
 
-    <BlurView
-      style={{flex: 1}}
-      blurType='dark'
-      blurAmount={15}
-    >
       <View style={styles.colorBump}>
         <View style={styles.section}>
           <Text style={styles.heading}>Sessions Starting!</Text>
@@ -29,7 +39,7 @@ const NotificationScreen = ({notifications, onDismissModal}) => {
           </Text>
         </TouchableOpacity>
       </View>
-    </BlurView>
+    </View>
   )
 }
 

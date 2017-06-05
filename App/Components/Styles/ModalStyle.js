@@ -55,6 +55,7 @@ export default StyleSheet.create({
   text: {
     fontFamily: 'Montserrat-Light',
     fontSize: 17,
-    color: Colors.silver
+    color: Colors.silver,
+    backgroundColor: Colors.clear
   }
 })

@@ -1,3 +1,5 @@
+import {Platform} from 'react-native'
+
 const colors = {
   background: '#1F0808',
   clear: 'rgba(0,0,0,0)',
@@ -32,7 +34,7 @@ const colors = {
   avatarBorder: '#DCE3E8',
   lightText: '#656565',
   text: '#000000',
-  transparentBump: 'rgba(140,42,140, 0.5)'
+  transparentBump: (Platform.OS === 'ios') ? 'rgba(140,42,140, 0.5)' : 'rgba(140,42,140, 0.9)'
 }
 
 export default colors
