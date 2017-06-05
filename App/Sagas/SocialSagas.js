@@ -29,6 +29,10 @@ export function* visitGithub (action) {
  */
 export function* visitTwitter (action) {
   const { account = 'chainreactconf' } = action
-  const url = `https://twitter.com/${account}`
-  yield call(open, url)
+  const nativeUrl = `twitter://user?screen_name=${account}`
+  const webUrl = `https://twitter.com/${account}`
+
+  const opened = yield call(open, nativeUrl)
+
+  if (!opened) yield call(open, webUrl)
 }
