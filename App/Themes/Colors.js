@@ -31,7 +31,8 @@ const colors = {
   headerPurple: '#571757',
   avatarBorder: '#DCE3E8',
   lightText: '#656565',
-  text: '#000000'
+  text: '#000000',
+  transparentBump: 'rgba(140,42,140, 0.5)'
 }
 
 export default colors

@@ -82,6 +82,15 @@ def enableSeparateBuildPerCPUArchitecture = false
  */
 def enableProguardInReleaseBuilds = false
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.0'
+    }
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
@@ -89,12 +98,17 @@ android {
     defaultConfig {
         applicationId "com.chainreactapp"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        // Added for react-native-blur
+        renderscriptTargetApi 23
+        renderscriptSupportModeEnabled true
+        compileSdkVersion 23
+        buildToolsVersion "23.0.3"
     }
     splits {
         abi {
@@ -143,6 +157,7 @@ allprojects {
 }
 
 dependencies {
+    compile project(':react-native-blur')
     compile project(':react-native-smart-splash-screen')
     compile(project(':react-native-maps')) {
         exclude group: 'com.google.android.gms', module: 'play-services-base'
