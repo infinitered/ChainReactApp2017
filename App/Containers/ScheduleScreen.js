@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  AppState,
   View,
   ListView,
   Text,
@@ -60,7 +61,8 @@ class ScheduleScreen extends React.Component {
       eventsByDay: eventsByDay,
       dataSource: ds.cloneWithRows(addSpecials(this.props.specialTalks, eventsByDay[0])),
       isCurrentDay: isCurrentDay(this.props.currentTime, 0),
-      activeDay: 0
+      activeDay: 0,
+      appState: AppState.currentState
     }
   }
 
@@ -120,6 +122,21 @@ class ScheduleScreen extends React.Component {
         />
       )
     }
+  }
+
+  componentDidMount() {
+    AppState.addEventListener('change', this._handleAppStateChange);
+  }
+
+  componentWillUnmount() {
+    AppState.removeEventListener('change', this._handleAppStateChange);
+  }
+
+  _handleAppStateChange = (nextAppState) => {
+    if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
+      this.props.getScheduleUpdates()
+    }
+    this.setState({appState: nextAppState});
   }
 
   componentWillReceiveProps (newProps) {
@@ -210,6 +227,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    getScheduleUpdates: () => dispatch(ScheduleActions.getScheduleUpdates()),
     setSelectedEvent: (data) => dispatch(ScheduleActions.setSelectedEvent(data)),
     onPressGithub: url => dispatch(ScheduleActions.visitGithub(url)),
     onPressTwitter: url => dispatch(ScheduleActions.visitTwitter(url)),
