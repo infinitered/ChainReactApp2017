@@ -13,7 +13,8 @@ import Break from '../Components/Break'
 import ScheduleActions from '../Redux/ScheduleRedux'
 import { connect } from 'react-redux'
 import { compareAsc, isSameDay, addMinutes, isWithinRange } from 'date-fns'
-import { merge, groupWith } from 'ramda'
+import { merge, groupWith, contains, assoc, map } from 'ramda'
+import NotificationActions from '../Redux/NotificationRedux'
 
 // For empty lists
 // import AlertMessage from '../Components/AlertMessage'
@@ -24,6 +25,8 @@ import styles from './Styles/TalksScreenStyle'
 
 const isCurrentDay = (currentTime, activeDay) =>
   isSameDay(currentTime, new Date(['7/17/2017', '7/18/2017'][activeDay]))
+
+const addSpecials = (specialTalksList, talks) => map((talk) => assoc('special', contains(talk.title, specialTalksList), talk), talks)
 
 class ScheduleScreen extends React.Component {
 
@@ -55,7 +58,7 @@ class ScheduleScreen extends React.Component {
     this.state = {
       currentTime: props.currentTime,
       eventsByDay: eventsByDay,
-      dataSource: ds.cloneWithRows(eventsByDay[0]),
+      dataSource: ds.cloneWithRows(addSpecials(this.props.specialTalks, eventsByDay[0])),
       isCurrentDay: isCurrentDay(this.props.currentTime, 0),
       activeDay: 0
     }
@@ -79,7 +82,7 @@ class ScheduleScreen extends React.Component {
 
   renderRow = (rowData) => {
     const { currentTime, isCurrentDay } = this.state
-    const { eventDuration, eventStart, eventEnd } = rowData
+    const { eventDuration, eventStart, eventEnd, special } = rowData
     const isActive = isWithinRange(currentTime, eventStart, eventEnd)
     const isFinished = currentTime > eventEnd
 
@@ -94,9 +97,12 @@ class ScheduleScreen extends React.Component {
           onPress={() => this.onEventPress(rowData)}
           onPressTwitter={() => this.props.onPressTwitter(rowData.speakerInfo[0].twitter)}
           onPressGithub={() => this.props.onPressGithub(rowData.speakerInfo[0].github)}
+          talkSpecial={() => this.props.onTalkSpecial(rowData.title)}
+          talkNotSpecial={() => this.props.onTalkNotSpecial(rowData.title)}
           currentTime={currentTime}
           isCurrentDay={isCurrentDay}
           isActive={isActive}
+          isSpecial={special}
           isFinished={isFinished}
           showWhenFinished
         />
@@ -118,14 +124,13 @@ class ScheduleScreen extends React.Component {
 
   componentWillReceiveProps (newProps) {
     const { activeDay, eventsByDay, dataSource } = this.state
-
     // Update currentTime before updating dataSource
     if (newProps.currentTime) {
       this.setState({
         currentTime: newProps.currentTime
       }, () => {
         this.setState({
-          dataSource: dataSource.cloneWithRows(eventsByDay[activeDay].slice()),
+          dataSource: dataSource.cloneWithRows(addSpecials(this.props.specialTalks, eventsByDay[activeDay].slice())),
           isCurrentDay: isCurrentDay(newProps.currentTime, activeDay)
         })
       })
@@ -142,7 +147,7 @@ class ScheduleScreen extends React.Component {
     const { eventsByDay, dataSource } = this.state
     const { currentTime } = this.props
     this.setState(() => ({
-      dataSource: dataSource.cloneWithRows(eventsByDay[day]),
+      dataSource: dataSource.cloneWithRows(addSpecials(this.props.specialTalks, eventsByDay[day])),
       activeDay: day,
       isCurrentDay: isCurrentDay(currentTime, day)
     }))
@@ -198,7 +203,8 @@ class ScheduleScreen extends React.Component {
 const mapStateToProps = (state) => {
   return {
     currentTime: new Date(state.schedule.currentTime),
-    schedule: state.schedule.speakerSchedule
+    schedule: state.schedule.speakerSchedule,
+    specialTalks: state.notifications.specialTalks
   }
 }
 
@@ -206,8 +212,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setSelectedEvent: (data) => dispatch(ScheduleActions.setSelectedEvent(data)),
     onPressGithub: url => dispatch(ScheduleActions.visitGithub(url)),
-    onPressTwitter: url => dispatch(ScheduleActions.visitTwitter(url))
-
+    onPressTwitter: url => dispatch(ScheduleActions.visitTwitter(url)),
+    onTalkSpecial: title => dispatch(NotificationActions.addTalk(title)),
+    onTalkNotSpecial: title => dispatch(NotificationActions.removeTalk(title))
   }
 }
 
