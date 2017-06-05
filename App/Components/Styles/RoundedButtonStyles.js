@@ -13,7 +13,7 @@ export default StyleSheet.create({
   },
   buttonText: {
     textAlign: 'center',
-    fontFamily: 'Avenir-Heavy',
+    fontFamily: 'Montserrat-Bold',
     fontSize: 11,
     letterSpacing: 0,
     color: Colors.snow

@@ -29,23 +29,24 @@
   [RNAnalytics registerWithInitiallyEnabled:true];  // Initialize Mobile Center analytics
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
-	
+
 	RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
 																											moduleName:@"ChainReactApp"
 																							 initialProperties:nil
 																									 launchOptions:launchOptions];
-	
+
 	//[RCTSplashScreen open:rootView];
 	[RCTSplashScreen open:rootView withImageNamed:@"splash"]; // activate splashscreen, imagename from LaunchScreen.xib
-	
+
 	rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
-	
+
 	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 	UIViewController *rootViewController = [UIViewController new];
 	rootViewController.view = rootView;
 	self.window.rootViewController = rootViewController;
 	[self.window makeKeyAndVisible];
-	
+  [self probeFonts];
+
 	return YES;
 }
 
@@ -74,6 +75,19 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
 	[RCTPushNotificationManager didReceiveLocalNotification:notification];
+}
+
+// a helper method to print out the real font names to the console
+- (void)probeFonts {
+#ifdef DEBUG
+  NSArray *fontFamilies = [UIFont familyNames];
+  for (int i = 0; i < [fontFamilies count]; i++)
+  {
+    NSString *fontFamily = [fontFamilies objectAtIndex:i];
+    NSArray *fontNames = [UIFont fontNamesForFamilyName:[fontFamilies objectAtIndex:i]];
+    NSLog (@"%@: %@", fontFamily, fontNames);
+  }
+#endif
 }
 
 @end

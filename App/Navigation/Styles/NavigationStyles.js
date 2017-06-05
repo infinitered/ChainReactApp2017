@@ -12,7 +12,7 @@ export default StyleSheet.create({
     backgroundColor: Colors.darkPurple
   },
   tabBarLabel: {
-    fontFamily: 'Avenir-Medium',
+    fontFamily: 'Montserrat-Medium',
     fontSize: 9,
     letterSpacing: 0,
     color: Colors.snow
