@@ -28,6 +28,10 @@ test('visiting twitter with no account given', t => {
   const gen = visitTwitter(action)
   t.deepEqual(
     gen.next().value,
+    call(open, 'twitter://user?screen_name=chainreactconf')
+  )
+  t.deepEqual(
+    gen.next().value,
     call(open, 'https://twitter.com/chainreactconf')
   )
   t.true(gen.next().done)
@@ -36,6 +40,10 @@ test('visiting twitter with no account given', t => {
 test('visiting twitter with an account', t => {
   const action = ScheduleActions.visitTwitter('skellock')
   const gen = visitTwitter(action)
+  t.deepEqual(
+    gen.next().value,
+    call(open, 'twitter://user?screen_name=skellock')
+  )
   t.deepEqual(
     gen.next().value,
     call(open, 'https://twitter.com/skellock')
