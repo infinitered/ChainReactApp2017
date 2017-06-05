@@ -163,7 +163,7 @@ class LocationScreen extends React.Component {
             <View style={styles.mapActions}>
               <TouchableOpacity onPress={() => this.openMaps()}>
                 <View style={styles.getDirections}>
-                  <View>
+                  <View style={styles.addressContainer}>
                     <Text style={styles.venueName}>
                       The Armory
                     </Text>

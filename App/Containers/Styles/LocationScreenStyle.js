@@ -64,8 +64,12 @@ export default StyleSheet.create({
     letterSpacing: 0,
     color: Colors.lightText
   },
+  addressContainer: {
+    flex: 4
+  },
   directionsIcon: {
-    alignItems: 'center'
+    alignItems: 'center',
+    flex: 1
   },
   directionsLabel: {
     fontFamily: 'Avenir-Medium',
