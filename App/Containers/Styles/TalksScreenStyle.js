@@ -52,14 +52,14 @@ export default StyleSheet.create({
   },
   inactiveDay: {
     backgroundColor: Colors.clear,
-    fontFamily: 'Avenir-Light',
+    fontFamily: 'Montserrat-Light',
     fontSize: 20,
     color: 'rgba(255,255,255,0.80)',
     letterSpacing: 0
   },
   activeDay: {
     backgroundColor: Colors.clear,
-    fontFamily: 'Avenir-Black',
+    fontFamily: 'Montserrat-SemiBold',
     fontSize: 20,
     color: Colors.snow,
     letterSpacing: 0

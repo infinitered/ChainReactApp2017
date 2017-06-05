@@ -3,7 +3,6 @@ import { Colors } from '../../Themes/'
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',
@@ -12,11 +11,9 @@ export default StyleSheet.create({
     marginTop: -18
   },
   time: {
-    fontFamily: 'AvenirNextCondensed-Heavy',
+    fontFamily: 'Montserrat-Bold',
     fontSize: 8,
     color: Colors.snow,
-    letterSpacing: -0.22,
     backgroundColor: Colors.transparent
-  },
-  icon: {}
+  }
 })

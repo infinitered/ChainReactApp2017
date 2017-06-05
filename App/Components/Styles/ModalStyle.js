@@ -14,7 +14,7 @@ export default StyleSheet.create({
   },
   heading: {
     marginTop: 14,
-    fontFamily: 'Avenir-Black',
+    fontFamily: 'Montserrat-SemiBold',
     fontSize: 31,
     letterSpacing: 0.2,
     backgroundColor: Colors.transparent,
@@ -23,7 +23,7 @@ export default StyleSheet.create({
   },
   description: {
     textAlign: 'center',
-    fontFamily: 'Avenir-Medium',
+    fontFamily: 'Montserrat-Medium',
     fontSize: 15,
     color: '#FDE5FF',
     letterSpacing: 0.47,
@@ -53,7 +53,7 @@ export default StyleSheet.create({
     marginRight: 7
   },
   text: {
-    fontFamily: 'Avenir-Book',
+    fontFamily: 'Montserrat-Light',
     fontSize: 17,
     color: Colors.silver
   }

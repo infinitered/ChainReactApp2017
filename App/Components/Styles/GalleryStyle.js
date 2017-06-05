@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { Colors } from '../../Themes/'
+import { Colors, Fonts } from '../../Themes/'
 
 export default StyleSheet.create({
   container: {
@@ -18,7 +18,7 @@ export default StyleSheet.create({
     padding: 5
   },
   tabText: {
-    fontFamily: 'Avenir-Medium',
+    fontFamily: Fonts.type.base,
     fontSize: 15,
     lineHeight: 23,
     letterSpacing: 0.47,
@@ -48,13 +48,13 @@ export default StyleSheet.create({
     backgroundColor: Colors.snow
   },
   itemTitle: {
-    fontFamily: 'Avenir-Black',
+    fontFamily: 'Montserrat-SemiBold',
     fontSize: 15,
     letterSpacing: 0,
     color: Colors.darkPurple
   },
   itemAction: {
-    fontFamily: 'Avenir-Medium',
+    fontFamily: 'Montserrat-Medium',
     fontSize: 13,
     lineHeight: 18,
     letterSpacing: 0,

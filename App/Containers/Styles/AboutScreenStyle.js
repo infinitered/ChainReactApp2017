@@ -17,7 +17,7 @@ export default StyleSheet.create({
   },
   heading: {
     marginTop: 14,
-    fontFamily: 'Avenir-Black',
+    fontFamily: 'Montserrat-SemiBold',
     fontSize: 31,
     letterSpacing: 0.2,
     backgroundColor: Colors.transparent,
@@ -25,14 +25,14 @@ export default StyleSheet.create({
   },
   description: {
     textAlign: 'center',
-    fontFamily: 'Avenir-Medium',
+    fontFamily: 'Montserrat-Medium',
     fontSize: 15,
     color: '#FDE5FF',
     letterSpacing: 0.47,
     lineHeight: 23
   },
   hashtag: {
-    fontFamily: 'Avenir-Black',
+    fontFamily: 'Montserrat-SemiBold',
     color: Colors.snow
   },
   twitter: {
@@ -103,7 +103,7 @@ export default StyleSheet.create({
   sponsorTierTitle: {
     marginTop: 60,
     marginBottom: 30,
-    fontFamily: 'Avenir-Black',
+    fontFamily: 'Montserrat-SemiBold',
     fontSize: 15,
     color: Colors.snow,
     letterSpacing: 0.47,

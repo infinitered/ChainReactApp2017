@@ -21,7 +21,7 @@ export default StyleSheet.create({
     marginRight: 7
   },
   text: {
-    fontFamily: 'Avenir-Medium',
+    fontFamily: 'Montserrat-Medium',
     fontSize: 11,
     color: Colors.red
   },

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { Colors, Metrics } from '../../Themes/'
+import { Colors, Metrics, Fonts } from '../../Themes/'
 
 export default StyleSheet.create({
   container: {
@@ -53,7 +53,7 @@ export default StyleSheet.create({
   },
   sponsorText: {
     marginTop: 4,
-    fontFamily: 'Avenir-Light',
+    fontFamily: Fonts.type.base,
     fontSize: 11,
     letterSpacing: 0,
     backgroundColor: Colors.transparent,
@@ -64,7 +64,7 @@ export default StyleSheet.create({
     marginLeft: 15
   },
   heading: {
-    fontFamily: 'Avenir-Black',
+    fontFamily: 'Montserrat-SemiBold',
     fontSize: 18,
     letterSpacing: -0.2,
     lineHeight: 27,
@@ -72,7 +72,7 @@ export default StyleSheet.create({
     color: Colors.snow
   },
   duration: {
-    fontFamily: 'Avenir-Black',
+    fontFamily: 'Montserrat-SemiBold',
     fontSize: 16,
     letterSpacing: -0.19,
     backgroundColor: Colors.transparent,

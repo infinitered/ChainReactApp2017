@@ -9,13 +9,13 @@ export default StyleSheet.create({
     marginTop: 40
   },
   mainHeading: {
-    fontFamily: 'Avenir-Black',
+    fontFamily: 'Montserrat-SemiBold',
     fontSize: 31,
     letterSpacing: 0.2,
     color: Colors.snow
   },
   address: {
-    fontFamily: 'Avenir-Medium',
+    fontFamily: 'Montserrat-Medium',
     fontSize: 15,
     letterSpacing: 0.47,
     lineHeight: 23,
@@ -52,13 +52,13 @@ export default StyleSheet.create({
     borderBottomColor: '#DEDEDE'
   },
   venueName: {
-    fontFamily: 'Avenir-Black',
+    fontFamily: 'Montserrat-SemiBold',
     fontSize: 17,
     letterSpacing: 0,
     color: Colors.darkPurple
   },
   venueAddress: {
-    fontFamily: 'Avenir-Light',
+    fontFamily: 'Montserrat-Light',
     fontSize: 13,
     lineHeight: 18,
     letterSpacing: 0,
@@ -72,7 +72,7 @@ export default StyleSheet.create({
     flex: 1
   },
   directionsLabel: {
-    fontFamily: 'Avenir-Medium',
+    fontFamily: 'Montserrat-Medium',
     fontSize: 11,
     letterSpacing: 0,
     color: Colors.darkPurple
@@ -84,7 +84,7 @@ export default StyleSheet.create({
     paddingVertical: 16
   },
   getRideLabel: {
-    fontFamily: 'Avenir-Medium',
+    fontFamily: 'Montserrat-Medium',
     fontSize: 15,
     lineHeight: 23,
     letterSpacing: 0.5,

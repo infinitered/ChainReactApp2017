@@ -40,13 +40,13 @@ export default StyleSheet.create({
     paddingRight: Metrics.doubleBaseMargin
   },
   title: {
-    fontFamily: 'Avenir-Black',
+    fontFamily: 'Montserrat-SemiBold',
     fontSize: 17,
     color: Colors.darkPurple,
     letterSpacing: 0
   },
   name: {
-    fontFamily: 'Avenir-Light',
+    fontFamily: 'Montserrat-Light',
     fontSize: 13,
     color: Colors.lightText,
     letterSpacing: 0,
@@ -75,13 +75,13 @@ export default StyleSheet.create({
     paddingRight: Metrics.doubleBaseMargin
   },
   detailLabel: {
-    fontFamily: 'Avenir-Light',
+    fontFamily: 'Montserrat-Light',
     fontSize: 11,
     color: Colors.lightText,
     letterSpacing: 0
   },
   detailText: {
-    fontFamily: 'Avenir-Black',
+    fontFamily: 'Montserrat-SemiBold',
     fontSize: 11,
     color: Colors.darkPurple,
     letterSpacing: 0

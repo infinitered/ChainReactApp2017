@@ -19,7 +19,7 @@ export default StyleSheet.create({
     marginRight: 5
   },
   backButtonText: {
-    fontFamily: 'Avenir-Light',
+    fontFamily: 'Montserrat-Light',
     fontSize: 17,
     letterSpacing: 0,
     backgroundColor: Colors.transparent,
@@ -62,21 +62,21 @@ export default StyleSheet.create({
   sectionHeading: {
     alignSelf: 'flex-start',
     marginBottom: 12,
-    fontFamily: 'Avenir-Light',
+    fontFamily: 'Montserrat-Light',
     fontSize: 11,
     letterSpacing: 3,
     color: Colors.lightText
   },
   heading: {
     marginBottom: 5,
-    fontFamily: 'Avenir-Black',
+    fontFamily: 'Montserrat-SemiBold',
     fontSize: 17,
     letterSpacing: 0,
     color: Colors.darkPurple
   },
   description: {
     marginBottom: 30,
-    fontFamily: 'Avenir-Book',
+    fontFamily: 'Montserrat-Light',
     fontSize: 16,
     letterSpacing: 0,
     lineHeight: 24,
