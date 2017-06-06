@@ -6,5 +6,5 @@ import LocationActions from '../Redux/LocationRedux'
 export function * startup (action) {
   yield put(ScheduleActions.trackCurrentTime())
   yield put(ScheduleActions.getScheduleUpdates())
-  yield put(LocationActions.getNearbyUpdates())
+  //yield put(LocationActions.getNearbyUpdates())
 }
