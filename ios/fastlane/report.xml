@@ -5,34 +5,32 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.003573">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.003973">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.003216">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.003637">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: cocoapods" time="5.725018">
+      <testcase classname="fastlane.lanes" name="2: cocoapods" time="4.325187">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: increment_build_number" time="3.51701">
+      <testcase classname="fastlane.lanes" name="3: increment_build_number" time="2.794713">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: gym" time="151.877851">
+      <testcase classname="fastlane.lanes" name="4: gym" time="133.024639">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: pilot" time="464.638562">
-        
-          <failure message="/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/actions/actions_helper.rb:48:in `execute_action'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/runner.rb:230:in `block in execute_action'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/runner.rb:226:in `chdir'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/runner.rb:226:in `execute_action'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/runner.rb:148:in `trigger_action_by_name'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/fast_file.rb:146:in `method_missing'&#10;Fastfile:50:in `block (2 levels) in parsing_binding'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/lane_manager.rb:52:in `cruise_lane'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/command_line_handler.rb:30:in `handle'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/commands_generator.rb:104:in `block (2 levels) in run'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.4/lib/commander/command.rb:178:in `call'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.4/lib/commander/command.rb:178:in `call'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.4/lib/commander/command.rb:153:in `run'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.4/lib/commander/runner.rb:476:in `run_active_command'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:39:in `run!'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/commander-fastlane-4.4.4/lib/commander/delegates.rb:15:in `run!'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/commands_generator.rb:303:in `run'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/commands_generator.rb:42:in `start'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/fastlane/lib/fastlane/cli_tools_distributor.rb:66:in `take_off'&#10;/Users/gantman/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/fastlane-2.36.0/bin/fastlane:20:in `&lt;top (required)&gt;'&#10;/Users/gantman/.rbenv/versions/2.2.3/bin/fastlane:23:in `load'&#10;/Users/gantman/.rbenv/versions/2.2.3/bin/fastlane:23:in `&lt;main&gt;'&#10;&#10;&lt;html&gt;&#10;&lt;head&gt;&#10;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=ISO-8859-1&quot;/&gt;&#10;&lt;title&gt;Error 403 &lt;/title&gt;&#10;&lt;/head&gt;&#10;&lt;body&gt;&#10;&lt;h2&gt;HTTP ERROR: 403&lt;/h2&gt;&#10;&lt;p&gt;Problem accessing /v2/providers/2079189/apps/1239112816/platforms/ios/trains/1.0/builds. Reason:&#10;&lt;pre&gt;    Forbidden&lt;/pre&gt;&lt;/p&gt;&#10;&lt;hr /&gt;&lt;i&gt;&lt;small&gt;Powered by Jetty://&lt;/small&gt;&lt;/i&gt;&#10;&lt;/body&gt;&#10;&lt;/html&gt;&#10;" />
+      <testcase classname="fastlane.lanes" name="5: pilot" time="474.252375">
         
       </testcase>
     
