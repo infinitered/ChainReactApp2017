@@ -124,19 +124,19 @@ class ScheduleScreen extends React.Component {
     }
   }
 
-  componentDidMount() {
-    AppState.addEventListener('change', this._handleAppStateChange);
+  componentDidMount () {
+    AppState.addEventListener('change', this._handleAppStateChange)
   }
 
-  componentWillUnmount() {
-    AppState.removeEventListener('change', this._handleAppStateChange);
+  componentWillUnmount () {
+    AppState.removeEventListener('change', this._handleAppStateChange)
   }
 
   _handleAppStateChange = (nextAppState) => {
     if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
       this.props.getScheduleUpdates()
     }
-    this.setState({appState: nextAppState});
+    this.setState({appState: nextAppState})
   }
 
   componentWillReceiveProps (newProps) {

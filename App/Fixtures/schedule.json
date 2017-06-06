@@ -404,43 +404,43 @@
       "type":"coffee",
       "time":"7/17/2017 10:00 AM",
       "duration":"30",
-      "options": ["Scalding hot coffee", "Bland tea"],
-      "veganOptions": ["Water", "Assorted Leaves"]
+      "options": ["Spella Caffe Coffee, Hot Tea, and Water", "Assorted Pastries & Sweet Breads", "Whole Fruit"],
+      "veganOptions": ["All Coffee and Tea", "Whole Fruit"]
     },
     {
       "type":"coffee",
       "time":"7/18/2017 10:00 AM",
       "duration":"30",
-      "options": ["Scalding hot coffee", "Bland tea"],
-      "veganOptions": ["Water", "Assorted Leaves"]
+      "options": ["Spella Caffe Coffee, Hot Tea, and Water", "Assorted Coco Donuts", "Bowery Bagels with Whipped Herb Cream Cheese"],
+      "veganOptions": ["All Coffee and Tea"]
     },
     {
       "type":"lunch",
       "time":"7/17/2017 12:00 PM",
       "duration":"90",
-      "options": ["Green eggs and ham", "Blue eggs and ham", "Red eggs and ham", "Yellow eggs and ham", "Purple eggs and ham", "Orange eggs and ham"],
-      "veganOptions": ["Water", "Assorted Leaves"]
+      "options": ["Chopped Radicchio Salad", "Moroccan Chicken Tagine", "Saffron Scented Rice", "Assorted Cookies"],
+      "veganOptions": ["Moroccan Vegetable Tagine"]
     },
     {
       "type":"lunch",
       "time":"7/18/2017 12:00 PM",
       "duration":"90",
-      "options": ["Green eggs and ham", "Blue eggs and ham", "Red eggs and ham", "Yellow eggs and ham", "Purple eggs and ham", "Orange eggs and ham"],
-      "veganOptions": ["Water", "Assorted Leaves"]
+      "options": ["Kale Caesar with Shaved Parmigiano & Grilled Crouton", "Steak Sandwiches with Arugula, Red Onion Chutney, and Horseradish Aioli", "Assorted Cookies and NW Potato Chips"],
+      "veganOptions": ["Massaged Kale with Shaved Spring Vegetables and Citrus-Herb Vinaigrette", "Smoked Portobello Wraps (GF)"]
     },
     {
       "type":"coffee",
       "time":"7/17/2017 3:00 PM",
       "duration":"60",
-      "options": ["Scalding hot coffee", "Bland tea"],
-      "veganOptions": ["Water", "Assorted Leaves"]
+      "options": ["Rosemary Caramel Corn with Almonds and Fleur de Sel", "Roasted Nuts and Whole Fruit", "Spella Caffe Coffee, Hot Tea, and Water"],
+      "veganOptions": ["All beverage options", "Roasted Nuts and Whole Fruit"]
     },
     {
       "type":"coffee",
       "time":"7/18/2017 3:00 PM",
       "duration":"60",
-      "options": ["Scalding hot coffee", "Bland tea"],
-      "veganOptions": ["Water", "Assorted Leaves"]
+      "options": ["Spella Caffe Coffee, Hot Tea, and Water", "Cheddar Medallions: Spicy Baked Cheddar Crackers", "Roasted Nuts and Whole Fruit"],
+      "veganOptions": ["All beverage options", "Roasted Nuts and Whole Fruit"]
     }
   ]
 }
