@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity, Image, View, Text } from 'react-native'
+import { TouchableOpacity, Image, View, Text, LayoutAnimation } from 'react-native'
 import { Images } from '../Themes'
 import styles from './Styles/GalleryStyle'
 
@@ -53,6 +53,7 @@ export default class Gallery extends React.Component {
   }
 
   render () {
+    LayoutAnimation.spring()
     const { activeTab } = this.state
     const { data } = this.props
     return (

@@ -89,7 +89,19 @@ const images = {
   tastyNAlder: require('../Images/tasty-n-alder.jpg'),
   fatHeadBrewery: require('../Images/fat-head-brewery.jpg'),
   sqspLogo: require('../Images/sqsp-logo.png'),
-  squarespacePhoto: require('../Images/squarespace-photo.jpg')
+  squarespacePhoto: require('../Images/squarespace-photo.jpg'),
+  voodoo: require('../Images/img-voodoo.jpg'),
+  salt: require('../Images/img-saltnstraw.jpg'),
+  stumptown: require('../Images/img-stumptown.jpg'),
+  heartcoffee: require('../Images/img-heartcoffee.jpg'),
+  courier: require('../Images/img-courier.jpg'),
+  omsi: require('../Images/img-omsi.jpg'),
+  chinesegarden: require('../Images/img-chinesegarden.jpg'),
+  pioneersquare: require('../Images/img-pioneersquare.jpg'),
+  waterfront: require('../Images/img-waterfront.jpg'),
+  powells: require('../Images/img-powells.jpg'),
+  peets: require('../Images/img-peets.jpg'),
+  japanesegarden: require('../Images/img-japanesegarden.jpg')
 }
 
 export default images

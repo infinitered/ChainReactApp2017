@@ -22,34 +22,34 @@
     },
     {
       "name": "Voodoo Doughnut",
-      "image": "fatHeadBrewery",
+      "image": "voodoo",
       "address": "22 SW 3rd Ave, Portland, OR 97204"
     },
     {
       "name": "Salt & Straw",
-      "image": "fatHeadBrewery",
+      "image": "salt",
       "address": "838 NW 23rd Ave, Portland, OR 97210"
     }
   ],
   "Coffee": [
     {
       "name": "Stumptown",
-      "image": "deschutesBrewery",
+      "image": "stumptown",
       "address": "1026 SW Stark St, Portland, OR 97205"
     },
     {
       "name": "Heart Coffee",
-      "image": "deschutesBrewery",
+      "image": "heartcoffee",
       "address": "537 SW 12th Ave, Portland, OR 97205"
     },
     {
       "name": "Peet's Coffee",
-      "image": "deschutesBrewery",
+      "image": "peets",
       "address": "1114 NW Couch St, Portland, OR 97209"
     },
     {
       "name": "Courier Coffee",
-      "image": "deschutesBrewery",
+      "image": "courier",
       "address": "923 SW Oak St, Portland, OR 97205"
     }
 
@@ -57,32 +57,32 @@
   "Sites": [
     {
       "name": "Powell's Books",
-      "image": "tastyNAlder",
+      "image": "powells",
       "address": "1005 W Burnside St, Portland, OR 97209"
     },
     {
       "name": "OMSI",
-      "image": "tastyNAlder",
+      "image": "omsi",
       "address": "1945 SE Water Ave, Portland, OR 97214"
     },
     {
       "name": "Japanese Garden",
-      "image": "tastyNAlder",
+      "image": "japanesegarden",
       "address": "611 SW Kingston Ave, Portland, OR 97205"
     },
     {
       "name": "Pioneer Square",
-      "image": "tastyNAlder",
+      "image": "pioneersquare",
       "address": "701 SW 6th Ave, Portland, OR 97205"
     },
     {
       "name": "Waterfront Park",
-      "image": "tastyNAlder",
+      "image": "waterfront",
       "address": "98 SW Naito Pkwy"
     },
     {
       "name": "Chinese Garden",
-      "image": "tastyNAlder",
+      "image": "chinesegarden",
       "address": "239 NW Everett St, Portland, OR 97209"
     }
   ]
