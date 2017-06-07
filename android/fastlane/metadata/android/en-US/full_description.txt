@@ -1,0 +1,3 @@
+Chain React Conf 2017 is a React Native Conference held in Portland, OR on July 10th and 11th.
+
+Join us at the beautiful Armory in downtown Portland this summer! Chain React: The React Native Conference will consist of multiple talks on React Native given by mobile software engineers at Facebook, AirBnB, and others, on a variety of topics from beginner to expert level. We’re expecting a few hundred attendees and are working hard to put on a great conference.
