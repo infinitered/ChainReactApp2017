@@ -444,6 +444,7 @@
     },
     {
       "type":"party",
+      "title": "Monday Happy Hour",
       "time":"7/17/2017 5:00 PM",
       "duration":"150",
       "options": ["Beer", "Wine", "Soft beverages"],

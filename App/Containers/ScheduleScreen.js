@@ -113,6 +113,7 @@ class ScheduleScreen extends React.Component {
       return (
         <Break
           type={rowData.type}
+          title={rowData.title}
           start={eventStart}
           duration={eventDuration}
           onPress={() => this.onEventPress(rowData)}
