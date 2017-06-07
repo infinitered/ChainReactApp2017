@@ -26,6 +26,7 @@ export default class Break extends React.Component {
   renderContent () {
     const {
       type,
+      title,
       duration,
       isCurrentDay,
       isActive
@@ -37,8 +38,10 @@ export default class Break extends React.Component {
       isActive && styles.active
     ]
 
-    const background = type === 'lunch' ? Images.lunchBreak : Images.coffeeBreak
-    const video = type === 'lunch' ? Videos.lunch : Videos.coffee
+    const background = Images[`${type}Break`]
+    const video = Videos[type]
+    const timeframe = duration > 89 ? `${duration / 60} Hours` : `${duration} Minutes`
+    const cellTitle = title || `${type.toUpperCase()} BREAK`
 
     const imageWidth = this.state.imageWidth
 
@@ -50,10 +53,10 @@ export default class Break extends React.Component {
           <View style={styles.contentContainer}>
             <View style={styles.content}>
               <Text style={styles.heading}>
-                {`${type.toUpperCase()} BREAK`}
+                {cellTitle}
               </Text>
               <Text style={styles.duration}>
-                {`${duration} Minutes`}
+                {timeframe}
               </Text>
             </View>
             {this.renderSponsor()}

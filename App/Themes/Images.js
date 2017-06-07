@@ -53,6 +53,7 @@ const images = {
   chevronIcon: require('../Images/Icons/icon-chevron.png'),
   coffeeBreak: require('../Images/bg-coffee-break.jpg'),
   lunchBreak: require('../Images/bg-lunch-break.jpg'),
+  partyBreak: require('../Images/bg-party.jpg'),
   lunch: require('../Images/bg-lunch.png'),
   sponsor: require('../Images/sponsor.png'),
   theArmory: require('../Images/the-armory.png'),
