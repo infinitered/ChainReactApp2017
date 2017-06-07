@@ -93,6 +93,8 @@ GEM
       xcodeproj (>= 1.4.4, < 2.0.0)
       xcpretty (>= 0.2.4, < 1.0.0)
       xcpretty-travis-formatter (>= 0.0.3)
+    fastlane-plugin-ascii_art (0.1.0)
+      neonichu-asciiart (~> 0.0.9)
     fastlane-plugin-mobile_center (0.1.4)
     fourflusher (2.0.1)
     fuzzy_match (2.0.4)
@@ -138,13 +140,18 @@ GEM
     multipart-post (2.0.0)
     nanaimo (0.2.3)
     nap (1.1.0)
+    neonichu-asciiart (0.0.9)
+      rainbow (~> 2.1.0)
+      rmagick (~> 2.15.0)
     netrc (0.7.8)
     os (0.9.6)
     plist (3.3.0)
     public_suffix (2.0.5)
+    rainbow (2.1.0)
     representable (2.3.0)
       uber (~> 0.0.7)
     retriable (2.1.0)
+    rmagick (2.15.4)
     rouge (2.0.7)
     ruby-macho (1.1.0)
     rubyzip (1.2.1)
@@ -184,6 +191,7 @@ PLATFORMS
 DEPENDENCIES
   cocoapods
   fastlane
+  fastlane-plugin-ascii_art
   fastlane-plugin-mobile_center
 
 BUNDLED WITH

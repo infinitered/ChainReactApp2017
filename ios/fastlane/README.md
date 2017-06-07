@@ -35,6 +35,11 @@ xcode-select --install
 fastlane ios test
 ```
 Runs all the tests
+### ios play
+```
+fastlane ios play
+```
+Playground for fastlane plugins
 ### ios beta
 ```
 fastlane ios beta

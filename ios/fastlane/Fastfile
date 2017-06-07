@@ -26,14 +26,14 @@ platform :ios do
 
   before_all do
     # load variables from .env file in the root if it exists
-    if File.exist?('../../.env')
-      open('../../.env', 'r').readlines.each do |l|
-        kv = l.split('=')
-        ENV[kv[0]] = kv[1].chomp
-      end
-    end
+    # if File.exist?('../../.env')
+    #   open('../../.env', 'r').readlines.each do |l|
+    #     kv = l.split('=')
+    #     ENV[kv[0]] = kv[1].chomp
+    #   end
+    # end
 
-    cocoapods
+    # cocoapods
   end
 
   desc "Runs all the tests"
@@ -41,9 +41,23 @@ platform :ios do
     scan
   end
 
+  desc "Playground for fastlane plugins"
+  lane :play do
+    ascii_art(
+      image_path: 'https://avatars1.githubusercontent.com/u/3902527?v=3&s=200',
+      width: 60
+    )
+  end
+
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
+
+    # Print out the current logo 🎉
+    ascii_art(
+      image_path: 'https://avatars1.githubusercontent.com/u/3902527?v=3&s=200',
+      width: 60
+    )
 
     increment_build_number(
       xcodeproj: "./ChainReactApp.xcodeproj"
