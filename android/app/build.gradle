@@ -95,6 +95,11 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
 
+    // Android gonna droid
+    lintOptions {
+        abortOnError false
+    }
+
     defaultConfig {
         applicationId "com.chainreactapp"
         minSdkVersion 16
