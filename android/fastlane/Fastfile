@@ -35,11 +35,28 @@ platform :android do
     )
 
     supply(track: 'beta')
+
+    mobile_center_upload(
+      api_token: ENV['CR_MOBILE_CENTER_TOKEN'],
+      owner_name: "gantman-1rtx",
+      app_name: "Chain-React-01",
+      apk: "./app/build/outputs/apk/app-release.apk"
+    )
   end
 
   desc "Playground stuff"
   lane :play do
     puts number_of_commits
+  end
+
+  desc "Upload to Mobile Center"
+  lane :mc do
+    mobile_center_upload(
+      api_token: ENV['CR_MOBILE_CENTER_TOKEN'],
+      owner_name: "gantman-1rtx",
+      app_name: "Chain-React-01",
+      apk: "./app/build/outputs/apk/app-release.apk"
+    )
   end
 
 

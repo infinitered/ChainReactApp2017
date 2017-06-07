@@ -90,7 +90,7 @@ platform :ios do
     mobile_center_upload(
       api_token: ENV['CR_MOBILE_CENTER_TOKEN'],
       owner_name: "gantman-1rtx",
-      app_name: "Chain-React-01",
+      app_name: "Chain-React",
       upload_dsym_only: true,
       dsym: "./ChainReactApp.app.dSYM.zip"
     )
