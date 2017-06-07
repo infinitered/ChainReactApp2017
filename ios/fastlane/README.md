@@ -35,6 +35,11 @@ xcode-select --install
 fastlane ios test
 ```
 Runs all the tests
+### ios play
+```
+fastlane ios play
+```
+Playground for fastlane plugins
 ### ios beta
 ```
 fastlane ios beta
@@ -42,6 +47,11 @@ fastlane ios beta
 Submit a new Beta Build to Apple TestFlight
 
 This will also make sure the profile is up to date
+### ios dsym
+```
+fastlane ios dsym
+```
+Upload the dSYM to Mobile Center
 ### ios release
 ```
 fastlane ios release
