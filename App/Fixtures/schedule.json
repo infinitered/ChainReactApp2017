@@ -441,6 +441,13 @@
       "duration":"60",
       "options": ["Spella Caffe Coffee, Hot Tea, and Water", "Cheddar Medallions: Spicy Baked Cheddar Crackers", "Roasted Nuts and Whole Fruit"],
       "veganOptions": ["All beverage options", "Roasted Nuts and Whole Fruit"]
+    },
+    {
+      "type":"party",
+      "time":"7/17/2017 5:00 PM",
+      "duration":"150",
+      "options": ["Beer", "Wine", "Soft beverages"],
+      "veganOptions": ["Soft beverages"]
     }
   ]
 }
