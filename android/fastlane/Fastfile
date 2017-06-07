@@ -27,12 +27,11 @@ platform :android do
 
   desc "Submit a new Beta Build"
   lane :beta do
+    increment_version_code
+
     gradle(
       task: "assemble",
-      build_type: "Release",
-      properties: {
-        "appVersionCode" => number_of_commits
-      }
+      build_type: "Release"
     )
 
     supply(track: 'beta')
