@@ -113,20 +113,30 @@ class AboutScreen extends React.Component {
     )
   }
 
-  renderToggle () {
+  renderTabs () {
+    const { activeTab } = this.state
+
+    const liveHelpStyles = [styles.tab, activeTab === 'liveHelp' && styles.activeTab]
+    const sponsorStyles = [styles.tab, activeTab === 'sponsors' && styles.activeTab]
+    const liveHelpTextStyles = [styles.tabText, activeTab === 'liveHelp' && styles.activeTabText]
+    const sponsorTextStyles = [styles.tabText, activeTab === 'sponsors' && styles.activeTabText]
+
     return (
-      <View>
-        <TouchableOpacity onPress={() => { this.setActiveTab('liveHelp') }}>
-          <Text>Live Help</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => { this.setActiveTab('sponsors') }}>
-          <Text>Sponsors</Text>
-        </TouchableOpacity>
+      <View style={styles.tabsContainer}>
+        <View style={styles.tabs}>
+          <TouchableOpacity style={liveHelpStyles} onPress={() => { this.setActiveTab('liveHelp') }}>
+            <Text style={liveHelpTextStyles} >Live Help</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={sponsorStyles} onPress={() => { this.setActiveTab('sponsors') }}>
+            <Text style={sponsorTextStyles}>Sponsors</Text>
+          </TouchableOpacity>
+        </View>
+        {this.renderTabsContent()}
       </View>
     )
   }
 
-  renderToggleContent () {
+  renderTabsContent () {
     const { activeTab } = this.state
 
     if (activeTab === 'liveHelp') {
@@ -139,7 +149,7 @@ class AboutScreen extends React.Component {
   renderLiveHelp () {
     return (
       <View>
-        <Text> Live Help </Text>
+        <Text style={{color: 'white'}}> Live Help </Text>
       </View>
     )
   }
@@ -206,8 +216,7 @@ class AboutScreen extends React.Component {
             {this.renderSlack()}
             {this.renderWelcomeParty()}
             {this.renderHashtag()}
-            {this.renderToggle()}
-            {this.renderToggleContent()}
+            {this.renderTabs()}
           </View>
         </ScrollView>
       </PurpleGradient>

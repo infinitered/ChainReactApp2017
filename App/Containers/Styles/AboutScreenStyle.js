@@ -36,9 +36,7 @@ export default StyleSheet.create({
     color: Colors.snow
   },
   twitter: {
-    ...section,
-    borderBottomColor: '#7B5888',
-    borderBottomWidth: 1
+    ...section
   },
   afterPartyContainer: {
     flex: 3,
@@ -86,6 +84,36 @@ export default StyleSheet.create({
     letterSpacing: 2,
     fontWeight: '600',
     lineHeight: 24
+  },
+  tabsContainer: {
+    flex: 1,
+    backgroundColor: Colors.transparent,
+    marginVertical: Metrics.doubleBaseMargin
+  },
+  tabs: {
+    flexDirection: 'row'
+  },
+  tab: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(253,229,255,0.5)',
+    padding: Metrics.baseMargin
+  },
+  activeTab: {
+    borderBottomColor: Colors.snow
+  },
+  tabText: {
+    fontFamily: Fonts.type.base,
+    fontSize: 15,
+    lineHeight: 23,
+    letterSpacing: 0.47,
+    color: 'rgba(253,229,255,0.5)'
+  },
+  activeTabText: {
+    fontWeight: '600',
+    color: Colors.snow
   },
   sponsors: {
     ...section,
