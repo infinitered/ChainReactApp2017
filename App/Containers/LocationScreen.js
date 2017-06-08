@@ -119,7 +119,7 @@ class LocationScreen extends React.Component {
   }
 
   renderHeader = () => {
-    const height = 314
+    const height = 300
     const { scrollY } = this.state
     return (
       <Animated.View style={{

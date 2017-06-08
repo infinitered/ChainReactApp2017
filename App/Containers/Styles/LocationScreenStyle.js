@@ -24,7 +24,7 @@ export default StyleSheet.create({
   },
   map: {
     width: '100%',
-    height: 200,
+    height: 180,
     zIndex: 2
   },
   mapActions: {
