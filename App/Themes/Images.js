@@ -104,7 +104,8 @@ const images = {
   waterfront: require('../Images/img-waterfront.jpg'),
   powells: require('../Images/img-powells.jpg'),
   peets: require('../Images/img-peets.jpg'),
-  japanesegarden: require('../Images/img-japanesegarden.jpg')
+  japanesegarden: require('../Images/img-japanesegarden.jpg'),
+  barista: require('../Images/img-barista.jpg')
 }
 
 export default images
