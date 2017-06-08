@@ -93,6 +93,9 @@ GEM
       xcodeproj (>= 1.4.4, < 2.0.0)
       xcpretty (>= 0.2.4, < 1.0.0)
       xcpretty-travis-formatter (>= 0.0.3)
+    fastlane-plugin-appicon (0.6.0)
+      json
+      mini_magick (~> 4.5.1)
     fastlane-plugin-ascii_art (0.1.0)
       neonichu-asciiart (~> 0.0.9)
     fastlane-plugin-mobile_center (0.1.4)
@@ -191,6 +194,7 @@ PLATFORMS
 DEPENDENCIES
   cocoapods
   fastlane
+  fastlane-plugin-appicon
   fastlane-plugin-ascii_art
   fastlane-plugin-mobile_center
 
