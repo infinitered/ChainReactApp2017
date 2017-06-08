@@ -5,42 +5,52 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.014261">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.015549">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.01477">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.016383">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: ascii_art" time="0.506985">
+      <testcase classname="fastlane.lanes" name="2: cocoapods" time="5.56432">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: increment_build_number" time="4.128995">
+      <testcase classname="fastlane.lanes" name="3: ascii_art" time="0.389259">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: gym" time="118.103475">
+      <testcase classname="fastlane.lanes" name="4: increment_build_number" time="5.771237">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: pilot" time="309.150945">
+      <testcase classname="fastlane.lanes" name="5: appicon" time="4.461497">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: mobile_center_upload" time="2.969506">
+      <testcase classname="fastlane.lanes" name="6: gym" time="171.550565">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: slack" time="0.4464">
+      <testcase classname="fastlane.lanes" name="7: pilot" time="351.930182">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="8: mobile_center_upload" time="6.322269">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="9: slack" time="0.496468">
         
       </testcase>
     

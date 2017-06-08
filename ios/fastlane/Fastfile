@@ -21,19 +21,18 @@ def fancy_sign(message, size=40, separator='=-')
   puts ''.center(size, separator)
 end
 
-
 platform :ios do
 
   before_all do
     # load variables from .env file in the root if it exists
-    # if File.exist?('../../.env')
-    #   open('../../.env', 'r').readlines.each do |l|
-    #     kv = l.split('=')
-    #     ENV[kv[0]] = kv[1].chomp
-    #   end
-    # end
+    if File.exist?('../../.env')
+      open('../../.env', 'r').readlines.each do |l|
+        kv = l.split('=')
+        ENV[kv[0]] = kv[1].chomp
+      end
+    end
 
-    # cocoapods
+    cocoapods
   end
 
   desc "Runs all the tests"
@@ -43,10 +42,22 @@ platform :ios do
 
   desc "Playground for fastlane plugins"
   lane :play do
+    # Nice!
     ascii_art(
       image_path: 'https://avatars1.githubusercontent.com/u/3902527?v=3&s=200',
       width: 60
     )
+
+    # So pretty
+    fancy_sign number_of_commits
+
+    # Automatic Icon magic
+    appicon(
+      appicon_image_file: '../AppIcon/IconArtwork.png',
+      appicon_devices: [:ipad, :iphone],
+      appicon_path: 'ChainReactApp/Images.xcassets'
+    )
+
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
@@ -59,13 +70,22 @@ platform :ios do
       width: 60
     )
 
+    # bump version number
     increment_build_number(
       xcodeproj: "./ChainReactApp.xcodeproj"
+    )
+
+    # Make sure latest artwork is in place
+    appicon(
+      appicon_image_file: '../AppIcon/IconArtwork.png',
+      appicon_devices: [:ipad, :iphone],
+      appicon_path: 'ChainReactApp/Images.xcassets'
     )
 
     # match(type: "appstore") # more information: https://codesigning.guide
     gym(scheme: "ChainReactApp") # Build your app - more options available
 
+    # Ship it!
     pilot
 
     # upload this dSYM to mobilecenter
@@ -77,6 +97,7 @@ platform :ios do
       dsym: "./ChainReactApp.app.dSYM.zip"
     )
 
+    # Give us a friendly high five
     slack(
       message: "New Build: successfully released",
       channel: "#p-cr-conferenceapp"
