@@ -147,9 +147,35 @@ export default StyleSheet.create({
   },
   sponsor: {
     margin: 15,
-    flexShrink: 0
+    flexShrink: 0,
+    alignItems: 'center'
   },
-  goldSponsor: {
-
+  lowTierSponsor: {
+    marginHorizontal: 25
+  },
+  liveHelp: {
+    alignItems: 'center',
+    paddingVertical: 50,
+    paddingHorizontal: Metrics.doubleBaseMargin
+  },
+  liveHelpPhone: {
+    color: Colors.snow,
+    fontFamily: Fonts.type.bold,
+    fontSize: 31,
+    fontWeight: '900'
+  },
+  liveHelpText: {
+    margin: 5,
+    color: Colors.snow,
+    opacity: 0.9,
+    fontSize: 15,
+    fontWeight: '500',
+    fontFamily: Fonts.type.base,
+    lineHeight: 23,
+    textAlign: 'center'
+  },
+  liveHelpButton: {
+    marginTop: 25,
+    width: 200
   }
 })
