@@ -2,6 +2,24 @@
   "schedule": [
     {
       "type":"talk",
+      "speaker":"Gant Laborde",
+      "image":"gant",
+      "title":"Welcome to Chain React",
+      "description":"",
+      "time":"7/17/2017 8:45 AM",
+      "duration":"15",
+      "speakerInfo": [
+        {
+          "name": "Gant Laborde",
+          "bio":"Gant Laborde is the Chief Technology Strategist for Infinite Red and Master of Ceremonies for the conference.",
+          "twitter":"gantlaborde",
+          "github": "gantman",
+          "company":"Infinite Red"
+        }
+      ]
+    },
+    {
+      "type":"talk",
       "speaker":"Mike Grabowski",
       "image":"mike",
       "title":"No Title",
