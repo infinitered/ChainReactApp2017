@@ -18,8 +18,24 @@ class BreakDetail extends React.Component {
     )
   }
 
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      imageWidth: 315
+    }
+  }
+
   goBack = () => {
     this.props.navigation.dispatch(NavigationActions.back())
+  }
+
+  onCardLayout = (event) => {
+    const width = event.nativeEvent.layout.width
+
+    this.setState({
+      imageWidth: width - 20
+    })
   }
 
   renderMainImage = () => {
@@ -33,7 +49,7 @@ class BreakDetail extends React.Component {
 
     return (
       <View style={styles.mainImageContainer}>
-        <Image style={styles.mainImage} source={mainImage} />
+        <Image style={[styles.mainImage, { width: this.state.imageWidth }]} source={mainImage} />
         <View style={styles.mainHeadingContainer}>
           <Text style={styles.breakHeading}>
             {this.props.type.toUpperCase()} BREAK
@@ -73,7 +89,7 @@ class BreakDetail extends React.Component {
             </TouchableOpacity>
             <View style={styles.cardShadow1} />
             <View style={styles.cardShadow2} />
-            <View style={styles.card}>
+            <View style={styles.card} onLayout={this.onCardLayout}>
               {this.renderMainImage()}
               <View style={styles.content}>
                 <Text style={styles.heading}>
