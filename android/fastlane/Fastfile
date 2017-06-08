@@ -17,7 +17,13 @@ default_platform :android
 
 platform :android do
   before_all do
-    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+    # load variables from .env file in the root if it exists
+    if File.exist?('../../.env')
+      open('../../.env', 'r').readlines.each do |l|
+        kv = l.split('=')
+        ENV[kv[0]] = kv[1].chomp
+      end
+    end
   end
 
   desc "Runs all the tests"
@@ -27,15 +33,26 @@ platform :android do
 
   desc "Submit a new Beta Build"
   lane :beta do
+    # Bump version code for uploading
     increment_version_code
 
+    # Get all correct icon sizes from source
+    android_appicon(
+      appicon_image_file: '../AppIcon/IconArtwork.png',
+      appicon_devices: [:phone, :tablet],
+      appicon_path: 'app/src/main/res/mipmap'
+    )
+
+    # Assemble a release
     gradle(
       task: "assemble",
       build_type: "Release"
     )
 
+    # Upload to beta
     supply(track: 'beta')
 
+    # Friendly copy sent to Mobile Center
     mobile_center_upload(
       api_token: ENV['CR_MOBILE_CENTER_TOKEN'],
       owner_name: "gantman-1rtx",
@@ -47,6 +64,13 @@ platform :android do
   desc "Playground stuff"
   lane :play do
     puts number_of_commits
+
+    # Automatic Icon magic
+    android_appicon(
+      appicon_image_file: '../AppIcon/IconArtwork.png',
+      appicon_devices: [:phone, :tablet],
+      appicon_path: 'app/src/main/res/mipmap'
+    )
   end
 
   desc "Upload to Mobile Center"

@@ -4,3 +4,4 @@
 
 gem 'fastlane-plugin-increment_version_code'
 gem 'fastlane-plugin-mobile_center'
+gem 'fastlane-plugin-appicon'
