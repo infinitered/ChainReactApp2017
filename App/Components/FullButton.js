@@ -11,18 +11,18 @@ ExamplesRegistry.addComponentExample('Full Button', () =>
   />
 )
 
-export default class FullButton extends React.Component {
-  static propTypes = {
-    text: PropTypes.string,
-    onPress: PropTypes.func,
-    styles: PropTypes.object
-  }
-
-  render () {
-    return (
-      <TouchableOpacity style={[styles.button, this.props.styles]} onPress={this.props.onPress}>
-        <Text style={styles.buttonText}>{this.props.text && this.props.text.toUpperCase()}</Text>
-      </TouchableOpacity>
-    )
-  }
+const FullButton = (props) => {
+  return (
+    <TouchableOpacity style={[styles.button, props.styles]} onPress={props.onPress}>
+      <Text style={styles.buttonText}>{props.text.toUpperCase()}</Text>
+    </TouchableOpacity>
+  )
 }
+
+FullButton.propTypes = {
+  text: PropTypes.string.isRequired,
+  onPress: PropTypes.func,
+  styles: PropTypes.object
+}
+
+export default FullButton

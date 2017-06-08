@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react'
+import React, { PropTypes } from 'react'
 import { View, Text, Image } from 'react-native'
 import { Images } from '../Themes'
 import { format, differenceInSeconds } from 'date-fns'
@@ -35,19 +35,17 @@ const sunIcon = (time) => {
   }
 }
 
-export default class TimeIndicator extends Component {
-  render () {
-    const { time, start, duration } = this.props
-    const formattedTime = format(time, 'h:mm')
-    const top = `${(differenceInSeconds(time, start) / (duration * 60)) * 100}%`
+const TimeIndicator = props => {
+  const { time, start, duration } = props
+  const formattedTime = format(time, 'h:mm')
+  const top = `${(differenceInSeconds(time, start) / (duration * 60)) * 100}%`
 
-    return (
-      <View style={[styles.container, {top}]}>
-        <Text style={styles.time}>{formattedTime}</Text>
-        <Image style={styles.icon} source={sunIcon(time)} />
-      </View>
-    )
-  }
+  return (
+    <View style={[styles.container, {top}]}>
+      <Text style={styles.time}>{formattedTime}</Text>
+      <Image style={styles.icon} source={sunIcon(time)} />
+    </View>
+  )
 }
 
 TimeIndicator.propTypes = {
@@ -55,3 +53,5 @@ TimeIndicator.propTypes = {
   start: PropTypes.instanceOf(Date).isRequired,
   duration: PropTypes.number.isRequired
 }
+
+export default TimeIndicator

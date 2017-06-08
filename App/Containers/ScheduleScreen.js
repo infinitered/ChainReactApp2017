@@ -17,9 +17,6 @@ import { compareAsc, isSameDay, addMinutes, isWithinRange } from 'date-fns'
 import { merge, groupWith, contains, assoc, map } from 'ramda'
 import NotificationActions from '../Redux/NotificationRedux'
 
-// For empty lists
-// import AlertMessage from '../Components/AlertMessage'
-
 // Styles
 import { Images } from '../Themes'
 import styles from './Styles/TalksScreenStyle'
@@ -155,7 +152,6 @@ class ScheduleScreen extends React.Component {
     }
   }
 
-  // Used for friendly AlertMessage
   // returns true if the dataSource is empty
   noRowData () {
     return this.state.dataSource.getRowCount() === 0

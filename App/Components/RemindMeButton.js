@@ -1,26 +1,23 @@
-import React, { PropTypes, Component } from 'react'
+import React, { PropTypes } from 'react'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import { Images } from '../Themes'
 import styles from './Styles/RemindMeButtonStyle'
 
-export default class RemindMeButton extends Component {
+const RemindMeButton = props => {
+  const { on, onPress } = props
+  const icon = on ? Images.activeNotificationIcon : Images.inactiveNotificationIcon
+  const buttonText = on ? 'Turn Off' : 'Remind Me'
 
-  render () {
-    const { on } = this.props
-    const icon = on ? Images.activeNotificationIcon : Images.inactiveNotificationIcon
-    const buttonText = on ? 'Turn Off' : 'Remind Me'
-    return (
-      <TouchableOpacity onPress={this.props.onPress}>
-        <View style={[styles.button, on && styles.activeButton]}>
-          <Image source={icon} style={styles.icon} />
-          <Text style={[styles.text, on && styles.activeText]}>
-            {buttonText}
-          </Text>
-        </View>
-      </TouchableOpacity>
-    )
-  }
-
+  return (
+    <TouchableOpacity onPress={onPress}>
+      <View style={[styles.button, on && styles.activeButton]}>
+        <Image source={icon} style={styles.icon} />
+        <Text style={[styles.text, on && styles.activeText]}>
+          {buttonText}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  )
 }
 
 RemindMeButton.propTypes = {
@@ -31,3 +28,5 @@ RemindMeButton.propTypes = {
 RemindMeButton.defaultProps = {
   on: false
 }
+
+export default RemindMeButton

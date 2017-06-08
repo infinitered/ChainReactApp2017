@@ -11,29 +11,29 @@ ExamplesRegistry.addComponentExample('Rounded Button', () =>
   />
 )
 
-export default class RoundedButton extends React.Component {
-  static propTypes = {
-    onPress: PropTypes.func,
-    text: PropTypes.string,
-    children: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.object
-    ]),
-    navigator: PropTypes.object,
-    style: View.propTypes.style
+const RoundedButton = props => {
+  const getText = () => {
+    return props.text || props.children || ''
   }
 
-  getText () {
-    return this.props.text || this.props.children || ''
-  }
-
-  render () {
-    return (
-      <TouchableOpacity
-        style={[styles.button, this.props.style]}
-        onPress={this.props.onPress}>
-        <Text style={styles.buttonText}>{this.getText()}</Text>
-      </TouchableOpacity>
-    )
-  }
+  return (
+    <TouchableOpacity
+      style={[styles.button, props.style]}
+      onPress={props.onPress}>
+      <Text style={styles.buttonText}>{getText()}</Text>
+    </TouchableOpacity>
+  )
 }
+
+RoundedButton.propTypes = {
+  onPress: PropTypes.func,
+  text: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]),
+  navigator: PropTypes.object,
+  style: View.propTypes.style
+}
+
+export default RoundedButton
