@@ -7,6 +7,11 @@ import RootContainer from './RootContainer'
 import createStore from '../Redux'
 import SplashScreen from 'react-native-smart-splash-screen'
 
+// Allow layoutanimations for android
+// import { UIManager } from 'NativeModules'
+// commented out because it currently causes errors :/
+// UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+
 // create our store
 const store = createStore()
 
