@@ -155,7 +155,7 @@ class AboutScreen extends React.Component {
         </Text>
         <RoundedButton
           text='Send Text Message (SMS)'
-          onPress={() => Linking.openURL('tel:3605620450')}
+          onPress={() => Linking.openURL('sms:3605620450')}
           style={styles.liveHelpButton}
         />
         <RoundedButton
