@@ -1,0 +1,3 @@
+json_key_file "" # Path to the json secret file - Follow https://github.com/fastlane/supply#setup to get one
+package_name "com.chainreactapp" # e.g. com.krausefx.app
+json_key_file "/Users/gantman/google-play.json"
