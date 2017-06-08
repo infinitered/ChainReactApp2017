@@ -53,7 +53,7 @@ export default class Gallery extends React.Component {
   }
 
   render () {
-    LayoutAnimation.spring()
+    LayoutAnimation.configureNext({...LayoutAnimation.Presets.linear, duration: 250})
     const { activeTab } = this.state
     const { data } = this.props
     return (

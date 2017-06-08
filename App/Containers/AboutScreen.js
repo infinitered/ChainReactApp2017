@@ -5,7 +5,8 @@ import {
   Image,
   View,
   Text,
-  Linking
+  Linking,
+  LayoutAnimation
 } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import RoundedButton from '../Components/RoundedButton'
@@ -44,6 +45,7 @@ class AboutScreen extends React.Component {
   }
 
   setActiveTab (tab) {
+    LayoutAnimation.configureNext({...LayoutAnimation.Presets.linear, duration: 250})
     this.setState({activeTab: tab})
   }
 
@@ -115,7 +117,6 @@ class AboutScreen extends React.Component {
 
   renderTabs () {
     const { activeTab } = this.state
-
     const liveHelpStyles = [styles.tab, activeTab === 'liveHelp' && styles.activeTab]
     const sponsorStyles = [styles.tab, activeTab === 'sponsors' && styles.activeTab]
     const liveHelpTextStyles = [styles.tabText, activeTab === 'liveHelp' && styles.activeTabText]
