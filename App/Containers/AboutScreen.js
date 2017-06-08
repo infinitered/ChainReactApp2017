@@ -36,8 +36,8 @@ class AboutScreen extends React.Component {
   }
 
   tweetWithHashtag () {
-    const appURL = 'twitter://post?hashtags=ChainReactConf'
-    const webURL = 'https://twitter.com/intent/tweet?hashtags=ChainReactConf'
+    const appURL = 'twitter://post?hashtags=ChainReact2017'
+    const webURL = 'https://twitter.com/intent/tweet?hashtags=ChainReact2017'
     Linking.canOpenURL(appURL).then((supported) =>
       supported ? Linking.openURL(appURL) : Linking.openURL(webURL)
     )
@@ -99,14 +99,14 @@ class AboutScreen extends React.Component {
         <Image style={styles.blowhorn} source={Images.blowhorn} />
         <TouchableOpacity onPress={() => this.tweetWithHashtag()}>
           <Text style={styles.heading}>
-            #ChainReactConf
+            #ChainReact2017
           </Text>
         </TouchableOpacity>
         <Text style={styles.description}>
           Make your friends jealous by tweeting, posting,
           or whatever it is you do with the hashtag&nbsp;
           <Text style={styles.hashtag} onPress={() => this.tweetWithHashtag()}>
-            #chainreactconf
+            #chainreact2017
           </Text>.
         </Text>
       </View>
@@ -182,7 +182,7 @@ class AboutScreen extends React.Component {
       <View style={styles.sponsors}>
         <Text style={styles.heading}>Our Sponsors</Text>
         <Text style={styles.description}>
-          We love the sponsors we got for this conference.
+          We love the sponsors for this conference.
           They make all of this fun stuff possible, and we
           couldn’t have done it without them.
         </Text>
