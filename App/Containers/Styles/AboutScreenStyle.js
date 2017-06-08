@@ -17,7 +17,7 @@ export default StyleSheet.create({
   },
   heading: {
     marginTop: 14,
-    fontFamily: 'Montserrat-SemiBold',
+    fontFamily: Fonts.type.bold,
     fontSize: 31,
     letterSpacing: 0.2,
     backgroundColor: Colors.transparent,
@@ -36,9 +36,7 @@ export default StyleSheet.create({
     color: Colors.snow
   },
   twitter: {
-    ...section,
-    borderBottomColor: '#7B5888',
-    borderBottomWidth: 1
+    ...section
   },
   afterPartyContainer: {
     flex: 3,
@@ -87,6 +85,36 @@ export default StyleSheet.create({
     fontWeight: '600',
     lineHeight: 24
   },
+  tabsContainer: {
+    flex: 1,
+    backgroundColor: Colors.transparent,
+    marginVertical: Metrics.doubleBaseMargin
+  },
+  tabs: {
+    flexDirection: 'row'
+  },
+  tab: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(253,229,255,0.5)',
+    padding: Metrics.baseMargin
+  },
+  activeTab: {
+    borderBottomColor: Colors.snow
+  },
+  tabText: {
+    fontFamily: Fonts.type.base,
+    fontSize: 15,
+    lineHeight: 23,
+    letterSpacing: 0.47,
+    color: 'rgba(253,229,255,0.5)'
+  },
+  activeTabText: {
+    fontWeight: '600',
+    color: Colors.snow
+  },
   sponsors: {
     ...section,
     paddingTop: 30
@@ -102,11 +130,12 @@ export default StyleSheet.create({
   },
   sponsorTierTitle: {
     marginTop: 60,
-    marginBottom: 30,
-    fontFamily: 'Montserrat-SemiBold',
+    marginBottom: Metrics.baseMargin,
+    fontFamily: Fonts.type.bold,
     fontSize: 15,
     color: Colors.snow,
-    letterSpacing: 0.47,
+    opacity: 0.6,
+    letterSpacing: 0.5,
     lineHeight: 23
   },
   sponsorTier: {
@@ -118,9 +147,35 @@ export default StyleSheet.create({
   },
   sponsor: {
     margin: 15,
-    flexShrink: 0
+    flexShrink: 0,
+    alignItems: 'center'
   },
-  goldSponsor: {
-
+  lowTierSponsor: {
+    marginHorizontal: 25
+  },
+  liveHelp: {
+    alignItems: 'center',
+    paddingVertical: 50,
+    paddingHorizontal: Metrics.doubleBaseMargin
+  },
+  liveHelpPhone: {
+    color: Colors.snow,
+    fontFamily: Fonts.type.bold,
+    fontSize: 31,
+    fontWeight: '900'
+  },
+  liveHelpText: {
+    margin: 5,
+    color: Colors.snow,
+    opacity: 0.9,
+    fontSize: 15,
+    fontWeight: '500',
+    fontFamily: Fonts.type.base,
+    lineHeight: 23,
+    textAlign: 'center'
+  },
+  liveHelpButton: {
+    marginTop: 25,
+    width: 200
   }
 })
