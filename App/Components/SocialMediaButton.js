@@ -12,29 +12,31 @@ ExamplesRegistry.addComponentExample('SocialMediaButton', () =>
   />
 )
 
-export default class SocialMediaButton extends React.Component {
-  static propTypes = {
-    onPress: PropTypes.func,
-    style: View.propTypes.style,
-    network: PropTypes.string.isRequired,
-    spacing: PropTypes.string
-  }
-  static defaultProps = {
-    spacing: 'left'
-  }
+const SocialMediaButton = props => {
+  const { network, style, spacing, onPress } = props
+  const imageSource = network === 'twitter' ? Images.twitterIcon : Images.githubIcon
+  const spacingShim = spacing === 'right' ? 'right' : 'left'
 
-  render () {
-    const { network, style } = this.props
-    const imageSource = network === 'twitter' ? Images.twitterIcon : Images.githubIcon
-    const spacing = this.props.spacing === 'right' ? 'right' : 'left'
-    return (
-      <TouchableOpacity
-        style={[styles.button, styles[spacing], style]}
-        onPress={this.props.onPress}
-        hitSlop={{ top: 10, left: 10, bottom: 10, right: 10 }}
-      >
-        <Image source={imageSource} />
-      </TouchableOpacity>
-    )
-  }
+  return (
+    <TouchableOpacity
+      style={[styles.button, styles[spacingShim], style]}
+      onPress={onPress}
+      hitSlop={{ top: 10, left: 10, bottom: 10, right: 10 }}
+    >
+      <Image source={imageSource} />
+    </TouchableOpacity>
+  )
 }
+
+SocialMediaButton.propTypes = {
+  onPress: PropTypes.func,
+  style: View.propTypes.style,
+  network: PropTypes.string.isRequired,
+  spacing: PropTypes.string
+}
+
+SocialMediaButton.defaultProps = {
+  spacing: 'left'
+}
+
+export default SocialMediaButton
