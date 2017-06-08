@@ -174,34 +174,40 @@ class AboutScreen extends React.Component {
           couldn’t have done it without them.
         </Text>
 
-        <Text style={styles.sponsorTierTitle}>Platinum Level</Text>
+        <Text style={styles.sponsorTierTitle}>Platinum Sponsors</Text>
         <View style={styles.sponsorTier}>
-          {this.renderSponsor('https://www.squarespace.com/', Images.squarespaceSponsor, styles.squarespaceSponsor)}
+          {this.renderSponsor('https://www.squarespace.com/', Images.squarespaceSponsor)}
         </View>
 
-        <Text style={styles.sponsorTierTitle}>Gold Level</Text>
+        <Text style={styles.sponsorTierTitle}>Gold Sponsors</Text>
         <View style={styles.sponsorTier}>
-          {this.renderSponsor('https://nativebase.io/', Images.nativeBaseSponsor, styles.goldSponsor)}
-          {this.renderSponsor('https://formidable.com/', Images.formidableSponsor, styles.goldSponsor)}
-          {this.renderSponsor('https://moduscreate.com/', Images.modusSponsor, styles.goldSponsor)}
+          {this.renderSponsor('https://nativebase.io/', Images.nativeBaseSponsor)}
+          {this.renderSponsor('https://formidable.com/', Images.formidableSponsor)}
+          {this.renderSponsor('https://moduscreate.com/', Images.modusSponsor)}
+          {this.renderSponsor('https://www.bugsnag.com//', Images.bugsnagSponsor)}
         </View>
 
-        <Text style={styles.sponsorTierTitle}>Silver Level</Text>
+        <Text style={styles.sponsorTierTitle}>Silver Sponsors</Text>
         <View style={styles.sponsorTier}>
-          {this.renderSponsor('https://aws.amazon.com/', Images.amazonSponsor)}
-          {this.renderSponsor('http://reactnative.training/', Images.trainingSponsor)}
-          {this.renderSponsor('https://gudog.co.uk/', Images.gudogSponsor)}
-          {this.renderSponsor('https://rangle.io/', Images.rangleSponsor)}
+          {this.renderSponsor('https://aws.amazon.com/', Images.amazonSponsor, styles.lowTierSponsor)}
+          {this.renderSponsor('http://reactnative.training/', Images.trainingSponsor, styles.lowTierSponsor)}
+          {this.renderSponsor('https://gudog.co.uk/', Images.gudogSponsor, styles.lowTierSponsor)}
+          {this.renderSponsor('https://rangle.io/', Images.rangleSponsor, styles.lowTierSponsor)}
         </View>
 
-        <Text style={styles.sponsorTierTitle}>Bronze Level</Text>
+        <Text style={styles.sponsorTierTitle}>Bronze Sponsors</Text>
         <View style={styles.sponsorTier}>
-          {this.renderSponsor('https://echobind.com/', Images.echobindSponsor)}
-          {this.renderSponsor('https://www.salesforce.com/', Images.salesforceSponsor)}
-          {this.renderSponsor('https://www.capitalone.com/', Images.capitalOneSponsor)}
-          {this.renderSponsor('https://www.instrument.com/', Images.instrumentSponsor)}
-          {this.renderSponsor('https://www.paypal.com/us/home', Images.paypalSponsor)}
+          {this.renderSponsor('https://echobind.com/', Images.echobindSponsor, styles.lowTierSponsor)}
+          {this.renderSponsor('https://www.capitalone.com/', Images.capitalOneSponsor, styles.lowTierSponsor)}
+          {this.renderSponsor('https://www.salesforce.com/', Images.salesforceSponsor, styles.lowTierSponsor)}
+          {this.renderSponsor('https://www.paypal.com/us/home', Images.paypalSponsor, styles.lowTierSponsor)}
+          {this.renderSponsor('https://www.instrument.com/', Images.instrumentSponsor, styles.lowTierSponsor)}
           {this.renderSponsor('http://www.qlik.com/us/', Images.qlikSponsor)}
+        </View>
+
+        <Text style={styles.sponsorTierTitle}>Additional Sponsors</Text>
+        <View style={styles.sponsorTier}>
+          {this.renderSponsor('http://www.qlik.com/us/', Images.qlikCoffeeSponsor)}
         </View>
 
       </View>

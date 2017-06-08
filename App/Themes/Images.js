@@ -1,7 +1,7 @@
 // leave off @2x/@3x
 const images = {
   // sponsors
-  amazonSponsor: require('../Images/sponsors/img-sponsor-amazon web services.png'),
+  amazonSponsor: require('../Images/sponsors/img-sponsor-amazon-web-services.png'),
   capitalOneSponsor: require('../Images/sponsors/img-sponsor-capital-one.png'),
   echobindSponsor: require('../Images/sponsors/img-sponsor-echobind.png'),
   formidableSponsor: require('../Images/sponsors/img-sponsor-formidable.png'),
@@ -10,11 +10,13 @@ const images = {
   modusSponsor: require('../Images/sponsors/img-sponsor-modus-create.png'),
   nativeBaseSponsor: require('../Images/sponsors/img-sponsor-native base.png'),
   paypalSponsor: require('../Images/sponsors/img-sponsor-paypal.png'),
-  qlikSponsor: require('../Images/sponsors/img-sponsor-qlik-coffee.png'),
+  qlikSponsor: require('../Images/sponsors/img-sponsor-qlik.png'),
+  qlikCoffeeSponsor: require('../Images/sponsors/img-sponsor-qlik-coffee.png'),
   rangleSponsor: require('../Images/sponsors/img-sponsor-rangle.io.png'),
   trainingSponsor: require('../Images/sponsors/img-sponsor-react native training.png'),
   salesforceSponsor: require('../Images/sponsors/img-sponsor-salesforce.png'),
   squarespaceSponsor: require('../Images/sponsors/img-sponsor-squarespace.png'),
+  bugsnagSponsor: require('../Images/sponsors/img-sponsor-bugsnag.png'),
   // app stuff
   logo: require('../Images/ir.png'),
   clearLogo: require('../Images/top_logo.png'),

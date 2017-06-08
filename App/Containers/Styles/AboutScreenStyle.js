@@ -17,7 +17,7 @@ export default StyleSheet.create({
   },
   heading: {
     marginTop: 14,
-    fontFamily: 'Montserrat-SemiBold',
+    fontFamily: Fonts.type.bold,
     fontSize: 31,
     letterSpacing: 0.2,
     backgroundColor: Colors.transparent,
@@ -130,11 +130,12 @@ export default StyleSheet.create({
   },
   sponsorTierTitle: {
     marginTop: 60,
-    marginBottom: 30,
-    fontFamily: 'Montserrat-SemiBold',
+    marginBottom: Metrics.baseMargin,
+    fontFamily: Fonts.type.bold,
     fontSize: 15,
     color: Colors.snow,
-    letterSpacing: 0.47,
+    opacity: 0.6,
+    letterSpacing: 0.5,
     lineHeight: 23
   },
   sponsorTier: {
