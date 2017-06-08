@@ -88,7 +88,10 @@ class LocationScreen extends React.Component {
   }
 
   toggleRides = () => {
-    this.refs.scrolly.scrollTo({x: 0, y: 180, animated: true})
+    const { showRideOptions, scrollY } = this.state
+    if (!showRideOptions && scrollY._value < 200) {
+      this.refs.scrolly.scrollTo({x: 0, y: 200, animated: true})
+    }
     this.setState({showRideOptions: !this.state.showRideOptions})
   }
 
