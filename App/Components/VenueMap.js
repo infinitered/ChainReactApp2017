@@ -106,11 +106,13 @@ class VenueMap extends React.Component {
   render () {
     return (
       <MapView
+        scrollEnabled={this.props.scrollEnabled}
         style={this.props.style}
         initialRegion={this.state.region}
         onRegionChangeComplete={this.onRegionChange}
         showsUserLocation={this.state.showUserLocation}
       >
+        {this.props.children}
         {this.state.locations.map((location) => this.renderMapMarkers(location))}
       </MapView>
     )

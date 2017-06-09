@@ -13,6 +13,7 @@ export default class Gallery extends React.Component {
   }
 
   setActiveTab = (tab) => {
+    LayoutAnimation.configureNext({...LayoutAnimation.Presets.linear, duration: 250})
     this.setState({activeTab: tab})
   }
 
@@ -53,7 +54,6 @@ export default class Gallery extends React.Component {
   }
 
   render () {
-    LayoutAnimation.configureNext({...LayoutAnimation.Presets.linear, duration: 250})
     const { activeTab } = this.state
     const { data } = this.props
     return (

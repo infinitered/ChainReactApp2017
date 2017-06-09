@@ -6,12 +6,15 @@ import {
   Image,
   Text,
   Linking,
-  Animated
+  Animated,
+  PanResponder,
+  LayoutAnimation
 } from 'react-native'
 import PurpleGradient from '../Components/PurpleGradient'
+import Icon from 'react-native-vector-icons/Ionicons'
 import VenueMap from '../Components/VenueMap'
 import Gallery from '../Components/Gallery'
-import { Images, Metrics } from '../Themes'
+import { Images, Metrics, Colors } from '../Themes'
 import { connect } from 'react-redux'
 import Secrets from 'react-native-config'
 import styles from './Styles/LocationScreenStyle'
@@ -19,6 +22,7 @@ import styles from './Styles/LocationScreenStyle'
 const VENUE_LATITUDE = 45.524166
 const VENUE_LONGITUDE = -122.681645
 const { UBER_CLIENT_ID } = Secrets
+const MAP_TAP_THRESHOLD = 100
 
 class LocationScreen extends React.Component {
 
@@ -27,7 +31,9 @@ class LocationScreen extends React.Component {
 
     this.state = {
       showRideOptions: false,
-      scrollY: new Animated.Value(0)
+      scrollY: new Animated.Value(0),
+      mapTouchStart: '',
+      mapViewMode: false
     }
   }
 
@@ -36,6 +42,33 @@ class LocationScreen extends React.Component {
     tabBarIcon: ({ focused }) => (
       <Image source={focused ? Images.activeLocationIcon : Images.inactiveLocationIcon} />
     )
+  }
+
+  componentWillMount () {
+    this._panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: this._handleStartShouldSetPanResponder,
+      onPanResponderGrant: this._handlePanResponderGrant,
+      onPanResponderRelease: this._handlePanResponderEnd
+    })
+  }
+
+  _handleStartShouldSetPanResponder (e, gestureState) {
+    return true
+  }
+
+  _handlePanResponderGrant = (e, gestureState) => {
+    const { timestamp } = e.nativeEvent
+    this.setState({mapTouchStart: timestamp})
+  }
+
+  _handlePanResponderEnd = (e, gestureState) => {
+    const { timestamp } = e.nativeEvent
+    if (timestamp - this.state.mapTouchStart < MAP_TAP_THRESHOLD) {
+      LayoutAnimation.configureNext({...LayoutAnimation.Presets.linear, duration: 750})
+      this.refs.scrolly.scrollTo({x: 0, y: Metrics.screenHeight / 4.25, animated: true})
+      this.setState({mapViewMode: true})
+    }
+    this.setState({mapTouchStart: ''})
   }
 
   openMaps (daddr = '128+NW+Eleventh+Ave+Portland,+OR+97209') {
@@ -148,8 +181,23 @@ class LocationScreen extends React.Component {
     )
   }
 
+  renderMapCloseButton = () => {
+    return (
+      <Icon
+        name='ios-close-circle-outline'
+        size={26}
+        color={Colors.background}
+        style={styles.mapCloseButton}
+        onPress={() => {
+          this.setState({mapViewMode: false})
+          LayoutAnimation.configureNext({...LayoutAnimation.Presets.linear, duration: 400})
+        }}
+      />
+    )
+  }
+
   render () {
-    const { showRideOptions } = this.state
+    const { showRideOptions, mapViewMode } = this.state
     const { nearbyData } = this.props
     const { event } = Animated
 
@@ -158,11 +206,16 @@ class LocationScreen extends React.Component {
         <ScrollView
           ref='scrolly'
           onScroll={event([{nativeEvent: {contentOffset: {y: this.state.scrollY}}}])}
-          scrollEventThrottle={32}>
+          scrollEventThrottle={10}
+          scrollEnabled={!this.state.mapViewMode}>
           <View style={styles.container}>
             {this.renderBackground()}
             {this.renderHeader()}
-            <VenueMap style={styles.map} />
+            <View {...this._panResponder.panHandlers}>
+              <VenueMap scrollEnabled={mapViewMode} style={[styles.map, mapViewMode && {height: Metrics.screenHeight / 2}]}>
+                {mapViewMode && this.renderMapCloseButton()}
+              </VenueMap>
+            </View>
             <View style={styles.mapActions}>
               <TouchableOpacity onPress={() => this.openMaps()}>
                 <View style={styles.getDirections}>
@@ -171,7 +224,7 @@ class LocationScreen extends React.Component {
                       The Armory
                     </Text>
                     <Text style={styles.venueAddress}>
-                      128 NW Eleventh Ave, Portland, OR, 97209
+                      128 NW Eleventh Ave.{'\n'}Portland, OR 97209
                     </Text>
                   </View>
                   <View style={styles.directionsIcon}>
