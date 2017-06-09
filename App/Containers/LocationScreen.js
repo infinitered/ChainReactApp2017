@@ -14,7 +14,7 @@ import PurpleGradient from '../Components/PurpleGradient'
 
 import VenueMap from '../Components/VenueMap'
 import Gallery from '../Components/Gallery'
-import { Images, Metrics, Colors } from '../Themes'
+import { Images, Metrics } from '../Themes'
 import { connect } from 'react-redux'
 import Secrets from 'react-native-config'
 import styles from './Styles/LocationScreenStyle'

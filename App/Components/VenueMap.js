@@ -1,7 +1,6 @@
 import React from 'react'
-import { TouchableOpacity } from 'react-native'
 import MapView from 'react-native-maps'
-import { View } from 'react-native'
+import { View, TouchableOpacity } from 'react-native'
 import VenueMapCallout from './VenueMapCallout'
 import { Images, Colors } from '../Themes'
 import styles from './Styles/VenueMapStyles'
@@ -111,22 +110,21 @@ class VenueMap extends React.Component {
   }
 
   renderMapCloseButton = () => {
-    console.tron.log(this.props.mapViewMode)
-    const opacity = this.props.mapViewMode ? 1 : 0
+    // Warning GROSS hack for Android render bug
+    const left = this.props.mapViewMode ? 0 : -100
 
     return (
       <TouchableOpacity
         onPress={this.props.onCloseMap}
-        style={[styles.mapCloseButton, {opacity}]}
-        visible={false}
-        >
-       <Icon
-         ref='mapCloseButton'
-         name='times-circle'
-         size={26}
-         color={Colors.purple}
-         style={[styles.mapCloseButton]}
-       />
+        style={[styles.mapCloseButton, {left}]}
+      >
+        <Icon
+          ref='mapCloseButton'
+          name='times-circle'
+          size={26}
+          color={Colors.purple}
+          style={[styles.mapCloseButton]}
+        />
       </TouchableOpacity>
     )
   }
