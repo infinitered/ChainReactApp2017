@@ -63,10 +63,6 @@ class VenueMap extends React.Component {
     // })
   }
 
-  // shouldComponentUpdate (newProps, newState) {
-    // if (newProps.mapViewMode !== this.props.mapViewMode) return true
-  // }
-
   onRegionChange (newRegion) {
     /* ***********************************************************
     * STEP 4
@@ -110,7 +106,7 @@ class VenueMap extends React.Component {
   }
 
   renderMapCloseButton = () => {
-    // Warning GROSS hack for Android render bug
+    // Warning GROSS hack for Android render bug on maps
     const left = this.props.mapViewMode ? 0 : -100
 
     return (

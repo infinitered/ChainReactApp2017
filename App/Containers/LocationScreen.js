@@ -45,27 +45,17 @@ class LocationScreen extends React.Component {
   }
 
   componentWillMount () {
+    // Get the map tap check
     this._panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: this._handleStartShouldSetPanResponder,
-      onPanResponderGrant: this._handlePanResponderGrant,
-      onPanResponderRelease: this._handlePanResponderEnd
+      onStartShouldSetPanResponder: () => true,
+      onPanResponderGrant: (e) => this.setState({mapTouchStart: e.nativeEvent.timestamp}),
+      onPanResponderRelease: this.cehckMapTap
     })
   }
-
-  _handleStartShouldSetPanResponder (e, gestureState) {
-    return true
-  }
-
-  _handlePanResponderGrant = (e, gestureState) => {
-    const { timestamp } = e.nativeEvent
-    this.setState({mapTouchStart: timestamp})
-  }
-
-  _handlePanResponderEnd = (e, gestureState) => {
-    const { timestamp } = e.nativeEvent
-    if (timestamp - this.state.mapTouchStart < MAP_TAP_THRESHOLD) {
-      LayoutAnimation.configureNext({...LayoutAnimation.Presets.linear, duration: 750})
-      this.refs.scrolly.scrollTo({x: 0, y: Metrics.screenHeight / 4.25, animated: true})
+  cehckMapTap = (e) => {
+    if (e.nativeEvent.timestamp - this.state.mapTouchStart < MAP_TAP_THRESHOLD) {
+      LayoutAnimation.configureNext({...LayoutAnimation.Presets.linear, duration: 500})
+      this.refs.scrolly.scrollTo({y: Metrics.screenHeight / 4.25, animated: true})
       this.setState({mapViewMode: true})
     }
     this.setState({mapTouchStart: ''})
