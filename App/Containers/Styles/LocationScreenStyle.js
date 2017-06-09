@@ -111,16 +111,5 @@ export default StyleSheet.create({
   nearby: {
     alignItems: 'center',
     paddingTop: 40
-  },
-  mapCloseButton: {
-    width: 25,
-    height: 30,
-    alignSelf: 'flex-end',
-    margin: Metrics.smallMargin,
-    position: 'absolute',
-    left: 0,
-    // bottom: 50,
-    zIndex: 100,
-    backgroundColor: 'yellow'
   }
 })

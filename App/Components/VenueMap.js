@@ -1,9 +1,11 @@
 import React from 'react'
+import { TouchableOpacity } from 'react-native'
 import MapView from 'react-native-maps'
 import { View } from 'react-native'
 import VenueMapCallout from './VenueMapCallout'
-import { Images } from '../Themes'
-// import styles from './Styles/VenueMapStyles'
+import { Images, Colors } from '../Themes'
+import styles from './Styles/VenueMapStyles'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 // Generate this MapHelpers file with `ignite generate map-utilities`
 // You must have Ramda as a dev dependency to use this.
@@ -108,12 +110,25 @@ class VenueMap extends React.Component {
     )
   }
 
-  renderCloseButton = () => {
-    if (this.props.mapViewMode) {
-      return this.props.closeButton
-    } else {
-      return <View key='poop' />
-    }
+  renderMapCloseButton = () => {
+    console.tron.log(this.props.mapViewMode)
+    const opacity = this.props.mapViewMode ? 1 : 0
+
+    return (
+      <TouchableOpacity
+        onPress={this.props.onCloseMap}
+        style={[styles.mapCloseButton, {opacity}]}
+        visible={false}
+        >
+       <Icon
+         ref='mapCloseButton'
+         name='times-circle'
+         size={26}
+         color={Colors.purple}
+         style={[styles.mapCloseButton]}
+       />
+      </TouchableOpacity>
+    )
   }
 
   render () {
@@ -128,7 +143,7 @@ class VenueMap extends React.Component {
         >
           {this.state.locations.map((location) => this.renderMapMarkers(location))}
         </MapView>
-        {this.renderCloseButton()}
+        {this.renderMapCloseButton()}
       </View>
     )
   }
