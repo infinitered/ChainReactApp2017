@@ -1,8 +1,10 @@
 import React from 'react'
 import MapView from 'react-native-maps'
+import { View, TouchableOpacity } from 'react-native'
 import VenueMapCallout from './VenueMapCallout'
-import { Images } from '../Themes'
-// import styles from './Styles/VenueMapStyles'
+import { Images, Colors } from '../Themes'
+import styles from './Styles/VenueMapStyles'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 // Generate this MapHelpers file with `ignite generate map-utilities`
 // You must have Ramda as a dev dependency to use this.
@@ -103,16 +105,40 @@ class VenueMap extends React.Component {
     )
   }
 
+  renderMapCloseButton = () => {
+    // Warning GROSS hack for Android render bug on maps
+    const left = this.props.mapViewMode ? 0 : -100
+
+    return (
+      <TouchableOpacity
+        onPress={this.props.onCloseMap}
+        style={[styles.mapCloseButton, {left}]}
+      >
+        <Icon
+          ref='mapCloseButton'
+          name='times-circle'
+          size={26}
+          color={Colors.purple}
+          style={[styles.mapCloseButton]}
+        />
+      </TouchableOpacity>
+    )
+  }
+
   render () {
     return (
-      <MapView
-        style={this.props.style}
-        initialRegion={this.state.region}
-        onRegionChangeComplete={this.onRegionChange}
-        showsUserLocation={this.state.showUserLocation}
-      >
-        {this.state.locations.map((location) => this.renderMapMarkers(location))}
-      </MapView>
+      <View>
+        <MapView
+          scrollEnabled={this.props.scrollEnabled}
+          style={this.props.style}
+          initialRegion={this.state.region}
+          onRegionChangeComplete={this.onRegionChange}
+          showsUserLocation={this.state.showUserLocation}
+        >
+          {this.state.locations.map((location) => this.renderMapMarkers(location))}
+        </MapView>
+        {this.renderMapCloseButton()}
+      </View>
     )
   }
 }

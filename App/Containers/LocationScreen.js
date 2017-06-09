@@ -6,9 +6,12 @@ import {
   Image,
   Text,
   Linking,
-  Animated
+  Animated,
+  PanResponder,
+  LayoutAnimation
 } from 'react-native'
 import PurpleGradient from '../Components/PurpleGradient'
+
 import VenueMap from '../Components/VenueMap'
 import Gallery from '../Components/Gallery'
 import { Images, Metrics } from '../Themes'
@@ -19,6 +22,7 @@ import styles from './Styles/LocationScreenStyle'
 const VENUE_LATITUDE = 45.524166
 const VENUE_LONGITUDE = -122.681645
 const { UBER_CLIENT_ID } = Secrets
+const MAP_TAP_THRESHOLD = 100
 
 class LocationScreen extends React.Component {
 
@@ -27,7 +31,9 @@ class LocationScreen extends React.Component {
 
     this.state = {
       showRideOptions: false,
-      scrollY: new Animated.Value(0)
+      scrollY: new Animated.Value(0),
+      mapTouchStart: '',
+      mapViewMode: false
     }
   }
 
@@ -36,6 +42,23 @@ class LocationScreen extends React.Component {
     tabBarIcon: ({ focused }) => (
       <Image source={focused ? Images.activeLocationIcon : Images.inactiveLocationIcon} />
     )
+  }
+
+  componentWillMount () {
+    // Get the map tap check
+    this._panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onPanResponderGrant: (e) => this.setState({mapTouchStart: e.nativeEvent.timestamp}),
+      onPanResponderRelease: this.cehckMapTap
+    })
+  }
+  cehckMapTap = (e) => {
+    if (e.nativeEvent.timestamp - this.state.mapTouchStart < MAP_TAP_THRESHOLD) {
+      LayoutAnimation.configureNext({...LayoutAnimation.Presets.linear, duration: 500})
+      this.refs.scrolly.scrollTo({y: Metrics.screenHeight / 4.25, animated: true})
+      this.setState({mapViewMode: true})
+    }
+    this.setState({mapTouchStart: ''})
   }
 
   openMaps (daddr = '128+NW+Eleventh+Ave+Portland,+OR+97209') {
@@ -148,8 +171,13 @@ class LocationScreen extends React.Component {
     )
   }
 
+  onCloseMap = () => {
+    LayoutAnimation.configureNext({...LayoutAnimation.Presets.linear, duration: 400})
+    this.setState({mapViewMode: false})
+  }
+
   render () {
-    const { showRideOptions } = this.state
+    const { showRideOptions, mapViewMode } = this.state
     const { nearbyData } = this.props
     const { event } = Animated
 
@@ -158,11 +186,14 @@ class LocationScreen extends React.Component {
         <ScrollView
           ref='scrolly'
           onScroll={event([{nativeEvent: {contentOffset: {y: this.state.scrollY}}}])}
-          scrollEventThrottle={32}>
+          scrollEventThrottle={10}
+          scrollEnabled={!this.state.mapViewMode}>
           <View style={styles.container}>
             {this.renderBackground()}
             {this.renderHeader()}
-            <VenueMap style={styles.map} />
+            <View ref='mapContainer' {...this._panResponder.panHandlers}>
+              <VenueMap mapViewMode={mapViewMode} onCloseMap={this.onCloseMap} scrollEnabled={mapViewMode} style={[styles.map, mapViewMode && {height: Metrics.screenHeight / 2}]} />
+            </View>
             <View style={styles.mapActions}>
               <TouchableOpacity onPress={() => this.openMaps()}>
                 <View style={styles.getDirections}>
@@ -171,7 +202,7 @@ class LocationScreen extends React.Component {
                       The Armory
                     </Text>
                     <Text style={styles.venueAddress}>
-                      128 NW Eleventh Ave, Portland, OR, 97209
+                      128 NW Eleventh Ave.{'\n'}Portland, OR 97209
                     </Text>
                   </View>
                   <View style={styles.directionsIcon}>
