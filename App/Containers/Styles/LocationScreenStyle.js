@@ -116,6 +116,11 @@ export default StyleSheet.create({
     width: 25,
     height: 30,
     alignSelf: 'flex-end',
-    margin: Metrics.smallMargin
+    margin: Metrics.smallMargin,
+    position: 'absolute',
+    left: 0,
+    // bottom: 50,
+    zIndex: 100,
+    backgroundColor: 'yellow'
   }
 })

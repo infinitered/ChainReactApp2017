@@ -1,5 +1,6 @@
 import React from 'react'
 import MapView from 'react-native-maps'
+import { View } from 'react-native'
 import VenueMapCallout from './VenueMapCallout'
 import { Images } from '../Themes'
 // import styles from './Styles/VenueMapStyles'
@@ -61,6 +62,10 @@ class VenueMap extends React.Component {
     // })
   }
 
+  // shouldComponentUpdate (newProps, newState) {
+    // if (newProps.mapViewMode !== this.props.mapViewMode) return true
+  // }
+
   onRegionChange (newRegion) {
     /* ***********************************************************
     * STEP 4
@@ -103,18 +108,28 @@ class VenueMap extends React.Component {
     )
   }
 
+  renderCloseButton = () => {
+    if (this.props.mapViewMode) {
+      return this.props.closeButton
+    } else {
+      return <View key='poop' />
+    }
+  }
+
   render () {
     return (
-      <MapView
-        scrollEnabled={this.props.scrollEnabled}
-        style={this.props.style}
-        initialRegion={this.state.region}
-        onRegionChangeComplete={this.onRegionChange}
-        showsUserLocation={this.state.showUserLocation}
-      >
-        {this.props.children}
-        {this.state.locations.map((location) => this.renderMapMarkers(location))}
-      </MapView>
+      <View>
+        <MapView
+          scrollEnabled={this.props.scrollEnabled}
+          style={this.props.style}
+          initialRegion={this.state.region}
+          onRegionChangeComplete={this.onRegionChange}
+          showsUserLocation={this.state.showUserLocation}
+        >
+          {this.state.locations.map((location) => this.renderMapMarkers(location))}
+        </MapView>
+        {this.renderCloseButton()}
+      </View>
     )
   }
 }

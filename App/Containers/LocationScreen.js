@@ -67,6 +67,7 @@ class LocationScreen extends React.Component {
       LayoutAnimation.configureNext({...LayoutAnimation.Presets.linear, duration: 750})
       this.refs.scrolly.scrollTo({x: 0, y: Metrics.screenHeight / 4.25, animated: true})
       this.setState({mapViewMode: true})
+      // this.handleMapClosePosition()
     }
     this.setState({mapTouchStart: ''})
   }
@@ -182,12 +183,15 @@ class LocationScreen extends React.Component {
   }
 
   renderMapCloseButton = () => {
+    // return <View  onPress={() => this.setState({mapViewMode: false})} style={styles.mapCloseButton} />
     return (
       <Icon
+        ref='mapCloseButton'
+        key='lol'
         name='ios-close-circle-outline'
         size={26}
         color={Colors.background}
-        style={styles.mapCloseButton}
+        style={[styles.mapCloseButton]}
         onPress={() => {
           this.setState({mapViewMode: false})
           LayoutAnimation.configureNext({...LayoutAnimation.Presets.linear, duration: 400})
@@ -195,6 +199,13 @@ class LocationScreen extends React.Component {
       />
     )
   }
+
+  // handleMapClosePosition () {
+  //   this.refs.mapContainer.measure((x, y, w, h, px, py) => {
+  //     return py - 50
+  //     // this.refs.mapCloseButton.setNativeProps({style: {top: py + 10}})
+  //   })
+  // }
 
   render () {
     const { showRideOptions, mapViewMode } = this.state
@@ -211,10 +222,8 @@ class LocationScreen extends React.Component {
           <View style={styles.container}>
             {this.renderBackground()}
             {this.renderHeader()}
-            <View {...this._panResponder.panHandlers}>
-              <VenueMap scrollEnabled={mapViewMode} style={[styles.map, mapViewMode && {height: Metrics.screenHeight / 2}]}>
-                {mapViewMode && this.renderMapCloseButton()}
-              </VenueMap>
+            <View ref='mapContainer' {...this._panResponder.panHandlers}>
+              <VenueMap mapViewMode={mapViewMode} closeButton={this.renderMapCloseButton()} scrollEnabled={mapViewMode} style={[styles.map, mapViewMode && {height: Metrics.screenHeight / 2}]} />
             </View>
             <View style={styles.mapActions}>
               <TouchableOpacity onPress={() => this.openMaps()}>
