@@ -16,13 +16,14 @@ import { connect } from 'react-redux'
 import { compareAsc, isSameDay, addMinutes, isWithinRange } from 'date-fns'
 import { merge, groupWith, contains, assoc, map } from 'ramda'
 import NotificationActions from '../Redux/NotificationRedux'
+import Config from '../Config/AppConfig'
 
 // Styles
 import { Images } from '../Themes'
 import styles from './Styles/TalksScreenStyle'
 
 const isCurrentDay = (currentTime, activeDay) =>
-  isSameDay(currentTime, new Date(['7/17/2017', '7/18/2017'][activeDay]))
+  isSameDay(currentTime, new Date(Config.conferenceDates[activeDay]))
 
 const addSpecials = (specialTalksList, talks) => map((talk) => assoc('special', contains(talk.title, specialTalksList), talk), talks)
 

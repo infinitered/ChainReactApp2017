@@ -10,7 +10,7 @@ I18n.translations = {
   en: require('./languages/english.json')
 }
 
-let languageCode = I18n.locale.substr(0, 2)
+const languageCode = I18n.locale && I18n.locale.substr(0, 2)
 
 // All other translations for the app goes to the respective language file:
 switch (languageCode) {

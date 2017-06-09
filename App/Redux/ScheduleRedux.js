@@ -1,6 +1,7 @@
 import { createReducer, createActions } from 'reduxsauce'
 import Immutable from 'seamless-immutable'
 import DebugConfig from '../Config/DebugConfig'
+import Config from '../Config/AppConfig'
 
 /* ------------- Types and Action Creators ------------- */
 
@@ -24,9 +25,10 @@ export default Creators
 /* ------------- Initial State ------------- */
 let initialTime = new Date()
 if (DebugConfig.hotwireDate) {
-  initialTime.setFullYear(2017)
-  initialTime.setMonth(6)
-  initialTime.setDate(17)
+  const firstDay = new Date(Config.conferenceDates[0])
+  initialTime.setFullYear(firstDay.getFullYear())
+  initialTime.setMonth(firstDay.getMonth())
+  initialTime.setDate(firstDay.getDate())
 }
 
 export const INITIAL_STATE = Immutable({
