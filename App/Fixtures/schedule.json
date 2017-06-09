@@ -2,11 +2,72 @@
   "schedule": [
     {
       "type":"talk",
+      "speaker":"Jamon Holmgren",
+      "image":"panel",
+      "title":"Welcome to Chain React",
+      "description":"Welcome to our Conference!  Greetings opening remarks",
+      "time":"7/17/2017 8:45 AM",
+      "duration":"5",
+      "speakerInfo": [
+        {
+          "name": "Jamon Holmgren",
+          "bio":"Jamon Holmgren is the COO and one of the founders for Infinite Red.",
+          "twitter":"jamonholmgren",
+          "github": "jamonholmgren",
+          "company":"Infinite Red"
+        }
+      ]
+    },
+    {
+      "type":"talk",
+      "speaker":"Jamon Holmgren & Gant Laborde",
+      "image":"panel",
+      "title":"Goodbye from Chain React",
+      "description":"We will be giving away prizes, including tickets to next year's conference!  And some parting words.",
+      "time":"7/18/2017 5:00 PM",
+      "duration":"15",
+      "speakerInfo": [
+        {
+          "name": "Jamon Holmgren",
+          "bio":"Jamon Holmgren is the COO and one of the founders for Infinite Red.",
+          "twitter":"jamonholmgren",
+          "github": "jamonholmgren",
+          "company":"Infinite Red"
+        },
+        {
+          "name": "Gant Laborde",
+          "bio":"Gant Laborde is the Chief Technology Strategist for Infinite Red and Master of Ceremonies for the conference.",
+          "twitter":"gantlaborde",
+          "github": "gantman",
+          "company":"Infinite Red"
+        }
+      ]
+    },
+    {
+      "type":"talk",
       "speaker":"Gant Laborde",
       "image":"gant",
-      "title":"Welcome to Chain React",
-      "description":"",
-      "time":"7/17/2017 8:45 AM",
+      "title":"Chain React Announcements",
+      "description":"Wifi Password, Intros, and More - OH MY!",
+      "time":"7/17/2017 8:50 AM",
+      "duration":"10",
+      "speakerInfo": [
+        {
+          "name": "Gant Laborde",
+          "bio":"Gant Laborde is the Chief Technology Strategist for Infinite Red and Master of Ceremonies for the conference.",
+          "twitter":"gantlaborde",
+          "github": "gantman",
+          "company":"Infinite Red"
+        }
+      ]
+    },
+    {
+      "type":"talk",
+      "speaker":"Gant Laborde",
+      "image":"gant",
+      "title":"Welcome to Day Two!",
+      "description":"Code of Conduct",
+      "time":"7/18/2017 8:45 AM",
       "duration":"15",
       "speakerInfo": [
         {
