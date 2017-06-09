@@ -75,7 +75,7 @@ export default class Talk extends React.Component {
               start={start}
               duration={duration}
               remindMe={this.props.isSpecial}
-              isFinished={isFinished}
+              isFinished={isFinished || isActive}
               showWhenFinished={this.props.showWhenFinished}
               toggleRemindMe={this.toggleReminder}
               onPressGithub={this.props.onPressGithub}
