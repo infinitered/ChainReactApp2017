@@ -28,7 +28,7 @@
 
   [RNAnalytics registerWithInitiallyEnabled:true];  // Initialize Mobile Center analytics
 
-  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"artifacts/index.ios" fallbackResource:nil];
 
 	RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
 																											moduleName:@"ChainReactApp"
