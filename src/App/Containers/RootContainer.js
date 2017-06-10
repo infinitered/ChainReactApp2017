@@ -9,6 +9,7 @@ import ReduxPersist from '../Config/ReduxPersist'
 import NotificationsBar from '../Components/NotificationsBar'
 import styles from './Styles/RootContainerStyles'
 
+
 class RootContainer extends Component {
 
   componentDidMount () {

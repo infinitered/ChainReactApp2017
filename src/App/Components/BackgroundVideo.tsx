@@ -2,7 +2,13 @@ import React from 'react'
 import { View } from 'react-native'
 import Video from 'react-native-video'
 
-export default ({source, isActive, style}) => {
+interface BackgroundProps {
+  source: string,
+  isActive: boolean,
+  style: StyleSheet
+}
+
+export default ({source, isActive, style}: BackgroundProps) => {
   if (isActive) {
     return (
       <Video
