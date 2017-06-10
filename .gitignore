@@ -56,3 +56,6 @@ jsconfig.json
 
 # Secrets
 .env
+
+#Typescript output
+artifacts/*

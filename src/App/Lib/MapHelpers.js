@@ -38,7 +38,6 @@ export const calculateRegion = (locations, options) => {
     latitudeDelta: latDelta,
     longitudeDelta: longDelta
   }
-
 }
 
 // useful cleaning functions
