@@ -13,7 +13,7 @@ import Talk from '../Components/Talk'
 import Break from '../Components/Break'
 import ScheduleActions from '../Redux/ScheduleRedux'
 import { connect } from 'react-redux'
-import { compareAsc, isSameDay, addMinutes, isWithinRange } from 'date-fns'
+import { compareAsc, isSameDay, addMinutes, isWithinRange, subMilliseconds } from 'date-fns'
 import { merge, groupWith, contains, assoc, map } from 'ramda'
 import NotificationActions from '../Redux/NotificationRedux'
 import Config from '../Config/AppConfig'
@@ -35,7 +35,8 @@ class ScheduleScreen extends React.Component {
     const mergeTimes = (e) => {
       const eventDuration = Number(e.duration)
       const eventStart = new Date(e.time)
-      const eventEnd = addMinutes(eventStart, eventDuration - 1)
+      // ends 1 millisecond before event
+      const eventEnd = subMilliseconds(addMinutes(eventStart, eventDuration), 1)
 
       return merge(e, { eventStart, eventEnd, eventDuration })
     }
