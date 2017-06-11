@@ -61,10 +61,11 @@
     "seamless-immutable": "^7.0.1"
   },
   "devDependencies": {
-    "ava": "^0.18.2",
+    "@jonny/react-native-mock": "^0.4.0",
+    "ava": "^0.19.1",
     "babel-eslint": "^7.1.1",
     "babel-preset-es2015": "^6.18.0",
-    "enzyme": "^2.6.0",
+    "enzyme": "^2.8.2",
     "husky": "^0.13.1",
     "ignite-animatable": "^0.3.1",
     "ignite-dev-screens": "^2.0.0-beta.8",
@@ -77,9 +78,8 @@
     "mockery": "^2.0.0",
     "nyc": "^10.1.2",
     "ramda": "^0.23.0",
-    "react-addons-test-utils": "^15.3.1",
-    "react-dom": "^15.4.1",
-    "react-native-mock": "^0.3.1",
+    "react-addons-test-utils": "16.0.0-alpha.3",
+    "react-dom": "16.0.0-alpha.12",
     "snazzy": "^6.0.0",
     "standard": "8.6.0"
   },
@@ -91,7 +91,7 @@
     "require": [
       "babel-register",
       "babel-polyfill",
-      "react-native-mock/mock",
+      "@jonny/react-native-mock/mock",
       "./Tests/Setup"
     ],
     "babel": "inherit"
