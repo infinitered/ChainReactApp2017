@@ -1,12 +1,12 @@
 import { TextStyle, ViewStyle } from 'react-native'
 import { Fonts, Colors } from '../../Themes/'
 
-interface sweetStyles {
+interface FullButtonStyles {
   button: ViewStyle,
   buttonText: TextStyle
 }
 
-const ButtonStyles: sweetStyles = {
+const ButtonStyles: FullButtonStyles = {
   button: {
     marginVertical: 5,
     borderTopColor: Colors.fire,

@@ -4787,9 +4787,13 @@ react-native-i18n@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-i18n/-/react-native-i18n-1.0.0.tgz#0c407d9ebb846aae1aa5e05de6503008553f02fd"
 
-react-native-linear-gradient@^2.0.0:
+"react-native-linear-gradient@git@github.com:react-native-community/react-native-linear-gradient.git#master":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.0.0.tgz#7442c00e1fcd9fca329119dcbaf744d12bcd1b5a"
+
+"react-native-linear-gradient@https://github.com/react-native-community/react-native-linear-gradient.git":
+  version "2.0.0"
+  resolved "https://github.com/react-native-community/react-native-linear-gradient.git#35c6bb485828cb8f1a9eda539247e0b9982722af"
 
 react-native-maps@0.15.2:
   version "0.15.2"
