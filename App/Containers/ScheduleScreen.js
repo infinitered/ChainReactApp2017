@@ -172,7 +172,7 @@ class ScheduleScreen extends React.Component {
       isCurrentDay: isCurrentDay(currentTime, day)
     }))
     // Scroll to top on tab change or press of current tab
-    this.refs.listView.scrollTo({y: 0, animated: false})
+    this.refs.scheduleList.scrollToOffset({y: 0, animated: false})
   }
 
   renderDayToggle () {
@@ -219,6 +219,7 @@ class ScheduleScreen extends React.Component {
         {this.renderDayToggle()}
         {isCurrentDay && <View style={styles.timeline} />}
         <FlatList
+          ref='scheduleList'
           data={data}
           renderItem={this.renderItem}
           contentContainerStyle={styles.listContent}
