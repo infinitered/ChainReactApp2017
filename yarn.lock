@@ -52,6 +52,43 @@
     react-timer-mixin "^0.13.3"
     warning "^2.1.0"
 
+"@types/date-fns@^2.6.0":
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/@types/date-fns/-/date-fns-2.6.0.tgz#b062ca46562002909be0c63a6467ed173136acc1"
+  dependencies:
+    date-fns "*"
+
+"@types/ramda@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.0.11.tgz#f6d4809a9757fe53358c8de8f6df167124abcd3f"
+
+"@types/react-native@^0.44.10":
+  version "0.44.10"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.44.10.tgz#62f193689aabb7671661ff45f485eb370549a0c4"
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-redux@^4.4.42":
+  version "4.4.42"
+  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-4.4.42.tgz#d3381735712a0e63041447ca6bc89aa278e921f5"
+  dependencies:
+    "@types/react" "*"
+    redux "^3.6.0"
+
+"@types/react@*", "@types/react@^15.0.27":
+  version "15.0.27"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-15.0.27.tgz#d64ad424aa24a101fd50cdeae6eab3d53e65513d"
+
+"@types/redux@^3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@types/redux/-/redux-3.6.0.tgz#f1ebe1e5411518072e4fdfca5c76e16e74c1399a"
+  dependencies:
+    redux "*"
+
+"@types/seamless-immutable@^6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@types/seamless-immutable/-/seamless-immutable-6.1.2.tgz#2f3a1427ea2a1bbfb7ea48c2be94a0cce0725a18"
+
 abbrev@1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.0.tgz#d0554c2256636e2f56e7c2e5ad183f859428d81f"
@@ -1792,7 +1829,7 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-date-fns@^1.28.2:
+date-fns@*, date-fns@^1.28.2:
   version "1.28.5"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.28.5.tgz#257cfc45d322df45ef5658665967ee841cd73faf"
 
@@ -4904,9 +4941,9 @@ react-native-i18n@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-i18n/-/react-native-i18n-1.0.0.tgz#0c407d9ebb846aae1aa5e05de6503008553f02fd"
 
-react-native-linear-gradient@^2.0.0:
+"react-native-linear-gradient@https://github.com/react-native-community/react-native-linear-gradient.git":
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.0.0.tgz#7442c00e1fcd9fca329119dcbaf744d12bcd1b5a"
+  resolved "https://github.com/react-native-community/react-native-linear-gradient.git#35c6bb485828cb8f1a9eda539247e0b9982722af"
 
 react-native-maps@0.15.2:
   version "0.15.2"
@@ -5240,7 +5277,7 @@ redux-saga@0.15.3, redux-saga@^0.15.3:
   version "0.15.3"
   resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-0.15.3.tgz#be2b86b4ad46bf0d84fcfcb0ca96cfc33db91acb"
 
-redux@^3.6.0:
+redux@*, redux@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/redux/-/redux-3.6.0.tgz#887c2b3d0b9bd86eca2be70571c27654c19e188d"
   dependencies:
