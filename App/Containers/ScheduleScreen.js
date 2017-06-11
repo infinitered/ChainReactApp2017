@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {
   AppState,
   View,
@@ -14,8 +14,20 @@ import Talk from '../Components/Talk'
 import Break from '../Components/Break'
 import ScheduleActions from '../Redux/ScheduleRedux'
 import { connect } from 'react-redux'
-import { compareAsc, isSameDay, addMinutes, isWithinRange, subMilliseconds } from 'date-fns'
-import { merge, groupWith, contains, assoc, map } from 'ramda'
+import {
+  compareAsc,
+  isSameDay,
+  addMinutes,
+  isWithinRange,
+  subMilliseconds
+} from 'date-fns'
+import {
+  merge,
+  groupWith,
+  contains,
+  assoc,
+  map
+} from 'ramda'
 import NotificationActions from '../Redux/NotificationRedux'
 import Config from '../Config/AppConfig'
 import { Images } from '../Themes'
@@ -24,9 +36,10 @@ import styles from './Styles/TalksScreenStyle'
 const isCurrentDay = (currentTime, activeDay) =>
   isSameDay(currentTime, new Date(Config.conferenceDates[activeDay]))
 
-const addSpecials = (specialTalksList, talks) => map((talk) => assoc('special', contains(talk.title, specialTalksList), talk), talks)
+const addSpecials = (specialTalksList, talks) =>
+  map((talk) => assoc('special', contains(talk.title, specialTalksList), talk), talks)
 
-class ScheduleScreen extends React.Component {
+class ScheduleScreen extends Component {
 
   constructor (props) {
     super(props)
@@ -44,22 +57,9 @@ class ScheduleScreen extends React.Component {
     })
     const eventsByDay = groupWith((a, b) => isSameDay(a.eventStart, b.eventStart), sorted)
 
-    // const rowHasChanged = (r1, r2) => {
-    //   const { currentTime } = this.state
-    //   const { eventStart, eventEnd } = r2
-    //   const isActive = isWithinRange(currentTime, eventStart, eventEnd)
-
-    //   return r1 !== r2 || isActive
-    // }
-    // const ds = new ListView.DataSource({rowHasChanged})
-
-    console.log(addSpecials(props.specialTalks, eventsByDay[0]))
-
-    // Datasource is always in state
     this.state = {
       currentTime: props.currentTime,
       eventsByDay: eventsByDay,
-      // dataSource: ds.cloneWithRows(addSpecials(props.specialTalks, eventsByDay[0])),
       data: addSpecials(props.specialTalks, eventsByDay[0]),
       isCurrentDay: isCurrentDay(props.currentTime, 0),
       activeDay: 0,
@@ -142,37 +142,34 @@ class ScheduleScreen extends React.Component {
   }
 
   componentWillReceiveProps (newProps) {
-    const { activeDay, eventsByDay, dataSource } = this.state
-    // Update currentTime before updating dataSource
-    if (newProps.currentTime) {
-      this.setState({
-        currentTime: newProps.currentTime
-      }, () => {
+    const { activeDay, eventsByDay } = this.state
+    const { specialTalks } = this.props
+    const { currentTime } = newProps
+
+    // Update currentTime before updating data
+    if (currentTime) {
+      this.setState({ currentTime }, () => {
         this.setState({
-          // dataSource: dataSource.cloneWithRows(addSpecials(this.props.specialTalks, eventsByDay[activeDay].slice())),
-          data: addSpecials(this.props.specialTalks, eventsByDay[activeDay].slice()),
-          isCurrentDay: isCurrentDay(newProps.currentTime, activeDay)
+          data: addSpecials(specialTalks, eventsByDay[activeDay]),
+          isCurrentDay: isCurrentDay(currentTime, activeDay)
         })
       })
     }
   }
 
-  // returns true if the dataSource is empty
-  // noRowData () {
-  //   return this.state.dataSource.getRowCount() === 0
-  // }
+  setActiveDay (activeDay) {
+    const { eventsByDay } = this.state
+    const { currentTime, specialTalks } = this.props
+    const data = addSpecials(specialTalks, eventsByDay[activeDay])
 
-  setActiveDay (day) {
-    const { eventsByDay, dataSource } = this.state
-    const { currentTime } = this.props
-    this.setState(() => ({
-      // dataSource: dataSource.cloneWithRows(addSpecials(this.props.specialTalks, eventsByDay[day])),
-      data: addSpecials(this.props.specialTalks, eventsByDay[day]),
-      activeDay: day,
-      isCurrentDay: isCurrentDay(currentTime, day)
-    }))
-    // Scroll to top on tab change or press of current tab
-    this.refs.scheduleList.scrollToOffset({y: 0, animated: false})
+    this.setState({
+      data,
+      activeDay,
+      isCurrentDay: isCurrentDay(currentTime, activeDay)
+    }, () => {
+      // Scroll to top on tab change or press of current tab
+      this.refs.scheduleList.scrollToOffset({y: 0, animated: false})
+    })
   }
 
   renderDayToggle () {
@@ -201,16 +198,6 @@ class ScheduleScreen extends React.Component {
       </LinearGradient>
     )
   }
-
-  // Old and busted
-  //   <ListView
-  // ref='listView'
-  // contentContainerStyle={styles.listContent}
-  // dataSource={this.state.dataSource}
-  // onLayout={this.onLayout}
-  // renderRow={this.renderRow}
-  // enableEmptySections
-  //   />
 
   render () {
     const { isCurrentDay, data } = this.state
