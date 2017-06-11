@@ -73,11 +73,11 @@ class ScheduleScreen extends Component {
     )
   }
 
-  onEventPress = (rowData) => {
+  onEventPress = (item) => {
     const { navigation, setSelectedEvent } = this.props
-    setSelectedEvent(rowData)
+    setSelectedEvent(item)
 
-    rowData.type === 'talk'
+    item.type === 'talk'
       ? navigation.navigate('TalkDetail')
       : navigation.navigate('BreakDetail')
   }
@@ -134,7 +134,8 @@ class ScheduleScreen extends Component {
   }
 
   _handleAppStateChange = (nextAppState) => {
-    if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
+    const { appState } = this.state
+    if (appState.match(/inactive|background/) && nextAppState === 'active') {
       this.props.getScheduleUpdates()
     }
     this.setState({appState: nextAppState})
@@ -186,7 +187,6 @@ class ScheduleScreen extends Component {
           renderItem={this.renderItem}
           keyExtractor={(item, idx) => item.eventStart}
           contentContainerStyle={styles.listContent}
-          onLayout={this.onLayout}
         />
       </PurpleGradient>
     )
