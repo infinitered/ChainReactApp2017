@@ -23,19 +23,19 @@ export default class Talk extends React.Component {
     LayoutAnimation.easeInEaseOut()
 
     // turn off reminder
-    // possible issues on Android: https://github.com/zo0r/react-native-push-notification/issues/368
     if (this.props.isSpecial) {
       this.props.talkNotSpecial()
       PushNotification.cancelLocalNotifications({
-        id: PNHelpers.pushMessage(title, startCopy)
+        id: PNHelpers.pushId(title, startCopy) // cancel both iOS and Android
       })
     } else {
       // turn on reminder
       this.props.talkSpecial()
       PushNotification.localNotificationSchedule({
+        id: PNHelpers.pushId(title, startCopy), // for android cancel
         message: PNHelpers.pushMessage(title, startCopy), // (required)
         date: PNHelpers.notificationTime(startCopy),
-        userInfo: {id: PNHelpers.pushMessage(title, startCopy)}
+        userInfo: {id: PNHelpers.pushId(title, startCopy)} // for iOS cancel
       })
     }
   }
