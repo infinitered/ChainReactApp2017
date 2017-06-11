@@ -14,7 +14,6 @@ const types = R.keys(Fonts.type)
 const fontStyles = R.keys(Fonts.style)
 
 export default class ThemeScreen extends React.Component {
-
   renderColor (color: string) {
     return (
       <View style={styles.colorContainer} key={`${color}Container`}>

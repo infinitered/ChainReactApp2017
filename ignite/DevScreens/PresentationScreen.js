@@ -15,7 +15,6 @@ import FaqScreen from './FaqScreen'
 import styles from './Styles/PresentationScreenStyles'
 
 class PresentationScreen extends React.Component {
-
   openComponents = () => {
     this.props.navigation.navigate('ComponentExamplesScreen')
   }

@@ -16,7 +16,6 @@ import PNHelpers from '../Lib/PushNotificationHelpers'
 import { contains } from 'ramda'
 
 class TalkDetail extends React.Component {
-
   static navigationOptions = {
     tabBarLabel: 'Schedule',
     tabBarIcon: ({ focused }) => (
@@ -130,7 +129,6 @@ class TalkDetail extends React.Component {
       </PurpleGradient>
     )
   }
-
 }
 
 const mapStateToProps = (state) => {

@@ -10,7 +10,6 @@ import NotificationsBar from '../Components/NotificationsBar'
 import styles from './Styles/RootContainerStyles'
 
 class RootContainer extends Component {
-
   componentDidMount () {
     // if redux persist is not active fire startup action
     if (!ReduxPersist.active) {

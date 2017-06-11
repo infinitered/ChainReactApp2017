@@ -24,7 +24,6 @@ class VenueMap extends React.Component {
   * There are TONS of options available from traffic to buildings to indoors to compass and more!
   * For full documentation, see https://github.com/lelandrichardson/react-native-maps
   *************************************************************/
-
   constructor (props) {
     super(props)
     /* ***********************************************************
@@ -144,4 +143,3 @@ class VenueMap extends React.Component {
 }
 
 export default VenueMap
-
