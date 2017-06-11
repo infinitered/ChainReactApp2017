@@ -222,6 +222,7 @@ class ScheduleScreen extends React.Component {
           ref='scheduleList'
           data={data}
           renderItem={this.renderItem}
+          keyExtractor={(item, idx) => item.eventStart}
           contentContainerStyle={styles.listContent}
           onLayout={this.onLayout}
         />
