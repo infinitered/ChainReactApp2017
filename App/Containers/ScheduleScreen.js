@@ -2,14 +2,13 @@ import React, { Component } from 'react'
 import {
   AppState,
   View,
-  ListView,
   Text,
   Image,
   TouchableOpacity,
   FlatList
 } from 'react-native'
-import LinearGradient from 'react-native-linear-gradient'
 import PurpleGradient from '../Components/PurpleGradient'
+import DayToggle from '../Components/DayToggle'
 import Talk from '../Components/Talk'
 import Break from '../Components/Break'
 import ScheduleActions from '../Redux/ScheduleRedux'
@@ -31,7 +30,7 @@ import {
 import NotificationActions from '../Redux/NotificationRedux'
 import Config from '../Config/AppConfig'
 import { Images } from '../Themes'
-import styles from './Styles/TalksScreenStyle'
+import styles from './Styles/ScheduleScreenStyle'
 
 const isCurrentDay = (currentTime, activeDay) =>
   isSameDay(currentTime, new Date(Config.conferenceDates[activeDay]))
@@ -157,7 +156,7 @@ class ScheduleScreen extends Component {
     }
   }
 
-  setActiveDay (activeDay) {
+  setActiveDay = (activeDay) => {
     const { eventsByDay } = this.state
     const { currentTime, specialTalks } = this.props
     const data = addSpecials(specialTalks, eventsByDay[activeDay])
@@ -172,38 +171,14 @@ class ScheduleScreen extends Component {
     })
   }
 
-  renderDayToggle () {
-    const { activeDay } = this.state
-    return (
-      <LinearGradient
-        start={{x: 0, y: 0}}
-        end={{x: 1, y: 1}}
-        locations={[0.0, 0.38, 1.0]}
-        colors={['#46114E', '#521655', '#571757']}
-        style={styles.headerGradient}>
-        <View style={styles.dayToggle}>
-          <TouchableOpacity onPressIn={() => this.setActiveDay(0)}>
-            <Text
-              style={activeDay === 0 ? styles.activeDay : styles.inactiveDay}>
-              Monday
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPressIn={() => this.setActiveDay(1)}>
-            <Text
-              style={activeDay === 1 ? styles.activeDay : styles.inactiveDay}>
-              Tuesday
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </LinearGradient>
-    )
-  }
-
   render () {
-    const { isCurrentDay, data } = this.state
+    const { isCurrentDay, activeDay, data } = this.state
     return (
       <PurpleGradient style={styles.linearGradient}>
-        {this.renderDayToggle()}
+        <DayToggle
+          activeDay={activeDay}
+          onPressIn={this.setActiveDay}
+        />
         {isCurrentDay && <View style={styles.timeline} />}
         <FlatList
           ref='scheduleList'
