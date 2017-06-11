@@ -5,7 +5,8 @@ import {
   ListView,
   Text,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  FlatList
 } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import PurpleGradient from '../Components/PurpleGradient'
@@ -17,8 +18,6 @@ import { compareAsc, isSameDay, addMinutes, isWithinRange, subMilliseconds } fro
 import { merge, groupWith, contains, assoc, map } from 'ramda'
 import NotificationActions from '../Redux/NotificationRedux'
 import Config from '../Config/AppConfig'
-
-// Styles
 import { Images } from '../Themes'
 import styles from './Styles/TalksScreenStyle'
 
@@ -40,26 +39,29 @@ class ScheduleScreen extends React.Component {
 
       return merge(e, { eventStart, eventEnd, eventDuration })
     }
-    const sorted = [...this.props.schedule].map(mergeTimes).sort((a, b) => {
+    const sorted = [...props.schedule].map(mergeTimes).sort((a, b) => {
       return compareAsc(a.eventStart, b.eventStart)
     })
     const eventsByDay = groupWith((a, b) => isSameDay(a.eventStart, b.eventStart), sorted)
 
-    const rowHasChanged = (r1, r2) => {
-      const { currentTime } = this.state
-      const { eventStart, eventEnd } = r2
-      const isActive = isWithinRange(currentTime, eventStart, eventEnd)
+    // const rowHasChanged = (r1, r2) => {
+    //   const { currentTime } = this.state
+    //   const { eventStart, eventEnd } = r2
+    //   const isActive = isWithinRange(currentTime, eventStart, eventEnd)
 
-      return r1 !== r2 || isActive
-    }
-    const ds = new ListView.DataSource({rowHasChanged})
+    //   return r1 !== r2 || isActive
+    // }
+    // const ds = new ListView.DataSource({rowHasChanged})
+
+    console.log(addSpecials(props.specialTalks, eventsByDay[0]))
 
     // Datasource is always in state
     this.state = {
       currentTime: props.currentTime,
       eventsByDay: eventsByDay,
-      dataSource: ds.cloneWithRows(addSpecials(this.props.specialTalks, eventsByDay[0])),
-      isCurrentDay: isCurrentDay(this.props.currentTime, 0),
+      // dataSource: ds.cloneWithRows(addSpecials(props.specialTalks, eventsByDay[0])),
+      data: addSpecials(props.specialTalks, eventsByDay[0]),
+      isCurrentDay: isCurrentDay(props.currentTime, 0),
       activeDay: 0,
       appState: AppState.currentState
     }
@@ -81,25 +83,25 @@ class ScheduleScreen extends React.Component {
       : navigation.navigate('BreakDetail')
   }
 
-  renderRow = (rowData) => {
+  renderItem = ({item}) => {
     const { currentTime, isCurrentDay } = this.state
-    const { eventDuration, eventStart, eventEnd, special } = rowData
+    const { eventDuration, eventStart, eventEnd, special } = item
     const isActive = isWithinRange(currentTime, eventStart, eventEnd)
     const isFinished = currentTime > eventEnd
 
-    if (rowData.type === 'talk') {
+    if (item.type === 'talk') {
       return (
         <Talk
-          name={rowData.speaker}
-          avatarURL={`https://infinite.red/images/chainreact/${rowData.image}.png`}
-          title={rowData.title}
+          name={item.speaker}
+          avatarURL={`https://infinite.red/images/chainreact/${item.image}.png`}
+          title={item.title}
           start={eventStart}
           duration={eventDuration}
-          onPress={() => this.onEventPress(rowData)}
-          onPressTwitter={() => this.props.onPressTwitter(rowData.speakerInfo[0].twitter)}
-          onPressGithub={() => this.props.onPressGithub(rowData.speakerInfo[0].github)}
-          talkSpecial={() => this.props.onTalkSpecial(rowData.title)}
-          talkNotSpecial={() => this.props.onTalkNotSpecial(rowData.title)}
+          onPress={() => this.onEventPress(item)}
+          onPressTwitter={() => this.props.onPressTwitter(item.speakerInfo[0].twitter)}
+          onPressGithub={() => this.props.onPressGithub(item.speakerInfo[0].github)}
+          talkSpecial={() => this.props.onTalkSpecial(item.title)}
+          talkNotSpecial={() => this.props.onTalkNotSpecial(item.title)}
           currentTime={currentTime}
           isCurrentDay={isCurrentDay}
           isActive={isActive}
@@ -111,11 +113,11 @@ class ScheduleScreen extends React.Component {
     } else {
       return (
         <Break
-          type={rowData.type}
-          title={rowData.title}
+          type={item.type}
+          title={item.title}
           start={eventStart}
           duration={eventDuration}
-          onPress={() => this.onEventPress(rowData)}
+          onPress={() => this.onEventPress(item)}
           currentTime={currentTime}
           isCurrentDay={isCurrentDay}
           isActive={isActive}
@@ -147,7 +149,8 @@ class ScheduleScreen extends React.Component {
         currentTime: newProps.currentTime
       }, () => {
         this.setState({
-          dataSource: dataSource.cloneWithRows(addSpecials(this.props.specialTalks, eventsByDay[activeDay].slice())),
+          // dataSource: dataSource.cloneWithRows(addSpecials(this.props.specialTalks, eventsByDay[activeDay].slice())),
+          data: addSpecials(this.props.specialTalks, eventsByDay[activeDay].slice()),
           isCurrentDay: isCurrentDay(newProps.currentTime, activeDay)
         })
       })
@@ -155,15 +158,16 @@ class ScheduleScreen extends React.Component {
   }
 
   // returns true if the dataSource is empty
-  noRowData () {
-    return this.state.dataSource.getRowCount() === 0
-  }
+  // noRowData () {
+  //   return this.state.dataSource.getRowCount() === 0
+  // }
 
   setActiveDay (day) {
     const { eventsByDay, dataSource } = this.state
     const { currentTime } = this.props
     this.setState(() => ({
-      dataSource: dataSource.cloneWithRows(addSpecials(this.props.specialTalks, eventsByDay[day])),
+      // dataSource: dataSource.cloneWithRows(addSpecials(this.props.specialTalks, eventsByDay[day])),
+      data: addSpecials(this.props.specialTalks, eventsByDay[day]),
       activeDay: day,
       isCurrentDay: isCurrentDay(currentTime, day)
     }))
@@ -198,18 +202,27 @@ class ScheduleScreen extends React.Component {
     )
   }
 
+  // Old and busted
+  //   <ListView
+  // ref='listView'
+  // contentContainerStyle={styles.listContent}
+  // dataSource={this.state.dataSource}
+  // onLayout={this.onLayout}
+  // renderRow={this.renderRow}
+  // enableEmptySections
+  //   />
+
   render () {
+    const { isCurrentDay, data } = this.state
     return (
       <PurpleGradient style={styles.linearGradient}>
         {this.renderDayToggle()}
-        {this.state.isCurrentDay && <View style={styles.timeline} />}
-        <ListView
-          ref='listView'
+        {isCurrentDay && <View style={styles.timeline} />}
+        <FlatList
+          data={data}
+          renderItem={this.renderItem}
           contentContainerStyle={styles.listContent}
-          dataSource={this.state.dataSource}
           onLayout={this.onLayout}
-          renderRow={this.renderRow}
-          enableEmptySections
         />
       </PurpleGradient>
     )
