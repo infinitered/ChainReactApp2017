@@ -79,8 +79,10 @@
     "nyc": "11.0.2",
     "react-addons-test-utils": "16.0.0-alpha.3",
     "react-dom": "16.0.0-alpha.12",
+    "react-native-typescript-transformer": "^1.0.9",
     "snazzy": "7.0.0",
-    "standard": "10.0.2"
+    "standard": "10.0.2",
+    "typescript": "^2.3.4"
   },
   "ava": {
     "files": [
