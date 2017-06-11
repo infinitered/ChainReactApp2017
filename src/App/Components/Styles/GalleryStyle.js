@@ -1,7 +1,21 @@
-import { StyleSheet } from 'react-native'
+import { TextStyle, ViewStyle } from 'react-native'
 import { Colors, Fonts } from '../../Themes/'
 
-export default StyleSheet.create({
+interface GalleryStyleType {
+  container: ViewStyle
+  tabs: ViewStyle
+  tab: ViewStyle
+  tabText: TextStyle
+  activeTab: ViewStyle
+  activeTabText: TextStyle
+  gallery: ViewStyle
+  item: ViewStyle
+  itemTitle: TextStyle
+  itemDetail: ViewStyle
+  itemAction: TextStyle
+}
+
+const GalleryStyle: GalleryStyleType = {
   container: {
     flex: 1
   },
@@ -48,16 +62,18 @@ export default StyleSheet.create({
     backgroundColor: Colors.snow
   },
   itemTitle: {
-    fontFamily: 'Montserrat-SemiBold',
+    fontFamily: Fonts.type.semiBold,
     fontSize: 15,
     letterSpacing: 0,
     color: Colors.darkPurple
   },
   itemAction: {
-    fontFamily: 'Montserrat-Medium',
+    fontFamily: Fonts.type.medium,
     fontSize: 13,
     lineHeight: 18,
     letterSpacing: 0,
     color: Colors.darkPurple
   }
-})
+}
+
+export default GalleryStyle
