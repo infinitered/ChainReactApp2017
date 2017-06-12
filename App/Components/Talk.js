@@ -7,7 +7,6 @@ import PushNotification from 'react-native-push-notification'
 import PNHelpers from '../Lib/PushNotificationHelpers'
 
 export default class Talk extends React.Component {
-
   constructor (props) {
     super(props)
 
@@ -89,7 +88,6 @@ export default class Talk extends React.Component {
       </View>
     )
   }
-
 }
 
 Talk.propTypes = {

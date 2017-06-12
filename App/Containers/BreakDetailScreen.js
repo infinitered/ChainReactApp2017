@@ -10,7 +10,6 @@ import { Images } from '../Themes'
 import styles from './Styles/BreakDetailScreenStyle'
 
 class BreakDetail extends React.Component {
-
   static navigationOptions = {
     tabBarLabel: 'Schedule',
     tabBarIcon: ({ focused }) => (
@@ -111,7 +110,6 @@ class BreakDetail extends React.Component {
       </PurpleGradient>
     )
   }
-
 }
 
 const mapStateToProps = (state) => {

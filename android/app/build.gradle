@@ -164,7 +164,7 @@ allprojects {
             // def file = new File('$rootDir/../node_modules/react-native/package.json')
             // def version = new groovy.json.JsonSlurper().parseText(file.text).version
             // details.useVersion version
-            details.useVersion "0.44.2" // Your real React Native version here
+            details.useVersion "0.45.1" // Your real React Native version here
           } else if (details.getRequested().getGroup() == 'com.google.android.gms') {
             details.useVersion('10.2.0+')
           }

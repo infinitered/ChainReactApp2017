@@ -4,7 +4,7 @@ import { getNearbyUpdates } from '../../App/Sagas/LocationSagas'
 import LocationActions from '../../App/Redux/LocationRedux'
 
 const stepper = (fn) => (mock) => fn.next(mock).value
-const api = { getNearby: () => { return } }
+const api = { getNearby: () => { } }
 
 const nearby = {
   'food': [

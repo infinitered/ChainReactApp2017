@@ -20,7 +20,6 @@ import { connect } from 'react-redux'
 import styles from './Styles/AboutScreenStyle'
 
 class AboutScreen extends React.Component {
-
   static navigationOptions = {
     tabBarLabel: 'General Info',
     tabBarIcon: ({ focused }) => (
@@ -242,7 +241,6 @@ class AboutScreen extends React.Component {
       </PurpleGradient>
     )
   }
-
 }
 
 const mapStateToProps = (state) => {

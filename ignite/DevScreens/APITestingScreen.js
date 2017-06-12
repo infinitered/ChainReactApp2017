@@ -89,7 +89,6 @@ export default class APITestingScreen extends React.Component {
 }
 
 class APIResult extends React.Component {
-
   constructor (props) {
     super(props)
     this.state = {

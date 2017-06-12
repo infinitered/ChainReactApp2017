@@ -28,7 +28,6 @@ const isCurrentDay = (currentTime, activeDay) =>
 const addSpecials = (specialTalksList, talks) => map((talk) => assoc('special', contains(talk.title, specialTalksList), talk), talks)
 
 class ScheduleScreen extends React.Component {
-
   constructor (props) {
     super(props)
 

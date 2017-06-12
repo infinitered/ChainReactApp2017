@@ -6,7 +6,6 @@ import BackgroundVideo from './BackgroundVideo'
 import styles from './Styles/BreakStyle'
 
 export default class Break extends React.Component {
-
   constructor (props) {
     super(props)
 

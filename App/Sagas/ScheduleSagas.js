@@ -19,7 +19,7 @@ const getCurrentTime = () => {
   }
 }
 
-export function* trackCurrentTime () {
+export function * trackCurrentTime () {
   let time = yield getCurrentTime()
   yield put(ScheduleActions.updateCurrentTime(time))
   while (true) {
