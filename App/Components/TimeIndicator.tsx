@@ -1,10 +1,16 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { View, Text, Image } from 'react-native'
 import { Images } from '../Themes'
 import { format, differenceInSeconds } from 'date-fns'
 import styles from './Styles/TimeIndicatorStyle'
 
-const sunIcon = (time) => {
+interface TimeIndicatorProps {
+  time: Date
+  start: Date
+  duration: number
+}
+
+const sunIcon = (time: Date) => {
   const currentMinute = (time.getHours() * 60) + time.getMinutes()
   const slope = (22 - 1) / (1150 - 450)
   const mapped = 1 + Math.round(slope * (currentMinute - 450))
@@ -35,23 +41,18 @@ const sunIcon = (time) => {
   }
 }
 
-const TimeIndicator = props => {
+const TimeIndicator = (props: TimeIndicatorProps) => {
   const { time, start, duration } = props
   const formattedTime = format(time, 'h:mm')
-  const top = `${(differenceInSeconds(time, start) / (duration * 60)) * 100}%`
+  const percentTop = differenceInSeconds(time, start) / (duration * 60) * 100
+  const top = `${percentTop}%`
 
   return (
     <View style={[styles.container, {top}]}>
       <Text style={styles.time}>{formattedTime}</Text>
-      <Image style={styles.icon} source={sunIcon(time)} />
+      <Image source={sunIcon(time)} />
     </View>
   )
-}
-
-TimeIndicator.propTypes = {
-  time: PropTypes.instanceOf(Date).isRequired,
-  start: PropTypes.instanceOf(Date).isRequired,
-  duration: PropTypes.number.isRequired
 }
 
 export default TimeIndicator

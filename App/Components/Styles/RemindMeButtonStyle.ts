@@ -1,7 +1,15 @@
-import { StyleSheet } from 'react-native'
-import { Colors } from '../../Themes/'
+import { TextStyle, ViewStyle } from 'react-native'
+import { Colors, Fonts } from '../../Themes/'
 
-export default StyleSheet.create({
+interface RemindMeButtonStyleType {
+  button: ViewStyle
+  activeButton: ViewStyle
+  icon: ViewStyle
+  text: TextStyle
+  activeText: TextStyle
+}
+
+const RemindMeButtonStyle: RemindMeButtonStyleType = {
   button: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -21,11 +29,13 @@ export default StyleSheet.create({
     marginRight: 7
   },
   text: {
-    fontFamily: 'Montserrat-Medium',
+    fontFamily: Fonts.type.medium,
     fontSize: 11,
     color: Colors.red
   },
   activeText: {
     color: Colors.snow
   }
-})
+}
+
+export default RemindMeButtonStyle

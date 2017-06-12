@@ -27,7 +27,7 @@ PushConfig.configure(store.dispatch)
  *
  * We separate like this to play nice with React Native's hot reloading.
  */
-class App extends Component {
+class App extends Component<{}, {}> {
   componentDidMount () {
     SplashScreen.close({
       animationType: SplashScreen.animationType.scale,
@@ -46,5 +46,5 @@ class App extends Component {
 }
 
 export default DebugConfig.useReactotron
-  ? console.tron.overlay(App)
+  ? (console as any).tron.overlay(App)
   : App

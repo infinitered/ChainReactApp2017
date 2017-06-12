@@ -1,7 +1,21 @@
-import { StyleSheet } from 'react-native'
+import { TextStyle, ViewStyle, ImageStyle } from 'react-native'
 import { Colors, Metrics, Fonts } from '../../Themes/'
 
-export default StyleSheet.create({
+interface BreakStyleType {
+  container: ViewStyle
+  currentDay: ViewStyle
+  active: ViewStyle
+  background: ImageStyle
+  video: ViewStyle
+  contentContainer: ViewStyle
+  sponsor: ViewStyle
+  sponsorText: TextStyle
+  content: ViewStyle
+  heading: TextStyle
+  duration: TextStyle
+}
+
+const BreakStyle: BreakStyleType = {
   container: {
     marginVertical: Metrics.baseMargin,
     marginHorizontal: Metrics.doubleBaseMargin,
@@ -64,7 +78,7 @@ export default StyleSheet.create({
     marginLeft: 15
   },
   heading: {
-    fontFamily: 'Montserrat-SemiBold',
+    fontFamily: Fonts.type.semiBold,
     fontSize: 18,
     letterSpacing: -0.2,
     lineHeight: 27,
@@ -72,10 +86,12 @@ export default StyleSheet.create({
     color: Colors.snow
   },
   duration: {
-    fontFamily: 'Montserrat-SemiBold',
+    fontFamily: Fonts.type.semiBold,
     fontSize: 16,
     letterSpacing: -0.19,
     backgroundColor: Colors.transparent,
     color: Colors.snow
   }
-})
+}
+
+export default BreakStyle
