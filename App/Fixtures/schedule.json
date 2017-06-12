@@ -343,7 +343,7 @@
       "speaker":"Kevin Old",
       "image":"kevin",
       "title":"Building Serverless Backends with AWS Lambda for React Native Apps",
-      "description":"This talk will explore a Serverless Architecture and how it can can aid any React Native developer in building scalable backends for their applications. Our provider of choice will be Amazon’s AWS ecosystem and AWS Lambda, DynamoDB, Cognito and API Gateway will be among the resources covered.",
+      "description":"This talk will explore a Serverless Architecture and how it can can aid any React Native developer in building scalable backends for their applications. Our provider of choice will be the AWS ecosystem. Lambda, DynamoDB, Cognito, and API Gateway will be among the resources covered.",
       "time":"7/11/2017 11:30 AM",
       "duration":"30",
       "speakerInfo": [
