@@ -4,7 +4,7 @@ interface SocialMediaButtonStylesType {
   left: ViewStyle
   right: ViewStyle
 }
-const SocialMediaButtonStyles: SocialMediaButtonStylesType{
+const SocialMediaButtonStyles: SocialMediaButtonStylesType = {
   left: { marginLeft: 30 },
   right: { marginRight: 30 }
 }
