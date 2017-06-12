@@ -37,6 +37,7 @@ class ScheduleScreen extends Component {
   constructor (props) {
     super(props)
 
+    const { schedule, specialTalks, currentTime } = props
     const mergeTimes = (e) => {
       const eventDuration = Number(e.duration)
       const eventStart = new Date(e.time)
@@ -45,22 +46,18 @@ class ScheduleScreen extends Component {
 
       return merge(e, { eventStart, eventEnd, eventDuration })
     }
-    const sorted = [...props.schedule].map(mergeTimes).sort((a, b) => {
+    const sorted = [...schedule].map(mergeTimes).sort((a, b) => {
       return compareAsc(a.eventStart, b.eventStart)
     })
-    const eventsByDay = groupWith((a, b) => isSameDay(a.eventStart, b.eventStart), sorted)
+    const eventsByDay = groupWith((a, b) =>
+      isSameDay(a.eventStart, b.eventStart), sorted)
 
-    const { specialTalks, currentTime } = props
-    const data = addSpecials(specialTalks, eventsByDay[0])
-    const isCurrentDay = isActiveCurrentDay(props.currentTime, 0)
+    const activeDay = 0
+    const data = addSpecials(specialTalks, eventsByDay[activeDay])
+    const isCurrentDay = isActiveCurrentDay(currentTime, activeDay)
+    const appState = AppState.currentState
 
-    this.state = {
-      eventsByDay,
-      data,
-      isCurrentDay,
-      activeDay: 0,
-      appState: AppState.currentState
-    }
+    this.state = {eventsByDay, data, isCurrentDay, activeDay, appState}
   }
 
   static navigationOptions = {
