@@ -3,6 +3,6 @@ import Fonts from './Fonts'
 import Metrics from './Metrics'
 import Images from './Images'
 import Videos from './Videos'
-import ApplicationStyles from './ApplicationStyles'
+import ApplicationStyles, {ScreenStylesType} from './ApplicationStyles'
 
-export { Colors, Fonts, Images, Videos, Metrics, ApplicationStyles }
+export { Colors, Fonts, Images, Videos, Metrics, ApplicationStyles, ScreenStylesType }

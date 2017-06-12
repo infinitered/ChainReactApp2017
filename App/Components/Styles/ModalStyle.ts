@@ -1,7 +1,7 @@
 import { TextStyle, ViewStyle, ImageStyle } from 'react-native'
-import { ApplicationStyles, Colors, Fonts } from '../../Themes/'
+import { ApplicationStyles, ScreenStylesType, Colors, Fonts } from '../../Themes/'
 
-interface ModalStyleType {
+interface ModalStyleType extends ScreenStylesType {
   container: ViewStyle
   colorBump: ViewStyle
   heading: TextStyle

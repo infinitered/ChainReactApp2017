@@ -43,11 +43,16 @@ const NotificationScreen = ({notifications, onDismissModal}) => {
   )
 }
 
-class NotificationsBar extends Component {
-  static propTypes = {
-    notifications: PropTypes.array.isRequired,
-    clearNotifications: PropTypes.func.isRequired
-  }
+interface NotificationsBarProps {
+  notifications: string[]
+  clearNotifications(): void
+}
+
+interface NotificationsBarState {
+  showModal: boolean
+}
+
+class NotificationsBar extends Component<NotificationsBarProps, NotificationsBarState> {
 
   constructor (props) {
     super(props)
