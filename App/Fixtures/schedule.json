@@ -101,8 +101,8 @@
       "type":"talk",
       "speaker":"Brent Vatne",
       "image":"brent",
-      "title":"React Native Sand Paper",
-      "description":"I'll talk about three tools aimed at reducing friction to building and sharing React Native apps:\n\n1) create-react-native-app\n2) Exponent home\n3) Sketch (successor to React Native Playground)",
+      "title":"React Native Sandpaper",
+      "description":"An analysis of the roughest areas of developing apps with React Native from my point of view. I deal with developers building greenfield apps every day. I see everything from total beginners working on a side project to agencies, large companies, and startups building apps for their clients and their own businesses. React Native has come so far, but we have much more work to do. As a community we really need to step up our game if we want our bet in React Native to pay off in the long-run.",
       "time":"7/10/2017 9:30 AM",
       "duration":"30",
       "speakerInfo": [
