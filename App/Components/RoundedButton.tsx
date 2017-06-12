@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react'
-import { TouchableOpacity, Text, View } from 'react-native'
+import React from 'react'
+import { TouchableOpacity, Text } from 'react-native'
 import styles from './Styles/RoundedButtonStyles'
 import ExamplesRegistry from '../Services/ExamplesRegistry'
 
@@ -11,7 +11,15 @@ ExamplesRegistry.addComponentExample('Rounded Button', () =>
   />
 )
 
-const RoundedButton = props => {
+interface RoundedButtonProps {
+  onPress(): void
+  text: string
+  navigator?: Navigator
+  style?: StyleSheet
+  children?: string | Object
+}
+
+const RoundedButton = (props: RoundedButtonProps) => {
   const getText = () => {
     return props.text || props.children || ''
   }
@@ -23,17 +31,6 @@ const RoundedButton = props => {
       <Text style={styles.buttonText}>{getText()}</Text>
     </TouchableOpacity>
   )
-}
-
-RoundedButton.propTypes = {
-  onPress: PropTypes.func,
-  text: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object
-  ]),
-  navigator: PropTypes.object,
-  style: View.propTypes.style
 }
 
 export default RoundedButton

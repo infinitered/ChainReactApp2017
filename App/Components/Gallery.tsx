@@ -3,7 +3,16 @@ import { TouchableOpacity, Image, View, Text, LayoutAnimation } from 'react-nati
 import { Images } from '../Themes'
 import styles from './Styles/GalleryStyle'
 
-export default class Gallery extends React.Component {
+interface GalleryProps {
+  data: Object
+  onItemPress: (daddr: string) => void
+}
+
+interface GalleryState {
+  activeTab: string
+}
+
+export default class Gallery extends React.Component<GalleryProps, GalleryState> {
   constructor (props) {
     super(props)
 
@@ -67,9 +76,4 @@ export default class Gallery extends React.Component {
       </View>
     )
   }
-}
-
-Gallery.propTypes = {
-  data: React.PropTypes.object.isRequired,
-  onItemPress: React.PropTypes.func.isRequired
 }

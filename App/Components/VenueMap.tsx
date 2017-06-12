@@ -18,7 +18,21 @@ import { calculateRegion } from '../Lib/MapHelpers'
 * https://console.developers.google.com/apis/api/maps_android_backend/
 *************************************************************/
 
-class VenueMap extends React.Component {
+interface VenueMapProps {
+  scrollEnabled: boolean
+  mapViewMode: boolean
+  onCloseMap(): void
+  style: StyleSheet
+}
+
+interface VenueMapState {
+  region: object
+  locations: object[]
+  showUserLocation: boolean
+}
+
+
+class VenueMap extends React.Component<VenueMapProps, VenueMapState> {
   /* ***********************************************************
   * This generated code is only intended to get you started with the basics.
   * There are TONS of options available from traffic to buildings to indoors to compass and more!

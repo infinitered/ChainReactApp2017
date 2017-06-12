@@ -6,7 +6,30 @@ import styles from './Styles/TalkStyle'
 import PushNotification from 'react-native-push-notification'
 import PNHelpers from '../Lib/PushNotificationHelpers'
 
-export default class Talk extends React.Component {
+interface TalkProps {
+  title: string
+  name: string
+  avatarURL: string
+  start: Date
+  duration: number
+  onPress(): void
+  onPressTwitter(): void
+  onPressGithub(): void
+  talkSpecial(): void
+  talkNotSpecial(): void
+  isFinished: boolean
+  showWhenFinished: boolean
+  isSpecial: boolean
+  isCurrentDay: boolean
+  isActive: boolean
+  currentTime: Date
+}
+
+interface TalkState {
+  isActive: boolean
+}
+
+export default class Talk extends React.Component<TalkProps, TalkState> {
   constructor (props) {
     super(props)
 
@@ -19,7 +42,7 @@ export default class Talk extends React.Component {
     const {title, start} = this.props
     // Make a copy otherwise could be modified!!!
     const startCopy = new Date(start.valueOf())
-    LayoutAnimation.easeInEaseOut()
+    LayoutAnimation.easeInEaseOut({duration: 250})
 
     // turn off reminder
     if (this.props.isSpecial) {
@@ -88,20 +111,4 @@ export default class Talk extends React.Component {
       </View>
     )
   }
-}
-
-Talk.propTypes = {
-  title: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  avatarURL: PropTypes.string.isRequired,
-  start: PropTypes.instanceOf(Date).isRequired,
-  duration: PropTypes.number.isRequired,
-  onPress: PropTypes.func.isRequired,
-  onPressTwitter: PropTypes.func.isRequired,
-  onPressGithub: PropTypes.func.isRequired,
-  talkSpecial: PropTypes.func.isRequired,
-  talkNotSpecial: PropTypes.func.isRequired,
-  isFinished: PropTypes.bool.isRequired,
-  showWhenFinished: PropTypes.bool.isRequired,
-  isSpecial: PropTypes.bool.isRequired
 }

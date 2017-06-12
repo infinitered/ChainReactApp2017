@@ -5,7 +5,22 @@ import TimeIndicator from './TimeIndicator'
 import BackgroundVideo from './BackgroundVideo'
 import styles from './Styles/BreakStyle'
 
-export default class Break extends React.Component {
+interface BreakProps {
+  start: Date,
+  currentTime: Date,
+  duration: number,
+  type: 'coffee' | 'lunch' | 'party'
+  title: string
+  isCurrentDay: boolean
+  isActive: boolean
+  onPress(): void
+}
+
+interface BreakState {
+  imageWidth: number
+}
+
+export default class Break extends React.Component<BreakProps, BreakState> {
   constructor (props) {
     super(props)
 
@@ -100,10 +115,4 @@ export default class Break extends React.Component {
       </View>
     )
   }
-}
-
-Break.propTypes = {
-  start: PropTypes.instanceOf(Date).isRequired,
-  currentTime: PropTypes.instanceOf(Date).isRequired,
-  duration: PropTypes.number.isRequired
 }

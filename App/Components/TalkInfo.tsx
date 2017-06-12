@@ -1,11 +1,22 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { View, Text } from 'react-native'
 import RemindMeButton from './RemindMeButton'
 import SocialMediaButton from './SocialMediaButton'
 import { format } from 'date-fns'
 import styles from './Styles/TalkInfoStyle'
 
-const TalkInfo = props => {
+interface TalkInfoProps {
+  start: Date
+  duration: Number
+  remindMe: boolean
+  toggleRemindMe(): void
+  isFinished: boolean
+  showWhenFinished: boolean
+  onPressGithub(): void
+  onPressTwitter(): void
+}
+
+const TalkInfo = (props: TalkInfoProps) => {
   const { start, duration, remindMe, toggleRemindMe, isFinished, showWhenFinished } = props
   const formattedStart = format(start, 'h:mmA')
   const showRemindMe = !isFinished
@@ -45,21 +56,4 @@ const TalkInfo = props => {
     </View>
   )
 }
-
-TalkInfo.propTypes = {
-  start: PropTypes.instanceOf(Date).isRequired,
-  duration: PropTypes.number.isRequired,
-  remindMe: PropTypes.bool.isRequired,
-  toggleRemindMe: PropTypes.func.isRequired,
-  isFinished: PropTypes.bool.isRequired,
-  showWhenFinished: PropTypes.bool.isRequired,
-  onPressGithub: PropTypes.func,
-  onPressTwitter: PropTypes.func
-}
-
-TalkInfo.defaultProps = {
-  remindMe: false,
-  isFinished: false
-}
-
 export default TalkInfo
