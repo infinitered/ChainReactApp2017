@@ -25,7 +25,8 @@ import {
   groupWith,
   contains,
   assoc,
-  map
+  map,
+  sum
 } from 'ramda'
 import NotificationActions from '../Redux/NotificationRedux'
 import Config from '../Config/AppConfig'
@@ -56,6 +57,8 @@ class ScheduleScreen extends Component {
     })
     const eventsByDay = groupWith((a, b) => isSameDay(a.eventStart, b.eventStart), sorted)
 
+    console.log(addSpecials(props.specialTalks, eventsByDay[0]))
+
     this.state = {
       currentTime: props.currentTime,
       eventsByDay: eventsByDay,
@@ -82,6 +85,20 @@ class ScheduleScreen extends Component {
       : navigation.navigate('BreakDetail')
   }
 
+  getItemLayout = (data, index) => {
+    const item = data[index]
+    const itemLength = (item) => {
+      if (item.type === 'talk') {
+        return 138 + item.title.length
+      } else {
+        return 145
+      }
+    }
+    const length = itemLength(item)
+    const offset = sum(data.slice(0, index).map(itemLength))
+    return { length, offset, index }
+  }
+
   renderItem = ({item}) => {
     const { currentTime, isCurrentDay } = this.state
     const { eventDuration, eventStart, eventEnd, special } = item
@@ -91,6 +108,7 @@ class ScheduleScreen extends Component {
     if (item.type === 'talk') {
       return (
         <Talk
+          type={item.type}
           name={item.speaker}
           avatarURL={`https://infinite.red/images/chainreact/${item.image}.png`}
           title={item.title}
@@ -161,14 +179,20 @@ class ScheduleScreen extends Component {
     const { eventsByDay } = this.state
     const { currentTime, specialTalks } = this.props
     const data = addSpecials(specialTalks, eventsByDay[activeDay])
+    const dayIsCurrent = isCurrentDay(currentTime, activeDay)
 
     this.setState({
       data,
       activeDay,
-      isCurrentDay: isCurrentDay(currentTime, activeDay)
+      isCurrentDay: dayIsCurrent
     }, () => {
       // Scroll to top on tab change or press of current tab
-      this.refs.scheduleList.scrollToOffset({y: 0, animated: false})
+      if (dayIsCurrent) {
+        // TODO: Set to active index
+        this.refs.scheduleList.scrollToIndex({index: 0, animated: false})
+      } else {
+        this.refs.scheduleList.scrollToOffset({y: 0, animated: false})
+      }
     })
   }
 
@@ -187,6 +211,7 @@ class ScheduleScreen extends Component {
           renderItem={this.renderItem}
           keyExtractor={(item, idx) => item.eventStart}
           contentContainerStyle={styles.listContent}
+          getItemLayout={this.getItemLayout}
         />
       </PurpleGradient>
     )
