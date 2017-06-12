@@ -1,8 +1,7 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import styles from './Styles/DayToggleStyle'
-
 
 const DayToggle = props => {
   const { activeDay, onPressIn } = props

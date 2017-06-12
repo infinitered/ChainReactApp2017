@@ -6,7 +6,7 @@ export default StyleSheet.create({
     marginVertical: Metrics.baseMargin,
     marginHorizontal: Metrics.doubleBaseMargin,
     backgroundColor: Colors.transparent,
-    height: Metrics.breakHeight,
+    height: Metrics.breakHeight
   },
   currentDay: {
     marginLeft: 16,
