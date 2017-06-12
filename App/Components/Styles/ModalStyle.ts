@@ -1,7 +1,19 @@
-import { StyleSheet } from 'react-native'
-import { ApplicationStyles, Colors } from '../../Themes/'
+import { TextStyle, ViewStyle, ImageStyle } from 'react-native'
+import { ApplicationStyles, Colors, Fonts } from '../../Themes/'
 
-export default StyleSheet.create({
+interface ModalStyleType {
+  container: ViewStyle
+  colorBump: ViewStyle
+  heading: TextStyle
+  description: TextStyle
+  closeButton: ViewStyle
+  button: ViewStyle
+  closeIcon: TextStyle
+  icon: ViewStyle
+  text: TextStyle
+}
+
+const ModalStyle: ModalStyleType = {
   ...ApplicationStyles.screen,
   container: {
     flex: 1,
@@ -14,7 +26,7 @@ export default StyleSheet.create({
   },
   heading: {
     marginTop: 14,
-    fontFamily: 'Montserrat-SemiBold',
+    fontFamily: Fonts.type.semiBold,
     fontSize: 31,
     letterSpacing: 0.2,
     backgroundColor: Colors.transparent,
@@ -23,7 +35,7 @@ export default StyleSheet.create({
   },
   description: {
     textAlign: 'center',
-    fontFamily: 'Montserrat-Medium',
+    fontFamily: Fonts.style.medium,
     fontSize: 15,
     color: '#FDE5FF',
     letterSpacing: 0.47,
@@ -53,9 +65,11 @@ export default StyleSheet.create({
     marginRight: 7
   },
   text: {
-    fontFamily: 'Montserrat-Light',
+    fontFamily: Fonts.style.base,
     fontSize: 17,
     color: Colors.silver,
     backgroundColor: Colors.clear
   }
-})
+}
+
+export default ModalStyle

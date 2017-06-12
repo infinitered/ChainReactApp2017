@@ -1,11 +1,11 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, ViewStyle } from 'react-native'
 import Video from 'react-native-video'
 
 interface BackgroundProps {
   source: string,
   isActive: boolean,
-  style: StyleSheet
+  style: ViewStyle
 }
 
 export default ({source, isActive, style}: BackgroundProps) => {
