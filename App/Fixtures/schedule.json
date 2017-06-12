@@ -83,8 +83,8 @@
       "type":"talk",
       "speaker":"Mike Grabowski",
       "image":"mike",
-      "title": "The Dark Art of Bundlers",
-      "description":"",
+      "title":"The Dark Art of Bundlers",
+      "description":"Designing mobile applications for different content access patterns, pub/sub, and data transformations can be challenging at scale. Leveraging cloud services effectively can help you deliver higher quality applications and new functionality in a short amount of time. In this session, you will learn how to use AWS services with React Native for implementing fine-grained access controls, event driven data transformations, message optimizations with low latencies for real-time transmission, and content streaming for uploads and downloads on lossy networks using \"Serverless\" techniques. We'll also cover when a fully JavaScript approach works in React Native and when it's necessary to drop down to native bridging.",
       "time":"7/10/2017 9:00 AM",
       "duration":"30",
       "speakerInfo": [
@@ -101,8 +101,8 @@
       "type":"talk",
       "speaker":"Brent Vatne",
       "image":"brent",
-      "title":"React Native Sand Paper",
-      "description":"I'll talk about three tools aimed at reducing friction to building and sharing React Native apps:\n\n1) create-react-native-app\n2) Exponent home\n3) Sketch (successor to React Native Playground)",
+      "title":"React Native Sandpaper",
+      "description":"An analysis of the roughest areas of developing apps with React Native from my point of view. I deal with developers building greenfield apps every day. I see everything from total beginners working on a side project to agencies, large companies, and startups building apps for their clients and their own businesses. React Native has come so far, but we have much more work to do. As a community we really need to step up our game if we want our bet in React Native to pay off in the long-run.",
       "time":"7/10/2017 9:30 AM",
       "duration":"30",
       "speakerInfo": [
@@ -147,7 +147,7 @@
           "twitter":"poorni_venkat",
           "github": "pvenkatakrishnan",
           "company":"PayPal",
-          "bio":"Poornima is a web developer and was instrumental in development and adoption of one of the most successful open source projects at Paypal: Krakenjs – A web application framework on node.js. She is also a key proponent of bringing open source mentality within Paypal to break silo'ed development and enable more collaboration across teams. She has been evangelizing OSS work and talking about the revolution in engineering culture across various products at Paypal."
+          "bio":"Poornima is a hands-on Engineering manager at Paypal. She likes playing with new technologies and solving challenging problems.  She was one of the core contributors to [Krakenjs](https://github.com/krakenjs): the opensourced node.js framework from Paypal. Currently she is focussed on the Paypal Checkout Mobile SDK (also OpenSourced) and building a team to expand the capabilities in the SDK that will enable great Checkout experiences in native applications."
         }
       ]
     },
@@ -166,7 +166,7 @@
           "twitter":"benmvp",
           "github": "benmvp",
           "company":"Eventbrite",
-          "bio":"Ben is a Christian, a husband and a father of 2 with 10+ years of experience developing user interfaces for the Web. He currently leads and manages Eventbrite’s Frontend Platform team. On the side, Ben also enjoys playing basketball, DIY, watching movies, and blogging (benmvp.com) / tweeting (@benmvp) about his experiences with new web technologies."
+          "bio":"Ben is a Christian, a husband and a father of 2 with 10+ years of experience developing user interfaces for the Web. He currently manages the team at Eventbrite focused on making Eventbrite THE destination for finding events and other things to do. On the side, Ben also enjoys playing basketball, DIY, watching movies, and blogging (benmvp.com) / tweeting (@benmvp) about his experiences with new web technologies."
         }
       ]
     },
@@ -202,7 +202,7 @@
           "twitter":"naoufal",
           "github": "naoufal",
           "company":"Netflix",
-          "bio":"Naoufal is a Web Developer & Designer currently based in Montreal. He makes responsive stuff with HTML5, CSS3 and Javascript -- and loves designing Sketch. His speaker is pronounced \"Nofell\"."
+          "bio":"Naoufal is a Senior Software Engineer at Netflix. At Netflix, Naoufal writes cross-platform JavaScript that enables millions of people like yourself to binge-watch the latest Netflix Original.  He previously worked as a Senior UI Engineer at Unsplash. When he isn't shipping he latest and greatest at Netflix, he can be found attempting (and failing) to avoid San Francisco hills while running and cycling."
         }
       ]
     },
@@ -220,7 +220,7 @@
           "company": "Instrument",
           "twitter": "kylpo",
           "github": "yokelpole",
-          "bio":"Kyle Poole and Thomas Bruketta will co-present this talk. This dynamic duo has been crafting React Native applications at Instrument (here in Portland) over the last year for global clients. Both developers are contributors to the React Native open source community and Kyle Poole has created a collection of React Native primitives called Constelation that are a part of our team’s daily workflow "
+          "bio":"Kyle Poole and Thomas Bruketta will co-present this talk. This dynamic duo has been crafting React Native applications at Instrument (here in Portland) over the last year for global clients. Kyle Poole is a full stack web and mobile developer using React (+Native) at Instrument. He’s been using React since v0.5.1 (3.5+ years). Thomas likes dragons and he casts spells using React Native."
         },
         {
           "name": "Thomas Brunketta",
@@ -254,7 +254,7 @@
       "image":"chris",
       "title":"From Idea to App Store: A Guide to Shipping ReactNative Apps",
       "description":"We’ll walk through everything involved in taking an app from initial concept all the way to submitting an iOS and Android app to the App Stores.",
-      "time":"7/10/2017 4:30 PM",
+      "time":"7/11/2017 4:30 PM",
       "duration":"30",
       "speakerInfo": [
         {
@@ -280,7 +280,7 @@
           "twitter":"peggyrayzis",
           "github": "peggyrayzis",
           "company":"Major League Soccer",
-          "bio":"Exploring the world through code, travel, and music ✨ Software Engineer @MLS."
+          "bio":"Software Engineer at Major League Soccer focused on building amazing fan experiences in React Native."
         }
       ]
     },
@@ -343,7 +343,7 @@
       "speaker":"Kevin Old",
       "image":"kevin",
       "title":"Building Serverless Backends with AWS Lambda for React Native Apps",
-      "description":"This talk will explore a Serverless Architecture and how it can can aid any React Native developer in building scalable backends for their applications. Our provider of choice will be Amazon’s AWS ecosystem and AWS Lambda, DynamoDB, Cognito and API Gateway will be among the resources covered.",
+      "description":"This talk will explore a Serverless Architecture and how it can can aid any React Native developer in building scalable backends for their applications. Our provider of choice will be the AWS ecosystem. Lambda, DynamoDB, Cognito, and API Gateway will be among the resources covered.",
       "time":"7/11/2017 11:30 AM",
       "duration":"30",
       "speakerInfo": [
@@ -382,7 +382,7 @@
           "name": "Jani Eväkallio",
           "twitter": "jevakallio",
           "github": "jevakallio",
-          "bio": "Lead Engineer at Formidable Labs",
+          "bio": "Head of Mobile Engineering at Formidable Labs",
           "company": "Formidable Labs"
         },
         {
@@ -465,9 +465,9 @@
       "type":"talk",
       "speaker":"Ken Wheeler",
       "image":"ken",
-      "title":"React Native with Electronics",
-      "description":"In this talk I will explore how using React Native with Robotics makes prototyping a breeze and enables mobile control of almost anything",
-      "time":"7/11/2017 4:30 PM",
+      "title":"Why we need an app browser",
+      "description":"An exploration of the current browser ecosystem, and its shortcomings, and a proposal for mixing the best parts of web and native",
+      "time":"7/10/2017 4:30 PM",
       "duration":"30",
       "speakerInfo": [
         {
