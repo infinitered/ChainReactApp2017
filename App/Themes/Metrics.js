@@ -19,6 +19,7 @@ const metrics = {
   buttonRadius: 4,
   cardRadius: 5,
   locationBackgroundHeight: 324,
+  breakHeight: 125,
   icons: {
     tiny: 15,
     small: 20,

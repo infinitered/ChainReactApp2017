@@ -1,36 +1,43 @@
-import React from 'react'
-import {
-  AppState,
-  View,
-  ListView,
-  Text,
-  Image,
-  TouchableOpacity
-} from 'react-native'
-import LinearGradient from 'react-native-linear-gradient'
+import React, { Component } from 'react'
+import { AppState, View, Image, FlatList } from 'react-native'
 import PurpleGradient from '../Components/PurpleGradient'
+import DayToggle from '../Components/DayToggle'
 import Talk from '../Components/Talk'
 import Break from '../Components/Break'
 import ScheduleActions from '../Redux/ScheduleRedux'
 import { connect } from 'react-redux'
-import { compareAsc, isSameDay, addMinutes, isWithinRange, subMilliseconds } from 'date-fns'
-import { merge, groupWith, contains, assoc, map } from 'ramda'
+import {
+  compareAsc,
+  isSameDay,
+  addMinutes,
+  isWithinRange,
+  subMilliseconds
+} from 'date-fns'
+import {
+  merge,
+  groupWith,
+  contains,
+  assoc,
+  map,
+  sum,
+  findIndex
+} from 'ramda'
 import NotificationActions from '../Redux/NotificationRedux'
 import Config from '../Config/AppConfig'
-
-// Styles
 import { Images } from '../Themes'
-import styles from './Styles/TalksScreenStyle'
+import styles from './Styles/ScheduleScreenStyle'
 
-const isCurrentDay = (currentTime, activeDay) =>
+const isActiveCurrentDay = (currentTime, activeDay) =>
   isSameDay(currentTime, new Date(Config.conferenceDates[activeDay]))
 
-const addSpecials = (specialTalksList, talks) => map((talk) => assoc('special', contains(talk.title, specialTalksList), talk), talks)
+const addSpecials = (specialTalksList, talks) =>
+  map((talk) => assoc('special', contains(talk.title, specialTalksList), talk), talks)
 
-class ScheduleScreen extends React.Component {
+class ScheduleScreen extends Component {
   constructor (props) {
     super(props)
 
+    const { schedule, specialTalks, currentTime } = props
     const mergeTimes = (e) => {
       const eventDuration = Number(e.duration)
       const eventStart = new Date(e.time)
@@ -39,66 +46,137 @@ class ScheduleScreen extends React.Component {
 
       return merge(e, { eventStart, eventEnd, eventDuration })
     }
-    const sorted = [...this.props.schedule].map(mergeTimes).sort((a, b) => {
+    const sorted = [...schedule].map(mergeTimes).sort((a, b) => {
       return compareAsc(a.eventStart, b.eventStart)
     })
-    const eventsByDay = groupWith((a, b) => isSameDay(a.eventStart, b.eventStart), sorted)
+    const eventsByDay = groupWith((a, b) =>
+      isSameDay(a.eventStart, b.eventStart), sorted)
 
-    const rowHasChanged = (r1, r2) => {
-      const { currentTime } = this.state
-      const { eventStart, eventEnd } = r2
-      const isActive = isWithinRange(currentTime, eventStart, eventEnd)
+    const activeDay = 0
+    const data = addSpecials(specialTalks, eventsByDay[activeDay])
+    const isCurrentDay = isActiveCurrentDay(currentTime, activeDay)
+    const appState = AppState.currentState
 
-      return r1 !== r2 || isActive
-    }
-    const ds = new ListView.DataSource({rowHasChanged})
-
-    // Datasource is always in state
-    this.state = {
-      currentTime: props.currentTime,
-      eventsByDay: eventsByDay,
-      dataSource: ds.cloneWithRows(addSpecials(this.props.specialTalks, eventsByDay[0])),
-      isCurrentDay: isCurrentDay(this.props.currentTime, 0),
-      activeDay: 0,
-      appState: AppState.currentState
-    }
+    this.state = {eventsByDay, data, isCurrentDay, activeDay, appState}
   }
 
   static navigationOptions = {
     tabBarLabel: 'Schedule',
     tabBarIcon: ({ focused }) => (
-      <Image source={focused ? Images.activeScheduleIcon : Images.inactiveScheduleIcon} />
+      <Image
+        source={
+          focused
+            ? Images.activeScheduleIcon
+            : Images.inactiveScheduleIcon
+        }
+      />
     )
   }
 
-  onEventPress = (rowData) => {
+  onEventPress = (item) => {
     const { navigation, setSelectedEvent } = this.props
-    setSelectedEvent(rowData)
+    setSelectedEvent(item)
 
-    rowData.type === 'talk'
+    item.type === 'talk'
       ? navigation.navigate('TalkDetail')
       : navigation.navigate('BreakDetail')
   }
 
-  renderRow = (rowData) => {
-    const { currentTime, isCurrentDay } = this.state
-    const { eventDuration, eventStart, eventEnd, special } = rowData
+  componentDidMount () {
+    AppState.addEventListener('change', this._handleAppStateChange)
+
+    const { data } = this.state
+    const index = this.getActiveIndex(data)
+    this.refs.scheduleList.scrollToIndex({index, animated: false})
+  }
+
+  componentWillUnmount () {
+    AppState.removeEventListener('change', this._handleAppStateChange)
+  }
+
+  _handleAppStateChange = (nextAppState) => {
+    const { appState } = this.state
+    if (appState.match(/inactive|background/) && nextAppState === 'active') {
+      this.props.getScheduleUpdates()
+    }
+    this.setState({appState: nextAppState})
+  }
+
+  componentWillReceiveProps (newProps) {
+    const { activeDay, eventsByDay } = this.state
+    const { specialTalks } = this.props
+    const { currentTime } = newProps
+
+    // Update currentTime before updating data
+    if (currentTime) {
+      this.setState({ currentTime }, () => {
+        this.setState({
+          data: addSpecials(specialTalks, eventsByDay[activeDay]),
+          isCurrentDay: isActiveCurrentDay(currentTime, activeDay)
+        })
+      })
+    }
+  }
+
+  getActiveIndex = (data) => {
+    const { currentTime } = this.props
+    return findIndex((i) => isWithinRange(currentTime, i.eventStart, i.eventEnd))(data)
+  }
+
+  setActiveDay = (activeDay) => {
+    const { eventsByDay } = this.state
+    const { currentTime, specialTalks } = this.props
+    const data = addSpecials(specialTalks, eventsByDay[activeDay])
+    const isCurrentDay = isActiveCurrentDay(currentTime, activeDay)
+
+    this.setState({data, activeDay, isCurrentDay}, () => {
+      if (isCurrentDay) {
+        // Scroll to active
+        const index = this.getActiveIndex(data)
+        this.refs.scheduleList.scrollToIndex({index, animated: false})
+      } else {
+        // Scroll to top
+        this.refs.scheduleList.scrollToOffset({y: 0, animated: false})
+      }
+    })
+  }
+
+  getItemLayout = (data, index) => {
+    const item = data[index]
+    const itemLength = (item) => {
+      if (item.type === 'talk') {
+        // use best guess for variable height rows
+        return 138 + (1.002936 * item.title.length + 6.77378)
+      } else {
+        return 145
+      }
+    }
+    const length = itemLength(item)
+    const offset = sum(data.slice(0, index).map(itemLength))
+    return { length, offset, index }
+  }
+
+  renderItem = ({item}) => {
+    const { isCurrentDay } = this.state
+    const { currentTime } = this.props
+    const { eventDuration, eventStart, eventEnd, special } = item
     const isActive = isWithinRange(currentTime, eventStart, eventEnd)
     const isFinished = currentTime > eventEnd
 
-    if (rowData.type === 'talk') {
+    if (item.type === 'talk') {
       return (
         <Talk
-          name={rowData.speaker}
-          avatarURL={`https://infinite.red/images/chainreact/${rowData.image}.png`}
-          title={rowData.title}
+          type={item.type}
+          name={item.speaker}
+          avatarURL={`https://infinite.red/images/chainreact/${item.image}.png`}
+          title={item.title}
           start={eventStart}
           duration={eventDuration}
-          onPress={() => this.onEventPress(rowData)}
-          onPressTwitter={() => this.props.onPressTwitter(rowData.speakerInfo[0].twitter)}
-          onPressGithub={() => this.props.onPressGithub(rowData.speakerInfo[0].github)}
-          talkSpecial={() => this.props.onTalkSpecial(rowData.title)}
-          talkNotSpecial={() => this.props.onTalkNotSpecial(rowData.title)}
+          onPress={() => this.onEventPress(item)}
+          onPressTwitter={() => this.props.onPressTwitter(item.speakerInfo[0].twitter)}
+          onPressGithub={() => this.props.onPressGithub(item.speakerInfo[0].github)}
+          talkSpecial={() => this.props.onTalkSpecial(item.title)}
+          talkNotSpecial={() => this.props.onTalkNotSpecial(item.title)}
           currentTime={currentTime}
           isCurrentDay={isCurrentDay}
           isActive={isActive}
@@ -110,11 +188,11 @@ class ScheduleScreen extends React.Component {
     } else {
       return (
         <Break
-          type={rowData.type}
-          title={rowData.title}
+          type={item.type}
+          title={item.title}
           start={eventStart}
           duration={eventDuration}
-          onPress={() => this.onEventPress(rowData)}
+          onPress={() => this.onEventPress(item)}
           currentTime={currentTime}
           isCurrentDay={isCurrentDay}
           isActive={isActive}
@@ -123,92 +201,23 @@ class ScheduleScreen extends React.Component {
     }
   }
 
-  componentDidMount () {
-    AppState.addEventListener('change', this._handleAppStateChange)
-  }
-
-  componentWillUnmount () {
-    AppState.removeEventListener('change', this._handleAppStateChange)
-  }
-
-  _handleAppStateChange = (nextAppState) => {
-    if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
-      this.props.getScheduleUpdates()
-    }
-    this.setState({appState: nextAppState})
-  }
-
-  componentWillReceiveProps (newProps) {
-    const { activeDay, eventsByDay, dataSource } = this.state
-    // Update currentTime before updating dataSource
-    if (newProps.currentTime) {
-      this.setState({
-        currentTime: newProps.currentTime
-      }, () => {
-        this.setState({
-          dataSource: dataSource.cloneWithRows(addSpecials(this.props.specialTalks, eventsByDay[activeDay].slice())),
-          isCurrentDay: isCurrentDay(newProps.currentTime, activeDay)
-        })
-      })
-    }
-  }
-
-  // returns true if the dataSource is empty
-  noRowData () {
-    return this.state.dataSource.getRowCount() === 0
-  }
-
-  setActiveDay (day) {
-    const { eventsByDay, dataSource } = this.state
-    const { currentTime } = this.props
-    this.setState(() => ({
-      dataSource: dataSource.cloneWithRows(addSpecials(this.props.specialTalks, eventsByDay[day])),
-      activeDay: day,
-      isCurrentDay: isCurrentDay(currentTime, day)
-    }))
-    // Scroll to top on tab change or press of current tab
-    this.refs.listView.scrollTo({y: 0, animated: false})
-  }
-
-  renderDayToggle () {
-    const { activeDay } = this.state
-    return (
-      <LinearGradient
-        start={{x: 0, y: 0}}
-        end={{x: 1, y: 1}}
-        locations={[0.0, 0.38, 1.0]}
-        colors={['#46114E', '#521655', '#571757']}
-        style={styles.headerGradient}>
-        <View style={styles.dayToggle}>
-          <TouchableOpacity onPressIn={() => this.setActiveDay(0)}>
-            <Text
-              style={activeDay === 0 ? styles.activeDay : styles.inactiveDay}>
-              Monday
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPressIn={() => this.setActiveDay(1)}>
-            <Text
-              style={activeDay === 1 ? styles.activeDay : styles.inactiveDay}>
-              Tuesday
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </LinearGradient>
-    )
-  }
-
   render () {
+    const { isCurrentDay, activeDay, data } = this.state
     return (
       <PurpleGradient style={styles.linearGradient}>
-        {this.renderDayToggle()}
-        {this.state.isCurrentDay && <View style={styles.timeline} />}
-        <ListView
-          ref='listView'
+        <DayToggle
+          activeDay={activeDay}
+          onPressIn={this.setActiveDay}
+        />
+        {isCurrentDay && <View style={styles.timeline} />}
+        <FlatList
+          ref='scheduleList'
+          data={data}
+          extraData={this.props}
+          renderItem={this.renderItem}
+          keyExtractor={(item, idx) => item.eventStart}
           contentContainerStyle={styles.listContent}
-          dataSource={this.state.dataSource}
-          onLayout={this.onLayout}
-          renderRow={this.renderRow}
-          enableEmptySections
+          getItemLayout={this.getItemLayout}
         />
       </PurpleGradient>
     )
