@@ -26,18 +26,20 @@ import {
   contains,
   assoc,
   map,
-  sum
+  sum,
+  findIndex
 } from 'ramda'
 import NotificationActions from '../Redux/NotificationRedux'
 import Config from '../Config/AppConfig'
 import { Images } from '../Themes'
 import styles from './Styles/ScheduleScreenStyle'
 
-const isCurrentDay = (currentTime, activeDay) =>
+const isActiveCurrentDay = (currentTime, activeDay) =>
   isSameDay(currentTime, new Date(Config.conferenceDates[activeDay]))
 
 const addSpecials = (specialTalksList, talks) =>
   map((talk) => assoc('special', contains(talk.title, specialTalksList), talk), talks)
+
 
 class ScheduleScreen extends Component {
   constructor (props) {
@@ -56,13 +58,14 @@ class ScheduleScreen extends Component {
     })
     const eventsByDay = groupWith((a, b) => isSameDay(a.eventStart, b.eventStart), sorted)
 
-    console.log(addSpecials(props.specialTalks, eventsByDay[0]))
+    const { specialTalks, currentTime } = props
+    const data = addSpecials(specialTalks, eventsByDay[0])
+    const isCurrentDay = isActiveCurrentDay(props.currentTime, 0)
 
     this.state = {
-      currentTime: props.currentTime,
-      eventsByDay: eventsByDay,
-      data: addSpecials(props.specialTalks, eventsByDay[0]),
-      isCurrentDay: isCurrentDay(props.currentTime, 0),
+      eventsByDay,
+      data,
+      isCurrentDay,
       activeDay: 0,
       appState: AppState.currentState
     }
@@ -84,11 +87,71 @@ class ScheduleScreen extends Component {
       : navigation.navigate('BreakDetail')
   }
 
+  componentDidMount () {
+    AppState.addEventListener('change', this._handleAppStateChange)
+
+    const { data } = this.state
+    const index = this.getActiveIndex(data)
+    this.refs.scheduleList.scrollToIndex({index, animated: false})
+  }
+
+  componentWillUnmount () {
+    AppState.removeEventListener('change', this._handleAppStateChange)
+  }
+
+  _handleAppStateChange = (nextAppState) => {
+    const { appState } = this.state
+    if (appState.match(/inactive|background/) && nextAppState === 'active') {
+      this.props.getScheduleUpdates()
+    }
+    this.setState({appState: nextAppState})
+  }
+
+  componentWillReceiveProps (newProps) {
+    const { activeDay, eventsByDay } = this.state
+    const { specialTalks } = this.props
+    const { currentTime } = newProps
+
+    // Update currentTime before updating data
+    if (currentTime) {
+      this.setState({ currentTime }, () => {
+        this.setState({
+          data: addSpecials(specialTalks, eventsByDay[activeDay]),
+          isCurrentDay: isActiveCurrentDay(currentTime, activeDay)
+        })
+      })
+    }
+  }
+
+  getActiveIndex = (data) => {
+    const { currentTime } = this.props
+    return findIndex((i) => isWithinRange(currentTime, i.eventStart, i.eventEnd))(data)
+  }
+
+  setActiveDay = (activeDay) => {
+    const { eventsByDay } = this.state
+    const { currentTime, specialTalks } = this.props
+    const data = addSpecials(specialTalks, eventsByDay[activeDay])
+    const isCurrentDay = isActiveCurrentDay(currentTime, activeDay)
+
+    this.setState({data, activeDay, isCurrentDay}, () => {
+      if (isCurrentDay) {
+        // Scroll to active
+        const index = this.getActiveIndex(data)
+        this.refs.scheduleList.scrollToIndex({index, animated: false})
+      } else {
+        // Scroll to top
+        this.refs.scheduleList.scrollToOffset({y: 0, animated: false})
+      }
+    })
+  }
+
   getItemLayout = (data, index) => {
     const item = data[index]
     const itemLength = (item) => {
       if (item.type === 'talk') {
-        return 138 + item.title.length
+        // use best guess for variable height rows
+        return 138 + (1.002936 * item.title.length + 6.77378)
       } else {
         return 145
       }
@@ -99,7 +162,8 @@ class ScheduleScreen extends Component {
   }
 
   renderItem = ({item}) => {
-    const { currentTime, isCurrentDay } = this.state
+    const { isCurrentDay } = this.state
+    const { currentTime } = this.props
     const { eventDuration, eventStart, eventEnd, special } = item
     const isActive = isWithinRange(currentTime, eventStart, eventEnd)
     const isFinished = currentTime > eventEnd
@@ -142,59 +206,6 @@ class ScheduleScreen extends Component {
     }
   }
 
-  componentDidMount () {
-    AppState.addEventListener('change', this._handleAppStateChange)
-  }
-
-  componentWillUnmount () {
-    AppState.removeEventListener('change', this._handleAppStateChange)
-  }
-
-  _handleAppStateChange = (nextAppState) => {
-    const { appState } = this.state
-    if (appState.match(/inactive|background/) && nextAppState === 'active') {
-      this.props.getScheduleUpdates()
-    }
-    this.setState({appState: nextAppState})
-  }
-
-  componentWillReceiveProps (newProps) {
-    const { activeDay, eventsByDay } = this.state
-    const { specialTalks } = this.props
-    const { currentTime } = newProps
-
-    // Update currentTime before updating data
-    if (currentTime) {
-      this.setState({ currentTime }, () => {
-        this.setState({
-          data: addSpecials(specialTalks, eventsByDay[activeDay]),
-          isCurrentDay: isCurrentDay(currentTime, activeDay)
-        })
-      })
-    }
-  }
-
-  setActiveDay = (activeDay) => {
-    const { eventsByDay } = this.state
-    const { currentTime, specialTalks } = this.props
-    const data = addSpecials(specialTalks, eventsByDay[activeDay])
-    const dayIsCurrent = isCurrentDay(currentTime, activeDay)
-
-    this.setState({
-      data,
-      activeDay,
-      isCurrentDay: dayIsCurrent
-    }, () => {
-      // Scroll to top on tab change or press of current tab
-      if (dayIsCurrent) {
-        // TODO: Set to active index
-        this.refs.scheduleList.scrollToIndex({index: 0, animated: false})
-      } else {
-        this.refs.scheduleList.scrollToOffset({y: 0, animated: false})
-      }
-    })
-  }
-
   render () {
     const { isCurrentDay, activeDay, data } = this.state
     return (
@@ -207,6 +218,7 @@ class ScheduleScreen extends Component {
         <FlatList
           ref='scheduleList'
           data={data}
+          extraData={this.props}
           renderItem={this.renderItem}
           keyExtractor={(item, idx) => item.eventStart}
           contentContainerStyle={styles.listContent}
