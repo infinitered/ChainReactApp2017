@@ -465,8 +465,8 @@
       "type":"talk",
       "speaker":"Ken Wheeler",
       "image":"ken",
-      "title":"React Native with Electronics",
-      "description":"In this talk I will explore how using React Native with Robotics makes prototyping a breeze and enables mobile control of almost anything",
+      "title":"Why we need an app browser",
+      "description":"An exploration of the current browser ecosystem, and its shortcomings, and a proposal for mixing the best parts of web and native",
       "time":"7/11/2017 4:30 PM",
       "duration":"30",
       "speakerInfo": [
