@@ -40,7 +40,6 @@ const isActiveCurrentDay = (currentTime, activeDay) =>
 const addSpecials = (specialTalksList, talks) =>
   map((talk) => assoc('special', contains(talk.title, specialTalksList), talk), talks)
 
-
 class ScheduleScreen extends Component {
   constructor (props) {
     super(props)
@@ -74,7 +73,13 @@ class ScheduleScreen extends Component {
   static navigationOptions = {
     tabBarLabel: 'Schedule',
     tabBarIcon: ({ focused }) => (
-      <Image source={focused ? Images.activeScheduleIcon : Images.inactiveScheduleIcon} />
+      <Image
+        source={
+          focused
+            ? Images.activeScheduleIcon
+            : Images.inactiveScheduleIcon
+        }
+      />
     )
   }
 
