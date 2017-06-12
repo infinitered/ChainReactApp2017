@@ -25,7 +25,6 @@ const { UBER_CLIENT_ID } = Secrets
 const MAP_TAP_THRESHOLD = 100
 
 class LocationScreen extends React.Component {
-
   constructor (props) {
     super(props)
 
@@ -245,7 +244,6 @@ class LocationScreen extends React.Component {
       </PurpleGradient>
     )
   }
-
 }
 
 const mapStateToProps = (state) => {

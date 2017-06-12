@@ -10,17 +10,36 @@ PODS:
     - MobileCenter/MobileCenter
   - MobileCenter/MobileCenterDistribute (0.6.1):
     - MobileCenter/MobileCenter
+  - React/BatchedBridge (0.45.1):
+    - React/Core
+    - React/cxxreact_legacy
+  - React/Core (0.45.1):
+    - Yoga (= 0.45.1.React)
+  - React/cxxreact_legacy (0.45.1):
+    - React/jschelpers_legacy
+  - React/jschelpers_legacy (0.45.1)
   - RNMobileCenter (0.4.0):
     - MobileCenter (~> 0.6.0)
+  - Yoga (0.45.1.React)
 
 DEPENDENCIES:
   - MobileCenter (~> 0.6.0)
+  - React/BatchedBridge (from `../node_modules/react-native`)
   - RNMobileCenter (~> 0.4.0)
+  - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+
+EXTERNAL SOURCES:
+  React:
+    :path: "../node_modules/react-native"
+  Yoga:
+    :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
   MobileCenter: a0c2ac2ab187d485ffab42463638dbb7606c4019
+  React: 0c9191a8b0c843d7004f950ac6b5f6cba9d125c7
   RNMobileCenter: e7f446e0f7d702d52f74291fef6c834bb29605dd
+  Yoga: 89c8738d42a0b46a113acb4e574336d61cba2985
 
-PODFILE CHECKSUM: af364b159aa959bf26960cae4d7963258a60cd01
+PODFILE CHECKSUM: cd1fa4e9a78fd0171d3036f76cda5b1e4678ddcd
 
 COCOAPODS: 1.2.1

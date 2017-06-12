@@ -16,7 +16,7 @@ export async function open (url) {
  *
  * @param {string} action.account The user or account/repo of the user.
  */
-export function* visitGithub (action) {
+export function * visitGithub (action) {
   const { account = 'infinitered/chainreactapp' } = action
   const url = `https://github.com/${account}`
   yield call(open, url)
@@ -27,7 +27,7 @@ export function* visitGithub (action) {
  *
  * @param {string} action.account The twitter account.
  */
-export function* visitTwitter (action) {
+export function * visitTwitter (action) {
   const { account = 'chainreactconf' } = action
   const nativeUrl = `twitter://user?screen_name=${account}`
   const webUrl = `https://twitter.com/${account}`

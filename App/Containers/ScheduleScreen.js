@@ -40,7 +40,6 @@ const addSpecials = (specialTalksList, talks) =>
   map((talk) => assoc('special', contains(talk.title, specialTalksList), talk), talks)
 
 class ScheduleScreen extends Component {
-
   constructor (props) {
     super(props)
 
