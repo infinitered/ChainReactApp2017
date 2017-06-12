@@ -1,5 +1,5 @@
-import { TextStyle, ViewStyle } from 'react-native'
-import { Colors, Fonts } from '../../Themes/'
+import { TextStyle, ViewStyle, ImageStyle } from 'react-native'
+import { Colors, Fonts, Metrics } from '../../Themes/'
 
 interface GalleryStyleType {
   container: ViewStyle
@@ -12,6 +12,7 @@ interface GalleryStyleType {
   item: ViewStyle
   itemTitle: TextStyle
   itemDetail: ViewStyle
+  itemImage: ImageStyle
   itemAction: TextStyle
 }
 
@@ -54,7 +55,11 @@ const GalleryStyle: GalleryStyleType = {
   item: {
     margin: 5,
     borderWidth: 1,
-    borderColor: Colors.snow
+    borderColor: Colors.snow,
+    width: Metrics.screenWidth / 2 - 10
+  },
+  itemImage: {
+    width: Metrics.screenWidth / 2 - 10 - 2
   },
   itemDetail: {
     paddingHorizontal: 10,
@@ -65,6 +70,7 @@ const GalleryStyle: GalleryStyleType = {
     fontFamily: Fonts.type.semiBold,
     fontSize: 15,
     letterSpacing: 0,
+    minHeight: 40,
     color: Colors.darkPurple
   },
   itemAction: {
