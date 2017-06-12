@@ -50,7 +50,7 @@ export default class Gallery extends React.Component<GalleryProps, GalleryState>
         key={name}
         style={styles.item}
         onPress={() => onItemPress(daddr)}>
-        <Image source={Images[image]} />
+        <Image source={Images[image]} resizeMode={'cover'} style={styles.itemImage} />
         <View style={styles.itemDetail}>
           <Text style={styles.itemTitle}>{name}</Text>
           <Text style={styles.itemAction}>
