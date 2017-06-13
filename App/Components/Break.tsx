@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { Images, Videos } from '../Themes'
 import TimeIndicator from './TimeIndicator'

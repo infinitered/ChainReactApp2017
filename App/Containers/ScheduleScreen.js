@@ -104,8 +104,7 @@ class ScheduleScreen extends Component {
 
   componentWillReceiveProps (newProps) {
     const { activeDay, eventsByDay } = this.state
-    const { specialTalks } = this.props
-    const { currentTime } = newProps
+    const { specialTalks, currentTime } = newProps
 
     // Update currentTime before updating data
     if (currentTime) {
@@ -142,11 +141,17 @@ class ScheduleScreen extends Component {
   }
 
   getItemLayout = (data, index) => {
+    const totalItems = data.length
     const item = data[index]
-    const itemLength = (item) => {
+    const itemLength = (item, index) => {
       if (item.type === 'talk') {
-        // use best guess for variable height rows
-        return 138 + (1.002936 * item.title.length + 6.77378)
+        if (index > totalItems - 4) {
+          // avoid overscrolling
+          return 20
+        } else {
+          // use best guess for variable height rows
+          return 138 + (1.002936 * item.title.length + 6.77378)
+        }
       } else {
         return 145
       }
