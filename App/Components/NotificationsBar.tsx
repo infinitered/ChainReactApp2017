@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { View, Modal, Text, TouchableOpacity } from 'react-native'
 import StatusBarAlert from 'react-native-statusbar-alert'
 import styles from './Styles/ModalStyle'
