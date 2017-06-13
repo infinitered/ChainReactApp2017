@@ -86,7 +86,9 @@ platform :ios do
     gym(scheme: "ChainReactApp") # Build your app - more options available
 
     # Ship it!
-    pilot
+    pilot(
+      skip_waiting_for_build_processing: true
+    )
 
     # upload this dSYM to mobilecenter
     mobile_center_upload(

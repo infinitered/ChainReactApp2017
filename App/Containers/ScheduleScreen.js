@@ -120,7 +120,15 @@ class ScheduleScreen extends Component {
   getActiveIndex = (data) => {
     const { currentTime } = this.props
     const foundIndex = findIndex((i) => isWithinRange(currentTime, i.eventStart, i.eventEnd))(data)
-    return (foundIndex < 0) ? 0 : foundIndex
+
+    // handle pre-event and overscroll
+    if (foundIndex < 0) {
+      return 0
+    } else if (foundIndex > data.length - 3) {
+      return data.length - 3
+    } else {
+      return foundIndex
+    }
   }
 
   setActiveDay = (activeDay) => {
@@ -142,17 +150,11 @@ class ScheduleScreen extends Component {
   }
 
   getItemLayout = (data, index) => {
-    const totalItems = data.length
     const item = data[index]
     const itemLength = (item, index) => {
       if (item.type === 'talk') {
-        if (index > totalItems - 4) {
-          // avoid overscrolling
-          return 20
-        } else {
-          // use best guess for variable height rows
-          return 138 + (1.002936 * item.title.length + 6.77378)
-        }
+        // use best guess for variable height rows
+        return 138 + (1.002936 * item.title.length + 6.77378)
       } else {
         return 145
       }

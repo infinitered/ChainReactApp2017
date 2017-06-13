@@ -42,7 +42,7 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
     const {title, start} = this.props
     // Make a copy otherwise could be modified!!!
     const startCopy = new Date(start.valueOf())
-    LayoutAnimation.easeInEaseOut({duration: 250})
+    LayoutAnimation.easeInEaseOut()
 
     // turn off reminder
     if (this.props.isSpecial) {
@@ -55,6 +55,7 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
       this.props.talkSpecial()
       PushNotification.localNotificationSchedule({
         id: PNHelpers.pushId(title, startCopy), // for android cancel
+        number: 0,
         message: PNHelpers.pushMessage(title, startCopy), // (required)
         date: PNHelpers.notificationTime(startCopy),
         userInfo: {id: PNHelpers.pushId(title, startCopy)} // for iOS cancel
