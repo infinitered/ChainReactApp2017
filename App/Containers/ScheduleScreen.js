@@ -120,7 +120,8 @@ class ScheduleScreen extends Component {
 
   getActiveIndex = (data) => {
     const { currentTime } = this.props
-    return findIndex((i) => isWithinRange(currentTime, i.eventStart, i.eventEnd))(data)
+    const foundIndex = findIndex((i) => isWithinRange(currentTime, i.eventStart, i.eventEnd))(data)
+    return (foundIndex < 0) ? 0 : foundIndex
   }
 
   setActiveDay = (activeDay) => {
