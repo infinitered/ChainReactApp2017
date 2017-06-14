@@ -1,9 +1,9 @@
 export default {
-  showDevScreens: false,
+  showDevScreens: true,
   useFixtures: false,
-  yellowBox: false,
-  includeExamples: false,
-  useReactotron: false,
-  hotwireDate: true, // false,   // force today to be the day of the conf
-  hotwirePush: false    // force push notifications to happen in 5 seconds
+  yellowBox: true,
+  includeExamples: true,
+  useReactotron: true,
+  hotwireDate: true, // __DEV__,   // force today to be the day of the conf
+  hotwirePush: __DEV__    // force push notifications to happen in 5 seconds
 }
