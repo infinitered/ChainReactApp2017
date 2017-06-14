@@ -5,52 +5,52 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.014088">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.029223">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.01493">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.049822">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: cocoapods" time="8.313154">
+      <testcase classname="fastlane.lanes" name="2: cocoapods" time="38.1274">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: ascii_art" time="0.391407">
+      <testcase classname="fastlane.lanes" name="3: ascii_art" time="1.426392">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: increment_build_number" time="2.64743">
+      <testcase classname="fastlane.lanes" name="4: increment_build_number" time="17.256991">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: appicon" time="4.712635">
+      <testcase classname="fastlane.lanes" name="5: appicon" time="5.762905">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: gym" time="245.423709">
+      <testcase classname="fastlane.lanes" name="6: gym" time="393.107148">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: pilot" time="72.884513">
+      <testcase classname="fastlane.lanes" name="7: pilot" time="62.944207">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="8: mobile_center_upload" time="27.785837">
+      <testcase classname="fastlane.lanes" name="8: mobile_center_upload" time="3.375818">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="9: slack" time="0.420944">
+      <testcase classname="fastlane.lanes" name="9: slack" time="0.473629">
         
       </testcase>
     
