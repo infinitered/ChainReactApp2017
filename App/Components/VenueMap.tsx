@@ -45,7 +45,7 @@ class VenueMap extends React.Component<VenueMapProps, VenueMapState> {
     * a latitude and longitude as well as any additional information you wish to display.
     *************************************************************/
     const locations = [
-      { title: 'The Armory', latitude: 45.524166, longitude: -122.681645 },
+      { title: 'The Armory', latitude: 45.524166, longitude: -122.681645 }
     ]
     /* ***********************************************************
     * STEP 2
@@ -58,7 +58,7 @@ class VenueMap extends React.Component<VenueMapProps, VenueMapState> {
     this.state = {
       region,
       locations,
-      showUserLocation: true,
+      showUserLocation: true
     }
     this.renderMapMarkers = this.renderMapMarkers.bind(this)
     this.onRegionChange = this.onRegionChange.bind(this)

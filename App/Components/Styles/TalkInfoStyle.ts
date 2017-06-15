@@ -10,33 +10,33 @@ export default StyleSheet.create({
     paddingHorizontal: Metrics.doubleBaseMargin,
     borderBottomLeftRadius: Metrics.cardRadius,
     borderBottomRightRadius: Metrics.cardRadius,
-    backgroundColor: Colors.silver,
+    backgroundColor: Colors.silver
   },
   details: {
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   detail: {
-    paddingRight: Metrics.doubleBaseMargin,
+    paddingRight: Metrics.doubleBaseMargin
   },
   detailLabel: {
     fontFamily: 'Montserrat-Light',
     fontSize: 11,
     color: Colors.lightText,
-    letterSpacing: 0,
+    letterSpacing: 0
   },
   detailText: {
     fontFamily: 'Montserrat-SemiBold',
     fontSize: 11,
     color: Colors.darkPurple,
-    letterSpacing: 0,
+    letterSpacing: 0
   },
   remindMe: {
     flex: 1,
-    alignItems: 'stretch',
+    alignItems: 'stretch'
   },
   socialButtons: {
     alignItems: 'center',
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'
+  }
 })

@@ -25,7 +25,7 @@ export default class Break extends React.Component<BreakProps, BreakState> {
     super(props)
 
     this.state = {
-      imageWidth: 335,
+      imageWidth: 335
     }
   }
 
@@ -33,7 +33,7 @@ export default class Break extends React.Component<BreakProps, BreakState> {
     const width = event.nativeEvent.layout.width
 
     this.setState({
-      imageWidth: width,
+      imageWidth: width
     })
   }
 
@@ -43,13 +43,13 @@ export default class Break extends React.Component<BreakProps, BreakState> {
       title,
       duration,
       isCurrentDay,
-      isActive,
+      isActive
     } = this.props
 
     const containerStyles = [
       styles.container,
       isCurrentDay && styles.currentDay,
-      isActive && styles.active,
+      isActive && styles.active
     ]
 
     const background = Images[`${type}Break`]

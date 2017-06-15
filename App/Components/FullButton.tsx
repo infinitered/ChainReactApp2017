@@ -8,7 +8,7 @@ ExamplesRegistry.addComponentExample('Full Button', () =>
   <FullButton
     text='Hey there'
     onPress={() => window.alert('Full Button Pressed!')}
-  />,
+  />
 )
 
 interface FullButtonProps {

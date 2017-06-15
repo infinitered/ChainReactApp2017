@@ -20,22 +20,22 @@ const RemindMeButtonStyle: RemindMeButtonStyleType = {
     borderColor: Colors.red,
     borderRadius: 100,
     backgroundColor: Colors.clear,
-    height: 34,
+    height: 34
   },
   activeButton: {
-    backgroundColor: Colors.red,
+    backgroundColor: Colors.red
   },
   icon: {
-    marginRight: 7,
+    marginRight: 7
   },
   text: {
     fontFamily: Fonts.type.medium,
     fontSize: 11,
-    color: Colors.red,
+    color: Colors.red
   },
   activeText: {
-    color: Colors.snow,
-  },
+    color: Colors.snow
+  }
 }
 
 export default RemindMeButtonStyle

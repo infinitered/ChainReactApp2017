@@ -5,11 +5,11 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     marginVertical: Metrics.baseMargin,
-    marginHorizontal: Metrics.doubleBaseMargin,
+    marginHorizontal: Metrics.doubleBaseMargin
   },
   currentDay: {
     marginLeft: 16,
-    marginRight: 24,
+    marginRight: 24
   },
   active: {
     marginLeft: 6,
@@ -17,14 +17,14 @@ export default StyleSheet.create({
     borderRadius: 5,
     shadowOffset: {
       width: 1,
-      height: 1,
+      height: 1
     },
     shadowRadius: 5,
     shadowColor: Colors.redShadow,
-    shadowOpacity: 1,
+    shadowOpacity: 1
   },
   finished: {
-    opacity: 0.7,
+    opacity: 0.7
   },
   info: {
     flex: 1,
@@ -33,31 +33,31 @@ export default StyleSheet.create({
     padding: Metrics.doubleBaseMargin,
     borderTopLeftRadius: Metrics.cardRadius,
     borderTopRightRadius: Metrics.cardRadius,
-    backgroundColor: Colors.snow,
+    backgroundColor: Colors.snow
   },
   infoText: {
     flex: 1,
-    paddingRight: Metrics.doubleBaseMargin,
+    paddingRight: Metrics.doubleBaseMargin
   },
   title: {
     fontFamily: 'Montserrat-SemiBold',
     fontSize: 17,
     color: Colors.darkPurple,
-    letterSpacing: 0,
+    letterSpacing: 0
   },
   name: {
     fontFamily: 'Montserrat-Light',
     fontSize: 13,
     color: Colors.lightText,
     letterSpacing: 0,
-    lineHeight: 18,
+    lineHeight: 18
   },
   avatar: {
     width: Metrics.images.avatar,
     height: Metrics.images.avatar,
     borderColor: Colors.avatarBorder,
     borderWidth: 1,
-    borderRadius: Metrics.images.avatar / 2,
+    borderRadius: Metrics.images.avatar / 2
   },
   moreInfo: {
     flexDirection: 'row',
@@ -66,24 +66,24 @@ export default StyleSheet.create({
     paddingHorizontal: Metrics.doubleBaseMargin,
     borderBottomLeftRadius: Metrics.cardRadius,
     borderBottomRightRadius: Metrics.cardRadius,
-    backgroundColor: Colors.silver,
+    backgroundColor: Colors.silver
   },
   details: {
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   detail: {
-    paddingRight: Metrics.doubleBaseMargin,
+    paddingRight: Metrics.doubleBaseMargin
   },
   detailLabel: {
     fontFamily: 'Montserrat-Light',
     fontSize: 11,
     color: Colors.lightText,
-    letterSpacing: 0,
+    letterSpacing: 0
   },
   detailText: {
     fontFamily: 'Montserrat-SemiBold',
     fontSize: 11,
     color: Colors.darkPurple,
-    letterSpacing: 0,
-  },
+    letterSpacing: 0
+  }
 })

@@ -32,7 +32,7 @@ class App extends Component<{}, {}> {
     SplashScreen.close({
       animationType: SplashScreen.animationType.scale,
       duration: 850,
-      delay: 500,
+      delay: 500
     })
   }
 

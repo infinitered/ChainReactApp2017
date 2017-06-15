@@ -34,7 +34,7 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
     super(props)
 
     this.state = {
-      isActive: false,
+      isActive: false
     }
   }
 
@@ -48,7 +48,7 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
     if (this.props.isSpecial) {
       this.props.talkNotSpecial()
       PushNotification.cancelLocalNotifications({
-        id: PNHelpers.pushId(title, startCopy), // cancel both iOS and Android
+        id: PNHelpers.pushId(title, startCopy) // cancel both iOS and Android
       })
     } else {
       // turn on reminder
@@ -58,7 +58,7 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
         number: 0,
         message: PNHelpers.pushMessage(title, startCopy), // (required)
         date: PNHelpers.notificationTime(startCopy),
-        userInfo: {id: PNHelpers.pushId(title, startCopy)}, // for iOS cancel
+        userInfo: {id: PNHelpers.pushId(title, startCopy)} // for iOS cancel
       })
     }
   }
@@ -73,14 +73,14 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
       start,
       duration,
       currentTime,
-      isFinished,
+      isFinished
     } = this.props
 
     const containerStyles = [
       styles.container,
       isCurrentDay && styles.currentDay,
       isActive && styles.active,
-      isFinished && styles.finished,
+      isFinished && styles.finished
     ]
 
     return (

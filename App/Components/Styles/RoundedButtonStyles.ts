@@ -14,15 +14,15 @@ const RoundedButtonStyles: RoundedButtonStylesType = {
     paddingHorizontal: 25,
     paddingVertical: 12,
     backgroundColor: Colors.transparent,
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   buttonText: {
     textAlign: 'center',
     fontFamily: Fonts.type.bold,
     fontSize: 11,
     letterSpacing: 0,
-    color: Colors.snow,
-  },
+    color: Colors.snow
+  }
 }
 
 export default RoundedButtonStyles

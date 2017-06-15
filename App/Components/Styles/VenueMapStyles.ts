@@ -10,7 +10,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-end',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   map: {
     // For Android :/
@@ -18,7 +18,7 @@ export default StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    bottom: 0,
+    bottom: 0
   },
   mapCloseButton: {
     width: 30,
@@ -27,6 +27,6 @@ export default StyleSheet.create({
     margin: Metrics.smallMargin,
     position: 'absolute',
     left: 0,
-    zIndex: 100,
-  },
+    zIndex: 100
+  }
 })

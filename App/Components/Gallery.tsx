@@ -17,7 +17,7 @@ export default class Gallery extends React.Component<GalleryProps, GalleryState>
     super(props)
 
     this.state = {
-      activeTab: Object.keys(props.data)[0],
+      activeTab: Object.keys(props.data)[0]
     }
   }
 
