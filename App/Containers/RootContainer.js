@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { View, StatusBar } from 'react-native'
-import Navigation from '../Navigation/AppNavigation'
-import { addNavigationHelpers } from 'react-navigation'
+import ReduxNavigation from '../Navigation/ReduxNavigation'
 import { connect } from 'react-redux'
 import StartupActions from '../Redux/StartupRedux'
 import NotificationActions from '../Redux/NotificationRedux'
@@ -19,7 +18,7 @@ class RootContainer extends Component {
 
   render () {
     const {
-      dispatch, nav, notifications, clearNotifications
+      notifications, clearNotifications
     } = this.props
 
     return (
@@ -29,9 +28,7 @@ class RootContainer extends Component {
           notifications={notifications}
           clearNotifications={clearNotifications}
         />
-        <Navigation
-          addNavigationHelpers={addNavigationHelpers({dispatch, state: nav})}
-        />
+        <ReduxNavigation />
       </View>
     )
   }
