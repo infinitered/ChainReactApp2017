@@ -1,6 +1,7 @@
 import { format } from 'date-fns'
 import { Platform } from 'react-native'
 import DebugConfig from '../Config/DebugConfig'
+import Config from '../Config/AppConfig'
 
 const fifteenMinutes = 15 * 60 * 1000
 
@@ -27,12 +28,16 @@ const notificationTime = (talkTime) => {
   if (DebugConfig.hotwirePush) {
     return new Date(Date.now() + (5 * 1000))
   } else {
-    // pretending today is the day
+    // Pretending the day we open the app is day 1
     if (DebugConfig.hotwireDate) {
       const today = new Date()
       talkTime.setFullYear(today.getFullYear())
       talkTime.setMonth(today.getMonth())
-      talkTime.setDate(today.getDate())
+
+      // Add days as needed
+      const firstDay = new Date(Config.conferenceDates[0])
+      const dayDiff = talkTime.getDate() - firstDay.getDate()
+      talkTime.setDate(today.getDate() + dayDiff)
     }
     return new Date(talkTime.getTime() - fifteenMinutes)
   }
