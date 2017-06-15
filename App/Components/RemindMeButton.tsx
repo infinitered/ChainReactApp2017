@@ -5,7 +5,7 @@ import styles from './Styles/RemindMeButtonStyle'
 
 interface RemindMeProps {
   on: boolean
-  onPress(): void
+  onPress (): void
 }
 
 const RemindMeButton = (props: RemindMeProps) => {

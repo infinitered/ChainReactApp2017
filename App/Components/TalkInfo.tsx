@@ -9,11 +9,11 @@ interface TalkInfoProps {
   start: Date
   duration: Number
   remindMe: boolean
-  toggleRemindMe(): void
+  toggleRemindMe (): void
   isFinished: boolean
   showWhenFinished: boolean
-  onPressGithub(): void
-  onPressTwitter(): void
+  onPressGithub (): void
+  onPressTwitter (): void
 }
 
 const TalkInfo = (props: TalkInfoProps) => {

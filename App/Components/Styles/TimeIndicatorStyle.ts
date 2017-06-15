@@ -13,14 +13,14 @@ const ButtonStyles: TimeStyles = {
     position: 'absolute',
     top: 0,
     right: 0,
-    marginTop: -18
+    marginTop: -18,
   },
   time: {
     fontFamily: Fonts.type.bold,
     fontSize: 8,
     color: Colors.snow,
-    backgroundColor: Colors.transparent
-  }
+    backgroundColor: Colors.transparent,
+  },
 }
 
 export default ButtonStyles

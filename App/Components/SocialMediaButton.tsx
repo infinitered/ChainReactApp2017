@@ -9,11 +9,11 @@ ExamplesRegistry.addComponentExample('SocialMediaButton', () =>
   <SocialMediaButton
     network='twitter'
     onPress={() => window.alert('Lets Get Social AF')}
-  />
+  />,
 )
 
 interface SocialMediaButtonProps {
-  onPress(): void
+  onPress (): void
   style?: StyleSheet
   network: 'twitter' | 'github'
   spacing?: 'left' | 'right'

@@ -80,7 +80,7 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
       styles.container,
       isCurrentDay && styles.currentDay,
       isActive && styles.active,
-      isFinished && styles.finished
+      isFinished && styles.finished,
     ]
 
     return (

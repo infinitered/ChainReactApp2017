@@ -18,11 +18,11 @@ interface GalleryStyleType {
 
 const GalleryStyle: GalleryStyleType = {
   container: {
-    flex: 1
+    flex: 1,
   },
   tabs: {
     flexDirection: 'row',
-    marginTop: 20
+    marginTop: 20,
   },
   tab: {
     flex: 1,
@@ -30,56 +30,56 @@ const GalleryStyle: GalleryStyleType = {
     justifyContent: 'center',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(253,229,255,0.5)',
-    padding: 5
+    padding: 5,
   },
   tabText: {
     fontFamily: Fonts.type.base,
     fontSize: 15,
     lineHeight: 23,
     letterSpacing: 0.47,
-    color: 'rgba(253,229,255,0.5)'
+    color: 'rgba(253,229,255,0.5)',
   },
   activeTab: {
-    borderBottomColor: Colors.snow
+    borderBottomColor: Colors.snow,
   },
   activeTabText: {
-    color: Colors.snow
+    color: Colors.snow,
   },
   gallery: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 35
+    paddingVertical: 35,
   },
   item: {
     margin: 5,
     borderWidth: 1,
     borderColor: Colors.snow,
-    width: Metrics.screenWidth / 2 - 10
+    width: Metrics.screenWidth / 2 - 10,
   },
   itemImage: {
-    width: Metrics.screenWidth / 2 - 10 - 2
+    width: Metrics.screenWidth / 2 - 10 - 2,
   },
   itemDetail: {
     paddingHorizontal: 10,
     paddingVertical: 8,
-    backgroundColor: Colors.snow
+    backgroundColor: Colors.snow,
   },
   itemTitle: {
     fontFamily: Fonts.type.semiBold,
     fontSize: 15,
     letterSpacing: 0,
     minHeight: 40,
-    color: Colors.darkPurple
+    color: Colors.darkPurple,
   },
   itemAction: {
     fontFamily: Fonts.type.medium,
     fontSize: 13,
     lineHeight: 18,
     letterSpacing: 0,
-    color: Colors.darkPurple
-  }
+    color: Colors.darkPurple,
+  },
 }
 
 export default GalleryStyle

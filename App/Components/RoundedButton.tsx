@@ -8,11 +8,11 @@ ExamplesRegistry.addComponentExample('Rounded Button', () =>
   <RoundedButton
     text='real buttons have curves'
     onPress={() => window.alert('Rounded Button Pressed!')}
-  />
+  />,
 )
 
 interface RoundedButtonProps {
-  onPress(): void
+  onPress (): void
   text: string
   navigator?: Navigator
   style?: StyleSheet

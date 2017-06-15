@@ -36,7 +36,7 @@ export const calculateRegion = (locations, options) => {
     latitude: middleLat,
     longitude: middleLong,
     latitudeDelta: latDelta,
-    longitudeDelta: longDelta
+    longitudeDelta: longDelta,
   }
 }
 

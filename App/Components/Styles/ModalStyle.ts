@@ -17,12 +17,12 @@ const ModalStyle: ModalStyleType = {
   ...ApplicationStyles.screen,
   container: {
     flex: 1,
-    marginTop: 40
+    marginTop: 40,
   },
   colorBump: {
     backgroundColor: Colors.transparentBump,
     flex: 1,
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   heading: {
     marginTop: 14,
@@ -31,7 +31,7 @@ const ModalStyle: ModalStyleType = {
     letterSpacing: 0.2,
     backgroundColor: Colors.transparent,
     color: Colors.snow,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   description: {
     textAlign: 'center',
@@ -40,13 +40,13 @@ const ModalStyle: ModalStyleType = {
     color: '#FDE5FF',
     letterSpacing: 0.47,
     lineHeight: 23,
-    paddingVertical: 10
+    paddingVertical: 10,
   },
   closeButton: {
     position: 'absolute',
     paddingTop: 30,
     paddingHorizontal: 10,
-    zIndex: 10
+    zIndex: 10,
   },
   button: {
     flexDirection: 'row',
@@ -55,21 +55,21 @@ const ModalStyle: ModalStyleType = {
     paddingHorizontal: 5,
     marginHorizontal: 15,
     backgroundColor: Colors.clear,
-    height: 40
+    height: 40,
   },
   closeIcon: {
     color: Colors.silver,
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
   icon: {
-    marginRight: 7
+    marginRight: 7,
   },
   text: {
     fontFamily: Fonts.style.base,
     fontSize: 17,
     color: Colors.silver,
-    backgroundColor: Colors.clear
-  }
+    backgroundColor: Colors.clear,
+  },
 }
 
 export default ModalStyle

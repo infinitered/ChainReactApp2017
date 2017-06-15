@@ -8,12 +8,12 @@ ExamplesRegistry.addComponentExample('Full Button', () =>
   <FullButton
     text='Hey there'
     onPress={() => window.alert('Full Button Pressed!')}
-  />
+  />,
 )
 
 interface FullButtonProps {
   text: string
-  onPress(): void
+  onPress (): void
   styles?: StyleSheet
 }
 

@@ -20,11 +20,11 @@ const BreakStyle: BreakStyleType = {
     marginVertical: Metrics.baseMargin,
     marginHorizontal: Metrics.doubleBaseMargin,
     backgroundColor: Colors.transparent,
-    height: Metrics.breakHeight
+    height: Metrics.breakHeight,
   },
   currentDay: {
     marginLeft: 16,
-    marginRight: 24
+    marginRight: 24,
   },
   active: {
     marginLeft: 6,
@@ -32,16 +32,16 @@ const BreakStyle: BreakStyleType = {
     borderRadius: 5,
     shadowOffset: {
       width: 1,
-      height: 1
+      height: 1,
     },
     shadowRadius: 5,
     shadowColor: Colors.redShadow,
-    shadowOpacity: 1
+    shadowOpacity: 1,
   },
   background: {
     flex: 2,
     resizeMode: 'cover',
-    borderRadius: 5
+    borderRadius: 5,
   },
   video: {
     position: 'absolute',
@@ -49,7 +49,7 @@ const BreakStyle: BreakStyleType = {
     left: 0,
     bottom: 0,
     right: 0,
-    borderRadius: 5
+    borderRadius: 5,
   },
   contentContainer: {
     position: 'absolute',
@@ -58,12 +58,12 @@ const BreakStyle: BreakStyleType = {
     left: 0,
     right: 0,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   sponsor: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 15
+    marginRight: 15,
   },
   sponsorText: {
     marginTop: 4,
@@ -71,11 +71,11 @@ const BreakStyle: BreakStyleType = {
     fontSize: 11,
     letterSpacing: 0,
     backgroundColor: Colors.transparent,
-    color: Colors.snow
+    color: Colors.snow,
   },
   content: {
     justifyContent: 'center',
-    marginLeft: 15
+    marginLeft: 15,
   },
   heading: {
     fontFamily: Fonts.type.semiBold,
@@ -83,15 +83,15 @@ const BreakStyle: BreakStyleType = {
     letterSpacing: -0.2,
     lineHeight: 27,
     backgroundColor: Colors.transparent,
-    color: Colors.snow
+    color: Colors.snow,
   },
   duration: {
     fontFamily: Fonts.type.semiBold,
     fontSize: 16,
     letterSpacing: -0.19,
     backgroundColor: Colors.transparent,
-    color: Colors.snow
-  }
+    color: Colors.snow,
+  },
 }
 
 export default BreakStyle
