@@ -32,7 +32,7 @@ platform :ios do
       end
     end
 
-    cocoapods
+    # cocoapods
   end
 
   desc "Runs all the tests"
