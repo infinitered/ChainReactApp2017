@@ -21,8 +21,8 @@ import { calculateRegion } from '../Lib/MapHelpers'
 interface VenueMapProps {
   scrollEnabled: boolean
   mapViewMode: boolean
-  onCloseMap (): void
   style: StyleSheet
+  onCloseMap (): void
 }
 
 interface VenueMapState {

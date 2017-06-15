@@ -9,9 +9,9 @@ interface TalkInfoProps {
   start: Date
   duration: Number
   remindMe: boolean
-  toggleRemindMe (): void
   isFinished: boolean
   showWhenFinished: boolean
+  toggleRemindMe (): void
   onPressGithub (): void
   onPressTwitter (): void
 }

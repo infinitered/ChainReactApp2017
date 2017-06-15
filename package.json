@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "lint": "standard --verbose | snazzy",
+    "lint": "standard --verbose | snazzy && npm run tslint",
     "tslint": "tslint 'App/**/*.{ts,tsx}'",
     "fixts": "tslint 'App/**/*.{ts,tsx}' --fix",
     "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs standard | snazzy",
