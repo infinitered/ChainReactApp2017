@@ -87,7 +87,11 @@ class ScheduleScreen extends Component {
 
     const { data } = this.state
     const index = this.getActiveIndex(data)
-    this.refs.scheduleList.scrollToIndex({index, animated: false})
+    // fixes https://github.com/facebook/react-native/issues/13202
+    const wait = new Promise((resolve) => setTimeout(resolve, 200))
+    wait.then(() => {
+      this.refs.scheduleList.scrollToIndex({index, animated: false})
+    })
   }
 
   componentWillUnmount () {
