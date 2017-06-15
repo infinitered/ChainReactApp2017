@@ -220,13 +220,13 @@
           "company": "Instrument",
           "twitter": "kylpo",
           "github": "yokelpole",
-          "bio":"Kyle Poole and Thomas Bruketta will co-present this talk. This dynamic duo has been crafting React Native applications at Instrument (here in Portland) over the last year for global clients. Kyle Poole is a full stack web and mobile developer using React (+Native) at Instrument. He’s been using React since v0.5.1 (3.5+ years). Thomas likes dragons and he casts spells using React Native."
+          "bio":"Kyle Poole is a full stack web and mobile developer using React (+Native) at Instrument. He’s been using React since v0.5.1 (3.5+ years)."
         },
         {
           "name": "Thomas Brunketta",
           "company": "Instrument",
           "twitter": "SirTeebs",
-          "bio":"Kyle Poole and Thomas Bruketta will co-present this talk. This dynamic duo has been crafting React Native applications at Instrument (here in Portland) over the last year for global clients. Both developers are contributors to the React Native open source community and Kyle Poole has created a collection of React Native primitives called Constelation that are a part of our team’s daily workflow "
+          "bio":"Thomas likes dragons and he casts spells using React Native."
         }
       ]
     },
@@ -316,7 +316,7 @@
           "twitter":"nparashuram",
           "github": "axemclion",
           "company":"Microsoft",
-          "bio":"Parashuram is a Senior Program Manager with Microsoft Open Technologies Inc and works on many interesting open source projects including Apache Cordova and Chromium. He is a front end developer passionate about web performance and like to talk about performance practices at conferences. He is also a committer and a member of the Project Management Committee of Apache Cordova."
+          "bio":"Parashuram is a Senior Program Manager with Microsoft and works on many interesting open source projects including Apache Cordova and Chromium. He is a front end developer passionate about web performance and like to talk about performance practices at conferences. He is also a committer and a member of the Project Management Committee of Apache Cordova."
         }
       ]
     },
@@ -370,7 +370,7 @@
           "twitter": "syke",
           "github": "matthargett",
           "company": "Blue Jeans",
-          "bio": "React Native contributer."
+          "bio": "Dad, husband, songwriter, gaymer. Programming for over 30 years, open source contributor for 20 years. Lives in San Francisco."
         },
         {
           "name": "Mateo Barraza",

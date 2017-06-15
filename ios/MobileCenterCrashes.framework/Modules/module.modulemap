@@ -1,0 +1,11 @@
+framework module MobileCenterCrashes {
+  umbrella header "MobileCenterCrashes.h"
+  
+  export *
+  module * { export * }
+  
+  link framework "Foundation"
+  link framework "MobileCoreServices"
+  link "c++"
+  link "z"
+}
