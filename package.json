@@ -90,6 +90,8 @@
     "react-native-typescript-transformer": "^1.0.9",
     "snazzy": "7.0.0",
     "standard": "10.0.2",
+    "tslint": "^5.4.3",
+    "tslint-config-standard": "^6.0.1",
     "typescript": "^2.3.4"
   },
   "ava": {
