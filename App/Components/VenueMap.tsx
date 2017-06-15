@@ -21,8 +21,8 @@ import { calculateRegion } from '../Lib/MapHelpers'
 interface VenueMapProps {
   scrollEnabled: boolean
   mapViewMode: boolean
-  onCloseMap(): void
   style: StyleSheet
+  onCloseMap (): void
 }
 
 interface VenueMapState {
@@ -30,7 +30,6 @@ interface VenueMapState {
   locations: object[]
   showUserLocation: boolean
 }
-
 
 class VenueMap extends React.Component<VenueMapProps, VenueMapState> {
   /* ***********************************************************

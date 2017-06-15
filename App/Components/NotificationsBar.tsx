@@ -45,7 +45,7 @@ const NotificationScreen = ({notifications, onDismissModal}) => {
 
 interface NotificationsBarProps {
   notifications: string[]
-  clearNotifications(): void
+  clearNotifications (): void
 }
 
 interface NotificationsBarState {

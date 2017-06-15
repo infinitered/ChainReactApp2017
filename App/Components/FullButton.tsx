@@ -13,8 +13,8 @@ ExamplesRegistry.addComponentExample('Full Button', () =>
 
 interface FullButtonProps {
   text: string
-  onPress(): void
   styles?: StyleSheet
+  onPress (): void
 }
 
 const FullButton = (props: FullButtonProps) => {

@@ -1,0 +1,8 @@
+// W00t comments inside of JSON!
+{
+  "extends": "tslint-config-standard"
+  // Keep it like regular standard for now
+  // "rules": {
+  //   "trailing-comma": [true, {"multiline": "always", "singleline": "never"}]
+  // }
+}

@@ -12,17 +12,17 @@ interface TalkProps {
   avatarURL: string
   start: Date
   duration: number
-  onPress(): void
-  onPressTwitter(): void
-  onPressGithub(): void
-  talkSpecial(): void
-  talkNotSpecial(): void
   isFinished: boolean
   showWhenFinished: boolean
   isSpecial: boolean
   isCurrentDay: boolean
   isActive: boolean
   currentTime: Date
+  onPress (): void
+  onPressTwitter (): void
+  onPressGithub (): void
+  talkSpecial (): void
+  talkNotSpecial (): void
 }
 
 interface TalkState {

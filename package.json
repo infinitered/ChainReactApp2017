@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "lint": "standard --verbose | snazzy",
+    "lint": "standard --verbose | snazzy && npm run tslint",
+    "tslint": "tslint 'App/**/*.{ts,tsx}'",
+    "fixts": "tslint 'App/**/*.{ts,tsx}' --fix",
     "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs standard | snazzy",
     "fixcode": "standard --fix",
+    "tryRelease": "react-native run-ios --configuration Release",
     "clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && npm cache clean",
     "clean:android": "cd android/ && ./gradlew clean && cd .. && react-native run-android",
     "newclear": "rm -rf $TMPDIR/react-* && watchman watch-del-all && rm -rf ios/build && rm -rf node_modules/ && npm cache clean && npm i",
@@ -90,6 +93,8 @@
     "react-native-typescript-transformer": "^1.0.9",
     "snazzy": "7.0.0",
     "standard": "10.0.2",
+    "tslint": "^5.4.3",
+    "tslint-config-standard": "^6.0.1",
     "typescript": "^2.3.4"
   },
   "ava": {

@@ -13,7 +13,7 @@ interface BreakProps {
   title: string
   isCurrentDay: boolean
   isActive: boolean
-  onPress(): void
+  onPress (): void
 }
 
 interface BreakState {

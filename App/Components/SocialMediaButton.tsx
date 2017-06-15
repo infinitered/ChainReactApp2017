@@ -13,10 +13,10 @@ ExamplesRegistry.addComponentExample('SocialMediaButton', () =>
 )
 
 interface SocialMediaButtonProps {
-  onPress(): void
   style?: StyleSheet
   network: 'twitter' | 'github'
   spacing?: 'left' | 'right'
+  onPress (): void
 }
 
 const SocialMediaButton = (props: SocialMediaButtonProps) => {

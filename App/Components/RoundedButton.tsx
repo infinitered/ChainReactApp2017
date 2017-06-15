@@ -12,11 +12,11 @@ ExamplesRegistry.addComponentExample('Rounded Button', () =>
 )
 
 interface RoundedButtonProps {
-  onPress(): void
   text: string
   navigator?: Navigator
   style?: StyleSheet
   children?: string | Object
+  onPress (): void
 }
 
 const RoundedButton = (props: RoundedButtonProps) => {
