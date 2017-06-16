@@ -2,7 +2,7 @@
 import apisauce from 'apisauce'
 
 // our "constructor"
-const create = (baseURL = 'https://rawgit.com/infinitered/ChainReactApp/master/') => {
+const create = (baseURL = 'https://infinite.red/files/') => {
   // ------
   // STEP 1
   // ------
@@ -34,8 +34,8 @@ const create = (baseURL = 'https://rawgit.com/infinitered/ChainReactApp/master/'
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
   //
-  const getSpeakers = () => api.get('App/Fixtures/schedule.json')
-  const getNearby = () => api.get('App/Fixtures/nearby.json')
+  const getSpeakers = () => api.get('schedule.json')
+  const getNearby = () => api.get('nearby.json')
 
   // ------
   // STEP 3
