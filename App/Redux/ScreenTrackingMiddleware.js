@@ -1,0 +1,43 @@
+import { NavigationActions } from 'react-navigation'
+import Analytics from 'mobile-center-analytics'
+
+// gets the current screen from navigation state
+const getCurrentRouteName = (navigationState) => {
+  if (!navigationState) {
+    return null
+  }
+  const route = navigationState.routes[navigationState.index]
+  // dive into nested navigators
+  if (route.routes) {
+    return getCurrentRouteName(route)
+  }
+  return route.routeName
+}
+
+const screenTracking = ({ getState }) => next => (action) => {
+  if (
+    action.type !== NavigationActions.NAVIGATE &&
+    action.type !== NavigationActions.BACK
+  ) {
+    return next(action)
+  }
+
+  const currentScreen = getCurrentRouteName(getState().nav)
+  const result = next(action)
+  const nextScreen = getCurrentRouteName(getState().nav)
+  if (nextScreen !== currentScreen) {
+    try {
+      console.tron.log(`NAVIGATING ${currentScreen} to ${nextScreen}`)
+      Analytics.trackEvent('user_navigation', {currentScreen, nextScreen})
+      // If a speaker is clicked, remember who
+      if (nextScreen === 'TalkDetail' && getState().schedule.selectedEvent.type === 'talk') {
+        Analytics.trackEvent('speaker_detail', {name: getState().schedule.selectedEvent.speaker})
+      }
+    } catch (e) {
+      console.tron.log(e)
+    }
+  }
+  return result
+}
+
+export default screenTracking

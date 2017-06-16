@@ -21,6 +21,7 @@ const TabNav = TabNavigator({
   Location: { screen: LocationScreen },
   About: { screen: AboutScreen }
 }, {
+  key: 'Schedule',
   tabBarComponent: TabBarBottom,
   tabBarPosition: 'bottom',
   animationEnabled: true,
@@ -35,12 +36,4 @@ const TabNav = TabNavigator({
   }
 })
 
-const AppStack = StackNavigator({
-  App: { screen: TabNav },
-  Notification: { screen: AboutScreen }
-}, {
-  headerMode: 'none',
-  initialRouteName: 'App'
-})
-
-export default AppStack
+export default TabNav
