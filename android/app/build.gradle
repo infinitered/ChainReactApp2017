@@ -104,7 +104,7 @@ android {
         applicationId "com.chainreactapp"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 15
+        versionCode 18
         versionName "1.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
