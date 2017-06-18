@@ -19,6 +19,7 @@
     "beta": "npm run beta:ios && npm run beta:android",
     "codePush:ios": "code-push release-react ChainReactConf ios",
     "codePush:android": "code-push release-react ChainReactConf-Android android",
+    "codePushTest": "code-push release-react ChainReactConf ios --rollout 25%",
     "test": "ava",
     "test:watch": "ava --watch",
     "coverage": "nyc ava && nyc report --reporter=html && open coverage/index.html || xdg-open coverage/index.html",

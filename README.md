@@ -11,9 +11,6 @@
 
 **Step 3:** Install the Application with `yarn`
 
-**Step 3:** Install the Cocoapods with `cd ios && pod install`
-
-
 
 ## :arrow_forward: How to Run App
 
@@ -24,6 +21,10 @@
   * for Android
     * Run Genymotion
     * run `react-native run-android`
+
+## How to deploy app
+
+If you're lucky enough to see https://github.com/GantMan/ChainReact-Keys2Kingdom then you now have access to ALL the magic that is needed to deploy this app on every platform/medium it is available.
 
 ## :no_entry_sign: Standard Compliant
 
