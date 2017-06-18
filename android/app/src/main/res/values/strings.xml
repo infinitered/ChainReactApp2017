@@ -1,4 +1,6 @@
 <resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">FVAlPPy3G_D5uI7sppU_oA7la0Ch756512e3-04b4-4113-83a7-d7f81b62aa12</string>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey"></string>
     <string moduleConfig="true" name="mobileCenterCrashes_whenToSendCrashes">ALWAYS_SEND</string>
     <string moduleConfig="true" name="mobileCenterAnalytics_whenToEnableAnalytics">ALWAYS_SEND</string>
     <string name="app_name">Chain React</string>
