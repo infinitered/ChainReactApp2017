@@ -21,7 +21,7 @@ platform :android do
     if File.exist?('../../.env')
       open('../../.env', 'r').readlines.each do |l|
         kv = l.split('=')
-        ENV[kv[0]] = kv[1].chomp
+        ENV[kv[0]] = kv[1].chomp if kv[1]
       end
     end
   end
