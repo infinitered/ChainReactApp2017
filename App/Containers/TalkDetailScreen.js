@@ -60,6 +60,7 @@ class TalkDetail extends React.Component {
     return (speakerInfo.map((speaker, index) => this.renderSpeaker(speaker, index)))
   }
 
+  // TODO:  Move the 2 toggleReminder buttons to a single file in /Lib
   toggleReminder = () => {
     const {title, eventStart} = this.props
     // Make a copy otherwise could be modified!!!
@@ -77,9 +78,11 @@ class TalkDetail extends React.Component {
       // turn on reminder
       this.props.talkSpecial(title)
       PushNotification.localNotificationSchedule({
+        id: PNHelpers.pushId(title, startCopy), // for android cancel
+        number: 0,
         message: PNHelpers.pushMessage(title, startCopy), // (required)
         date: PNHelpers.notificationTime(startCopy),
-        userInfo: {id: PNHelpers.pushMessage(title, startCopy)}
+        userInfo: {id: PNHelpers.pushId(title, startCopy)} // for iOS cancel
       })
     }
   }
