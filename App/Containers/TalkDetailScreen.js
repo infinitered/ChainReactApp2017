@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, Text, View, Image, TouchableOpacity, LayoutAnimation } from 'react-native'
+import { BackHandler, ScrollView, Text, View, Image, TouchableOpacity, LayoutAnimation } from 'react-native'
 import PurpleGradient from '../Components/PurpleGradient'
 import TalkInfo from '../Components/TalkInfo'
 import SocialMediaButton from '../Components/SocialMediaButton'
@@ -21,6 +21,10 @@ class TalkDetail extends React.Component {
     tabBarIcon: ({ focused }) => (
       <Image source={focused ? Images.activeScheduleIcon : Images.inactiveScheduleIcon} />
     )
+  }
+
+  componentDidMount () {
+    BackHandler.addEventListener('hardwareBackPress', this.goBack)
   }
 
   goBack = () => {
