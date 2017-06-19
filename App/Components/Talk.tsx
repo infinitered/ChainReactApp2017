@@ -5,6 +5,7 @@ import TimeIndicator from './TimeIndicator'
 import styles from './Styles/TalkStyle'
 import PushNotification from 'react-native-push-notification'
 import PNHelpers from '../Lib/PushNotificationHelpers'
+import SBHelper from '../Lib/SpecialButtonHelper'
 
 interface TalkProps {
   title: string
@@ -38,31 +39,6 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
     }
   }
 
-  toggleReminder = () => {
-    const {title, start} = this.props
-    // Make a copy otherwise could be modified!!!
-    const startCopy = new Date(start.valueOf())
-    LayoutAnimation.easeInEaseOut()
-
-    // turn off reminder
-    if (this.props.isSpecial) {
-      this.props.talkNotSpecial()
-      PushNotification.cancelLocalNotifications({
-        id: PNHelpers.pushId(title, startCopy) // cancel both iOS and Android
-      })
-    } else {
-      // turn on reminder
-      this.props.talkSpecial()
-      PushNotification.localNotificationSchedule({
-        id: PNHelpers.pushId(title, startCopy), // for android cancel
-        number: 0,
-        message: PNHelpers.pushMessage(title, startCopy), // (required)
-        date: PNHelpers.notificationTime(startCopy),
-        userInfo: {id: PNHelpers.pushId(title, startCopy)} // for iOS cancel
-      })
-    }
-  }
-
   render () {
     const {
       isCurrentDay,
@@ -73,7 +49,10 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
       start,
       duration,
       currentTime,
-      isFinished
+      isFinished,
+      isSpecial,
+      setReminder,
+      removeReminder
     } = this.props
 
     const containerStyles = [
@@ -100,7 +79,7 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
               remindMe={this.props.isSpecial}
               isFinished={isFinished || isActive}
               showWhenFinished={this.props.showWhenFinished}
-              toggleRemindMe={this.toggleReminder}
+              toggleRemindMe={SBHelper.toggleReminder(title, start, isSpecial, setReminder, removeReminder)}
               onPressGithub={this.props.onPressGithub}
               onPressTwitter={this.props.onPressTwitter}
             />
