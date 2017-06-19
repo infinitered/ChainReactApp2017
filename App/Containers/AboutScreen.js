@@ -12,6 +12,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient'
 import RoundedButton from '../Components/RoundedButton'
 import PurpleGradient from '../Components/PurpleGradient'
+import DebugConfig from '../Config/DebugConfig'
 import { Images, Metrics } from '../Themes'
 import { connect } from 'react-redux'
 
@@ -258,7 +259,19 @@ class AboutScreen extends React.Component {
     )
   }
 
+/*
+  <Announcement
+    preEvent={{title: 'Happy Hour', imageUri: ''}}
+    eventDays={[
+      {title: 'Happy Hour', imageUri: 'some cat'},
+      {title: 'Not so Happy Hour', imageUri: 'diff cat'}
+      ]}
+    postEvent={{}}
+  />
+*/
+
   render () {
+    // TODO pull date from AppConfig
     const { activeDay } = this.state
     const notSunday = activeDay === '0' || activeDay === '1'
     return (

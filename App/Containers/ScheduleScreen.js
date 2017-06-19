@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AppState, View, Image, FlatList, AsyncStorage } from 'react-native'
+import { AppState, View, Image, FlatList } from 'react-native'
 import PurpleGradient from '../Components/PurpleGradient'
 import DayToggle from '../Components/DayToggle'
 import Talk from '../Components/Talk'
