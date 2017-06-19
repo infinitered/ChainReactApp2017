@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import RootContainer from './RootContainer'
 import createStore from '../Redux'
 import SplashScreen from 'react-native-smart-splash-screen'
+import codePush from 'react-native-code-push'
 
 // Allow layoutanimations for android
 // import { UIManager } from 'NativeModules'
@@ -45,6 +46,10 @@ class App extends Component<{}, {}> {
   }
 }
 
-export default DebugConfig.useReactotron
+// Add cool reactotron overlay feature
+const exportedApp = DebugConfig.useReactotron
   ? (console as any).tron.overlay(App)
   : App
+
+// Add codepush
+export default codePush(exportedApp)
