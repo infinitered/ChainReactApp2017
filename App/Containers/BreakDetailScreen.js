@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, View, Text, Image, TouchableOpacity } from 'react-native'
+import { BackHandler, ScrollView, View, Text, Image, TouchableOpacity } from 'react-native'
 import PurpleGradient from '../Components/PurpleGradient'
 import { NavigationActions } from 'react-navigation'
 import { connect } from 'react-redux'
@@ -23,6 +23,10 @@ class BreakDetail extends React.Component {
     this.state = {
       imageWidth: 315
     }
+  }
+
+  componentDidMount () {
+    BackHandler.addEventListener('hardwareBackPress', this.goBack)
   }
 
   goBack = () => {
@@ -75,6 +79,21 @@ class BreakDetail extends React.Component {
     )
   }
 
+  renderVeganOptions = (options) => {
+    if (options.length > 0) {
+      return (
+        <View>
+          <Text style={styles.heading}>
+            Vegan Options
+          </Text>
+          <View style={styles.descriptionContainer}>
+            {this.renderOptions(options)}
+          </View>
+        </View>
+      )
+    }
+  }
+
   render () {
     const { options, veganOptions } = this.props
 
@@ -97,12 +116,7 @@ class BreakDetail extends React.Component {
                 <View style={styles.descriptionContainer}>
                   {this.renderOptions(options)}
                 </View>
-                <Text style={styles.heading}>
-                  Vegan Options
-                </Text>
-                <View style={styles.descriptionContainer}>
-                  {this.renderOptions(veganOptions)}
-                </View>
+                {this.renderVeganOptions(veganOptions)}
               </View>
             </View>
           </View>

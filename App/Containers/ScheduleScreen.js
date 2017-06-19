@@ -38,19 +38,8 @@ class ScheduleScreen extends Component {
     super(props)
 
     const { schedule, specialTalks, currentTime } = props
-    const mergeTimes = (e) => {
-      const eventDuration = Number(e.duration)
-      const eventStart = new Date(e.time)
-      // ends 1 millisecond before event
-      const eventEnd = subMilliseconds(addMinutes(eventStart, eventDuration), 1)
 
-      return merge(e, { eventStart, eventEnd, eventDuration })
-    }
-    const sorted = [...schedule].map(mergeTimes).sort((a, b) => {
-      return compareAsc(a.eventStart, b.eventStart)
-    })
-    const eventsByDay = groupWith((a, b) =>
-      isSameDay(a.eventStart, b.eventStart), sorted)
+    const eventsByDay = this.getEventsByDayFromSchedule(schedule)
 
     const activeDay = 0
     const data = addSpecials(specialTalks, eventsByDay[activeDay])
@@ -71,6 +60,21 @@ class ScheduleScreen extends Component {
         }
       />
     )
+  }
+
+  getEventsByDayFromSchedule = (schedule) => {
+    const mergeTimes = (e) => {
+      const eventDuration = Number(e.duration)
+      const eventStart = new Date(e.time)
+      // ends 1 millisecond before event
+      const eventEnd = subMilliseconds(addMinutes(eventStart, eventDuration), 1)
+
+      return merge(e, { eventStart, eventEnd, eventDuration })
+    }
+    const sorted = [...schedule].map(mergeTimes).sort((a, b) => {
+      return compareAsc(a.eventStart, b.eventStart)
+    })
+    return groupWith((a, b) => isSameDay(a.eventStart, b.eventStart), sorted)
   }
 
   onEventPress = (item) => {
@@ -108,13 +112,14 @@ class ScheduleScreen extends Component {
 
   componentWillReceiveProps (newProps) {
     const { activeDay, eventsByDay } = this.state
-    const { specialTalks, currentTime } = newProps
+    const { specialTalks, currentTime, schedule } = newProps
 
     // Update currentTime before updating data
     if (currentTime) {
       this.setState({ currentTime }, () => {
         this.setState({
           data: addSpecials(specialTalks, eventsByDay[activeDay]),
+          eventsByDay: this.getEventsByDayFromSchedule(schedule),
           isCurrentDay: isActiveCurrentDay(currentTime, activeDay)
         })
       })
