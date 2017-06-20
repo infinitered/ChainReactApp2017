@@ -38,19 +38,8 @@ class ScheduleScreen extends Component {
     super(props)
 
     const { schedule, specialTalks, currentTime } = props
-    const mergeTimes = (e) => {
-      const eventDuration = Number(e.duration)
-      const eventStart = new Date(e.time)
-      // ends 1 millisecond before event
-      const eventEnd = subMilliseconds(addMinutes(eventStart, eventDuration), 1)
 
-      return merge(e, { eventStart, eventEnd, eventDuration })
-    }
-    const sorted = [...schedule].map(mergeTimes).sort((a, b) => {
-      return compareAsc(a.eventStart, b.eventStart)
-    })
-    const eventsByDay = groupWith((a, b) =>
-      isSameDay(a.eventStart, b.eventStart), sorted)
+    const eventsByDay = this.getEventsByDayFromSchedule(schedule)
 
     const activeDay = 0
     const data = addSpecials(specialTalks, eventsByDay[activeDay])
@@ -71,6 +60,21 @@ class ScheduleScreen extends Component {
         }
       />
     )
+  }
+
+  getEventsByDayFromSchedule = (schedule) => {
+    const mergeTimes = (e) => {
+      const eventDuration = Number(e.duration)
+      const eventStart = new Date(e.time)
+      // ends 1 millisecond before event
+      const eventEnd = subMilliseconds(addMinutes(eventStart, eventDuration), 1)
+
+      return merge(e, { eventStart, eventEnd, eventDuration })
+    }
+    const sorted = [...schedule].map(mergeTimes).sort((a, b) => {
+      return compareAsc(a.eventStart, b.eventStart)
+    })
+    return groupWith((a, b) => isSameDay(a.eventStart, b.eventStart), sorted)
   }
 
   onEventPress = (item) => {
@@ -108,13 +112,14 @@ class ScheduleScreen extends Component {
 
   componentWillReceiveProps (newProps) {
     const { activeDay, eventsByDay } = this.state
-    const { specialTalks, currentTime } = newProps
+    const { specialTalks, currentTime, schedule } = newProps
 
     // Update currentTime before updating data
     if (currentTime) {
       this.setState({ currentTime }, () => {
         this.setState({
           data: addSpecials(specialTalks, eventsByDay[activeDay]),
+          eventsByDay: this.getEventsByDayFromSchedule(schedule),
           isCurrentDay: isActiveCurrentDay(currentTime, activeDay)
         })
       })
@@ -170,7 +175,7 @@ class ScheduleScreen extends Component {
 
   renderItem = ({item}) => {
     const { isCurrentDay } = this.state
-    const { currentTime } = this.props
+    const { currentTime, setReminder, removeReminder } = this.props
     const { eventDuration, eventStart, eventEnd, special } = item
     const isActive = isWithinRange(currentTime, eventStart, eventEnd)
     const isFinished = currentTime > eventEnd
@@ -187,8 +192,8 @@ class ScheduleScreen extends Component {
           onPress={() => this.onEventPress(item)}
           onPressTwitter={() => this.props.onPressTwitter(item.speakerInfo[0].twitter)}
           onPressGithub={() => this.props.onPressGithub(item.speakerInfo[0].github)}
-          talkSpecial={() => this.props.onTalkSpecial(item.title)}
-          talkNotSpecial={() => this.props.onTalkNotSpecial(item.title)}
+          setReminder={() => setReminder(item.title)}
+          removeReminder={() => removeReminder(item.title)}
           currentTime={currentTime}
           isCurrentDay={isCurrentDay}
           isActive={isActive}
@@ -250,8 +255,8 @@ const mapDispatchToProps = (dispatch) => {
     setSelectedEvent: (data) => dispatch(ScheduleActions.setSelectedEvent(data)),
     onPressGithub: url => dispatch(ScheduleActions.visitGithub(url)),
     onPressTwitter: url => dispatch(ScheduleActions.visitTwitter(url)),
-    onTalkSpecial: title => dispatch(NotificationActions.addTalk(title)),
-    onTalkNotSpecial: title => dispatch(NotificationActions.removeTalk(title))
+    setReminder: title => dispatch(NotificationActions.addTalk(title)),
+    removeReminder: title => dispatch(NotificationActions.removeTalk(title))
   }
 }
 

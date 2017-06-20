@@ -59,7 +59,7 @@ const correctProps = (props) => {
   } else if (isBefore(today, conferenceDates[0])) {
     return preEvent
   } else if (isAfter(today, last(conferenceDates))) {
-     return postEvent
+    return postEvent
   } else {
     return postEvent
   }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, Text, View, Image, TouchableOpacity, LayoutAnimation } from 'react-native'
+import { BackHandler, ScrollView, Text, View, Image, TouchableOpacity } from 'react-native'
 import PurpleGradient from '../Components/PurpleGradient'
 import TalkInfo from '../Components/TalkInfo'
 import SocialMediaButton from '../Components/SocialMediaButton'
@@ -11,8 +11,7 @@ import { connect } from 'react-redux'
 import { Images } from '../Themes'
 import styles from './Styles/TalkDetailScreenStyle'
 import NotificationActions from '../Redux/NotificationRedux'
-import PushNotification from 'react-native-push-notification'
-import PNHelpers from '../Lib/PushNotificationHelpers'
+import SBHelper from '../Lib/SpecialButtonHelper'
 import { contains } from 'ramda'
 
 class TalkDetail extends React.Component {
@@ -21,6 +20,10 @@ class TalkDetail extends React.Component {
     tabBarIcon: ({ focused }) => (
       <Image source={focused ? Images.activeScheduleIcon : Images.inactiveScheduleIcon} />
     )
+  }
+
+  componentDidMount () {
+    BackHandler.addEventListener('hardwareBackPress', this.goBack)
   }
 
   goBack = () => {
@@ -60,31 +63,8 @@ class TalkDetail extends React.Component {
     return (speakerInfo.map((speaker, index) => this.renderSpeaker(speaker, index)))
   }
 
-  toggleReminder = () => {
-    const {title, eventStart} = this.props
-    // Make a copy otherwise could be modified!!!
-    const startCopy = new Date(eventStart.valueOf())
-    LayoutAnimation.easeInEaseOut()
-
-    // turn off reminder
-    // possible issues on Android: https://github.com/zo0r/react-native-push-notification/issues/368
-    if (this.isSpecial()) {
-      this.props.talkNotSpecial(title)
-      PushNotification.cancelLocalNotifications({
-        id: PNHelpers.pushMessage(title, startCopy)
-      })
-    } else {
-      // turn on reminder
-      this.props.talkSpecial(title)
-      PushNotification.localNotificationSchedule({
-        message: PNHelpers.pushMessage(title, startCopy), // (required)
-        date: PNHelpers.notificationTime(startCopy),
-        userInfo: {id: PNHelpers.pushMessage(title, startCopy)}
-      })
-    }
-  }
-
   render () {
+    const {title, eventStart, setReminder, removeReminder} = this.props
     return (
       <PurpleGradient style={styles.linearGradient}>
         <ScrollView>
@@ -118,7 +98,7 @@ class TalkDetail extends React.Component {
               start={new Date(this.props.eventStart)}
               duration={Number(this.props.duration)}
               remindMe={this.isSpecial()}
-              toggleRemindMe={this.toggleReminder}
+              toggleRemindMe={SBHelper.toggleReminder(title, eventStart, this.isSpecial(), setReminder, removeReminder)}
               onPressGithub={this.props.onPressGithub}
               onPressTwitter={this.props.onPressTwitter}
               isFinished={this.props.currentTime > this.props.eventStart}
@@ -143,8 +123,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onPressGithub: url => dispatch(ScheduleActions.visitGithub(url)),
     onPressTwitter: url => dispatch(ScheduleActions.visitTwitter(url)),
-    talkSpecial: title => dispatch(NotificationActions.addTalk(title)),
-    talkNotSpecial: title => dispatch(NotificationActions.removeTalk(title))
+    setReminder: title => dispatch(NotificationActions.addTalk(title)),
+    removeReminder: title => dispatch(NotificationActions.removeTalk(title))
   }
 }
 
