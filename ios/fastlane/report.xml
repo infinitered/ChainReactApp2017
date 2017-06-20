@@ -5,47 +5,47 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.001536">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.001777">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.001048">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.001122">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: ascii_art" time="1.386229">
+      <testcase classname="fastlane.lanes" name="2: ascii_art" time="0.635679">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: increment_build_number" time="3.884797">
+      <testcase classname="fastlane.lanes" name="3: increment_build_number" time="3.731681">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: appicon" time="2.786629">
+      <testcase classname="fastlane.lanes" name="4: appicon" time="2.840661">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: gym" time="185.937106">
+      <testcase classname="fastlane.lanes" name="5: gym" time="189.736424">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: pilot" time="104.109185">
+      <testcase classname="fastlane.lanes" name="6: pilot" time="79.046111">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: mobile_center_upload" time="401.216521">
+      <testcase classname="fastlane.lanes" name="7: mobile_center_upload" time="3.934185">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="8: slack" time="0.351704">
+      <testcase classname="fastlane.lanes" name="8: slack" time="0.379302">
         
       </testcase>
     
