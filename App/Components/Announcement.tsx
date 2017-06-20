@@ -66,7 +66,8 @@ const correctProps = (props) => {
 }
 
 const Announcement = (props: AnnouncementProps) => {
-  const { style } = props
+  const { style, preEvent, postEvent } = props
+  if (!preEvent || !postEvent) return null
   const { title, subtitle, eventTimeInfo, address, image, buttonUri, buttonText } = correctProps(props)
   return (
     <View>
