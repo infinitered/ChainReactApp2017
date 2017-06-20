@@ -10,7 +10,7 @@ const toggleReminder = (title, start, isSpecial, setReminder, removeReminder) =>
     if (isSpecial) {
       removeReminder(title)
       PushNotification.cancelLocalNotifications({
-        id: PNHelpers.pushMessage(title, startCopy)
+        id: PNHelpers.pushId(title, startCopy)
       })
     } else {
       // turn on reminder

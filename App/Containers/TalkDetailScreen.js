@@ -1,5 +1,5 @@
 import React from 'react'
-import { BackHandler, ScrollView, Text, View, Image, TouchableOpacity, LayoutAnimation } from 'react-native'
+import { BackHandler, ScrollView, Text, View, Image, TouchableOpacity } from 'react-native'
 import PurpleGradient from '../Components/PurpleGradient'
 import TalkInfo from '../Components/TalkInfo'
 import SocialMediaButton from '../Components/SocialMediaButton'
