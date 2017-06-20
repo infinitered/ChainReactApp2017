@@ -175,7 +175,7 @@ class ScheduleScreen extends Component {
 
   renderItem = ({item}) => {
     const { isCurrentDay } = this.state
-    const { currentTime } = this.props
+    const { currentTime, setReminder, removeReminder } = this.props
     const { eventDuration, eventStart, eventEnd, special } = item
     const isActive = isWithinRange(currentTime, eventStart, eventEnd)
     const isFinished = currentTime > eventEnd
@@ -192,8 +192,8 @@ class ScheduleScreen extends Component {
           onPress={() => this.onEventPress(item)}
           onPressTwitter={() => this.props.onPressTwitter(item.speakerInfo[0].twitter)}
           onPressGithub={() => this.props.onPressGithub(item.speakerInfo[0].github)}
-          talkSpecial={() => this.props.onTalkSpecial(item.title)}
-          talkNotSpecial={() => this.props.onTalkNotSpecial(item.title)}
+          setReminder={() => setReminder(item.title)}
+          removeReminder={() => removeReminder(item.title)}
           currentTime={currentTime}
           isCurrentDay={isCurrentDay}
           isActive={isActive}
@@ -255,8 +255,8 @@ const mapDispatchToProps = (dispatch) => {
     setSelectedEvent: (data) => dispatch(ScheduleActions.setSelectedEvent(data)),
     onPressGithub: url => dispatch(ScheduleActions.visitGithub(url)),
     onPressTwitter: url => dispatch(ScheduleActions.visitTwitter(url)),
-    onTalkSpecial: title => dispatch(NotificationActions.addTalk(title)),
-    onTalkNotSpecial: title => dispatch(NotificationActions.removeTalk(title))
+    setReminder: title => dispatch(NotificationActions.addTalk(title)),
+    removeReminder: title => dispatch(NotificationActions.removeTalk(title))
   }
 }
 
