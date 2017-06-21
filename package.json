@@ -18,6 +18,7 @@
     "beta:android": "cd ./android && fastlane beta",
     "beta": "npm run beta:ios && npm run beta:android",
     "codePush:ios": "code-push release-react ChainReactConf ios",
+    "promote:ios": "code-push promote ChainReactConf Staging Production -t '*'",
     "codePush:android": "code-push release-react ChainReactConf-Android android",
     "codePushTest": "code-push release-react ChainReactConf ios --rollout 25%",
     "test": "ava",
