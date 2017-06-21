@@ -6,13 +6,15 @@ import {
   View,
   Text,
   Linking,
-  LayoutAnimation
+  LayoutAnimation,
+  AsyncStorage
 } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import RoundedButton from '../Components/RoundedButton'
 import PurpleGradient from '../Components/PurpleGradient'
 import { Images, Metrics } from '../Themes'
 import { connect } from 'react-redux'
+import ConferenceAnnouncements from '../Components/ConferenceAnnouncements'
 
 // Styles
 import styles from './Styles/AboutScreenStyle'
@@ -29,8 +31,15 @@ class AboutScreen extends React.Component {
     super(props)
 
     this.state = {
-      activeTab: 'liveHelp'
+      activeTab: 'liveHelp',
+      activeDay: null
     }
+  }
+
+  componentDidMount () {
+    AsyncStorage.getItem('activeDay').then((day) => {
+      this.setState({activeDay: day})
+    }).done()
   }
 
   tweetWithHashtag () {
@@ -79,6 +88,31 @@ class AboutScreen extends React.Component {
             <View style={styles.partyInfo}>
               <Text style={styles.partyDescription}>SUNDAY, JULY 9 | 4-8PM</Text>
               <Text style={styles.partyDescription}>311 SW WASHINGTON STREET</Text>
+            </View>
+          </View>
+        </Image>
+        <RoundedButton
+          onPress={() => Linking.openURL('https://chainreact.squarespace.com')}
+          style={styles.partyButton}
+        >
+          <Text style={styles.partyButtonText}>I WANT TO GO</Text>
+        </RoundedButton>
+      </View>
+    )
+  }
+
+  renderHappyHour () {
+    return (
+      <View>
+        <Image source={{uri: 'https://i.ytimg.com/vi/2fb-g_V-UT4/hqdefault.jpg'}} style={{width: Metrics.screenWidth, height: 350}}>
+          <View style={styles.afterPartyContainer}>
+            <View style={styles.partyHeader}>
+              <Text style={styles.welcomeParty}>HAPPY HOUR</Text>
+              <Text style={styles.partyDescription}>AT THE ARMORY AFTER HOURS</Text>
+            </View>
+            <View style={styles.partyInfo}>
+              <Text style={styles.partyDescription}>MONDAY, JULY 10 | 5-7PM</Text>
+              <Text style={styles.partyDescription}>128 NW ELEVENTH AVE</Text>
             </View>
           </View>
         </Image>
@@ -231,7 +265,7 @@ class AboutScreen extends React.Component {
         <ScrollView>
           <View style={styles.container}>
             {this.renderSlack()}
-            {this.renderWelcomeParty()}
+            <ConferenceAnnouncements />
             {this.renderHashtag()}
             {this.renderTabs()}
           </View>
