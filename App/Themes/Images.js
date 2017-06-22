@@ -17,6 +17,10 @@ const images = {
   salesforce: require('../Images/sponsors/img-sponsor-salesforce.png'),
   squarespace: require('../Images/sponsors/img-sponsor-squarespace.png'),
   bugsnag: require('../Images/sponsors/img-sponsor-bugsnag.png'),
+  businessOregon: require('../Images/sponsors/img-sponsor-business-oregon.png'),
+  healthsparq: require('../Images/sponsors/img-sponsor-healthsparq.png'),
+  callstack: require('../Images/sponsors/img-sponsor-callstack.png'),
+  mls: require('../Images/sponsors/img-sponsor-major_league_soccer.png'),
 
   // app stuff
   logo: require('../Images/ir.png'),

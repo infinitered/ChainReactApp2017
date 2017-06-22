@@ -14,14 +14,13 @@ interface SponsorProps {
 }
 
 const Sponsor = (props: SponsorProps) => {
+  const imageStyle = props.isLow ? styles.lowTier : {}
+
   return (
     <TouchableOpacity
       style={styles.sponsor}
       onPress={() => Linking.openURL(props.url)}>
-      <Image
-        style={props.isLow ? styles.lowTier : {}}
-        source={props.image}
-      />
+      <Image style={imageStyle} source={props.image} />
     </TouchableOpacity>
   )
 }
