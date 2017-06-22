@@ -28,13 +28,19 @@ const api = DebugConfig.useFixtures ? FixtureAPI : API.create()
 /* ------------- Connect Types To Sagas ------------- */
 
 export default function * root () {
-  yield [
+  let sagaIndex = [
     // some sagas only receive an action
     takeLatest(StartupTypes.STARTUP, startup),
     takeLatest(ScheduleTypes.TRACK_CURRENT_TIME, trackCurrentTime),
-    takeLatest(ScheduleTypes.GET_SCHEDULE_UPDATES, getScheduleUpdates, api),
     takeLatest(ScheduleTypes.VISIT_GITHUB, visitGithub),
-    takeLatest(ScheduleTypes.VISIT_TWITTER, visitTwitter),
-    takeLatest(LocationTypes.GET_NEARBY_UPDATES, getNearbyUpdates, api)
+    takeLatest(ScheduleTypes.VISIT_TWITTER, visitTwitter)
   ]
+
+  // debug conditional API calls
+  if (DebugConfig.getAPI) {
+    sagaIndex.push(takeLatest(ScheduleTypes.GET_SCHEDULE_UPDATES, getScheduleUpdates, api))
+    sagaIndex.push(takeLatest(LocationTypes.GET_NEARBY_UPDATES, getNearbyUpdates, api))
+  }
+
+  yield sagaIndex
 }
