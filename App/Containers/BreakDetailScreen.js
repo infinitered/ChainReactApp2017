@@ -42,8 +42,9 @@ class BreakDetail extends React.Component {
   }
 
   renderMainImage = () => {
-    const { type, duration, eventStart } = this.props
-    const mainImage = type === 'lunch' ? Images.lunch : Images.lunch
+    const { type, duration, eventStart, title } = this.props
+    const mainImage = Images[`${type}Big`] || Images.lunchBig
+    const cellTitle = title || `${type.toUpperCase()} BREAK`
     const eventDuration = Number(duration)
     const prettyStartTime = format(eventStart, 'h:mm')
     const endTime = addMinutes(eventStart, eventDuration)
@@ -55,7 +56,7 @@ class BreakDetail extends React.Component {
         <Image style={[styles.mainImage, { width: this.state.imageWidth }]} source={mainImage} />
         <View style={styles.mainHeadingContainer}>
           <Text style={styles.breakHeading}>
-            {this.props.type.toUpperCase()} BREAK
+            {cellTitle}
           </Text>
           <Text style={styles.breakDuration}>
             <Text>{prettyStartTime} - {prettyEndTime}</Text><Text style={styles.meridiem}>{meridiem}</Text>

@@ -11,7 +11,7 @@ const images = {
   background: require('../Images/BG.png'),
   barista: require('../Images/img-barista.jpg'),
   blowhorn: require('../Images/Icons/icon-blowhorn.png'),
-  breakfast: require('../Images/breakfast.jpg'),
+  breakfastBreak: require('../Images/breakfast.jpg'),
   breakfastBig: require('../Images/breakfast-bg-lrg.jpg'),
   bugsnagSponsor: require('../Images/sponsors/img-sponsor-bugsnag.png'),
   buttonBackground: require('../Images/button-bg.png'),
@@ -48,7 +48,7 @@ const images = {
   launch: require('../Images/launch-icon.png'),
   littleBigBurger: require('../Images/little-big-burger.jpg'),
   logo: require('../Images/ir.png'),
-  lunch: require('../Images/bg-lunch.png'),
+  lunchBig: require('../Images/bg-lunch.png'),
   lunchBreak: require('../Images/bg-lunch-break.jpg'),
   lyftButton: require('../Images/lyft-button.png'),
   markerIcon: require('../Images/Icons/icon-marker.png'),
@@ -105,7 +105,7 @@ const images = {
   uberButton: require('../Images/uber-button.png'),
   usageExamples: require('../Images/Icons/icon-usage-examples.png'),
   voodoo: require('../Images/img-voodoo.jpg'),
-  waterfront: require('../Images/img-waterfront.jpg'),
+  waterfront: require('../Images/img-waterfront.jpg')
 }
 
 export default images
