@@ -51,7 +51,6 @@ const images = {
   launch: require('../Images/launch-icon.png'),
   littleBigBurger: require('../Images/little-big-burger.jpg'),
   logo: require('../Images/ir.png'),
-  lunch: require('../Images/bg-lunch.png'),
   lunchBig: require('../Images/bg-lunch.png'),
   lunchBreak: require('../Images/bg-lunch-break.jpg'),
   lyftButton: require('../Images/lyft-button.png'),
