@@ -49,8 +49,8 @@ const TalkInfo = (props: TalkInfoProps) => {
       }
       {showSocialMedia &&
         <View style={styles.socialButtons}>
-          <SocialMediaButton network='twitter' onPress={props.onPressTwitter} />
-          <SocialMediaButton network='github' onPress={props.onPressGithub} />
+          {props.onPressTwitter && <SocialMediaButton network='twitter' onPress={props.onPressTwitter} /> }
+          {props.onPressGithub && <SocialMediaButton network='github' onPress={props.onPressGithub} /> }
         </View>
       }
     </View>
