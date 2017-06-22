@@ -24,6 +24,8 @@ interface TalkProps {
   onPressGithub (): void
   talkSpecial (): void
   talkNotSpecial (): void
+  setReminder (): void
+  removeReminder (): void
 }
 
 interface TalkState {

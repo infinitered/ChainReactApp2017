@@ -219,13 +219,14 @@
           "name": "Kyle Poole",
           "company": "Instrument",
           "twitter": "kylpo",
-          "github": "yokelpole",
+          "github": "kylpo",
           "bio":"Kyle Poole is a full stack web and mobile developer using React (+Native) at Instrument. He’s been using React since v0.5.1 (3.5+ years)."
         },
         {
           "name": "Thomas Brunketta",
           "company": "Instrument",
           "twitter": "SirTeebs",
+          "github": "thomasbruketta",
           "bio":"Thomas likes dragons and he casts spells using React Native."
         }
       ]
@@ -316,7 +317,7 @@
           "twitter":"nparashuram",
           "github": "axemclion",
           "company":"Microsoft",
-          "bio":"Parashuram is a Senior Program Manager with Microsoft and works on many interesting open source projects including Apache Cordova and Chromium. He is a front end developer passionate about web performance and like to talk about performance practices at conferences. He is also a committer and a member of the Project Management Committee of Apache Cordova."
+          "bio":"Parashuram is a Senior Program Manager with Microsoft Open Technologies Inc and works on many interesting open source projects including Apache Cordova and Chromium. He is a front end developer passionate about web performance and like to talk about performance practices at conferences. He is also a committer and a member of the Project Management Committee of Apache Cordova."
         }
       ]
     },
@@ -422,7 +423,7 @@
           "twitter":"htormey",
           "github": "hgale",
           "company":"LaunchDrawer",
-          "bio":"Software engineer with a background in media. Loves foreign cinema, random music and indie games."
+          "bio":"Harry is an experienced Software Engineer who has worked at prominent Bay Area companies such as Apple and Facebook.  At Facebook he worked as an iOS engineer on both the search and commerce teams building customer facing features that shipped in the main Facebook app. At Apple he worked on the Core Audio team where he specialized in frameworks for multimedia Desktop and Mobile Applications.  Harry has also shipped a number of React Native applications and runs a consultancy that specializes in mobile development. "
         }
       ]
     },
@@ -456,6 +457,7 @@
         {
           "name": "Doug Lowder",
           "twitter":"douglowder",
+          "github":"dlowder-salesforce",
           "company":"SalesForce",
           "bio":"Mobile software developer, and Irish traditional musician."
         }
@@ -465,7 +467,7 @@
       "type":"talk",
       "speaker":"Ken Wheeler",
       "image":"ken",
-      "title":"Why we need an app browser",
+      "title":"Why We Need an App Browser",
       "description":"An exploration of the current browser ecosystem, and its shortcomings, and a proposal for mixing the best parts of web and native",
       "time":"7/10/2017 4:30 PM",
       "duration":"30",
@@ -483,15 +485,15 @@
       "type":"coffee",
       "time":"7/10/2017 10:00 AM",
       "duration":"30",
-      "options": ["Spella Caffe Coffee, Hot Tea, and Water", "Assorted Pastries & Sweet Breads", "Whole Fruit"],
-      "veganOptions": ["All Coffee and Tea", "Whole Fruit"]
+      "options": ["Spella Caffe Coffee, Hot Tea, and Water"],
+      "veganOptions": []
     },
     {
       "type":"coffee",
       "time":"7/11/2017 10:00 AM",
       "duration":"30",
-      "options": ["Spella Caffe Coffee, Hot Tea, and Water", "Assorted Coco Donuts", "Bowery Bagels with Whipped Herb Cream Cheese"],
-      "veganOptions": ["All Coffee and Tea"]
+      "options": ["Spella Caffe Coffee, Hot Tea, and Water"],
+      "veganOptions": []
     },
     {
       "type":"lunch",
@@ -526,8 +528,8 @@
       "title": "Monday Happy Hour",
       "time":"7/10/2017 5:00 PM",
       "duration":"150",
-      "options": ["Beer", "Wine", "Soft beverages"],
-      "veganOptions": ["Soft beverages"]
+      "options": ["Heater-Allen Pilsner (McMinnville, OR)", "2 Towns Cider (Corvallis, OR)", "2014 Brooks Amycas 5-varietal White Blend (OR)", "Rosé 2015 REAL, Freja Vineyard Pinot Noir Rosé (OR)", "2014 REAL, Freja Vineyard Pinot Noir (OR)", "Table Red and White by Devil's Food Catering", "Regular and Diet Coca-Cola", "7*Up", "Ginger Ale", "San Pellegrino Limonata and Sparkling Water"],
+      "veganOptions": []
     }
   ]
 }

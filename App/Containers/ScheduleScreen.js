@@ -173,6 +173,9 @@ class ScheduleScreen extends Component {
     return { length, offset, index }
   }
 
+  // if value exists, create the function calling it, otherwise false
+  funcOrFalse = (func, val) => val ? () => func.call(this, val) : false
+
   renderItem = ({item}) => {
     const { isCurrentDay } = this.state
     const { currentTime, setReminder, removeReminder } = this.props
@@ -190,8 +193,8 @@ class ScheduleScreen extends Component {
           start={eventStart}
           duration={eventDuration}
           onPress={() => this.onEventPress(item)}
-          onPressTwitter={() => this.props.onPressTwitter(item.speakerInfo[0].twitter)}
-          onPressGithub={() => this.props.onPressGithub(item.speakerInfo[0].github)}
+          onPressTwitter={this.funcOrFalse(this.props.onPressTwitter, item.speakerInfo[0].twitter)}
+          onPressGithub={this.funcOrFalse(this.props.onPressGithub, item.speakerInfo[0].github)}
           setReminder={() => setReminder(item.title)}
           removeReminder={() => removeReminder(item.title)}
           currentTime={currentTime}

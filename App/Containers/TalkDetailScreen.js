@@ -40,16 +40,20 @@ class TalkDetail extends React.Component {
           {speaker.bio}
         </Text>
         <View style={styles.social}>
-          <SocialMediaButton
-            network='twitter'
-            spacing='right'
-            onPress={() => this.props.onPressTwitter(speaker.twitter)}
-          />
-          <SocialMediaButton
-            network='github'
-            spacing='right'
-            onPress={() => this.props.onPressGithub(speaker.github)}
-          />
+          { speaker.twitter &&
+            <SocialMediaButton
+              network='twitter'
+              spacing='right'
+              onPress={() => this.props.onPressTwitter(speaker.twitter)}
+            />
+          }
+          { speaker.github &&
+            <SocialMediaButton
+              network='github'
+              spacing='right'
+              onPress={() => this.props.onPressGithub(speaker.github)}
+            />
+          }
         </View>
       </View>
     )
