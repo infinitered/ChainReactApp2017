@@ -44,7 +44,7 @@ class BreakDetail extends React.Component {
   renderMainImage = () => {
     const { type, duration, eventStart, title } = this.props
     const mainImage = Images[`${type}Big`] || Images.lunchBig
-    const cellTitle = title || `${type.toUpperCase()} BREAK`
+    const cellTitle = title || `${type.charAt(0).toUpperCase() + type.slice(1)} Break`
     const eventDuration = Number(duration)
     const prettyStartTime = format(eventStart, 'h:mm')
     const endTime = addMinutes(eventStart, eventDuration)
