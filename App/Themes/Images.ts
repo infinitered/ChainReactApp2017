@@ -23,7 +23,7 @@ const images = {
   chinesegarden: require('../Images/img-chinesegarden.jpg'),
   clearLogo: require('../Images/top_logo.png'),
   closeButton: require('../Images/Icons/close-button.png'),
-  coffeeBig: require('../Images/lunch-bg-lg.jpg'),
+  coffeeBig: require('../Images/coffee-bg-lg.jpg'),
   coffeeBreak: require('../Images/bg-coffee-break.jpg'),
   components: require('../Images/Icons/icon-components.png'),
   courier: require('../Images/img-courier.jpg'),
