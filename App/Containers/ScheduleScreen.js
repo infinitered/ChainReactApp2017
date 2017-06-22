@@ -238,6 +238,7 @@ class ScheduleScreen extends Component {
           keyExtractor={(item, idx) => item.eventStart}
           contentContainerStyle={styles.listContent}
           getItemLayout={this.getItemLayout}
+          showsVerticalScrollIndicator={false}
         />
       </PurpleGradient>
     )
