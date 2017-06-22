@@ -482,6 +482,22 @@
       ]
     },
     {
+      "type":"breakfast",
+      "title": "Registration and Breakfast",
+      "time":"7/10/2017 7:00 AM",
+      "duration":"105",
+      "options": ["Spella Caffe Coffee, Hot Tea, and Water"],
+      "veganOptions": []
+    },
+    {
+      "type":"breakfast",
+      "title": "Breakfast",
+      "time":"7/11/2017 7:00 AM",
+      "duration":"105",
+      "options": ["Spella Caffe Coffee, Hot Tea, and Water"],
+      "veganOptions": []
+    },
+    {
       "type":"coffee",
       "time":"7/10/2017 10:00 AM",
       "duration":"30",

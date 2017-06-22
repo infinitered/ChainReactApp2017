@@ -3,13 +3,13 @@ import { View, ViewStyle } from 'react-native'
 import Video from 'react-native-video'
 
 interface BackgroundProps {
-  source: string,
+  source?: string,
   isActive: boolean,
   style: ViewStyle
 }
 
 export default ({source, isActive, style}: BackgroundProps) => {
-  if (isActive) {
+  if (isActive && source) {
     return (
       <Video
         source={source}

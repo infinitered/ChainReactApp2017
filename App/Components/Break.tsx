@@ -9,7 +9,7 @@ interface BreakProps {
   start: Date,
   currentTime: Date,
   duration: number,
-  type: 'coffee' | 'lunch' | 'party'
+  type: 'coffee' | 'lunch' | 'party' | 'breakfast'
   title: string
   isCurrentDay: boolean
   isActive: boolean

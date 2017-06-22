@@ -7,7 +7,7 @@ const ConferenceAnnouncements = () => {
     <Announcement
       style={{height: 350}}
       preEvent={{
-        title: 'Happy Hour',
+        title: 'Welcome Party',
         subtitle: 'At Squarespace PDX',
         eventTimeInfo: 'SUNDAY, JULY 9 | 4-8PM',
         address: '311 SW WASHINGTON STREET',
