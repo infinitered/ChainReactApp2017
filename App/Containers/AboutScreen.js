@@ -12,6 +12,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient'
 import RoundedButton from '../Components/RoundedButton'
 import PurpleGradient from '../Components/PurpleGradient'
+import Sponsors from '../Components/Sponsors'
 import { Images, Metrics } from '../Themes'
 import { connect } from 'react-redux'
 import ConferenceAnnouncements from '../Components/ConferenceAnnouncements'
@@ -174,7 +175,7 @@ class AboutScreen extends React.Component {
     if (activeTab === 'liveHelp') {
       return (this.renderLiveHelp())
     } else {
-      return (this.renderSponsors())
+      return (<Sponsors />)
     }
   }
 
@@ -195,66 +196,6 @@ class AboutScreen extends React.Component {
           onPress={() => Linking.openURL('tel:3605620450')}
           style={styles.liveHelpButton}
         />
-      </View>
-    )
-  }
-
-  renderSponsor (url, image, style) {
-    return (
-      <TouchableOpacity
-        style={styles.sponsor}
-        onPress={() => Linking.openURL(url)}>
-        <Image style={style} source={image} />
-      </TouchableOpacity>
-    )
-  }
-
-  renderSponsors () {
-    return (
-      <View style={styles.sponsors}>
-        <Text style={styles.heading}>Our Sponsors</Text>
-        <Text style={styles.description}>
-          We love the sponsors for this conference.
-          They make all of this fun stuff possible, and we
-          couldn’t have done it without them.
-        </Text>
-
-        <Text style={styles.sponsorTierTitle}>Platinum Sponsors</Text>
-        <View style={styles.sponsorTier}>
-          {this.renderSponsor('https://www.squarespace.com/', Images.squarespaceSponsor)}
-        </View>
-
-        <Text style={styles.sponsorTierTitle}>Gold Sponsors</Text>
-        <View style={styles.sponsorTier}>
-          {this.renderSponsor('https://nativebase.io/', Images.nativeBaseSponsor)}
-          {this.renderSponsor('https://formidable.com/', Images.formidableSponsor)}
-          {this.renderSponsor('https://moduscreate.com/', Images.modusSponsor)}
-          {this.renderSponsor('https://www.bugsnag.com//', Images.bugsnagSponsor)}
-        </View>
-
-        <Text style={styles.sponsorTierTitle}>Silver Sponsors</Text>
-        <View style={styles.sponsorTier}>
-          {this.renderSponsor('https://aws.amazon.com/', Images.amazonSponsor, styles.lowTierSponsor)}
-          {this.renderSponsor('http://reactnative.training/', Images.trainingSponsor, styles.lowTierSponsor)}
-          {this.renderSponsor('https://gudog.co.uk/', Images.gudogSponsor, styles.lowTierSponsor)}
-          {this.renderSponsor('https://rangle.io/', Images.rangleSponsor, styles.lowTierSponsor)}
-        </View>
-
-        <Text style={styles.sponsorTierTitle}>Bronze Sponsors</Text>
-        <View style={styles.sponsorTier}>
-          {this.renderSponsor('https://echobind.com/', Images.echobindSponsor, styles.lowTierSponsor)}
-          {this.renderSponsor('https://www.capitalone.com/', Images.capitalOneSponsor, styles.lowTierSponsor)}
-          {this.renderSponsor('https://www.salesforce.com/', Images.salesforceSponsor, styles.lowTierSponsor)}
-          {this.renderSponsor('https://www.paypal.com/us/home', Images.paypalSponsor, styles.lowTierSponsor)}
-          {this.renderSponsor('https://www.instrument.com/', Images.instrumentSponsor, styles.lowTierSponsor)}
-          {this.renderSponsor('http://www.qlik.com/us/', Images.qlikSponsor)}
-        </View>
-
-        <Text style={styles.sponsorTierTitle}>Additional Sponsors</Text>
-        <View style={styles.sponsorTier}>
-          {this.renderSponsor('http://www.qlik.com/us/', Images.qlikCoffeeSponsor)}
-        </View>
-
       </View>
     )
   }
