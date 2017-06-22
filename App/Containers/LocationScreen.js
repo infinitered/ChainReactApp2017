@@ -123,6 +123,7 @@ class LocationScreen extends React.Component {
     return (
       <Animated.Image
         style={[styles.venue, {position: 'absolute'}, {
+          width: '100%',
           height: height,
           transform: [{
             translateY: scrollY.interpolate({
@@ -136,12 +137,14 @@ class LocationScreen extends React.Component {
             })
           }]
         }]}
-        source={Images.theArmory} />
+        source={Images.theArmory}
+        resizeMode='cover'
+      />
     )
   }
 
   renderHeader = () => {
-    const height = 300
+    const height = Metrics.locationBackgroundHeight - 24
     const { scrollY } = this.state
     return (
       <Animated.View style={{
