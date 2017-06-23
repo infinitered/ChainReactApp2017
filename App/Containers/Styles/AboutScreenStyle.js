@@ -1,15 +1,6 @@
 import { StyleSheet } from 'react-native'
 import { ApplicationStyles, Colors, Fonts, Metrics } from '../../Themes/'
 
-const section = {
-  flex: 1,
-  alignItems: 'center',
-  justifyContent: 'center',
-  marginHorizontal: 20,
-  paddingVertical: 50,
-  backgroundColor: Colors.transparent
-}
-
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
   container: {
