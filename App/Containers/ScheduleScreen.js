@@ -4,7 +4,7 @@ import PurpleGradient from '../Components/PurpleGradient'
 import DayToggle from '../Components/DayToggle'
 import Talk from '../Components/Talk'
 import Break from '../Components/Break'
-import ScheduleActions from '../Redux/ScheduleRedux'
+import ScheduleActions, { getSpeakers } from '../Redux/ScheduleRedux'
 import { connect } from 'react-redux'
 import {
   compareAsc,
@@ -87,6 +87,7 @@ class ScheduleScreen extends Component {
   }
 
   componentDidMount () {
+    console.tron.log(this.props.speakers)
     AppState.addEventListener('change', this._handleAppStateChange)
 
     const { data } = this.state
@@ -249,7 +250,8 @@ const mapStateToProps = (state) => {
   return {
     currentTime: new Date(state.schedule.currentTime),
     schedule: state.schedule.speakerSchedule,
-    specialTalks: state.notifications.specialTalks
+    specialTalks: state.notifications.specialTalks,
+    speakers: getSpeakers(state.schedule.speakerSchedule)
   }
 }
 

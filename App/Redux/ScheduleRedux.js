@@ -2,6 +2,7 @@ import { createReducer, createActions } from 'reduxsauce'
 import Immutable from 'seamless-immutable'
 import DebugConfig from '../Config/DebugConfig'
 import Config from '../Config/AppConfig'
+import { filter, compose, uniq, flatten, pluck } from 'ramda'
 
 /* ------------- Types and Action Creators ------------- */
 
@@ -75,3 +76,10 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.CLEAR_SELECTED_EVENT]: clearSelectedEvent,
   [Types.UPDATE_SCHEDULE]: updateSchedule
 })
+
+/* ------------- Selectors ------------- */
+export const getSpeakers = (speakerSchedule) => {
+  const gimmeTalks = filter((event) => event.type === 'talk')
+  const cleanSpeakerList = compose(uniq, flatten, pluck('speakerInfo'))
+  return cleanSpeakerList(gimmeTalks(speakerSchedule))
+}
