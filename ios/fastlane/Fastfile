@@ -53,7 +53,7 @@ platform :ios do
 
     # Automatic Icon magic
     appicon(
-      appicon_image_file: '../AppIcon/IconArtwork.png',
+      appicon_image_file: '../AppIcon/IconIOS.png',
       appicon_devices: [:ipad, :iphone],
       appicon_path: 'ChainReactApp/Images.xcassets'
     )
@@ -77,7 +77,7 @@ platform :ios do
 
     # Make sure latest artwork is in place
     appicon(
-      appicon_image_file: '../AppIcon/IconArtwork.png',
+      appicon_image_file: '../AppIcon/IconIOS.png',
       appicon_devices: [:ipad, :iphone],
       appicon_path: 'ChainReactApp/Images.xcassets'
     )
