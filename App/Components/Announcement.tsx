@@ -22,6 +22,8 @@ ExamplesRegistry.addComponentExample('Announcement', () =>
         address: '#1 Happy St',
         buttonUri: 'https://chainreact.squarespace.com',
         image: {uri: 'https://assets.rbl.ms/4314213/980x.jpg'},
+        headerLogo: Images.sqspLogo,
+        headerStyle: '',
         buttonText: 'wassaa party'
       }
     ]}
@@ -42,6 +44,7 @@ interface AnnouncementEvent {
   eventTimeInfo: string
   address: string
   image: any
+  headerLogo: string
   buttonUri: string
   buttonText: string
 }
@@ -68,12 +71,13 @@ const correctProps = (props) => {
 const Announcement = (props: AnnouncementProps) => {
   const { style, preEvent, postEvent } = props
   if (!preEvent || !postEvent) return null
-  const { title, subtitle, eventTimeInfo, address, image, buttonUri, buttonText } = correctProps(props)
+  const { title, subtitle, eventTimeInfo, address, image, buttonUri, buttonText, headerLogo, headerImageHeight, headerImageWidth } = correctProps(props)
   return (
     <View>
       <Image source={image} style={style}>
         <View style={styles.afterPartyContainer}>
           <View style={styles.partyHeader}>
+            <Image source={headerLogo} />
             <Text style={styles.welcomeParty}>{title.toUpperCase()}</Text>
             <Text style={styles.partyDescription}>{subtitle && subtitle.toUpperCase()}</Text>
           </View>
