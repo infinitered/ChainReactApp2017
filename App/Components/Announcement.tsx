@@ -55,21 +55,19 @@ interface ButtonProps {
 }
 
 const correctProps = (props) => {
-  const { hotwireDate } = DebugConfig
   const { conferenceDates } = Config
-  const { preEvent, eventDays, postEvent } = props
+  const { preEvent, eventDays, postEvent, currentDate } = props
+  const today = format(currentDate, 'M/D/YYYY')
 
-  const today = format(new Date(), 'M/D/YYYY')
-  if (hotwireDate) return eventDays[0]
   if (contains(today, conferenceDates)) {
     const index = indexOf(today, conferenceDates)
-    return eventDays[index]
+    return eventDays[index] || {}
   } else if (isBefore(today, conferenceDates[0])) {
-    return preEvent
+    return preEvent || {}
   } else if (isAfter(today, last(conferenceDates))) {
-    return postEvent
+    return postEvent || {}
   } else {
-    return postEvent
+    return postEvent || {}
   }
 }
 
@@ -94,6 +92,7 @@ const Button = (props: ButtonProps) => {
 const Announcement = (props: AnnouncementProps) => {
   const { style, preEvent, postEvent } = props
   if (!preEvent || !postEvent) return null
+
   const {
     title,
     subtitle,
@@ -106,6 +105,7 @@ const Announcement = (props: AnnouncementProps) => {
     headerImageHeight,
     headerImageWidth
   } = correctProps(props)
+  if (!title) return null
 
   return (
     <View>

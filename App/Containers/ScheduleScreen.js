@@ -254,7 +254,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getScheduleUpdates: () => dispatch(ScheduleActions.getScheduleUpdates()),
-    setSelectedEvent: (data) => dispatch(ScheduleActions.setSelectedEvent(data)),
+    setSelectedEvent: data => dispatch(ScheduleActions.setSelectedEvent(data)),
     onPressGithub: url => dispatch(ScheduleActions.visitGithub(url)),
     onPressTwitter: url => dispatch(ScheduleActions.visitTwitter(url)),
     setReminder: title => dispatch(NotificationActions.addTalk(title)),

@@ -8,6 +8,7 @@ import {
   LayoutAnimation,
   AsyncStorage
 } from 'react-native'
+import { isSameDay } from 'date-fns'
 import PurpleGradient from '../Components/PurpleGradient'
 import Slack from '../Components/Slack'
 import Twitter from '../Components/Twitter'
@@ -31,7 +32,8 @@ class AboutScreen extends React.Component {
 
     this.state = {
       activeTab: 'liveHelp',
-      activeDay: null
+      activeDay: null,
+      currentDate: new Date()
     }
   }
 
@@ -39,6 +41,14 @@ class AboutScreen extends React.Component {
     AsyncStorage.getItem('activeDay').then((day) => {
       this.setState({activeDay: day})
     }).done()
+  }
+
+  componentWillReceiveProps (newProps) {
+    const { currentTime } = newProps
+    const { currentDate } = this.state
+    if (!isSameDay(currentDate, currentTime)) {
+      this.setState({currentDate: currentTime})
+    }
   }
 
   setActiveTab (tab) {
@@ -90,12 +100,13 @@ class AboutScreen extends React.Component {
   }
 
   render () {
+    const { currentDate } = this.state
     return (
       <PurpleGradient style={[styles.linearGradient, {flex: 1}]}>
         <ScrollView bounces={false}>
           <View style={styles.container}>
             <Slack />
-            <ConferenceAnnouncements />
+            <ConferenceAnnouncements currentDate={currentDate} />
             <Twitter />
             {this.renderTabs()}
           </View>

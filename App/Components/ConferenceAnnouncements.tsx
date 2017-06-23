@@ -2,12 +2,11 @@ import React from 'react'
 import { Images } from '../Themes'
 import Announcement from './Announcement'
 
-// If we choose to use a uri for the header image
-// we will need to specify w/h on the <Image /> in Announcement.tsx
-const ConferenceAnnouncements = () => {
+const ConferenceAnnouncements = (props) => {
   return (
     <Announcement
       style={{height: 350}}
+      currentDate={props.currentDate}
       preEvent={{
         title: 'WELCOME PARTY',
         subtitle: 'AT SQUARESPACE PDX',
