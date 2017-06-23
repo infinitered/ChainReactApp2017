@@ -2,53 +2,38 @@ import React from 'react'
 import { Images } from '../Themes'
 import Announcement from './Announcement'
 
-// If we choose to use a uri for the header image
-// we will need to specify w/h on the <Image /> in Announcement.tsx
-const ConferenceAnnouncements = () => {
+const ConferenceAnnouncements = (props) => {
   return (
     <Announcement
       style={{height: 350}}
+      currentDate={props.currentDate}
       preEvent={{
-        title: 'Welcome Party',
-        subtitle: 'At Squarespace PDX',
+        title: 'WELCOME PARTY',
+        subtitle: 'AT SQUARESPACE PDX',
         eventTimeInfo: 'SUNDAY, JULY 9 | 4-8PM',
         address: '311 SW WASHINGTON STREET',
-        image: Images.squarespacePhoto,
         headerLogo: Images.sqspLogo,
+        image: Images.squarespacePhoto,
         buttonUri: 'https://chainreact.squarespace.com',
-        buttonText: 'I want to go'
+        buttonText: 'I WANT TO GO'
       }}
       eventDays={[
         {
-          title: 'Happy Hour',
-          subtitle: 'Come for the fun',
-          eventTimeInfo: 'Stay for the cats',
-          address: '#1 Happy St',
-          headerLogo: {uri: 'https://kittybloger.files.wordpress.com/2012/05/cats-in-the-hats-15-amazing-pictures-5.jpg'},
-          buttonUri: 'https://chainreact.squarespace.com',
-          image: {uri: 'https://assets.rbl.ms/4314213/980x.jpg'},
-          buttonText: 'wassaa party'
-        },
-        {
-          title: 'Not So Happy Hour',
-          subtitle: '',
-          eventTimeInfo: '',
-          headerLogo: Images.sqspLogo,
-          address: '1313 Mockingbird Ln.',
-          image: {uri: 'https://cogpunksteamscribe.files.wordpress.com/2016/04/surprisecat1.jpg?w=500'},
-          buttonUri: 'https://chainreact.squarespace.com',
-          buttonText: 'Not So Happy'
+          title: 'HAPPY HOUR',
+          subtitle: 'HERE AT THE ARMORY',
+          eventTimeInfo: 'MONDAY, JULY 10 | 5-7:30PM',
+          address: 'MAIN LOBBY',
+          headerLogo: Images.crLogo,
+          image: Images.happyHour
         }
       ]}
       postEvent={{
-        title: 'The Sad Hour',
-        subtitle: 'Sorry to see you go',
+        title: 'THANK YOU',
+        subtitle: 'WE\'LL SEE YOU AGAIN NEXT YEAR',
         eventTimeInfo: '',
         address: '',
-        headerLogo: Images.sqspLogo,
-        image: {uri: 'https://img.buzzfeed.com/buzzfeed-static/static/2015-06/24/19/campaign_images/webdr09/this-may-be-this-cutest-saddest-cat-ever-2-4626-1435188004-0_dblbig.jpg'},
-        buttonUri: 'https://chainreact.squarespace.com',
-        buttonText: 'Not So Happy'
+        headerLogo: Images.crLogo,
+        image: Images.thankYou
       }}
     />
   )

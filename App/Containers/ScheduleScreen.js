@@ -38,9 +38,7 @@ class ScheduleScreen extends Component {
     super(props)
 
     const { schedule, specialTalks, currentTime } = props
-
     const eventsByDay = this.getEventsByDayFromSchedule(schedule)
-
     const activeDay = 0
     const data = addSpecials(specialTalks, eventsByDay[activeDay])
     const isCurrentDay = isActiveCurrentDay(currentTime, activeDay)
@@ -256,7 +254,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getScheduleUpdates: () => dispatch(ScheduleActions.getScheduleUpdates()),
-    setSelectedEvent: (data) => dispatch(ScheduleActions.setSelectedEvent(data)),
+    setSelectedEvent: data => dispatch(ScheduleActions.setSelectedEvent(data)),
     onPressGithub: url => dispatch(ScheduleActions.visitGithub(url)),
     onPressTwitter: url => dispatch(ScheduleActions.visitTwitter(url)),
     setReminder: title => dispatch(NotificationActions.addTalk(title)),

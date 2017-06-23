@@ -45,54 +45,92 @@ interface AnnouncementEvent {
   address: string
   image: any
   headerLogo: string
-  buttonUri: string
-  buttonText: string
+  buttonUri?: string
+  buttonText?: string
+}
+
+interface ButtonProps {
+  buttonUri?: string
+  buttonText?: string
 }
 
 const correctProps = (props) => {
-  const { hotwireDate } = DebugConfig
   const { conferenceDates } = Config
-  const { preEvent, eventDays, postEvent } = props
+  const { preEvent, eventDays, postEvent, currentDate } = props
+  const today = format(currentDate, 'M/D/YYYY')
 
-  const today = format(new Date(), 'M/D/YYYY')
-  if (hotwireDate) return eventDays[0]
   if (contains(today, conferenceDates)) {
     const index = indexOf(today, conferenceDates)
-    return eventDays[index]
+    return eventDays[index] || {}
   } else if (isBefore(today, conferenceDates[0])) {
-    return preEvent
+    return preEvent || {}
   } else if (isAfter(today, last(conferenceDates))) {
-    return postEvent
+    return postEvent || {}
   } else {
-    return postEvent
+    return postEvent || {}
+  }
+}
+
+const Button = (props: ButtonProps) => {
+  if (props.buttonUri && props.buttonText) {
+    const { buttonUri, buttonText } = props
+    return (
+      <RoundedButton
+        onPress={() => Linking.openURL(buttonUri)}
+        style={styles.partyButton}>
+        <Text style={styles.partyButtonText}>
+          {buttonText.toUpperCase()}
+        </Text>
+      </RoundedButton>
+
+    )
+  } else {
+    return null
   }
 }
 
 const Announcement = (props: AnnouncementProps) => {
   const { style, preEvent, postEvent } = props
   if (!preEvent || !postEvent) return null
-  const { title, subtitle, eventTimeInfo, address, image, buttonUri, buttonText, headerLogo, headerImageHeight, headerImageWidth } = correctProps(props)
+
+  const {
+    title,
+    subtitle,
+    eventTimeInfo,
+    address,
+    image,
+    buttonUri,
+    buttonText,
+    headerLogo,
+    headerImageHeight,
+    headerImageWidth
+  } = correctProps(props)
+  if (!title) return null
+
   return (
     <View>
       <Image source={image} style={style}>
         <View style={styles.afterPartyContainer}>
           <View style={styles.partyHeader}>
             <Image source={headerLogo} />
-            <Text style={styles.welcomeParty}>{title.toUpperCase()}</Text>
-            <Text style={styles.partyDescription}>{subtitle && subtitle.toUpperCase()}</Text>
+            <Text style={styles.welcomeParty}>
+              {title.toUpperCase()}
+            </Text>
+            <Text style={styles.partyDescription}>
+              {subtitle && subtitle.toUpperCase()}
+            </Text>
           </View>
           <View style={styles.partyInfo}>
-            <Text style={styles.partyDescription}>{eventTimeInfo && eventTimeInfo.toUpperCase()}</Text>
-            <Text style={styles.partyDescription}>{address && address.toUpperCase()}</Text>
+            <Text style={styles.partyDescription}>
+              {eventTimeInfo && eventTimeInfo.toUpperCase()}
+            </Text>
+            <Text style={styles.partyDescription}>
+              {address && address.toUpperCase()}
+            </Text>
           </View>
         </View>
       </Image>
-      <RoundedButton
-        onPress={() => Linking.openURL(buttonUri)}
-        style={styles.partyButton}
-      >
-        <Text style={styles.partyButtonText}>{buttonText.toUpperCase()}</Text>
-      </RoundedButton>
+      <Button buttonUri={buttonUri} buttonText={buttonText} />
     </View>
   )
 }
