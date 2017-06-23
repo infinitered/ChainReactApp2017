@@ -13,6 +13,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import RoundedButton from '../Components/RoundedButton'
 import PurpleGradient from '../Components/PurpleGradient'
 import Slack from '../Components/Slack'
+import Twitter from '../Components/Twitter'
 import Sponsors from '../Components/Sponsors'
 import LiveHelp from '../Components/LiveHelp'
 import ConferenceAnnouncements from '../Components/ConferenceAnnouncements'
@@ -43,37 +44,9 @@ class AboutScreen extends React.Component {
     }).done()
   }
 
-  tweetWithHashtag () {
-    const appURL = 'twitter://post?hashtags=ChainReact2017'
-    const webURL = 'https://twitter.com/intent/tweet?hashtags=ChainReact2017'
-    Linking.canOpenURL(appURL).then((supported) =>
-      supported ? Linking.openURL(appURL) : Linking.openURL(webURL)
-    )
-  }
-
   setActiveTab (tab) {
     LayoutAnimation.configureNext({...LayoutAnimation.Presets.linear, duration: 250})
     this.setState({activeTab: tab})
-  }
-
-  renderHashtag () {
-    return (
-      <View style={styles.twitter}>
-        <Image style={styles.blowhorn} source={Images.blowhorn} />
-        <TouchableOpacity onPress={() => this.tweetWithHashtag()}>
-          <Text style={styles.heading}>
-            #ChainReact2017
-          </Text>
-        </TouchableOpacity>
-        <Text style={styles.description}>
-          Make your friends jealous by tweeting, posting,
-          or whatever it is you do with the hashtag&nbsp;
-          <Text style={styles.hashtag} onPress={() => this.tweetWithHashtag()}>
-            #chainreact2017
-          </Text>.
-        </Text>
-      </View>
-    )
   }
 
   renderTabs () {
@@ -126,7 +99,7 @@ class AboutScreen extends React.Component {
           <View style={styles.container}>
             <Slack />
             <ConferenceAnnouncements />
-            {this.renderHashtag()}
+            <Twitter />
             {this.renderTabs()}
           </View>
         </ScrollView>
