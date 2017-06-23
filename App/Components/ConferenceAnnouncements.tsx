@@ -1,11 +1,11 @@
 import React from 'react'
-import { Images } from '../Themes'
+import { Images, Metrics } from '../Themes'
 import Announcement from './Announcement'
 
 const ConferenceAnnouncements = (props) => {
   return (
     <Announcement
-      style={{height: 350}}
+      style={{height: 350, width: Metrics.screenWidth}}
       currentDate={props.currentDate}
       preEvent={{
         title: 'WELCOME PARTY',
