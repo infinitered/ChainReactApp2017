@@ -68,10 +68,6 @@ export default StyleSheet.create({
     fontWeight: '600',
     color: Colors.snow
   },
-  sponsors: {
-    ...section,
-    paddingTop: 30
-  },
   slack: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -80,55 +76,5 @@ export default StyleSheet.create({
   },
   slackButton: {
     marginTop: 25
-  },
-  sponsorTierTitle: {
-    marginTop: 60,
-    marginBottom: Metrics.baseMargin,
-    fontFamily: Fonts.type.bold,
-    fontSize: 15,
-    color: Colors.snow,
-    opacity: 0.6,
-    letterSpacing: 0.5,
-    lineHeight: 23
-  },
-  sponsorTier: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: Metrics.screenWidth,
-    flexWrap: 'wrap'
-  },
-  sponsor: {
-    margin: 15,
-    flexShrink: 0,
-    alignItems: 'center'
-  },
-  lowTierSponsor: {
-    marginHorizontal: 25
-  },
-  liveHelp: {
-    alignItems: 'center',
-    paddingVertical: 50,
-    paddingHorizontal: Metrics.doubleBaseMargin
-  },
-  liveHelpPhone: {
-    color: Colors.snow,
-    fontFamily: Fonts.type.bold,
-    fontSize: 31,
-    fontWeight: '900'
-  },
-  liveHelpText: {
-    margin: 5,
-    color: Colors.snow,
-    opacity: 0.9,
-    fontSize: 15,
-    fontWeight: '500',
-    fontFamily: Fonts.type.base,
-    lineHeight: 23,
-    textAlign: 'center'
-  },
-  liveHelpButton: {
-    marginTop: 25,
-    width: 200
   }
 })

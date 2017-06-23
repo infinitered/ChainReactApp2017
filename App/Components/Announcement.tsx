@@ -45,8 +45,13 @@ interface AnnouncementEvent {
   address: string
   image: any
   headerLogo: string
-  buttonUri: string
-  buttonText: string
+  buttonUri?: string
+  buttonText?: string
+}
+
+interface ButtonProps {
+  buttonUri?: string
+  buttonText?: string
 }
 
 const correctProps = (props) => {
@@ -68,31 +73,64 @@ const correctProps = (props) => {
   }
 }
 
+const Button = (props: ButtonProps) => {
+  if (props.buttonUri && props.buttonText) {
+    const { buttonUri, buttonText } = props
+    return (
+      <RoundedButton
+        onPress={() => Linking.openURL(buttonUri)}
+        style={styles.partyButton}>
+        <Text style={styles.partyButtonText}>
+          {buttonText.toUpperCase()}
+        </Text>
+      </RoundedButton>
+
+    )
+  } else {
+    return null
+  }
+}
+
 const Announcement = (props: AnnouncementProps) => {
   const { style, preEvent, postEvent } = props
   if (!preEvent || !postEvent) return null
-  const { title, subtitle, eventTimeInfo, address, image, buttonUri, buttonText, headerLogo, headerImageHeight, headerImageWidth } = correctProps(props)
+  const {
+    title,
+    subtitle,
+    eventTimeInfo,
+    address,
+    image,
+    buttonUri,
+    buttonText,
+    headerLogo,
+    headerImageHeight,
+    headerImageWidth
+  } = correctProps(props)
+
   return (
     <View>
       <Image source={image} style={style}>
         <View style={styles.afterPartyContainer}>
           <View style={styles.partyHeader}>
             <Image source={headerLogo} />
-            <Text style={styles.welcomeParty}>{title.toUpperCase()}</Text>
-            <Text style={styles.partyDescription}>{subtitle && subtitle.toUpperCase()}</Text>
+            <Text style={styles.welcomeParty}>
+              {title.toUpperCase()}
+            </Text>
+            <Text style={styles.partyDescription}>
+              {subtitle && subtitle.toUpperCase()}
+            </Text>
           </View>
           <View style={styles.partyInfo}>
-            <Text style={styles.partyDescription}>{eventTimeInfo && eventTimeInfo.toUpperCase()}</Text>
-            <Text style={styles.partyDescription}>{address && address.toUpperCase()}</Text>
+            <Text style={styles.partyDescription}>
+              {eventTimeInfo && eventTimeInfo.toUpperCase()}
+            </Text>
+            <Text style={styles.partyDescription}>
+              {address && address.toUpperCase()}
+            </Text>
           </View>
         </View>
       </Image>
-      <RoundedButton
-        onPress={() => Linking.openURL(buttonUri)}
-        style={styles.partyButton}
-      >
-        <Text style={styles.partyButtonText}>{buttonText.toUpperCase()}</Text>
-      </RoundedButton>
+      <Button buttonUri={buttonUri} buttonText={buttonText} />
     </View>
   )
 }
