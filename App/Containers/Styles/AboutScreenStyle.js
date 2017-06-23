@@ -67,14 +67,5 @@ export default StyleSheet.create({
   activeTabText: {
     fontWeight: '600',
     color: Colors.snow
-  },
-  slack: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 55,
-    paddingBottom: 35
-  },
-  slackButton: {
-    marginTop: 25
   }
 })

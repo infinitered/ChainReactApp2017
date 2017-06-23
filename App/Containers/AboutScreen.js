@@ -12,6 +12,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient'
 import RoundedButton from '../Components/RoundedButton'
 import PurpleGradient from '../Components/PurpleGradient'
+import Slack from '../Components/Slack'
 import Sponsors from '../Components/Sponsors'
 import LiveHelp from '../Components/LiveHelp'
 import ConferenceAnnouncements from '../Components/ConferenceAnnouncements'
@@ -53,26 +54,6 @@ class AboutScreen extends React.Component {
   setActiveTab (tab) {
     LayoutAnimation.configureNext({...LayoutAnimation.Presets.linear, duration: 250})
     this.setState({activeTab: tab})
-  }
-
-  renderSlack () {
-    const gradient = ['#136EB5', 'rgba(1,192,182,0.88)']
-
-    return (
-      <LinearGradient
-        colors={gradient}
-        start={{x: 0, y: 1}}
-        end={{x: 1, y: 0}}
-        style={styles.slack}>
-        <Image style={styles.slackIcon} source={Images.slack} />
-        <Text style={styles.heading}>Join Us On Slack</Text>
-        <RoundedButton
-          text='Join the IR Slack Community'
-          onPress={() => Linking.openURL('http://community.infinite.red')}
-          style={styles.slackButton}
-        />
-      </LinearGradient>
-    )
   }
 
   renderHashtag () {
@@ -143,7 +124,7 @@ class AboutScreen extends React.Component {
       <PurpleGradient style={[styles.linearGradient, {flex: 1}]}>
         <ScrollView>
           <View style={styles.container}>
-            {this.renderSlack()}
+            <Slack />
             <ConferenceAnnouncements />
             {this.renderHashtag()}
             {this.renderTabs()}
