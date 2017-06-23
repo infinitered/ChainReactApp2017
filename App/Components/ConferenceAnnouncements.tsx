@@ -1,11 +1,11 @@
 import React from 'react'
-import { Images } from '../Themes'
+import { Images, Metrics } from '../Themes'
 import Announcement from './Announcement'
 
 const ConferenceAnnouncements = () => {
   return (
     <Announcement
-      style={{height: 350}}
+      style={{height: 350, width: Metrics.screenWidth}}
       preEvent={{
         title: 'Welcome Party',
         subtitle: 'At Squarespace PDX',
