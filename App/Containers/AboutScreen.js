@@ -5,19 +5,16 @@ import {
   Image,
   View,
   Text,
-  Linking,
   LayoutAnimation,
   AsyncStorage
 } from 'react-native'
-import LinearGradient from 'react-native-linear-gradient'
-import RoundedButton from '../Components/RoundedButton'
 import PurpleGradient from '../Components/PurpleGradient'
 import Slack from '../Components/Slack'
 import Twitter from '../Components/Twitter'
 import Sponsors from '../Components/Sponsors'
 import LiveHelp from '../Components/LiveHelp'
 import ConferenceAnnouncements from '../Components/ConferenceAnnouncements'
-import { Images, Metrics } from '../Themes'
+import { Images } from '../Themes'
 import { connect } from 'react-redux'
 import styles from './Styles/AboutScreenStyle'
 
