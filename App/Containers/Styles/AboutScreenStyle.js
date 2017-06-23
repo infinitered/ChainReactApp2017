@@ -31,13 +31,6 @@ export default StyleSheet.create({
     letterSpacing: 0.47,
     lineHeight: 23
   },
-  hashtag: {
-    fontFamily: 'Montserrat-SemiBold',
-    color: Colors.snow
-  },
-  twitter: {
-    ...section
-  },
   tabsContainer: {
     flex: 1,
     backgroundColor: Colors.transparent,

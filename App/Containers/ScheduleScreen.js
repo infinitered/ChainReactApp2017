@@ -38,9 +38,7 @@ class ScheduleScreen extends Component {
     super(props)
 
     const { schedule, specialTalks, currentTime } = props
-
     const eventsByDay = this.getEventsByDayFromSchedule(schedule)
-
     const activeDay = 0
     const data = addSpecials(specialTalks, eventsByDay[activeDay])
     const isCurrentDay = isActiveCurrentDay(currentTime, activeDay)
