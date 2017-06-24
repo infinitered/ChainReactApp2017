@@ -34,6 +34,9 @@ class LocationScreen extends React.Component {
       mapTouchStart: '',
       mapViewMode: false
     }
+
+    this.scrollSpot = Metrics.screenHeight / 4.25
+    this.activeMapHeight = Metrics.screenHeight - this.scrollSpot
   }
 
   static navigationOptions = {
@@ -48,13 +51,13 @@ class LocationScreen extends React.Component {
     this._panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderGrant: (e) => this.setState({mapTouchStart: e.nativeEvent.timestamp}),
-      onPanResponderRelease: this.cehckMapTap
+      onPanResponderRelease: this.checkMapTap
     })
   }
-  cehckMapTap = (e) => {
+  checkMapTap = (e) => {
     if (e.nativeEvent.timestamp - this.state.mapTouchStart < MAP_TAP_THRESHOLD) {
       LayoutAnimation.configureNext({...LayoutAnimation.Presets.linear, duration: 500})
-      this.refs.scrolly.scrollTo({y: Metrics.screenHeight / 4.25, animated: true})
+      this.refs.scrolly.scrollTo({y: this.scrollSpot, animated: true})
       this.setState({mapViewMode: true})
     }
     this.setState({mapTouchStart: ''})
@@ -194,7 +197,7 @@ class LocationScreen extends React.Component {
             {this.renderBackground()}
             {this.renderHeader()}
             <View ref='mapContainer' {...this._panResponder.panHandlers}>
-              <VenueMap mapViewMode={mapViewMode} onCloseMap={this.onCloseMap} scrollEnabled={mapViewMode} style={[styles.map, mapViewMode && {height: Metrics.screenHeight / 2}]} />
+              <VenueMap mapViewMode={mapViewMode} onCloseMap={this.onCloseMap} scrollEnabled={mapViewMode} style={[styles.map, mapViewMode && {height: this.activeMapHeight}]} />
             </View>
             <View style={styles.mapActions}>
               <TouchableOpacity onPress={() => this.openMaps()}>
