@@ -2,14 +2,28 @@ import React from 'react'
 import * as ReactNavigation from 'react-navigation'
 import { connect } from 'react-redux'
 import AppNavigation from './AppNavigation'
+import { BackHandler } from 'react-native'
+
+const handleHardwareBack = (props, navigation) => () => {  //props.dispatch(ReactNavigation.NavigationActions.back())
+  console.tron.log(navigation)
+  // Back performs pop, unless we're to main screen
+  if (navigation.state.index === 0) {
+    return false
+  } else {
+    return props.dispatch(ReactNavigation.NavigationActions.back())
+  }
+}
 
 // here is our redux-aware our smart component
-function ReduxNavigation (props) {
+const ReduxNavigation = (props) => {
   const { dispatch, nav } = props
   const navigation = ReactNavigation.addNavigationHelpers({
     dispatch,
     state: nav
   })
+
+  // Android back button
+  BackHandler.addEventListener('hardwareBackPress', handleHardwareBack(props, navigation))
 
   return <AppNavigation navigation={navigation} />
 }
