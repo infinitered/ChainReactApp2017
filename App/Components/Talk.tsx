@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, TouchableOpacity, LayoutAnimation } from 'react-native'
+import { View, Text, Image, TouchableWithoutFeedback, LayoutAnimation } from 'react-native'
 import TalkInfo from './TalkInfo'
 import TimeIndicator from './TimeIndicator'
 import styles from './Styles/TalkStyle'
@@ -66,7 +66,7 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
 
     return (
       <View>
-        <TouchableOpacity onPress={this.props.onPress}>
+        <TouchableWithoutFeedback onPress={this.props.onPress}>
           <View style={containerStyles}>
             <View style={styles.info}>
               <View style={styles.infoText}>
@@ -86,7 +86,7 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
               onPressTwitter={this.props.onPressTwitter}
             />
           </View>
-        </TouchableOpacity>
+        </TouchableWithoutFeedback>
         {isActive &&
           <TimeIndicator start={start} duration={duration} time={currentTime} />
         }

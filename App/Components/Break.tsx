@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableWithoutFeedback } from 'react-native'
 import { Images, Videos } from '../Themes'
 import TimeIndicator from './TimeIndicator'
 import BackgroundVideo from './BackgroundVideo'
@@ -96,9 +96,9 @@ export default class Break extends React.Component<BreakProps, BreakState> {
   renderWrapper () {
     if (this.props.onPress) {
       return (
-        <TouchableOpacity onPress={this.props.onPress}>
+        <TouchableWithoutFeedback onPress={this.props.onPress}>
           {this.renderContent()}
-        </TouchableOpacity>
+        </TouchableWithoutFeedback>
       )
     } else {
       return this.renderContent()
