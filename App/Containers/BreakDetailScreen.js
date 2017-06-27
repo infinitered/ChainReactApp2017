@@ -1,5 +1,5 @@
 import React from 'react'
-import { BackHandler, ScrollView, View, Text, Image, TouchableOpacity } from 'react-native'
+import { ScrollView, View, Text, Image, TouchableOpacity } from 'react-native'
 import PurpleGradient from '../Components/PurpleGradient'
 import { NavigationActions } from 'react-navigation'
 import { connect } from 'react-redux'
@@ -23,10 +23,6 @@ class BreakDetail extends React.Component {
     this.state = {
       imageWidth: 315
     }
-  }
-
-  componentDidMount () {
-    BackHandler.addEventListener('hardwareBackPress', this.goBack)
   }
 
   goBack = () => {
