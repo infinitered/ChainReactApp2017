@@ -4,14 +4,12 @@ import { connect } from 'react-redux'
 import AppNavigation from './AppNavigation'
 import { BackHandler } from 'react-native'
 
-const handleHardwareBack = (props, navigation) => () => {  //props.dispatch(ReactNavigation.NavigationActions.back())
-  console.tron.log(navigation)
-  // Back performs pop, unless we're to main screen
-  if (navigation.state.index === 0) {
-    return false
-  } else {
-    return props.dispatch(ReactNavigation.NavigationActions.back())
+const handleHardwareBack = (props, navigation) => () => {
+  // Back performs pop, unless we're to main screen [0,0]
+  if (navigation.state.index === 0 && navigation.state.routes[0].index === 0) {
+    BackHandler.exitApp()
   }
+  return navigation.goBack(null)
 }
 
 // here is our redux-aware our smart component
