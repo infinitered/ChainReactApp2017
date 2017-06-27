@@ -174,7 +174,7 @@
       "type":"talk",
       "speaker":"Nader Dabit",
       "image":"nader",
-      "title":"How to Sanely Work with File Types in a Cross Platform React Native Application",
+      "title":"JavaScript Futurism",
       "description":"Working consistently across multiple platforms with different file types in React Native can be challenging. In this talk, I will discuss and implement working with and opening a multitude of different file types consistently on both iOS and Android.",
       "time":"7/10/2017 1:30 PM",
       "duration":"30",
