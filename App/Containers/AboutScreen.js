@@ -11,6 +11,7 @@ import {
 import { isSameDay } from 'date-fns'
 import PurpleGradient from '../Components/PurpleGradient'
 import InfiniteRed from '../Components/InfiniteRed'
+import SeeProcess from '../Components/SeeProcess'
 import Twitter from '../Components/Twitter'
 import Sponsors from '../Components/Sponsors'
 import LiveHelp from '../Components/LiveHelp'
@@ -106,6 +107,7 @@ class AboutScreen extends React.Component {
         <ScrollView bounces={false}>
           <View style={styles.container}>
             <InfiniteRed />
+            <SeeProcess />
             <ConferenceAnnouncements currentDate={currentDate} />
             <Twitter />
             {this.renderTabs()}
