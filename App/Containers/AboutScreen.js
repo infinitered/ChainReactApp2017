@@ -10,7 +10,8 @@ import {
 } from 'react-native'
 import { isSameDay } from 'date-fns'
 import PurpleGradient from '../Components/PurpleGradient'
-import Slack from '../Components/Slack'
+import InfiniteRed from '../Components/InfiniteRed'
+import SeeProcess from '../Components/SeeProcess'
 import Twitter from '../Components/Twitter'
 import Sponsors from '../Components/Sponsors'
 import LiveHelp from '../Components/LiveHelp'
@@ -105,7 +106,8 @@ class AboutScreen extends React.Component {
       <PurpleGradient style={[styles.linearGradient, {flex: 1}]}>
         <ScrollView bounces={false}>
           <View style={styles.container}>
-            <Slack />
+            <InfiniteRed />
+            <SeeProcess />
             <ConferenceAnnouncements currentDate={currentDate} />
             <Twitter />
             {this.renderTabs()}
