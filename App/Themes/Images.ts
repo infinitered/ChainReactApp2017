@@ -49,6 +49,7 @@ const images = {
   inactiveLocationIcon: require('../Images/Icons/icon-venue.png'),
   inactiveNotificationIcon: require('../Images/Icons/icon-notification-inactive.png'),
   inactiveScheduleIcon: require('../Images/Icons/icon-schedule.png'),
+  infiniteRed: require('../Images/ir-logo.png'),
   instrument: require('../Images/sponsors/img-sponsor-instrument.png'),
   japanesegarden: require('../Images/img-japanesegarden.jpg'),
   launch: require('../Images/launch-icon.png'),
