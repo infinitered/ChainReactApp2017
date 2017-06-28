@@ -97,7 +97,6 @@ const images = {
   ready: require('../Images/your-app.png'),
   salesforce: require('../Images/sponsors/img-sponsor-salesforce.png'),
   salt: require('../Images/img-saltnstraw.jpg'),
-  slack: require('../Images/Icons/icon-slack.png'),
   sponsor: require('../Images/sponsor.png'),
   sqspLogo: require('../Images/sqsp-logo.png'),
   squarespace: require('../Images/sponsors/img-sponsor-squarespace.png'),
