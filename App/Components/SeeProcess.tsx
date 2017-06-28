@@ -5,12 +5,8 @@ import { Images } from '../Themes'
 import styles from './Styles/SeeProcessStyles'
 
 const SeeProcess = (props) => {
-  const onClick = () => {
-    console.log("test")
-  }
-
   return (
-    <TouchableOpacity style={styles.processContainer} onPress={() => Linking.openURL("http://google.com")}>
+    <TouchableOpacity style={styles.processContainer} onPress={() => Linking.openURL('http://google.com')}>
       <View style={styles.leftContainer}>
         <Image style={styles.starsIcon} source={Images.starsIcon} />
         <Text style={styles.text}>See the process behind making our app</Text>

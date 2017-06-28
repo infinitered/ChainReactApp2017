@@ -17,7 +17,7 @@ const InfiniteRed = (props) => {
       <Text style={styles.heading}>Brought to you by:</Text>
       <Image style={styles.infiniteRedIcon} source={Images.infiniteRed} />
       <View style={styles.line} />
-      <Text style={styles.subheading}>Keep the conversation going by{"\n"}connecting with Infinite Red on Slack</Text>
+      <Text style={styles.subheading}>Keep the conversation going by{'\n'}connecting with Infinite Red on Slack</Text>
       <RoundedButton
         text='Connect with IR on Slack'
         onPress={() => Linking.openURL('http://community.infinite.red')}

@@ -26,7 +26,7 @@ export default StyleSheet.create({
     color: Colors.snow,
     fontFamily: Fonts.type.bold,
     fontSize: 13,
-    letterSpacing: 0.2,
+    letterSpacing: 0.2
   },
   rightArrow: {
     marginRight: 10

@@ -14,10 +14,10 @@ export default StyleSheet.create({
     fontSize: 13,
     letterSpacing: 0.2,
     backgroundColor: Colors.transparent,
-    color: '#FDE5FF',
+    color: '#FDE5FF'
   },
   infiniteRedIcon: {
-    marginTop: 15,
+    marginTop: 15
   },
   line: {
     marginTop: 30,
@@ -25,7 +25,7 @@ export default StyleSheet.create({
     borderBottomColor: 'rgba(255, 255, 255, 0.2)',
     borderBottomWidth: 1,
     height: 0,
-    width: "80%"
+    width: '80%'
   },
   subheading: {
     marginBottom: 30,
