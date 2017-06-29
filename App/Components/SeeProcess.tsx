@@ -6,7 +6,7 @@ import styles from './Styles/SeeProcessStyles'
 
 const SeeProcess = (props) => {
   return (
-    <TouchableOpacity style={styles.processContainer} onPress={() => Linking.openURL('http://google.com')}>
+    <TouchableOpacity style={styles.processContainer} onPress={() => Linking.openURL('https://shift.infinite.red/making-the-react-native-conference-app-in-react-native-9afd36be3681')}>
       <View style={styles.leftContainer}>
         <Image style={styles.starsIcon} source={Images.starsIcon} />
         <Text style={styles.text}>See the process behind making our app</Text>
