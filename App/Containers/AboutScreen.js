@@ -85,7 +85,7 @@ class AboutScreen extends React.Component {
   render () {
     return (
       <PurpleGradient style={[styles.linearGradient, {flex: 1}]}>
-        <ScrollView bounces={false}>
+        <ScrollView>
           <View style={styles.container}>
             <InfiniteRed />
             <SeeProcess />
