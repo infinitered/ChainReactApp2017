@@ -5,10 +5,8 @@ import {
   Image,
   View,
   Text,
-  LayoutAnimation,
-  AsyncStorage
+  LayoutAnimation
 } from 'react-native'
-import { isSameDay } from 'date-fns'
 import PurpleGradient from '../Components/PurpleGradient'
 import InfiniteRed from '../Components/InfiniteRed'
 import SeeProcess from '../Components/SeeProcess'
@@ -32,23 +30,7 @@ class AboutScreen extends React.Component {
     super(props)
 
     this.state = {
-      activeTab: 'liveHelp',
-      activeDay: null,
-      currentDate: new Date()
-    }
-  }
-
-  componentDidMount () {
-    AsyncStorage.getItem('activeDay').then((day) => {
-      this.setState({activeDay: day})
-    }).done()
-  }
-
-  componentWillReceiveProps (newProps) {
-    const { currentTime } = newProps
-    const { currentDate } = this.state
-    if (!isSameDay(currentDate, currentTime)) {
-      this.setState({currentDate: currentTime})
+      activeTab: 'liveHelp'
     }
   }
 
@@ -101,14 +83,13 @@ class AboutScreen extends React.Component {
   }
 
   render () {
-    const { currentDate } = this.state
     return (
       <PurpleGradient style={[styles.linearGradient, {flex: 1}]}>
         <ScrollView bounces={false}>
           <View style={styles.container}>
             <InfiniteRed />
             <SeeProcess />
-            <ConferenceAnnouncements currentDate={currentDate} />
+            <ConferenceAnnouncements currentDate={this.props.currentTime} />
             <Twitter />
             {this.renderTabs()}
           </View>
