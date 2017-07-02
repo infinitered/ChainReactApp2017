@@ -6,6 +6,7 @@ import styles from './Styles/TalkStyle'
 import PushNotification from 'react-native-push-notification'
 import PNHelpers from '../Lib/PushNotificationHelpers'
 import SBHelper from '../Lib/SpecialButtonHelper'
+import FadeIn from 'react-native-fade-in-image'
 
 interface TalkProps {
   title: string
@@ -73,7 +74,9 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
                 <Text style={styles.name}>{name}</Text>
                 <Text style={styles.title}>{title}</Text>
               </View>
-              <Image style={styles.avatar} source={{uri: avatarURL}} />
+              <FadeIn>
+                <Image style={styles.avatar} source={{uri: avatarURL}} />
+              </FadeIn>
             </View>
             <TalkInfo
               start={start}

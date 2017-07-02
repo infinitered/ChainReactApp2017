@@ -51,6 +51,7 @@
     "react-native-code-push": "^2.1.0-beta",
     "react-native-config": "0.4.2",
     "react-native-device-info": "^0.10.0",
+    "react-native-fade-in-image": "^1.0.3",
     "react-native-i18n": "^1.0.0",
     "react-native-linear-gradient": "https://github.com/react-native-community/react-native-linear-gradient.git",
     "react-native-maps": "0.15.2",

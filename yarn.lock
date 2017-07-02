@@ -5086,6 +5086,13 @@ react-dom@16.0.0-alpha.12, react-dom@^16.0.0-alpha.12:
     object-assign "^4.1.0"
     prop-types "^15.5.6"
 
+react-mixin@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/react-mixin/-/react-mixin-3.0.5.tgz#e0b7b6713fdc9ddc429267df808b6ac5184c6706"
+  dependencies:
+    object-assign "^4.0.1"
+    smart-mixin "^2.0.0"
+
 react-native-animatable@1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.2.2.tgz#a873550e6f7cb95f90baf46b9eb15b1ab56425cb"
@@ -5127,6 +5134,14 @@ react-native-drawer-layout@1.3.1:
   resolved "https://registry.yarnpkg.com/react-native-drawer-layout/-/react-native-drawer-layout-1.3.1.tgz#eb976df8fc43844811acebeed109029395406fe9"
   dependencies:
     react-native-dismiss-keyboard "1.0.0"
+
+react-native-fade-in-image@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-fade-in-image/-/react-native-fade-in-image-1.0.3.tgz#ba66aa573359765f4ba7d863b4ce2717325e2f13"
+  dependencies:
+    react-clone-referenced-element "^1.0.1"
+    react-mixin "^3.0.5"
+    react-timer-mixin "^0.13.3"
 
 react-native-i18n@^1.0.0:
   version "1.0.0"
@@ -5890,6 +5905,10 @@ slide@^1.1.5:
 smart-buffer@^1.0.13:
   version "1.1.15"
   resolved "https://registry.yarnpkg.com/smart-buffer/-/smart-buffer-1.1.15.tgz#7f114b5b65fab3e2a35aa775bb12f0d1c649bf16"
+
+smart-mixin@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/smart-mixin/-/smart-mixin-2.0.0.tgz#a34a1055e32a75b30d2b4e3ca323dc99cb53f437"
 
 snazzy@7.0.0:
   version "7.0.0"
