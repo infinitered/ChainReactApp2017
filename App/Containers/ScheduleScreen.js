@@ -64,10 +64,11 @@ class ScheduleScreen extends Component {
     const mergeTimes = (e) => {
       const eventDuration = Number(e.duration)
       const eventStart = new Date(e.time)
+      const eventFinal = addMinutes(eventStart, eventDuration)
       // ends 1 millisecond before event
-      const eventEnd = subMilliseconds(addMinutes(eventStart, eventDuration), 1)
+      const eventEnd = subMilliseconds(eventFinal, 1)
 
-      return merge(e, { eventStart, eventEnd, eventDuration })
+      return merge(e, { eventStart, eventEnd, eventDuration, eventFinal })
     }
     const sorted = [...schedule].map(mergeTimes).sort((a, b) => {
       return compareAsc(a.eventStart, b.eventStart)
@@ -177,7 +178,7 @@ class ScheduleScreen extends Component {
   renderItem = ({item}) => {
     const { isCurrentDay } = this.state
     const { currentTime, setReminder, removeReminder } = this.props
-    const { eventDuration, eventStart, eventEnd, special } = item
+    const { eventDuration, eventStart, eventEnd, eventFinal, special } = item
     const isActive = isWithinRange(currentTime, eventStart, eventEnd)
     const isFinished = currentTime > eventEnd
 
@@ -209,6 +210,7 @@ class ScheduleScreen extends Component {
           type={item.type}
           title={item.title}
           start={eventStart}
+          end={eventFinal}
           duration={eventDuration}
           onPress={() => this.onEventPress(item)}
           currentTime={currentTime}
