@@ -3,10 +3,12 @@ import { View, Text, Image, TouchableWithoutFeedback } from 'react-native'
 import { Images, Videos } from '../Themes'
 import TimeIndicator from './TimeIndicator'
 import BackgroundVideo from './BackgroundVideo'
+import { format, getTime } from 'date-fns'
 import styles from './Styles/BreakStyle'
 
 interface BreakProps {
   start: Date,
+  end: Date,
   currentTime: Date,
   duration: number,
   type: 'coffee' | 'lunch' | 'party' | 'breakfast'
@@ -43,7 +45,9 @@ export default class Break extends React.Component<BreakProps, BreakState> {
       title,
       duration,
       isCurrentDay,
-      isActive
+      isActive,
+      start,
+      end
     } = this.props
 
     const containerStyles = [
@@ -54,7 +58,7 @@ export default class Break extends React.Component<BreakProps, BreakState> {
 
     const background = Images[`${type}Break`]
     const video = Videos[type]
-    const timeframe = duration > 89 ? `${duration / 60} Hours` : `${duration} Minutes`
+    const timeframe = duration <= 60 ? `${duration} Minutes` : `${format(getTime(start), 'h:mm')} - ${format(getTime(end), 'h:mma')}`
     const cellTitle = title || `${type.charAt(0).toUpperCase() + type.slice(1)} Break`
 
     const imageWidth = this.state.imageWidth
