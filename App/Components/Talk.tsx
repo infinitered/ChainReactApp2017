@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, TouchableWithoutFeedback, LayoutAnimation } from 'react-native'
+import { View, Text, Image, TouchableWithoutFeedback, LayoutAnimation, Animated } from 'react-native'
 import TalkInfo from './TalkInfo'
 import TimeIndicator from './TimeIndicator'
 import styles from './Styles/TalkStyle'
@@ -30,16 +30,33 @@ interface TalkProps {
 }
 
 interface TalkState {
-  isActive: boolean
+  isActive: boolean,
+  animatedSize: Animated.Value
 }
 
 export default class Talk extends React.Component<TalkProps, TalkState> {
   constructor (props) {
     super(props)
 
+    // this.animatedSize = new Animated.Value(1)
+
     this.state = {
-      isActive: false
+      isActive: false,
+      animatedSize: new Animated.Value(1)
     }
+  }
+
+  handlePressIn = () => {
+    Animated.spring(this.state.animatedSize, {
+      toValue: 1.05
+    }).start()
+  }
+
+  handlePressOut = () => {
+    Animated.spring(this.state.animatedSize, {
+      toValue: 1,
+      friction: 5
+    }).start()
   }
 
   render () {
@@ -58,17 +75,26 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
       removeReminder
     } = this.props
 
+    const animatedStyle = {
+      transform: [{ scale: this.state.animatedSize }]
+    }
+
     const containerStyles = [
       styles.container,
       isCurrentDay && styles.currentDay,
       isActive && styles.active,
-      isFinished && styles.finished
+      isFinished && styles.finished,
+      animatedStyle
     ]
 
     return (
       <View>
-        <TouchableWithoutFeedback onPress={this.props.onPress}>
-          <View style={containerStyles}>
+        <TouchableWithoutFeedback
+          onPressIn={this.handlePressIn}
+          onPressOut={this.handlePressOut}
+          onPress={this.props.onPress}
+        >
+          <Animated.View style={containerStyles}>
             <View style={styles.info}>
               <View style={styles.infoText}>
                 <Text style={styles.name}>{name}</Text>
@@ -88,7 +114,7 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
               onPressGithub={this.props.onPressGithub}
               onPressTwitter={this.props.onPressTwitter}
             />
-          </View>
+          </Animated.View>
         </TouchableWithoutFeedback>
         {isActive &&
           <TimeIndicator start={start} duration={duration} time={currentTime} />
