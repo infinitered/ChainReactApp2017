@@ -13,7 +13,8 @@ export default StyleSheet.create({
     top: -59,
     left: -10,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: 20
   },
   backButtonIcon: {
     marginRight: 5
