@@ -48,14 +48,16 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
 
   handlePressIn = () => {
     Animated.spring(this.state.animatedSize, {
-      toValue: 1.05
+      toValue: 1.05,
+      useNativeDriver: true
     }).start()
   }
 
   handlePressOut = () => {
     Animated.spring(this.state.animatedSize, {
       toValue: 1,
-      friction: 5
+      friction: 5,
+      useNativeDriver: true
     }).start()
   }
 
