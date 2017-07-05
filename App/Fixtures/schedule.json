@@ -484,16 +484,16 @@
     {
       "type":"breakfast",
       "title": "Registration and Breakfast",
-      "time":"7/10/2017 7:00 AM",
-      "duration":"105",
+      "time":"7/10/2017 7:30 AM",
+      "duration":"75",
       "options": ["Assorted Coco Donuts", "Whole Fruit", "Bowery Bagels with Whipped Herb Cream Cheese"],
       "veganOptions": []
     },
     {
       "type":"breakfast",
       "title": "Breakfast",
-      "time":"7/11/2017 7:00 AM",
-      "duration":"105",
+      "time":"7/11/2017 7:30 AM",
+      "duration":"75",
       "options": ["Assorted Coco Donuts", "Whole Fruit", "Bowery Bagels with Whipped Herb Cream Cheese"],
       "veganOptions": []
     },
