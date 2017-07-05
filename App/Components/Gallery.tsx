@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity, Image, View, Text, LayoutAnimation } from 'react-native'
+import { TouchableOpacity, Image, View, Text, LayoutAnimation, TouchableWithoutFeedback } from 'react-native'
 import { Images } from '../Themes'
 import styles from './Styles/GalleryStyle'
 
@@ -43,22 +43,22 @@ export default class Gallery extends React.Component<GalleryProps, GalleryState>
 
   renderItem = (itemData) => {
     const { onItemPress } = this.props
-    const { name, image, address } = itemData
-    const daddr = address.replace(/\s/, '+')
+    const { name, image, link } = itemData
     return (
-      <TouchableOpacity
+      <TouchableWithoutFeedback
         key={name}
-        style={styles.item}
-        onPress={() => onItemPress(daddr)}>
-        <Image source={Images[image]} resizeMode={'cover'} style={styles.itemImage} />
-        <View style={styles.itemDetail}>
-          <Text style={styles.itemTitle}>{name}</Text>
-          <Text style={styles.itemAction}>
-            Directions&nbsp;
-            <Image source={Images.purpleArrowIcon} />
-          </Text>
+        onPress={() => onItemPress(link)}>
+        <View style={styles.item}>
+          <Image source={Images[image]} resizeMode={'cover'} style={styles.itemImage} />
+          <View style={styles.itemDetail}>
+            <Text style={styles.itemTitle}>{name}</Text>
+            <Text style={styles.itemAction}>
+              More&nbsp;
+              <Image source={Images.purpleArrowIcon} />
+            </Text>
+          </View>
         </View>
-      </TouchableOpacity>
+      </TouchableWithoutFeedback>
     )
   }
 

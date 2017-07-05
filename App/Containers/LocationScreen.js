@@ -80,6 +80,16 @@ class LocationScreen extends React.Component {
     })
   }
 
+  openLink (url) {
+    Linking.canOpenURL(url).then((supported) => {
+      if (supported) {
+        Linking.openURL(url)
+      } else {
+        window.alert('Unable to open link')
+      }
+    })
+  }
+
   openLyft () {
     const lat = `destination[latitude]=${VENUE_LATITUDE}`
     const lng = `destination[longitude]=${VENUE_LONGITUDE}`
@@ -243,7 +253,7 @@ class LocationScreen extends React.Component {
             </View>
             <Gallery
               data={nearbyData}
-              onItemPress={(daddr) => this.openMaps(daddr)}
+              onItemPress={(link) => this.openLink(link)}
             />
           </View>
         </ScrollView>
