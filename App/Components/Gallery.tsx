@@ -49,14 +49,14 @@ export default class Gallery extends React.Component<GalleryProps, GalleryState>
         key={name}
         onPress={() => onItemPress(link)}>
         <View style={styles.item}>
-        <Image source={Images[image]} resizeMode={'cover'} style={styles.itemImage} />
-        <View style={styles.itemDetail}>
-          <Text style={styles.itemTitle}>{name}</Text>
-          <Text style={styles.itemAction}>
-            More&nbsp;
-            <Image source={Images.purpleArrowIcon} />
-          </Text>
-        </View>
+          <Image source={Images[image]} resizeMode={'cover'} style={styles.itemImage} />
+          <View style={styles.itemDetail}>
+            <Text style={styles.itemTitle}>{name}</Text>
+            <Text style={styles.itemAction}>
+              More&nbsp;
+              <Image source={Images.purpleArrowIcon} />
+            </Text>
+          </View>
         </View>
       </TouchableWithoutFeedback>
     )
