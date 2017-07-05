@@ -38,8 +38,6 @@ export default class Talk extends React.Component<TalkProps, TalkState> {
   constructor (props) {
     super(props)
 
-    // this.animatedSize = new Animated.Value(1)
-
     this.state = {
       isActive: false,
       animatedSize: new Animated.Value(1)
