@@ -3,54 +3,64 @@
     {
       "name": "Deschutes Brewery",
       "image": "deschutesBrewery",
-      "address": "210 NW 11th Ave, Portland, OR 97209"
+      "address": "210 NW 11th Ave, Portland, OR 97209",
+      "link": "https://goo.gl/maps/YNoj8AnTNXQ2"
     },
     {
       "name": "Little Big Burger",
       "image": "littleBigBurger",
-      "address": "122 NW 10th Ave, Portland, OR 97209"
+      "address": "122 NW 10th Ave, Portland, OR 97209",
+      "link": "https://goo.gl/maps/Uo6jLiEkLTu"
     },
     {
       "name": "Tasty N' Alder",
       "image": "tastyNAlder",
-      "address": "580 SW 12th Ave, Portland, OR 97205"
+      "address": "580 SW 12th Ave, Portland, OR 97205",
+      "link": "https://goo.gl/maps/SUeZ1wa4a6T2"
     },
     {
       "name": "Fat Head's Brewery",
       "image": "fatHeadBrewery",
-      "address": "131 NW 13th Ave, Portland, OR 97209"
+      "address": "131 NW 13th Ave, Portland, OR 97209",
+      "link": "https://goo.gl/maps/kJUEDBpdE7T2"
     },
     {
       "name": "Voodoo Doughnut",
       "image": "voodoo",
-      "address": "22 SW 3rd Ave, Portland, OR 97204"
+      "address": "22 SW 3rd Ave, Portland, OR 97204",
+      "link": "https://goo.gl/maps/8FoJ6iHNK7o"
     },
     {
       "name": "Salt & Straw",
       "image": "salt",
-      "address": "838 NW 23rd Ave, Portland, OR 97210"
+      "address": "838 NW 23rd Ave, Portland, OR 97210",
+      "link": "https://goo.gl/maps/4gcXernE9RU2"
     }
   ],
   "Coffee": [
     {
       "name": "Stumptown",
       "image": "stumptown",
-      "address": "1026 SW Stark St, Portland, OR 97205"
+      "address": "1026 SW Stark St, Portland, OR 97205",
+      "link": "https://goo.gl/maps/8u4QvV3j6Xx"
     },
     {
       "name": "Heart Coffee",
       "image": "heartcoffee",
-      "address": "537 SW 12th Ave, Portland, OR 97205"
+      "address": "537 SW 12th Ave, Portland, OR 97205",
+      "link": ""
     },
     {
       "name": "Barista",
       "image": "barista",
-      "address": "539 NW 13th Ave, Portland, OR 97209"
+      "address": "539 NW 13th Ave, Portland, OR 97209",
+      "link": ""
     },
     {
       "name": "Courier Coffee",
       "image": "courier",
-      "address": "923 SW Oak St, Portland, OR 97205"
+      "address": "923 SW Oak St, Portland, OR 97205",
+      "link": "https://goo.gl/maps/KeEdzfscEyj"
     }
 
   ],
@@ -58,32 +68,38 @@
     {
       "name": "Powell's Books",
       "image": "powells",
-      "address": "1005 W Burnside St, Portland, OR 97209"
+      "address": "1005 W Burnside St, Portland, OR 97209",
+      "link": "https://goo.gl/maps/acPz6FhD71L2"
     },
     {
       "name": "OMSI",
       "image": "omsi",
-      "address": "1945 SE Water Ave, Portland, OR 97214"
+      "address": "1945 SE Water Ave, Portland, OR 97214",
+      "link": "https://goo.gl/maps/KyuNGBkRbzD2"
     },
     {
       "name": "Japanese Garden",
       "image": "japanesegarden",
-      "address": "611 SW Kingston Ave, Portland, OR 97205"
+      "address": "611 SW Kingston Ave, Portland, OR 97205",
+      "link": "https://goo.gl/maps/NswShTseyiT2"
     },
     {
       "name": "Pioneer Square",
       "image": "pioneersquare",
-      "address": "701 SW 6th Ave, Portland, OR 97205"
+      "address": "701 SW 6th Ave, Portland, OR 97205",
+      "link": "https://goo.gl/maps/2xw2giGxHBQ2"
     },
     {
       "name": "Waterfront Park",
       "image": "waterfront",
-      "address": "98 SW Naito Pkwy"
+      "address": "98 SW Naito Pkwy",
+      "link": "https://goo.gl/maps/vRU9BTNndWn"
     },
     {
       "name": "Chinese Garden",
       "image": "chinesegarden",
-      "address": "239 NW Everett St, Portland, OR 97209"
+      "address": "239 NW Everett St, Portland, OR 97209",
+      "link": "https://goo.gl/maps/gj8yB3DZSuS2"
     }
   ]
 }
