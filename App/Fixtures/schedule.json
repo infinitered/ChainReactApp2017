@@ -120,7 +120,7 @@
       "speaker":"Richard Threlkeld",
       "image":"richard",
       "title":"Realtime Event Processing, Streaming and Subscription for React Native Using Cloud Services",
-      "description":"",
+      "description":"Designing mobile applications for different content access patterns, pub/sub, and data transformations can be challenging at scale. Leveraging cloud services effectively can help you deliver higher quality applications and new functionality in a short amount of time. In this session, you will learn how to use AWS services with React Native for implementing fine-grained access controls, event driven data transformations, message optimizations with low latencies for real-time transmission, and content streaming for uploads and downloads on lossy networks using "Serverless" techniques. We'll also cover when a fully JavaScript approach works in React Native and when it's necessary to drop down to native bridging.",
       "time":"7/10/2017 10:30 AM",
       "duration":"30",
       "speakerInfo": [
@@ -362,7 +362,7 @@
       "speaker":"Panelists",
       "image":"panel",
       "title":"Panel",
-      "description":"",
+      "description":"Join our selected panelists as we discuss a variety of tools and tech in React Native.",
       "time":"7/11/2017 1:30 PM",
       "duration":"30",
       "speakerInfo": [
