@@ -18,10 +18,7 @@ class RootContainer extends Component {
     this.coffee = new Sound('coffee.mp3', Sound.MAIN_BUNDLE, (error) => {
       if (error) {
         console.log('failed to load the sound', error)
-        return
       }
-      // loaded successfully
-      console.log('duration in seconds: ' + this.coffee.getDuration() + 'number of channels: ' + this.coffee.getNumberOfChannels())
     })
   }
 
@@ -29,10 +26,7 @@ class RootContainer extends Component {
     if (newProps.playSound) {
       this.coffee.play((success) => {
         if (success) {
-          console.log('successfully finished playing')
           this.props.clearSound()
-        } else {
-          console.log('playback failed due to audio decoding errors')
         }
       }).setVolume(0.5)
     }
