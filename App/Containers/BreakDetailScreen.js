@@ -98,7 +98,7 @@ class BreakDetail extends React.Component {
       <PurpleGradient style={styles.linearGradient}>
         <ScrollView>
           <View style={styles.container}>
-            <TouchableOpacity style={styles.backButton} onPress={this.goBack} hitSlop={{top: 20, right: 20, bottom: 20}}>
+            <TouchableOpacity style={styles.backButton} onPress={this.goBack}>
               <Image style={styles.backButtonIcon} source={Images.arrowIcon} />
               <Text style={styles.backButtonText}>Back</Text>
             </TouchableOpacity>
