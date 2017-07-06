@@ -2,11 +2,11 @@ import React from 'react'
 import { TouchableOpacity, Image, View, Text, LayoutAnimation, TouchableWithoutFeedback } from 'react-native'
 import { Images } from '../Themes'
 import styles from './Styles/GalleryStyle'
+import Sound from 'react-native-sound'
 
 interface GalleryProps {
   data: Object
   onItemPress: (daddr: string) => void
-  playSound: () => void
 }
 
 interface GalleryState {
@@ -27,6 +27,18 @@ export default class Gallery extends React.Component<GalleryProps, GalleryState>
     this.setState({activeTab: tab})
   }
 
+  componentDidMount () {
+    this.coffee = new Sound('coffee.mp3', Sound.MAIN_BUNDLE, (error) => {
+      if (error) {
+        console.log('failed to load the sound', error)
+      }
+    })
+  }
+
+  playSound () {
+    this.coffee.play().setVolume(0.5)
+  }
+
   renderTab = (tab) => {
     const { activeTab } = this.state
     const isActive = activeTab === tab
@@ -36,7 +48,7 @@ export default class Gallery extends React.Component<GalleryProps, GalleryState>
         style={[styles.tab, isActive && styles.activeTab]}
         onPress={() => this.setActiveTab(tab)}
         delayLongPress={3000}
-        onLongPress={() => this.props.playSound()}>
+        onLongPress={() => this.playSound()}>
         <Text style={[styles.tabText, isActive && styles.activeTabText]}>
           {tab}
         </Text>
