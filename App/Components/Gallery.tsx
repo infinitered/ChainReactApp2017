@@ -6,6 +6,7 @@ import styles from './Styles/GalleryStyle'
 interface GalleryProps {
   data: Object
   onItemPress: (daddr: string) => void
+  playSound: () => void
 }
 
 interface GalleryState {
@@ -33,7 +34,9 @@ export default class Gallery extends React.Component<GalleryProps, GalleryState>
       <TouchableOpacity
         key={tab}
         style={[styles.tab, isActive && styles.activeTab]}
-        onPress={() => this.setActiveTab(tab)}>
+        onPress={() => this.setActiveTab(tab)}
+        delayLongPress={3000}
+        onLongPress={() => this.props.playSound()}>
         <Text style={[styles.tabText, isActive && styles.activeTabText]}>
           {tab}
         </Text>
