@@ -154,6 +154,13 @@
 			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
 			remoteInfo = AirMaps;
 		};
+		3811AC741F0DB73500DF1FD7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4034005246649498142B7AC /* RNBlur.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 64D1BD361EEFE88700F3F219;
+			remoteInfo = "RNBlur-tvOS";
+		};
 		382332A51EAA22E8001D6312 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1546F4757E1D481AA294CFBA /* RNAnalytics.xcodeproj */;
@@ -863,6 +870,7 @@
 			isa = PBXGroup;
 			children = (
 				AAEE31241EE5890F00C34ABC /* libRNBlur.a */,
+				3811AC751F0DB73500DF1FD7 /* libRNBlur.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1172,6 +1180,13 @@
 			fileType = archive.ar;
 			path = libAirMaps.a;
 			remoteRef = 380DFD051EDE23A60081C36F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3811AC751F0DB73500DF1FD7 /* libRNBlur.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNBlur.a;
+			remoteRef = 3811AC741F0DB73500DF1FD7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		382332A61EAA22E8001D6312 /* libRNAnalytics.a */ = {
@@ -1617,7 +1632,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ChainReactApp/ChainReactApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 37;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = L7YNDPLSEB;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1666,7 +1681,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ChainReactApp/ChainReactApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = L7YNDPLSEB;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
