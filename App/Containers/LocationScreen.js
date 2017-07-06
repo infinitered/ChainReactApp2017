@@ -18,6 +18,7 @@ import { Images, Metrics } from '../Themes'
 import { connect } from 'react-redux'
 import Secrets from 'react-native-config'
 import styles from './Styles/LocationScreenStyle'
+import NotificationActions from '../Redux/NotificationRedux'
 
 const VENUE_LATITUDE = 45.524166
 const VENUE_LONGITUDE = -122.681645
@@ -244,6 +245,7 @@ class LocationScreen extends React.Component {
             <Gallery
               data={nearbyData}
               onItemPress={(daddr) => this.openMaps(daddr)}
+              playSound={() => this.props.playSound()}
             />
           </View>
         </ScrollView>
@@ -260,6 +262,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    playSound: () => {
+      console.log('HEY HEY')
+      dispatch(NotificationActions.playSound({play: true}))
+    }
   }
 }
 

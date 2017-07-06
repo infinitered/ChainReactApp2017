@@ -7,12 +7,34 @@ import NotificationActions from '../Redux/NotificationRedux'
 import ReduxPersist from '../Config/ReduxPersist'
 import NotificationsBar from '../Components/NotificationsBar'
 import styles from './Styles/RootContainerStyles'
+import Sound from 'react-native-sound'
 
 class RootContainer extends Component {
   componentDidMount () {
     // if redux persist is not active fire startup action
     if (!ReduxPersist.active) {
       this.props.startup()
+    }
+    this.coffee = new Sound('coffee.mp3', Sound.MAIN_BUNDLE, (error) => {
+      if (error) {
+        console.log('failed to load the sound', error)
+        return
+      }
+      // loaded successfully
+      console.log('duration in seconds: ' + this.coffee.getDuration() + 'number of channels: ' + this.coffee.getNumberOfChannels())
+    })
+  }
+
+  componentWillReceiveProps (newProps) {
+    if (newProps.playSound) {
+      this.coffee.play((success) => {
+        if (success) {
+          console.log('successfully finished playing')
+          this.props.clearSound()
+        } else {
+          console.log('playback failed due to audio decoding errors')
+        }
+      }).setVolume(0.5)
     }
   }
 
@@ -35,13 +57,15 @@ class RootContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  notifications: state.notifications.notifications
+  notifications: state.notifications.notifications,
+  playSound: state.notifications.playSound.play
 })
 
 // wraps dispatch to create nicer functions to call within our component
 const mapDispatchToProps = (dispatch) => ({
   startup: () => dispatch(StartupActions.startup()),
-  clearNotifications: () => dispatch(NotificationActions.clearNotifications())
+  clearNotifications: () => dispatch(NotificationActions.clearNotifications()),
+  clearSound: () => dispatch(NotificationActions.playSound({play: false}))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(RootContainer)

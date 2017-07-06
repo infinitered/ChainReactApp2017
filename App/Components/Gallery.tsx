@@ -2,10 +2,12 @@ import React from 'react'
 import { TouchableOpacity, Image, View, Text, LayoutAnimation } from 'react-native'
 import { Images } from '../Themes'
 import styles from './Styles/GalleryStyle'
+import Sound from 'react-native-sound'
 
 interface GalleryProps {
   data: Object
   onItemPress: (daddr: string) => void
+  playSound: () => void
 }
 
 interface GalleryState {
@@ -33,7 +35,9 @@ export default class Gallery extends React.Component<GalleryProps, GalleryState>
       <TouchableOpacity
         key={tab}
         style={[styles.tab, isActive && styles.activeTab]}
-        onPress={() => this.setActiveTab(tab)}>
+        onPress={() => this.setActiveTab(tab)}
+        delayLongPress={3000}
+        onLongPress={() => this.props.playSound()}>
         <Text style={[styles.tabText, isActive && styles.activeTabText]}>
           {tab}
         </Text>

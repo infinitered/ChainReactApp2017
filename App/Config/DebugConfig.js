@@ -1,7 +1,7 @@
 export default {
   showDevScreens: __DEV__,
   useFixtures: false,
-  yellowBox: __DEV__,
+  yellowBox: false,
   includeExamples: __DEV__,
   useReactotron: __DEV__,
   codepushStaging: false,
