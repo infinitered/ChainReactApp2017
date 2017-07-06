@@ -8,6 +8,12 @@ import { format, addMinutes } from 'date-fns'
 // import YourActions from '../Redux/YourRedux'
 import { Images } from '../Themes'
 import styles from './Styles/BreakDetailScreenStyle'
+import {compose, join, over, lensIndex, toUpper} from 'ramda'
+
+const toTitle = compose(
+  join(''),
+  over(lensIndex(0), toUpper)
+)
 
 class BreakDetail extends React.Component {
   static navigationOptions = {
@@ -108,7 +114,7 @@ class BreakDetail extends React.Component {
               {this.renderMainImage()}
               <View style={styles.content}>
                 <Text style={styles.heading}>
-                  {this.props.type === 'lunch' ? 'Lunch' : 'Refreshment'} Options
+                  {toTitle(this.props.type)} Options
                 </Text>
                 <View style={styles.descriptionContainer}>
                   {this.renderOptions(options)}
