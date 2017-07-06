@@ -290,7 +290,7 @@
       "speaker":"Eric Baer",
       "image":"eric",
       "title":"From RPC to GraphQL: APIs from Past to Present",
-      "description":"",
+      "description":"This talk attempts to lay bare the lessons learned from 60 years of API development, from RPC to REST. With mounting pressure from mobile and distributed computing, RESTs viability is waning. This talk will present emerging designs like GraphQL as a post REST paradigm (but not a silver bullet).",
       "time":"7/11/2017 9:30 AM",
       "duration":"30",
       "speakerInfo": [
