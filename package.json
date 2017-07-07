@@ -57,6 +57,7 @@
     "react-native-maps": "0.15.2",
     "react-native-push-notification": "^3.0.0",
     "react-native-smart-splash-screen": "^2.3.4",
+    "react-native-sound": "^0.10.3",
     "react-native-statusbar-alert": "^0.2.0",
     "react-native-vector-icons": "^4.0.1",
     "react-native-video": "^1.0.0",
