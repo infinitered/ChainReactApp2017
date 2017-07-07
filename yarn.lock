@@ -5167,6 +5167,10 @@ react-native-smart-splash-screen@^2.3.4:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/react-native-smart-splash-screen/-/react-native-smart-splash-screen-2.3.4.tgz#0c44076941c897cd4ae476f486d95e01a82cd013"
 
+react-native-sound@^0.10.3:
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/react-native-sound/-/react-native-sound-0.10.3.tgz#0faf4f101d46c51315c91d701783c0c6a4db3bf6"
+
 react-native-statusbar-alert@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/react-native-statusbar-alert/-/react-native-statusbar-alert-0.2.0.tgz#49fe56727775751ab3b58f6c949e7c82e9b177c9"
