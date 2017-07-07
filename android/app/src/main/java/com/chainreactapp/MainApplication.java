@@ -3,6 +3,7 @@ package com.chainreactapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.zmxv.RNSound.RNSoundPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.cmcewen.blurview.BlurViewPackage;
 import com.airbnb.android.react.maps.MapsPackage;
@@ -42,6 +43,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
+            new RNSoundPackage(),
             new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG),
             new BlurViewPackage(),
         new RCTSplashScreenPackage(),
