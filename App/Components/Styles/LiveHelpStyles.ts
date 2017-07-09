@@ -26,5 +26,8 @@ export default StyleSheet.create({
   liveHelpButton: {
     marginTop: 25,
     width: 200
+  },
+  link: {
+    textDecorationLine: 'underline'
   }
 })
