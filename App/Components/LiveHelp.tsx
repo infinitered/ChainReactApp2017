@@ -11,7 +11,7 @@ const LiveHelp = (props) => {
       </Text>
       <Text style={styles.liveHelpText}>
         Text or call us at anytime for directions, suspicious activity,
-        violations of our Code of Conduct, or any other concern.
+        violations of our <Text style={styles.link} onPress={() => Linking.openURL('http://confcodeofconduct.com')}>Code of Conduct</Text>, or any other concern.
       </Text>
       <RoundedButton
         text='Send Text Message (SMS)'
