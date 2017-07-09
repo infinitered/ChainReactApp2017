@@ -48,19 +48,19 @@
       "name": "Heart Coffee",
       "image": "heartcoffee",
       "address": "537 SW 12th Ave, Portland, OR 97205",
-      "link": ""
+      "link": "https://goo.gl/maps/KeEdzfscEyj"
     },
     {
       "name": "Barista",
       "image": "barista",
       "address": "539 NW 13th Ave, Portland, OR 97209",
-      "link": ""
+      "link": "https://goo.gl/maps/ZRhkgqreaxw"
     },
     {
       "name": "Courier Coffee",
       "image": "courier",
       "address": "923 SW Oak St, Portland, OR 97205",
-      "link": "https://goo.gl/maps/KeEdzfscEyj"
+      "link": "https://goo.gl/maps/gbsekFfSM492"
     }
 
   ],
