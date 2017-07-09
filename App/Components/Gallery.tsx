@@ -36,7 +36,7 @@ export default class Gallery extends React.Component<GalleryProps, GalleryState>
   }
 
   playSound () {
-    this.coffee.play().setVolume(0.5)
+    this.coffee.play().setVolume(1.0)
   }
 
   renderTab = (tab) => {
