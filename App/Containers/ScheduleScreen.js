@@ -44,7 +44,7 @@ class ScheduleScreen extends Component {
     const isCurrentDay = isActiveCurrentDay(currentTime, activeDay)
     const appState = AppState.currentState
 
-    this.state = {eventsByDay, data, isCurrentDay, activeDay, appState}
+    this.state = {eventsByDay, data, isCurrentDay, activeDay, appState, navigatingToDetail: false}
   }
 
   static navigationOptions = {
@@ -77,12 +77,16 @@ class ScheduleScreen extends Component {
   }
 
   onEventPress = (item) => {
+    if (this.state.navigatingToDetail) return
+
     const { navigation, setSelectedEvent } = this.props
     setSelectedEvent(item)
 
+    const reset = () => this.setState({navigatingToDetail: false})
     item.type === 'talk'
-      ? navigation.navigate('TalkDetail')
-      : navigation.navigate('BreakDetail')
+      ? navigation.navigate('TalkDetail', {reset})
+      : navigation.navigate('BreakDetail', {reset})
+    this.setState({navigatingToDetail: true})
   }
 
   componentDidMount () {
