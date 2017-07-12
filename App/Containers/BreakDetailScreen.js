@@ -32,6 +32,8 @@ class BreakDetail extends React.Component {
   }
 
   goBack = () => {
+    const {params: {reset}} = this.props.navigation.state
+    typeof reset === 'function' && reset()
     this.props.navigation.dispatch(NavigationActions.back())
   }
 
