@@ -15,10 +15,14 @@ fastlane_version "2.32.1"
 
 default_platform :ios
 
-def fancy_sign(message, size=40, separator='=-')
+def fancy_sign(message, size=60, separator='=-')
+  puts '\|||/'.center(size, ' ')
+  puts '(o o)'.center(size, ' ')
+  puts '-ooO-(_)-Ooo-'.center(size, '-')
   puts ''.center(size, separator)
-  puts " #{message} ".center(size * separator.length, separator)
+  puts "~  #{message}  ~".center(size, separator)
   puts ''.center(size, separator)
+  puts ''.center(size, '-')
 end
 
 platform :ios do
