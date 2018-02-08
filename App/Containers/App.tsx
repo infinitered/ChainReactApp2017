@@ -38,6 +38,9 @@ class App extends Component<{}, {}> {
   }
 
   render () {
+    window.alert(`Chain React 2017 was amazing!  Since it has passed, this app will now simply pretend today is the day of the conference, and all push notifications happen after 5 seconds.
+
+    Learn about the upcoming conference at infinite.red/ChainReactConf`)
     return (
       <Provider store={store}>
         <RootContainer />
