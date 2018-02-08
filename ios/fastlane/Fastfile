@@ -104,10 +104,11 @@ platform :ios do
     )
 
     # Give us a friendly high five
-    slack(
-      message: "New Build: successfully released",
-      channel: "#p-cr-conferenceapp"
-    )
+    # Jamon HATES this feature... commenting it out for his sanity
+    # slack(
+    #   message: "New Build: successfully released",
+    #   channel: "#p-cr-conferenceapp"
+    # )
 
   end
 

@@ -39,7 +39,8 @@ platform :android do
     # Get all correct icon sizes from source
     android_appicon(
       appicon_image_file: '../AppIcon/IconAndroid.png',
-      appicon_devices: [:phone, :tablet],
+      # appicon_devices: [:phone, :tablet],  Removed as of plugin 0.11.0
+      appicon_icon_types: [:launcher],
       appicon_path: 'app/src/main/res/mipmap'
     )
 
@@ -68,7 +69,7 @@ platform :android do
     # Automatic Icon magic
     android_appicon(
       appicon_image_file: '../AppIcon/IconAndroid.png',
-      appicon_devices: [:phone, :tablet],
+      appicon_icon_types: [:launcher],
       appicon_path: 'app/src/main/res/mipmap'
     )
   end
