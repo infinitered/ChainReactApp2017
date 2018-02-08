@@ -54,5 +54,6 @@ const exportedApp = DebugConfig.useReactotron
   ? (console as any).tron.overlay(App)
   : App
 
-// Add codepush
-export default codePush(exportedApp)
+// Disabled codepush for now (we don't want this app updating anymore, just use JSON from server)
+// export default codePush(exportedApp)
+export default exportedApp
