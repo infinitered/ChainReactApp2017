@@ -187,7 +187,7 @@ class ScheduleScreen extends Component {
         <Talk
           type={item.type}
           name={item.speaker}
-          avatarURL={`https://infinite.red/images/chainreact/${item.image}.png`}
+          avatarURL={`https://infinite.red/images/chainreact2017/${item.image}.png`}
           title={item.title}
           start={eventStart}
           duration={eventDuration}

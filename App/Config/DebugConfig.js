@@ -7,5 +7,5 @@ export default {
   codepushStaging: false,
   hotwireDate: __DEV__,     // force today to be the day of the conf
   hotwirePush: __DEV__,     // force push notifications to happen in 5 seconds
-  getAPI: false             // should app hit API server for data? (Turn off if we're using codepush)
+  getAPI: true             // should app hit API server for data? (Turn off if we're using codepush)
 }
