@@ -80,11 +80,12 @@ platform :ios do
     )
 
     # Make sure latest artwork is in place
-    appicon(
-      appicon_image_file: '../AppIcon/IconIOS.png',
-      appicon_devices: [:ipad, :iphone],
-      appicon_path: 'ChainReactApp/Images.xcassets'
-    )
+    # Remove this bc it's not handling the 1024x1024 image
+    # appicon(
+    #   appicon_image_file: '../AppIcon/IconIOS.png',
+    #   appicon_devices: [:ipad, :iphone],
+    #   appicon_path: 'ChainReactApp/Images.xcassets'
+    # )
 
     # match(type: "appstore") # more information: https://codesigning.guide
     gym(scheme: "ChainReactApp") # Build your app - more options available
