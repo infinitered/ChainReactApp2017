@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>48</string>
+	<string>49</string>
 	<key>CodePushDeploymentKey</key>
 	<string>HkqgbYEwKuPKbic2SrdtnJaL8GPt756512e3-04b4-4113-83a7-d7f81b62aa12</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
@@ -46,7 +46,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Chain React would like to show you your location in relation to the conference destination</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Entypo.ttf</string>
